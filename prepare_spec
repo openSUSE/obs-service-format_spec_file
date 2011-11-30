@@ -213,7 +213,7 @@ sub replace_spdx($)
     for (split(/\s*;\s*/, $license)) {
 	push @licenses, replace_spdx_and($_);
     }
-    return join('; ', sort(@licenses));
+    return join(' ; ', sort(@licenses));
 }
 sub set_current_pkg {
   my ( $arg ) = @_;
@@ -320,7 +320,9 @@ sub read_and_parse_old_spec {
 	# ignore line if it looks like a "usedforbuild" line, i.e.
 	# if it contains too many base packages
 	next if (grep {$aa{$_}} qw{gcc rpm glibc bash}) > 2;
-	push @oldspec, "BuildRequires:  ".join(' ',sort keys(%aa));
+	for my $br (sort keys(%aa)) {
+	    push @oldspec, "BuildRequires:  $br";
+	}
 	next;
     }
     next if ( /^#\s*usedforbuild/ );
