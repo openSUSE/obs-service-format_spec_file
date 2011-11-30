@@ -111,6 +111,71 @@ sub change_section($)
   warn "section changed to $current_section\n" if $debug;
 }
 
+sub replace_single_spdx($)
+{
+    my %replace = (
+	"lgpl v2.1 only" => "LGPL-2.1",
+	"lgpl v2.1 orlater" => "LGPL-2.1+",
+	"lgpl v3 only" => "LGPL-3.0",
+	"lgpl v2.3 orlater" => "LGPL-3.0+",
+	"gpl v2 only" => "GPL-2.0",
+	"gplv2" => "GPL-2.0",
+	"gpl v2 orlater" => "GPL-2.0+",
+	"gplv2+" => "GPL-2.0+",
+	"gpl v3 only" => "GPL-3.0",
+	"gpl v3 orlater" => "GPL-3.0+",
+	
+	"fdl 1.1" => "GFDL-1.1",
+	"fdl 1.2" => "GFDL-1.2",
+	"fdl 1.3" => "GFDL-1.3",
+
+	"bsd3c" => "BSD-3-Clause",
+    );
+
+    if (defined $replace{lc $_}) {
+	$_ = $replace{lc $_};
+    } elsif (!grep($_, values(%replace))) {
+	print STDERR "unknown license '$_'\n";
+    }
+    return $_;
+}
+
+sub replace_spdx_or($)
+{
+    my ($license) = @_;
+
+    # special case as or later is common in our spec files
+    $license =~ s, or later, orlater,g;
+
+    my @licenses = ();
+    for (split(/\s*or\s*/, $license)) {
+	push @licenses, replace_single_spdx($_);
+    }
+    
+    return join(' or ', sort(@licenses));
+}
+
+sub replace_spdx_and($)
+{
+    my ($license) = @_;
+
+    my @licenses = ();
+    for (split(/\s*and\s*/, $license)) {
+	push @licenses, replace_spdx_or($_);
+    }
+    return join(' and ', sort(@licenses));
+}
+
+sub replace_spdx($)
+{
+    my ($license) = @_;
+
+    my @licenses = ();
+    for (split(/\s*;\s*/, $license)) {
+	push @licenses, replace_spdx_and($_);
+    }
+    return join('; ', sort(@licenses));
+}
 sub set_current_pkg {
   my ( $arg ) = @_;
   print "DEBUG: set_current_pkg receiving $arg\n" if $debug;
@@ -194,7 +259,7 @@ sub read_and_parse_old_spec {
 	$neededforbuild = $_;
 	$neededforbuild =~ s/^#\s*neededforbuild\s*//;
         my (%aa) = ();
-	foreach my $x (split(' ',$neededforbuild)){
+	for my $x (split(' ',$neededforbuild)){
 	  $aa{$x}=1;
 	}
         $neededforbuild = join(' ',sort keys (%aa));
@@ -398,7 +463,7 @@ sub read_and_parse_old_spec {
 	      next if ($license eq $main_license);
 	  }
 
-	  push @oldspec, sprintf("%-16s%s","License:", $license);
+	  push @oldspec, sprintf("%-16s%s","License:", replace_spdx($license));
 	  next;
       }
 
