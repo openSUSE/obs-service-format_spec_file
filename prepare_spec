@@ -345,8 +345,10 @@ sub read_and_parse_old_spec {
 	warn "after: $_\n";
       }
       ($current_package, $current_lang) = set_current_pkg ( $_ );
-      $disabled_packs->{$current_package} = 1 if $ifhandler->{"disabled"};
-      warn "$current_package is disabled\n" if $ifhandler->{"disabled"} && $debug;
+      if ($ifhandler->{"disabled"}) {
+	$disabled_packs->{$current_package} = 1;
+	warn "$current_package is disabled\n" if $debug;
+      }
       next;
     }
     if ( /^%description\b/i ) {
@@ -424,8 +426,8 @@ sub read_and_parse_old_spec {
         $_ =~ s/^[^:]+:/BuildArch:/;
       }
       if ( /^Release\s*:\s*(.*)/i ) {
-        $pkg_release{$current_package} = $_;
-        $replace_hash{"XXXRELEASE $current_package"} = sprintf("%-16s%s","Release:", $1);
+        $pkg_release{$c_pack} = $_;
+        $replace_hash{"XXXRELEASE $c_pack"} = sprintf("%-16s%s","Release:", $1);
         next;
       }
       if ( /^BuildRoot\s*:/i ) {
@@ -433,13 +435,13 @@ sub read_and_parse_old_spec {
         next;
       }
       if ( /^Copyright\s*:\s*(.*)/i || /^License\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXLICENSE $current_package"} = sprintf("%-16s%s","License:", $1);
-        push @oldspec, "XXXLICENSE $current_package";
+        $replace_hash{"XXXLICENSE $c_pack"} = sprintf("%-16s%s","License:", $1);
+        push @oldspec, "XXXLICENSE $c_pack";
         next;
       }
       if ( /^Url\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXURL $current_package"} = sprintf("%-16s%s","Url:", $1);
-        push @oldspec, "XXXURL $current_package";
+        $replace_hash{"XXXURL $c_pack"} = sprintf("%-16s%s","Url:", $1);
+        push @oldspec, "XXXURL $c_pack";
         next;
       }
       if ( m/$global_tags_re\s*(.*)/oi ) {
@@ -450,11 +452,11 @@ sub read_and_parse_old_spec {
       }
       if ( /^Version:/ ) {
 	warn "found Version, section = $current_section\n" if $debug;
-        $version{$current_package} = $_;
-        $version{$current_package} =~ s/^Version:\s*(.*)\s*/$1/;
-        $replace_hash{"XXXVERSION $current_package"} = sprintf("%-16s%s","Version:",$version{$current_package});
-        push @oldspec, $replace_hash{"XXXVERSION $current_package"};
-        push @oldspec, "XXXRELEASE $current_package";
+        $version{$c_pack} = $_;
+        $version{$c_pack} =~ s/^Version:\s*(.*)\s*/$1/;
+        $replace_hash{"XXXVERSION $c_pack"} = sprintf("%-16s%s","Version:",$version{$c_pack});
+        push @oldspec, $replace_hash{"XXXVERSION $c_pack"};
+        push @oldspec, "XXXRELEASE $c_pack";
         next;
       }
     }
