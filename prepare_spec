@@ -27,7 +27,6 @@ my $nosrc_result = 0;
 my $current_section = "header";
 my $had_debug_package = 0;
 my %pkg_version = ();
-my %pkg_release = ();
 my %please_replace = ();
 my %replace_hash = ();
 my $main_license;
@@ -113,31 +112,71 @@ sub change_section($)
 
 sub replace_single_spdx($)
 {
+    my ($l) = @_;
+
     my %replace = (
 	"lgpl v2.1 only" => "LGPL-2.1",
 	"lgpl v2.1 orlater" => "LGPL-2.1+",
+	"lgplv2.1+" => "LGPL-2.1+",
+	"lgplv2+" => "LGPL-2.1+",
+
+	'lgplv3' => "LGPL-3.0",
+	'lgplv3+' => "LGPL-3.0+",
+	'gnu lgpl v2.1 orlater' => "LGPL-2.1+",
+	'gnu lgpl v2.1' => "LGPL-2.1",
+	'lgpl v2.0 orlater' => 'LGPL-2.0+',
+
 	"lgpl v3 only" => "LGPL-3.0",
-	"lgpl v2.3 orlater" => "LGPL-3.0+",
+	"lgpl v3 orlater" => "LGPL-3.0+",
+
 	"gpl v2 only" => "GPL-2.0",
 	"gplv2" => "GPL-2.0",
+	"gpl v2" => "GPL-2.0",
 	"gpl v2 orlater" => "GPL-2.0+",
 	"gplv2+" => "GPL-2.0+",
 	"gpl v3 only" => "GPL-3.0",
 	"gpl v3 orlater" => "GPL-3.0+",
+	"gplv3+" => "GPL-3.0+",
+	"gplv3" => "GPL-3.0",
 	
 	"fdl 1.1" => "GFDL-1.1",
+	"gfdlv1.1" => "GFDL-1.1",
+	'gnu free documentation license, version 1.1 (fdl 1.1)' => "GFDL-1.1",
+	'gnu free documentation license, version 1.1 (gfdl 1.1)' => "GFDL-1.1",
 	"fdl 1.2" => "GFDL-1.2",
+	'gnu free documentation license, version 1.2 (fdl 1.2)' => "GFDL-1.2",
+	'gnu free documentation license, version 1.2 (gfdl 1.2)' => "GFDL-1.2",
 	"fdl 1.3" => "GFDL-1.3",
 
+	"bsd 3-clause" => "BSD-3-Clause",
 	"bsd3c" => "BSD-3-Clause",
+	"bsd3c(or similar)" => "BSD-3-Clause",
+	
+	"x11/mit" => "MIT",
+	"X11 mit" => "MIT",
+	"mit license (or similar)" => "MIT",
+
+	"asl 2.0" => "Apache-2.0",
+	'apache license 2.0' => "Apache-2.0",
+	'apache license' => "Apache-2.0",
+	'the apache software license' => "Apache-2.0",
+	'apache software license ..' => "Apache-2.0",
+	'aslv..' => "Apache-2.0",
+	'aslv2' => "Apache-2.0",
+	
     );
 
-    if (defined $replace{lc $_}) {
-	$_ = $replace{lc $_};
-    } elsif (!grep($_, values(%replace))) {
-	print STDERR "unknown license '$_'\n";
+    if (defined $replace{lc $l}) {
+	$l = $replace{lc $l};
+    } else {
+	my @m = grep(lc($_) eq lc($l), values(%replace));
+	if (@m) {
+	    $l = $m[0];
+	} else {
+	    print STDERR "unknown license '$l'\n";
+	}
     }
-    return $_;
+    return $l;
 }
 
 sub replace_spdx_or($)
@@ -148,7 +187,7 @@ sub replace_spdx_or($)
     $license =~ s, or later, orlater,g;
 
     my @licenses = ();
-    for (split(/\s*or\s*/, $license)) {
+    for (split(/\s+or\s+/, $license)) {
 	push @licenses, replace_single_spdx($_);
     }
     
@@ -398,13 +437,7 @@ sub read_and_parse_old_spec {
     }
     if ( /^%description\b/i ) {
       change_section("description");
-      $_ =~ s/^(%\w+)/lc($1)/e;
       push @oldspec, $_;
-      ($current_package, $current_lang) = set_current_pkg ( $_ );
-      my $target = $current_package;
-      $target .= "_$current_lang" if $current_lang;
-      $target .= "_disabled" if $ifhandler->{"disabled"};
-      push @oldspec, "XXXDESCRIPTION $target";
       next;
     }
     if ( /^%install\b/i ) {
@@ -450,7 +483,8 @@ sub read_and_parse_old_spec {
       }
       # reset Release
       if ( /^Release\s*:\s*(.*)/i ) {
-	  $_ = "Release: 0" if ($1 =~ m/^[0-9]*$/);
+	  # will be after Version
+	  next;
       }
       
       # remove duplicated licenses
@@ -493,11 +527,7 @@ sub read_and_parse_old_spec {
       if ( /^BuildArchitectures\s*:/i ) {
         $_ =~ s/^[^:]+:/BuildArch:/;
       }
-      if ( /^Release\s*:\s*(.*)/i ) {
-        $pkg_release{$c_pack} = $_;
-        $replace_hash{"XXXRELEASE $c_pack"} = sprintf("%-16s%s","Release:", $1);
-        next;
-      }
+
       if ( /^BuildRoot\s*:/i ) {
         push @oldspec, "BuildRoot:      %{_tmppath}/%{name}-%{version}-build";
         next;
@@ -507,11 +537,7 @@ sub read_and_parse_old_spec {
         push @oldspec, "License: $1";
         next;
       }
-      if ( /^Url\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXURL $c_pack"} = sprintf("%-16s%s","Url:", $1);
-        push @oldspec, "XXXURL $c_pack";
-        next;
-      }
+
       if ( m/$global_tags_re\s*(.*)/oi ) {
         my ($tag, $value) = ($1, $2);
         $nosrc_result = 1 if ($tag =~ /(?:nosource|nopatch)/i);
@@ -522,21 +548,12 @@ sub read_and_parse_old_spec {
 	warn "found Version, section = $current_section\n" if $debug;
         $version{$c_pack} = $_;
         $version{$c_pack} =~ s/^Version:\s*(.*)\s*/$1/;
-        $replace_hash{"XXXVERSION $c_pack"} = sprintf("%-16s%s","Version:",$version{$c_pack});
-        push @oldspec, $replace_hash{"XXXVERSION $c_pack"};
-        push @oldspec, "XXXRELEASE $c_pack";
+        push @oldspec, sprintf("%-16s%s","Version:",$version{$c_pack});
+	push @oldspec, sprintf("%-16s%s","Release:", "0");
         next;
       }
     }
-    if ( $current_section eq "description" ) {
-      my $target = $current_package;
-      $target .= "_$current_lang" if $current_lang;
-      $target .= "_disabled" if $ifhandler->{"disabled"};
-      $replace_hash{"XXXDESCRIPTION $target"} .= "\n" if ( $replace_hash{"XXXDESCRIPTION $target"} );
-      $replace_hash{"XXXDESCRIPTION $target"} .= $_;
-      next;
-    }
-    if ( $current_section ne "description" && $current_section ne "changelog" ) {
+    if ( $current_section ne "changelog" ) {
       push @oldspec, $_;
     }
   }
