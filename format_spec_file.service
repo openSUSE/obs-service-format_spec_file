@@ -1,0 +1,5 @@
+<service name="source_validator">
+  <summary>Validate sources</summary>
+  <description>The default SUSE source validator which catches common pitfalls before build.</description>
+</service>
+

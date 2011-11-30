@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# just a wrapper for the perl script.
+
+
+while test $# -gt 0; do
+  case $1 in
+    *-outdir)
+      MYOUTDIR="$2"
+      shift
+    ;;
+    *)
+      echo Unknown parameter $1.
+      echo 'Usage: this service is not excepting parameters'
+      exit 1
+    ;;
+  esac
+  shift
+done
+
+RETURN=0
+for i in *.spec; do
+  if [ "$i" == '*.spec' ]; then
+    echo "WARNING: no spec file found"
+    exit 0
+  fi
+  /usr/lib/obs/service/format_spec_file.files/prepare_spec "$i" > "$MYOUTDIR/$i" || RETURN=1
+  # remove all file files which are indendical to committed files
+  cmp -s "$i" "$MYOUTDIR/$i" && rm "$MYOUTDIR/$i"
+done
+
+exit $RETURN
+
