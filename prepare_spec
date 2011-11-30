@@ -99,28 +99,6 @@ sub maybe_add_empty_line()
     if ($current_section ne "description" && $oldspec[-1] !~ /^\s*$/);
 }
 
-sub maybe_add_debug_package()
-{
-  if ( $ENV{'BUILD_DEBUG_FLAGS'}
-      && ( !$nosrc_result || $base_package =~ /^kernel/ || $base_package =~ /^java/ || $base_package =~ /^texlive-bin/ || $base_package =~ /^glibc/ ) 
-      && !$nodebuginfo
-      && !$had_debug_package ) 
-    {
-      my @spec_back;
-      while(1) {
-        my $line = pop @oldspec;
-        unshift @spec_back, $line;
-        next if ($line =~ /^\s*$/);
-        next if ($line =~ /^\s*%if\b/);
-        last;
-      }
-      # insert the %debug_package just before the first %if
-      push @oldspec, shift @spec_back;
-      push @oldspec, "%debug_package", @spec_back;
-      $had_debug_package = 1;
-    }
-}
-
 sub change_section($)
 {
   my ($new_section) = @_;
@@ -331,7 +309,6 @@ sub read_and_parse_old_spec {
       } else {
 	change_section("prep");
       }
-      maybe_add_debug_package();
       $_ =~ s/^(%\w+)/lc($1)/e;
       if ($debug) {
     	warn "key: $_ value: $definelist->{$_}\n" for (sort { length($b) <=> length($a) } keys (%{$definelist}));
