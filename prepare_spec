@@ -391,14 +391,16 @@ sub read_and_parse_old_spec {
       next;
     }
     if ($current_section eq "header") {
+      my $c_pack = $current_package;
+      $c_pack .= "_disabled" if $ifhandler->{"disabled"};
       if ( /^Summary\b\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXSUMMARY $current_package"} = sprintf("%-16s%s","Summary:", $1);
-        push @oldspec, "XXXSUMMARY $current_package";
+        $replace_hash{"XXXSUMMARY $c_pack"} = sprintf("%-16s%s","Summary:", $1);
+        push @oldspec, "XXXSUMMARY $c_pack";
         next;
       }
       if ( /^Group\b\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXGROUP $current_package"} = sprintf("%-16s%s", "Group:", $1);
-        push @oldspec, "XXXGROUP $current_package";
+        $replace_hash{"XXXGROUP $c_pack"} = sprintf("%-16s%s", "Group:", $1);
+        push @oldspec, "XXXGROUP $c_pack";
         next;
       }
       if ( /^Vendor:/ || /^Distribution:/ || /^Packager:/ ) {
