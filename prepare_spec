@@ -17,11 +17,11 @@ my @newspec = ();
 my $base_package = "";
 my $neededforbuild = "";
 my $icecreamforbuild = "";
-my $norootforbuild = 0;
 my @copyrights = ();
 my $needsrootforbuild = 0;
 my $needsbinariesforbuild = 0;
 my $nodebuginfo = 0;
+my $vim_modeline;
 my %multiline_macros = ();
 my $nosrc_result = 0;
 my $current_section = "header";
@@ -30,6 +30,8 @@ my %pkg_version = ();
 my %pkg_release = ();
 my %please_replace = ();
 my %replace_hash = ();
+my $main_license;
+my $main_group;
 my $build_root = $ENV{'BUILD_ROOT'};
 my $disabled_packs;
 my $ifhandler;
@@ -152,11 +154,12 @@ sub read_and_parse_old_spec {
 	push @oldspec, "XXXBLANKLINE";
 	next;
     }
-    
-    if ( /^#\s*norootforbuild\s*$/ ) {
-        $norootforbuild = 1;
-        next;
+
+    if ( /^# vim:/ ) {
+	$vim_modeline = $_;
+	next;
     }
+    
     if ( /^#\s*needsrootforbuild\s*$/ ) {
         $needsrootforbuild = 1;
         next;
@@ -182,7 +185,7 @@ sub read_and_parse_old_spec {
             $c =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
             push(@copyrights, $_) if length $c > 5;
             last if length $readspec[0] < 10 || $readspec[0] =~ m{modifications and additions}i || $readspec[0] !~ /^[\#\s]/
-		|| grep { $readspec[0] =~ /^#\s*$_/ } ("norootforbuild","needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","neededforbuild","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
+		|| grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","neededforbuild","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
             $_ = shift @readspec;
           }
         next;
@@ -372,19 +375,42 @@ sub read_and_parse_old_spec {
     if ($current_section eq "header") {
       my $c_pack = $current_package;
       $c_pack .= "_disabled" if $ifhandler->{"disabled"};
-      if ( /^Summary\b\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXSUMMARY $c_pack"} = sprintf("%-16s%s","Summary:", $1);
-        push @oldspec, "XXXSUMMARY $c_pack";
-        next;
-      }
-      if ( /^Group\b\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXGROUP $c_pack"} = sprintf("%-16s%s", "Group:", $1);
-        push @oldspec, "XXXGROUP $c_pack";
-        next;
-      }
+
       if ( /^Vendor:/ || /^Distribution:/ || /^Packager:/ ) {
         next;
       }
+      # remove default value of Autoreqprov
+      if ( /^Autoreqprov\s*:\s*(.*)/i ) {
+	  next if ( lc($1) eq "on" || lc($1) eq "yes");
+      }
+      # reset Release
+      if ( /^Release\s*:\s*(.*)/i ) {
+	  $_ = "Release: 0" if ($1 =~ m/^[0-9]*$/);
+      }
+      
+      # remove duplicated licenses
+      if ( /^License\s*:\s*(.*)\s*$/i ) {
+	  my $license = $1;
+
+	  if (!$main_license) {
+	      $main_license = $license;
+	  } else {
+	      next if ($license eq $main_license);
+	  }
+
+	  push @oldspec, sprintf("%-16s%s","License:", $license);
+	  next;
+      }
+
+      # remove duplicated groups
+      if ( /^Group\s*:\s*(.*)\s*$/i ) {
+	  if (!$main_group) {
+	      $main_group = $1;
+	  } else {
+	      next if ($1 eq $main_group);
+	  }
+      }
+
       if ( /^Name\s*:\s*(.*)/i ) {
 	my $orig_name = $1;
         my $changed_name = $orig_name;
@@ -411,9 +437,9 @@ sub read_and_parse_old_spec {
         push @oldspec, "BuildRoot:      %{_tmppath}/%{name}-%{version}-build";
         next;
       }
-      if ( /^Copyright\s*:\s*(.*)/i || /^License\s*:\s*(.*)/i ) {
-        $replace_hash{"XXXLICENSE $c_pack"} = sprintf("%-16s%s","License:", $1);
-        push @oldspec, "XXXLICENSE $c_pack";
+
+      if ( /^Copyright\s*:\s*(.*)/i ) {
+        push @oldspec, "License: $1";
         next;
       }
       if ( /^Url\s*:\s*(.*)/i ) {
@@ -528,6 +554,8 @@ my $thisyear = localtime->year() + 1900;
 unshift @copyrights, "# Copyright (c) $thisyear SUSE LINUX Products GmbH, Nuernberg, Germany.";
 
 my $copy_list = join("\n", @copyrights);
+
+print $vim_modeline . "\n" if (defined $vim_modeline);
 print <<EOF;
 #
 # spec file for package $base_package
@@ -545,15 +573,13 @@ $copy_list
 
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
-
 EOF
 
-print "# norootforbuild\n" if $norootforbuild;
 print "# needsrootforbuild\n" if $needsrootforbuild;
 print "# needsbinariesforbuild\n" if $needsbinariesforbuild;
 print "# nodebuginfo\n" if $nodebuginfo;
 print "# icecream $icecreamforbuild\n" if $icecreamforbuild ne '';
-print "\n";
+print "\n" if ($needsrootforbuild || $needsbinariesforbuild || $nodebuginfo || $icecreamforbuild ne '');
 
 while ($oldspec[0] eq "XXXBLANKLINE") {
   shift @oldspec;
@@ -569,15 +595,6 @@ while (@oldspec) {
     print "$replace_hash{$line}\n";
   } else {
     print "$line\n";
-    # a package line with no license tag found for it yet
-    # if line ends with "\", we are probably in a macro definition
-    if ($line =~ /^%package/ && $line !~ /\\$/) {
-	$line =~ s/^(%\w+)/lc($1)/e;
-	my ($current_package, $current_lang) = set_current_pkg ( $line );
-	unless ($please_replace{"XXXLICENSE $current_package"} || !$replace_hash{"XXXLICENSE $current_package"}) {
-		print $replace_hash{"XXXLICENSE $current_package"}."\n";
-	}
-    }
   }
 }
 
