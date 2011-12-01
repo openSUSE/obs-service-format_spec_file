@@ -15,7 +15,6 @@ use strict;
 my @oldspec = ();
 my @newspec = ();
 my $base_package = "";
-my $neededforbuild = "";
 my $icecreamforbuild = "";
 my @copyrights = ();
 my $needsrootforbuild = 0;
@@ -119,6 +118,7 @@ sub replace_single_spdx($)
 	"lgpl v2.1 orlater" => "LGPL-2.1+",
 	"lgplv2.1+" => "LGPL-2.1+",
 	"lgplv2+" => "LGPL-2.1+",
+        "lgpl v2+" => "LGPL-2.1+",
 
 	'lgplv3' => "LGPL-3.0",
 	'lgplv3+' => "LGPL-3.0+",
@@ -129,6 +129,8 @@ sub replace_single_spdx($)
 	"lgpl v3 only" => "LGPL-3.0",
 	"lgpl v3 orlater" => "LGPL-3.0+",
 
+	"gpl" => "GPL-1.0",
+	"gpl+" => "GPL-1.0+",
 	"gpl v2 only" => "GPL-2.0",
 	"gplv2" => "GPL-2.0",
 	"gpl v2" => "GPL-2.0",
@@ -163,6 +165,8 @@ sub replace_single_spdx($)
 	'apache software license ..' => "Apache-2.0",
 	'aslv..' => "Apache-2.0",
 	'aslv2' => "Apache-2.0",
+
+	"artistic" => "Artistic-1.0",
 	
     );
 
@@ -289,21 +293,10 @@ sub read_and_parse_old_spec {
             $c =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
             push(@copyrights, $_) if length $c > 5;
             last if length $readspec[0] < 10 || $readspec[0] =~ m{modifications and additions}i || $readspec[0] !~ /^[\#\s]/
-		|| grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","neededforbuild","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
+		|| grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
             $_ = shift @readspec;
           }
         next;
-    }
-    if ( /^#\s*neededforbuild/ ) {
-	$neededforbuild = $_;
-	$neededforbuild =~ s/^#\s*neededforbuild\s*//;
-        my (%aa) = ();
-	for my $x (split(' ',$neededforbuild)){
-	  $aa{$x}=1;
-	}
-        $neededforbuild = join(' ',sort keys (%aa));
-
-      next;
     }
     # evil epoch removal
     next if ( /^Epoch:/ );
