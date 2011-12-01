@@ -26,7 +26,6 @@ my $nosrc_result = 0;
 my $current_section = "header";
 my $had_debug_package = 0;
 my %pkg_version = ();
-my %please_replace = ();
 my %replace_hash = ();
 my $main_license;
 my $main_group;
@@ -92,6 +91,15 @@ sub capitalize_case($)
 
   return $tag;
 }
+
+sub compare_arrays {
+    my ($first, $second) = @_;
+    return 0 unless @$first == @$second;
+    for (my $i = 0; $i < @$first; $i++) {
+	return 0 if $first->[$i] ne $second->[$i];
+    }
+    return 1;
+}  
 
 sub maybe_add_empty_line()
 {
@@ -621,10 +629,32 @@ if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
 
 read_and_parse_old_spec ( $specfile, $base_package );
 
-for (@oldspec) {
-  next unless /^XXX/;
-  $please_replace{$_} = 1;
+my $linesmoved = 1;
+while ($linesmoved) {
+    $linesmoved = 0;
+    my @firstlines = ();
+    my @buildrequires = ();
+    while ($oldspec[0]) {
+	my $l = shift @oldspec;
+	if ($l =~ m/^BuildRequires:/ ) {
+	    push(@buildrequires, $l);
+	} else {
+	    # if there are already buildrequires, we need to sort and exit
+	    if (@buildrequires > 0) {
+		my @sortedbrs = sort(@buildrequires);
+		$linesmoved = !compare_arrays(\@buildrequires, \@sortedbrs);
+		@oldspec = (@firstlines, sort(@buildrequires), $l, @oldspec);
+		@firstlines = ();
+		@buildrequires = ();
+		last;
+	    } else {
+		push(@firstlines, $l);
+	    }
+	}
+    }
+    @oldspec = (@firstlines, @oldspec);
 }
+
 
 my $thisyear = localtime->year() + 1900;
 
