@@ -25,9 +25,10 @@ my $nosrc_result = 0;
 my $current_section = "header";
 my $had_debug_package = 0;
 my %pkg_version = ();
-my %replace_hash = ();
 my $main_license;
+my %seen_licenses = ();
 my $main_group;
+my %seen_groups = ();
 my $build_root = $ENV{'BUILD_ROOT'};
 my $disabled_packs;
 my $ifhandler;
@@ -229,6 +230,7 @@ sub replace_spdx($)
     }
     return join(' ; ', sort(@licenses));
 }
+
 sub set_current_pkg {
   my ( $arg ) = @_;
   print "DEBUG: set_current_pkg receiving $arg\n" if $debug;
@@ -268,9 +270,10 @@ sub read_and_parse_old_spec {
 
   while (@readspec) {
     $_ = shift @readspec;
+
     if ( /^\s*$/ && $current_section ne "description") {
 	# stop preamble parsing on two blank lines
-        if ($print_comments eq "false" && $oldspec[-1] eq "XXXBLANKLINE") {
+        if ($print_comments eq "false" && $oldspec[0] && $oldspec[-1] eq "XXXBLANKLINE") {
 		$print_comments = "true";
 		push @oldspec, "XXXDOUBLELINE";
 		next;
@@ -499,28 +502,26 @@ sub read_and_parse_old_spec {
 	  # will be after Version
 	  next;
       }
-      
-      # remove duplicated licenses
-      if ( /^License\s*:\s*(.*)\s*$/i ) {
-	  my $license = $1;
-
-	  if (!$main_license) {
-	      $main_license = $license;
-	  } else {
-	      next if ($license eq $main_license);
-	  }
-
-	  push @oldspec, sprintf("%-16s%s","License:", replace_spdx($license));
+      if ( /^Summary\s*:\s*(.*)\s*$/i ) {
+	  push @oldspec, sprintf("%-16s%s", "Summary:", $1);
+	  push @oldspec, "XXXPOSTSUMMARY $current_package";
 	  next;
       }
 
-      # remove duplicated groups
+      # remove license and print out after license later
+      if ( /^License\s*:\s*(.*)\s*$/i || /^Copyright\s*:\s*(.*)\s*$/i ) {
+	  my $license = replace_spdx($1);
+	  $main_license = $license if (!$main_license);
+	  $seen_licenses{$current_package} = $license;
+	  next;
+      }
+
+      # remove groups and print out after summary later
       if ( /^Group\s*:\s*(.*)\s*$/i ) {
-	  if (!$main_group) {
-	      $main_group = $1;
-	  } else {
-	      next if ($1 eq $main_group);
-	  }
+	  my $group = $1;
+	  $main_group = $group if (!$main_group);
+	  $seen_groups{$current_package} = $group;
+	  next;
       }
 
       if ( /^BuildArchitectures\s*:/i ) {
@@ -529,11 +530,6 @@ sub read_and_parse_old_spec {
 
       if ( /^BuildRoot\s*:/i ) {
         push @oldspec, "BuildRoot:      %{_tmppath}/%{name}-%{version}-build";
-        next;
-      }
-
-      if ( /^Copyright\s*:\s*(.*)/i ) {
-        push @oldspec, "License: $1";
         next;
       }
 
@@ -690,19 +686,27 @@ while ($oldspec[0] eq "XXXBLANKLINE") {
   shift @oldspec;
 }
 
+my $license_unique = !grep { $_ ne $main_license } values %seen_licenses;
+my $groups_unique = !grep { $_ ne $main_group } values %seen_groups;
+my $first_summary = 1;
+
 my $line;
 while (@oldspec) {
-  $line = shift @oldspec;
-  if ($line eq "XXXBLANKLINE") {
-    print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
-  } elsif ($line eq "XXXDOUBLELINE") {
-    print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
-  } elsif ($line =~ /^XXX/) {
-    print "DEBUG: replacing $line\n" if $debug;
-    print "$replace_hash{$line}\n";
-  } else {
-    print "$line\n";
-  }
+    $line = shift @oldspec;
+    if ($line eq "XXXBLANKLINE") {
+	print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+    } elsif ($line eq "XXXDOUBLELINE") {
+	print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+    } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
+	my $current_package = $1;
+	my $license = $seen_licenses{$current_package} || $main_license;
+	printf("%-16s%s\n", "License:", $license) if (!$license_unique || $first_summary);
+	my $group = $seen_groups{$current_package} || $main_group;
+	printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary);
+	$first_summary = 0;
+    } else {
+	print "$line\n";
+    }
 }
 
 print "\n" unless $line eq "XXXBLANKLINE";
