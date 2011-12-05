@@ -220,7 +220,7 @@ sub replace_single_spdx($)
 	if (@m) {
 	    $l = $m[0];
 	} else {
-	    print STDERR "unknown license '$l' ($tl)\n";
+	    print STDERR "unknown license '$l'\n";
 	}
     }
     return $l;
