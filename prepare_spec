@@ -21,7 +21,6 @@ my $needsrootforbuild = 0;
 my $needsbinariesforbuild = 0;
 my $nodebuginfo = 0;
 my $vim_modeline;
-my %multiline_macros = ();
 my $nosrc_result = 0;
 my $current_section = "header";
 my $had_debug_package = 0;
@@ -50,6 +49,8 @@ my @global_tags_list =
  'ExcludeArch',
  'ExclusiveArch',
  'Freshens',
+ 'Group',
+ 'Name',
  'NoPatch',
  'NoSource',
  'Obsoletes', 
@@ -61,6 +62,7 @@ my @global_tags_list =
  'Requires',
  'Source\d*',
  'Suggests',
+ 'Summary',
  'Supplements',
  'Url',
 );
@@ -104,7 +106,7 @@ sub compare_arrays {
 sub maybe_add_empty_line()
 {
   push @oldspec, "XXXBLANKLINE" 
-    if ($current_section ne "description" && $oldspec[-1] !~ /^\s*$/);
+    if ($current_section ne "description" && $oldspec[-1] !~ /^\s*$/ && $oldspec[-1] !~ /^[#%]/);
 }
 
 sub change_section($)
@@ -267,6 +269,12 @@ sub read_and_parse_old_spec {
   while (@readspec) {
     $_ = shift @readspec;
     if ( /^\s*$/ && $current_section ne "description") {
+	# stop preamble parsing on two blank lines
+        if ($print_comments eq "false" && $oldspec[-1] eq "XXXBLANKLINE") {
+		$print_comments = "true";
+		push @oldspec, "XXXDOUBLELINE";
+		next;
+	}
 	push @oldspec, "XXXBLANKLINE";
 	next;
     }
@@ -284,6 +292,10 @@ sub read_and_parse_old_spec {
         $needsbinariesforbuild = 1;
         next;
     }
+    if ( /^#\s*norootforbuild/ ) {
+	next;
+    }
+
     if ( /^#\s*nodebuginfo\s*$/ ) {
         $nodebuginfo = 1;
         next;
@@ -294,6 +306,7 @@ sub read_and_parse_old_spec {
         next;
     }
     if ( /^#\s*Copyright\s*/ ) {
+        my $lastlineblank = 0;
         for (;;)
           {
             # check if line is ONLY a standard copyright line, if so, ignore.
@@ -339,6 +352,7 @@ sub read_and_parse_old_spec {
       push @oldspec, $_;
       next;
     }
+
     if ( /^#/ && $current_section ne "description") {
       warn "$_ $current_section\n" if $debug;
       if ( $print_comments eq "true" || $readspec[0] =~ /^%define/ || $readspec[0] =~ /^%if/) {
@@ -346,6 +360,7 @@ sub read_and_parse_old_spec {
       }
       next;
     }
+
     if ( /^%debug_package/ ) {
 	# remove, we add this ourselves
 	next;
@@ -355,9 +370,7 @@ sub read_and_parse_old_spec {
     if ( /^%define\s*vendor\s/ || /^%define\s*distribution\s/ ) {
       next;
     }
-    if ( /^%define\s+(\w[\w\d]+).*\\$/ ) {
-      $multiline_macros{$1} = 1;
-    }
+
     if ( /^\s*%if/ || /^\s*%\{/ || /^\s*%define/ || /^\s*%el/ || /^\s*%endif/ ) {
       change_section("header") if ($current_section eq "description");
       push @oldspec, $_;
@@ -467,12 +480,9 @@ sub read_and_parse_old_spec {
       }
 
       push @oldspec, "$_";
-      # multiline macros need an extra newline with old RPMs
-      if (/^%(\w[\w\d]+).*[^\\]$/) {
-        push @oldspec, "" if (defined($multiline_macros{$1}));
-      }
       next;
     }
+
     if ($current_section eq "header") {
       my $c_pack = $current_package;
       $c_pack .= "_disabled" if $ifhandler->{"disabled"};
@@ -513,20 +523,6 @@ sub read_and_parse_old_spec {
 	  }
       }
 
-      if ( /^Name\s*:\s*(.*)/i ) {
-	my $orig_name = $1;
-        my $changed_name = $orig_name;
-        $changed_name =~ s/\Q$_\E/$definelist->{$_}/ for (sort { length($b) <=> length($a) } keys (%{$definelist}));
-        if ($changed_name eq $base_package) {
-          push @oldspec, sprintf("\n%-16s%s","Name:", $orig_name);
-	} else {
-          push @oldspec, sprintf("\n%-16s%s","Name:", $base_package);
-	}
-	$definelist->{"%name"} = $base_package if $ifhandler->{"disabled"} == 0;
-	$definelist->{"%{name}"} = $base_package if $ifhandler->{"disabled"} == 0;
-	warn ("line is $_, orig_name is $orig_name, base_package is $base_package\n") if $ifhandler->{"disabled"} == 0 && $debug;
-        next;
-      }
       if ( /^BuildArchitectures\s*:/i ) {
         $_ =~ s/^[^:]+:/BuildArch:/;
       }
@@ -558,8 +554,10 @@ sub read_and_parse_old_spec {
     }
     if ( $current_section ne "changelog" ) {
       push @oldspec, $_;
+      next;
     }
   }
+
 }
 
 if ($ARGV[0] eq '--debug') {
@@ -696,7 +694,9 @@ my $line;
 while (@oldspec) {
   $line = shift @oldspec;
   if ($line eq "XXXBLANKLINE") {
-    print "\n" unless $oldspec[0] && ($oldspec[0] eq "XXXBLANKLINE" || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+    print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+  } elsif ($line eq "XXXDOUBLELINE") {
+    print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
   } elsif ($line =~ /^XXX/) {
     print "DEBUG: replacing $line\n" if $debug;
     print "$replace_hash{$line}\n";
