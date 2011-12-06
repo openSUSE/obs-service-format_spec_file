@@ -120,108 +120,39 @@ sub change_section($)
   warn "section changed to $current_section\n" if $debug;
 }
 
+my %license_replace = ();
+use File::Basename;
+
+sub load_license_map()
+{
+    return if defined $license_replace{"GPL-2.0"};
+    my $scriptdir = File::Basename::dirname($0);
+    open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
+    # ignore header
+    readline(*MAP);
+    while (<MAP>) {
+	chomp;
+	my ($license, $oldstring) = split(/\t/, $_, 2);
+	$license =~ s,\s*$,,;
+	$oldstring =~ s,\s*$,,;
+	next unless length($license);
+	print STDERR "$license\t$oldstring\n";
+	die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
+	$license_replace{$oldstring} = $license;
+    }
+    close(MAP);
+}
+
 sub replace_single_spdx($)
 {
     my ($l) = @_;
 
-    my %replace = (
-	"lgplv2.1only" =>"LGPL-2.1",
-	"lgplv2.1orlater" => "LGPL-2.1+",
-	"lgplv2.1+" => "LGPL-2.1+",
-	"lgplv2.1" => "LGPL-2.1", 
-	"lgplv2.0+" => "LGPL-2.0+",
-	"lgplv2.0" => "LGPL-2.0",
-	"lgplv2+" => "LGPL-2.1+",
-
-	'lgplv3' => "LGPL-3.0",
-	'lgplv3+' => "LGPL-3.0+",
-	'gnulgplv2.1orlater' => "LGPL-2.1+",
-	'gnulgplv2.1' => "LGPL-2.1",
-	'lgplv2.0orlater' => 'LGPL-2.0+',
-	'lgplv2orlater' => 'LGPL-2.0+',
-
-	"lgplv3only" => "LGPL-3.0",
-	"lgplv3orlater" => "LGPL-3.0+",
-
-	"gpl" => "GPL-1.0",
-	"gpl+" => "GPL-1.0+",
-	"gplv2only" => "GPL-2.0",
-	"gplv2" => "GPL-2.0",
-	"gpl2" => "GPL-2.0",
-	"gplv2orlater" => "GPL-2.0+",
-	"gplv2.0orlater" => "GPL-2.0+",
-	"gplv2+" => "GPL-2.0+",
-	"gpl-2+" => "GPL-2.0+",
-	"gplv3only" => "GPL-3.0",
-	"gplv3orlater" => "GPL-3.0+",
-	"gplv3+" => "GPL-3.0+",
-	"gplv3" => "GPL-3.0",
-	"gpl-3+" => "GPL-3.0+",
-	"gnugplversion3" => "GPL-3.0",
-
-	"fdl1.1" => "GFDL-1.1",
-	"gfdlv1.1" => "GFDL-1.1",
-	'gnufreedocumentationlicense,version1.1(fdl1.1)' => "GFDL-1.1",
-	'gnufreedocumentationlicense,version1.1(gfdl1.1)' => "GFDL-1.1",
-	"fdl1.2" => "GFDL-1.2",
-	"gfdl1.2" => "GFDL-1.2",
-	"gfdlv1.2" => "GFDL-1.2",
-	'gnufreedocumentationlicense,version1.2(fdl1.2)' => "GFDL-1.2",
-	'gnufreedocumentationlicense,version1.2(gfdl1.2)' => "GFDL-1.2",
-	"fdl1.3" => "GFDL-1.3",
-
-	"bsd-2c" => "BSD-2-Clause",
-	"bsd3-clause" => "BSD-3-Clause",
-	"bsd3c" => "BSD-3-Clause",
-	"bsd3c(orsimilar)" => "BSD-3-Clause",
-	"bsd3-clause(orsimilar)" => "BSD-3-Clause",
-
-	"bsd4c" => "BSD-4-Clause",
-	"bsd4c(orsimilar)" => "BSD-4-Clause",
-
-	"x11/mit" => "MIT",
-	"X11mit" => "MIT",
-	"mitlicense(orsimilar)" => "MIT",
-
-	"asl2.0" => "Apache-2.0",
-	'apachelicense2.0' => "Apache-2.0",
-	'apachelicense' => "Apache-2.0",
-	'theapachesoftwarelicense' => "Apache-2.0",
-	"apachesoftwarelicense.." => "Apache-2.0",
-	'apachesoftware license..' => "Apache-2.0",
-	'aslv..' => "Apache-2.0",
-	'aslv2' => "Apache-2.0",
-
-	"artistic" => "Artistic-1.0",
-	"artistic2.0" => "Artistic-2.0",
-
-	"thephplicense,version3.01" => "PHP-3.01",
-	"phplicense" => "PHP-3.01",
-	"mplv1.0" => "MPL-1.0",
-	"mplv1.1" => "MPL-1.1",
-	
-	"ibmpubliclicense.." => "IPL-1.0",
-	"ibmpl" => "IPL-1.0",
-
-	"eclipsepubliclicense" => "EPL-1.0",
-
-	"openldap2.8" => "OLDAP-2.8",
-
-	"zliblicense" => "Zlib"
-
-    );
-
-    my $tl = lc $l;
-    $tl =~ s, ,,g;
-    if (defined $replace{$tl}) {
-	$l = $replace{$tl};
+    load_license_map();
+    $l =~ s, orlater, or later,g;
+    if (defined $license_replace{$l}) {
+	$l = $license_replace{$l};
     } else {
-	my @m = grep(lc($_) eq lc($l), values(%replace));
-	if (@m) {
-	    $l = $m[0];
-	} else {
-	    print STDERR "unknown license '$l'\n";
-	}
+	print STDERR "Unknown license '$l'\n";
     }
     return $l;
 }
@@ -238,7 +169,7 @@ sub replace_spdx_or($)
 	push @licenses, replace_single_spdx($_);
     }
     
-    return join(' or ', sort(@licenses));
+    return join(' or ', @licenses);
 }
 
 sub replace_spdx_and($)
@@ -249,7 +180,7 @@ sub replace_spdx_and($)
     for (split(/\s*and\s*/, $license)) {
 	push @licenses, replace_spdx_or($_);
     }
-    return join(' and ', sort(@licenses));
+    return join(' and ', @licenses);
 }
 
 sub replace_spdx($)
@@ -260,7 +191,7 @@ sub replace_spdx($)
     for (split(/\s*;\s*/, $license)) {
 	push @licenses, replace_spdx_and($_);
     }
-    return join(' ; ', sort(@licenses));
+    return join(' ; ', @licenses);
 }
 
 sub set_current_pkg {

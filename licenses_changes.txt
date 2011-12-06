@@ -1,0 +1,361 @@
+SPDX	Name in Spec File
+AAL	AAL
+AFL-2.1	Academic Free License 2.1
+AGPL-3.0	Affero GPL
+AFL-2.1	AFL 2.1
+AFL-1.2	AFL-1.2
+AFL-2.0	AFL-2.0
+AFL-2.1	AFL-2.1
+AFL-3.0	AFL-3.0
+AGPL-3.0	AGPL-3.0
+AGPL-3.0	AGPLv3
+SUSE-AGPL-3.0+	AGPLv3+
+ANTLR-PD	ANTLR-PD
+Apache-1.1	Apache 1.1 (Indiana University)
+Apache-2.0	Apache 2.0
+Apache-2.0	Apache License
+Apache-2.0	Apache License 2.0
+Apache-2.0	Apache License, Version 2.0
+Apache-2.0	Apache Software License ..
+Apache-2.0	Apache v2.0
+Apache-1.0	Apache-1.0
+Apache-1.1	Apache-1.1
+Apache-2.0	Apache-2.0
+APL-1.0	APL-1.0
+APL-1.0	APL-1.0 (spdx.org/licenses)
+APSL-1.0	APSL-1.0
+APSL-1.1	APSL-1.1
+APSL-1.2	APSL-1.2
+APSL-2.0	APSL-2.0
+Artistic-1.0	Artistic
+Artistic-1.0	Artistic 1.0
+Artistic-2.0	Artistic 2.0
+Artistic-1.0	Artistic license
+Artistic-1.0	Artistic License
+Artistic-1.0	Artistic License ..
+Artistic-1.0	Artistic-1.0
+SUSE-Artistic-1.0+	Artistic-1.0+
+Artistic-2.0	Artistic-2.0
+Apache-1.1	ASL 1.1
+Apache-2.0	ASL 2.0
+Apache-2.0	ASL2
+Apache-2.0	ASLv..
+Apache-2.0	ASLv2
+Apache-2.0	ASLv2.0
+SUSE-Apache-2.0+	ASLv2.0+
+BSD-3-Clause	BSD (3-Clause)
+BSD-2-Clause	BSD 2 clause
+BSD-2-Clause	BSD 2 Clause
+BSD-2-Clause	BSD 2-clause
+BSD-2-Clause	BSD 2-Clause
+BSD-3-Clause	BSD 3-Clause
+BSD-3-Clause	BSD 3-clause (or similar)
+BSD-2-Clause	BSD-2-Clause
+BSD-2-Clause	BSD-2c
+BSD-3-Clause	BSD-3
+BSD-3-Clause	BSD-3-Clause
+BSD-3-Clause	BSD-3-clause (or similar)
+BSD-4-Clause	BSD-4-Clause
+BSD-2-Clause	BSD2c
+BSD-3-Clause	BSD3
+BSD-3-Clause	BSD3c
+BSD-3-Clause	BSD3c (or similar)
+BSD-3-Clause	BSD3c(or similar)
+BSD-4-Clause	BSD4c
+BSD-4-Clause	BSD4c(or similar)
+BSL-1.0	BSL-1.0
+CATOSL-1.1	CATOSL-1.1
+CC-BY-SA-3.0	CC BY-SA 3.0
+CC-BY-SA-2.5	CC by-sa V2.5
+CC-BY-SA-3.0	CC BY-SA V3.0
+CC-BY-1.0	CC-BY-1.0
+CC-BY-2.0	CC-BY-2.0
+CC-BY-2.5	CC-BY-2.5
+CC-BY-3.0	CC-BY-3.0
+CC-BY-NC-1.0	CC-BY-NC-1.0
+CC-BY-NC-2.0	CC-BY-NC-2.0
+CC-BY-NC-2.5	CC-BY-NC-2.5
+CC-BY-NC-3.0	CC-BY-NC-3.0
+CC-BY-NC-ND-1.0	CC-BY-NC-ND-1.0
+CC-BY-NC-ND-2.0	CC-BY-NC-ND-2.0
+CC-BY-NC-ND-2.5	CC-BY-NC-ND-2.5
+CC-BY-NC-ND-3.0	CC-BY-NC-ND-3.0
+CC-BY-NC-SA-1.0	CC-BY-NC-SA-1.0
+CC-BY-NC-SA-2.0	CC-BY-NC-SA-2.0
+CC-BY-NC-SA-2.5	CC-BY-NC-SA-2.5
+CC-BY-NC-SA-3.0	CC-BY-NC-SA-3.0
+CC-BY-ND-1.0	CC-BY-ND-1.0
+CC-BY-ND-2.0	CC-BY-ND-2.0
+CC-BY-ND-2.5	CC-BY-ND-2.5
+CC-BY-ND-3.0	CC-BY-ND-3.0
+CC-BY-SA-1.0	CC-BY-SA-1.0
+CC-BY-SA-2.0	CC-BY-SA-2.0
+CC-BY-SA-2.5	CC-BY-SA-2.5
+CC-BY-SA-3.0	CC-BY-SA-3.0
+CC0-1.0	CC0-1.0
+CDDL-1.0	CDDL
+CDDL-1.0	CDDL 1.0
+CDDL-1.0	CDDL-1.0
+CDDL-1.0 or LGPL-2.1	CDDLv1.0 | LGPLv2.1
+CECILL-1.0	CECILL-1.0
+CECILL-1.1English	CECILL-1.1English
+CECILL-2.0	CECILL-2.0
+CECILL-B	CECILL-B
+CECILL-C	CECILL-C
+ClArtistic	ClArtistic
+CPL-1.0	Common Public License - v 1.0
+CPL-1.0	Common Public License v1.0
+CPL-1.0	Common Public License v1.0 (CPL)
+CPL-1.0	Common Public License Version 1.0
+CPL-1.0	Common Public License Version 1.0 (CPL1.0)
+CPAL-1.0	CPAL-1.0
+CPL-1.0	CPL (Common Public License) v1
+CPL-1.0	CPL 1.0
+CPL-1.0	CPL 1.0 ...
+CPL-1.0	CPL-1.0
+CUA-OPL-1.0	CUA-OPL-1.0
+ECL-1.0	ECL-1.0
+ECL-2.0	ECL-2.0
+EPL-1.0	Eclipse Public License
+eCos-2.0	eCos-2.0
+EFL-1.0	EFL-1.0
+EFL-2.0	EFL-2.0
+Entessa	Entessa
+EPL-1.0	EPL
+EPL-1.0	EPL 1.0
+EPL-1.0	EPL 1.0 ...
+EPL-1.0	EPL v1.0
+EPL-1.0	EPL-1
+EPL-1.0	EPL-1.0
+ErlPL-1.1	Erlang Public License
+ErlPL-1.1	ErlPL-1.1
+EUDatagrid	EUDatagrid
+EUPL-1.0	EUPL-1.0
+EUPL-1.1	EUPL-1.1
+MIT	Expat
+Fair	Fair
+SUSE-GFDL-1.1	FDL v1.1 orlater
+SUSE-GFDL-1.2+	FDL-1.2+
+SUSE-GFDL-1.3+	FDL-1.3+
+SUSE-GFDL-1.2+	FDLv1.2+
+Frameworx-1.0	Frameworx-1.0
+SUSE-Freeware	Freeware
+SUSE-Freeware	Freeware license
+GFDL-1.1	GFDL 1.1
+GFDL-1.2	GFDL 1.2
+GFDL-1.1	GFDL v1.1
+GFDL-1.2	GFDL v1.2
+GFDL-1.1	GFDL-1.1
+GFDL-1.2	GFDL-1.2
+GFDL-1.3	GFDL-1.3
+GFDL-1.1	GFDLv1.1
+GFDL-1.2	GFDLv1.2
+SUSE-GFDL-1.2+	GFDLv1.2+
+GPL-2.0	GLPv2
+GFDL-1.1	GNU Free Documentation License, Version 1.1 (GFDL 1.1)
+GFDL-1.2	GNU Free Documentation License, Version 1.2 (GFDL 1.2)
+GFDL-1.3	GNU Free Documentation License, Version 1.3 (GFDL 1.3)
+GPL-2.0	GNU General Public License (GPL) v2
+GPL-2.0	GNU General Public License version 2 (GPL v2)
+GPL-2.0+	GNU General Public License version 2 orlater
+GPL-2.0+	GNU General Public License version 2 orlater (GPL v2 orlater)
+GPL-2.0+	GNU General Public License version 2 orlater (GPLv2 orlater)
+GPL-3.0	GNU General Public License version 3 (GPLv3)
+GPL-2.0	GNU GPL v2
+GPL-3.0+	GNU GPL v3 orlater
+GPL-3.0	GNU GPL version 3
+LGPL-3.0	GNU Lesser General Public License (LGPL), Version 3
+LGPL-2.1	GNU Lesser General Public License version 2.1 (LGPL v2.1)
+LGPL-3.0	GNU Lesser General Public License version 3 (LGPL v3)
+LGPL-2.1+	GNU LGPL v2.1 or later
+LGPL-2.1	GNU LGPLv2.1
+GPL-1.0	GPL
+GPL-2.0	GPL 2.0
+GPL-3.0	GPL 3
+GPL-2.0	GPL v2
+GPL-2.0	GPL v2 only
+GPL-2.0+	GPL v2 or later
+GPL-2.0	GPL v2.0
+GPL-2.0+	GPL v2.0 or later
+GPL-2.0+	GPL v2+
+GPL-3.0	GPL v3
+GPL-3.0	GPL v3 only
+GPL-3.0+	GPL v3 or later
+GPL-1.0	GPL-1.0
+GPL-1.0+	GPL-1.0+
+GPL-2.0	GPL-2
+GPL-2.0	GPL-2.0
+GPL-2.0; GPL-2.0+	GPL-2.0 GPL-2.0+
+GPL-2.0+	GPL-2.0 orlater
+GPL-2.0-with-autoconf-exception	GPL-2.0-with-autoconf-exception
+GPL-2.0-with-bison-exception	GPL-2.0-with-bison-exception
+GPL-2.0-with-classpath-exception	GPL-2.0-with-classpath-exception
+GPL-2.0-with-font-exception	GPL-2.0-with-font-exception
+GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
+GPL-2.0; GPL-2.0+	GPL-2.0, GPL-2.0+
+GPL-2.0+	GPL-2.0+
+Apache-2.0; GPL-2.0+	GPL-2.0+, Apache-2.0
+GPL-2.0+; LGPL-2.0+	GPL-2.0+,LGPL-2.0+
+GPL-2.0	GPL-2.Ã0
+GPL-2.0+	GPL-2+
+GPL-3.0	GPL-3
+GPL-3.0	GPL-3.0
+GPL-3.0-with-autoconf-exception	GPL-3.0-with-autoconf-exception
+GPL-3.0-with-GCC-exception	GPL-3.0-with-GCC-exception
+GPL-3.0; GPL-2.0+	GPL-3.0, GPL-2.0+
+GPL-3.0+	GPL-3.0+
+GPL-3.0+	GPL-3+
+GPL-1.0+	GPL+
+GPL-2.0	GPL2
+GPL-2.0+	GPL2+
+GPL-3.0	GPL3
+GPL-1.0+	GPLv1+
+GPL-2.0	GPLv2
+GPL-2.0 or GPL-3.0	GPLv2 || GPLv3
+GPL-2.0+	GPLv2 or later
+GPL-2.0+	GPLv2+
+GPL-3.0	GPLv3
+GPL-3.0+	GPLv3+
+gSOAP-1.3b	gSOAP-1.3b
+HPND	HPND
+IPL-1.0	IBM PL
+IPL-1.0	IBM Public License
+IPL-1.0	IBM Public License ..
+IPA	IPA
+IPL-1.0	IPL-1.0
+ISC	ISC
+ISC	ISC License
+LGPL-2.1	LGPL 2.1
+LGPL-2.0	LGPL v2
+LGPL-2.0+	LGPL v2 or later
+LGPL-2.0	LGPL v2.0 only
+LGPL-2.0+	LGPL v2.0 or later
+LGPL-2.1	LGPL v2.1
+LGPL-2.1	LGPL v2.1 only
+LGPL-2.1+	LGPL v2.1 or later
+LGPL-2.1+	LGPL v2.1+
+LGPL-2.1+	LGPL v2+
+LGPL-2.1+	LGPL V2+
+LGPL-3.0+	LGPL v3 or later
+LGPL-2.0	LGPL-2.0
+LGPL-2.1+	LGPL-2.0.1 orlater
+LGPL-2.0+	LGPL-2.0+
+LGPL-2.1	LGPL-2.1
+LGPL-2.1+	LGPL-2.1+
+LGPL-3.0	LGPL-3.0
+LGPL-3.0+	LGPL-3.0+
+LGPL-2.1	LGPL2.1
+LGPL-2.0	LGPLv2
+LGPL-2.0	LGPLv2.0
+LGPL-2.0+	LGPLv2.0+
+LGPL-2.1	LGPLv2.1
+LGPL-2.1+	LGPLv2.1+
+LGPL-2.1+	LGPLv2+
+LGPL-3.0	LGPLv3
+LGPL-3.0+	LGPLv3+
+GPL-2.0+	libGeoIPUpdate is GPLv2 orlater
+Libpng	Libpng
+LPL-1.02	LPL-1.02
+LPPL-1.3c	LPPL ..
+LPPL-1.0	LPPL-1.0
+LPPL-1.1	LPPL-1.1
+LPPL-1.2	LPPL-1.2
+LPPL-1.3c	LPPL-1.3c
+MirOS	MirOS
+MIT	MIT
+MIT	MIT licence
+MIT	MIT license
+MIT	MIT License
+MIT	MIT License (or similar)
+MIT	MIT-Licence
+MIT	MIT/X Consortium License
+MIT	MIT/X License
+MIT	MIT/X11
+Motosoto	Motosoto
+MPL-1.1	MOZILLA PUBLIC LICENSE (MPL/NPL)
+MPL-1.1	Mozilla Public License 1.1
+SUSE-MPL-1.1+	MPL 1.1 orlater
+MPL-1.0	MPL-1.0
+MPL-1.1	MPL-1.1
+MPL-1.0	MPLv1.0
+MPL-1.1	MPLv1.1
+MPL-1.1	MPLv1.1 ..
+SUSE-MPL-1.1+	MPLv1.1+
+MS-PL	Ms-Pl
+MS-PL	MS-PL
+MS-RL	MS-RL
+Multics	Multics
+NASA-1.3	NASA-1.3
+Naumen	Naumen
+NCSA	NCSA
+NGPL	NGPL
+Nokia	Nokia
+NPOSL-3.0	NPOSL-3.0
+NTP	NTP
+OCLC-2.0	OCLC-2.0
+ODbL-1.0	ODbL-1.0
+OFL-1.1	OFL
+OFL-1.1	OFL-1.1
+OGTSL	OGTSL
+OLDAP-2.8	OLDAP-2.8
+OFL-1.1	Open Font License
+OLDAP-2.8	openldap 2.8
+OpenSSL	OpenSSL
+OSL-1.0	OSL-1.0
+OSL-2.0	OSL-2.0
+OSL-3.0	OSL-3.0
+PDDL-1.0	PDDL-1.0
+Artistic-1.0 or GPL-1.0+	Perl License
+PHP-3.0.1	PHP License
+PostgreSQL	PostgreSQL
+SUSE-Public-Domain	Public domain
+SUSE-Public-Domain	Public Domain
+SUSE-Public-Domain	Public Domain, Freeware
+SUSE-Public-Domain	Public Domain. See http://www.sentex.ca/~mw
+Python-2.0	Python
+Python-2.0	Python ..
+Python-2.0	Python Copyright
+Python-2.0	Python License ..
+Python-2.0	Python Software Foundation License
+Python-2.0	Python-2.0
+QPL-1.0	QPL
+QPL-1.0	QPL ..
+QPL-1.0	QPL-1.0
+RHeCos-1.1	RHeCos-1.1
+RPL-1.5	RPL-1.5
+RPSL-1.0	RPSL-1.0
+RSCPL	RSCPL
+Ruby	Ruby
+SAX-PD	SAX-PD
+IPA	see IPA_Font_License_Agreement_v1.0.txt
+OFL-1.1	SIL Open Font License
+OFL-1.1	SIL Open Font License 1.1
+SimPL-2.0	SimPL-2.0
+Sleepycat	Sleepycat
+SPL-1.0	SPL-1.0
+SugarCRM-1.1.3	SugarCRM-1.1.3
+LPPL-1.3c	TeX-License ..
+Apache-2.0	The Apache Software License
+PHP-3.0.1	The PHP License, version 3.01
+VSL-1.0	VSL-1.0
+W3C	W3C
+W3C	W3C Software License
+Watcom-1.0	Watcom-1.0
+WXwindows	WXwindows
+MIT	X11
+MIT	X11 (BSD like)
+MIT	X11 MIT
+MIT	X11/MIT
+XFree86-1.1	XFree86-1.1
+Xnet	Xnet
+YPL-1.1	YPL-1.1
+Zimbra-1.3	Zimbra-1.3
+Zlib	Zlib
+Zlib	Zlib License
+Zlib	zlib/libpng License
+ZPL-2.0	Zope Public License
+ZPL-2.0	ZPL
+ZPL-2.1	ZPL 2.1
+ZPL-1.1	ZPL-1.1
+ZPL-2.0	ZPL-2.0
+ZPL-2.1	ZPL-2.1
