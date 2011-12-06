@@ -133,10 +133,10 @@ sub load_license_map()
     while (<MAP>) {
 	chomp;
 	my ($license, $oldstring) = split(/\t/, $_, 2);
-	$license =~ s,\s*$,,;
-	$oldstring =~ s,\s*$,,;
+	#$license =~ s,\s*$,,;
+	#$oldstring =~ s,\s*$,,;
 	next unless length($license);
-	print STDERR "$license\t$oldstring\n";
+	#print STDERR "$license\t$oldstring\n";
 	die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
 	$license_replace{$oldstring} = $license;
     }
@@ -147,8 +147,14 @@ sub replace_single_spdx($)
 {
     my ($l) = @_;
 
+    return '' if $l eq '';
+
     load_license_map();
-    $l =~ s, orlater, or later,g;
+    $l =~ s,ORlater,or later,g;
+    $l =~ s,ORsim,or similar,g;
+    $l =~ s,^\s+,,;
+    $l =~ s,\s+$,,;
+
     if (defined $license_replace{$l}) {
 	$l = $license_replace{$l};
     } else {
@@ -157,30 +163,35 @@ sub replace_single_spdx($)
     return $l;
 }
 
-sub replace_spdx_or($)
-{
-    my ($license) = @_;
-
-    # special case as or later is common in our spec files
-    $license =~ s, or later, orlater,g;
-
-    my @licenses = ();
-    for (split(/\s+or\s+/, $license)) {
-	push @licenses, replace_single_spdx($_);
-    }
-    
-    return join(' or ', @licenses);
-}
-
+sub replace_spdx_and($);
 sub replace_spdx_and($)
 {
     my ($license) = @_;
 
+    # special case as or later is common in our spec files
+    $license =~ s,or later,ORlater,g;
+    $license =~ s,or similar,ORsim,g;
+    
+    #print STDERR "ORIG '$license'\n";
     my @licenses = ();
-    for (split(/\s*and\s*/, $license)) {
-	push @licenses, replace_spdx_or($_);
+    if ( $license =~ /^(.*?)\(([^)]*)\)(.*?)$/ ) {
+	my ($head, $paren, $tail) = ($1, $2, $3);
+        if ($paren =~ /and|or/) {
+	    $head = replace_spdx_and($head);
+	    $tail = replace_spdx_and($tail);
+	    $paren = replace_spdx_and($paren);
+	    #print STDERR "AFTE '$head($paren)$tail'\n";
+	    return "$head($paren)$tail";
+        }
     }
-    return join(' and ', @licenses);
+
+    for (split(/(\s+(?:and|or)\s+)/, $license, -1)) {
+	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:and|or)\s+)/;
+        s/\s+/ /g;
+	push @licenses, $_;
+    }
+    #print STDERR "AFTE '" . join('', @licenses) . "'\n";
+    return join('', @licenses);
 }
 
 sub replace_spdx($)
