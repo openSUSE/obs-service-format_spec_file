@@ -1,5 +1,8 @@
-<service name="source_validator">
-  <summary>Validate sources</summary>
-  <description>The default SUSE source validator which catches common pitfalls before build.</description>
+<service name="format_spec_file">
+  <summary>Format the spec files</summary>
+  <description>Formatting the spec files</description>
+  <parameter name="specfile">
+    <description>Just run on specified spec file instead all available</description>
+  </parameter>
 </service>
 

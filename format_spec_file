@@ -9,6 +9,10 @@ while test $# -gt 0; do
       MYOUTDIR="$2"
       shift
     ;;
+    *-specfile)
+      MYSPECFILES="$MYSPECFILES $2"
+      shift
+    ;;
     *)
       echo Unknown parameter $1.
       echo 'Usage: this service is not excepting parameters'
@@ -19,7 +23,10 @@ while test $# -gt 0; do
 done
 
 RETURN=0
-for i in *.spec; do
+if [ -z "$MYSPECFILES" ]; then
+  MYSPECFILES=`echo *.spec`
+fi
+for i in $MYSPECFILES; do
   if [ "$i" == '*.spec' ]; then
     echo "WARNING: no spec file found"
     exit 0
