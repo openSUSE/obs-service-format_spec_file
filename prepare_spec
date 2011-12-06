@@ -130,6 +130,7 @@ sub load_license_map()
     open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
     # ignore header
     readline(*MAP);
+    my %spdx;
     while (<MAP>) {
 	chomp;
 	my ($license, $oldstring) = split(/\t/, $_, 2);
@@ -139,8 +140,12 @@ sub load_license_map()
 	#print STDERR "$license\t$oldstring\n";
 	die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
 	$license_replace{$oldstring} = $license;
+        $spdx{$license} = 1;
     }
     close(MAP);
+    for (keys %spdx) {
+	$license_replace{$_} = $_;
+    }
 }
 
 sub replace_single_spdx($)
