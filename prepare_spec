@@ -231,6 +231,18 @@ sub set_current_pkg {
   return ($curpack, $curlang);
 }
 
+sub sort_buildrequires_helper {
+  if (($a =~ /^[^#]*\(/) != ($b =~ /^[^#]*\(/)) {
+    if ($a =~ /^[^#]*\(/) {
+      1;
+    } else {
+      -1;
+    }
+  } else {
+    $a cmp $b;
+  }
+}
+
 sub read_and_parse_old_spec {
   my ( $specfile, $base_package ) = @_;
   my $current_package = $base_package;
@@ -614,9 +626,9 @@ while ($linesmoved) {
 	} else {
 	    # if there are already buildrequires, we need to sort and exit
 	    if (@buildrequires > 0) {
-		my @sortedbrs = sort(@buildrequires);
+		my @sortedbrs = sort(sort_buildrequires_helper @buildrequires);
 		$linesmoved = !compare_arrays(\@buildrequires, \@sortedbrs);
-		@oldspec = (@firstlines, sort(@buildrequires), $l, @oldspec);
+		@oldspec = (@firstlines, sort(sort_buildrequires_helper @buildrequires), $l, @oldspec);
 		@firstlines = ();
 		@buildrequires = ();
 		last;
