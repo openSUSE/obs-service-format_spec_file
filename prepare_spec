@@ -626,9 +626,9 @@ while ($linesmoved) {
 	} else {
 	    # if there are already buildrequires, we need to sort and exit
 	    if (@buildrequires > 0) {
-		my @sortedbrs = sort(sort_buildrequires_helper @buildrequires);
+		my @sortedbrs = sort sort_buildrequires_helper @buildrequires;
 		$linesmoved = !compare_arrays(\@buildrequires, \@sortedbrs);
-		@oldspec = (@firstlines, sort(sort_buildrequires_helper @buildrequires), $l, @oldspec);
+		@oldspec = (@firstlines, @sortedbrs, $l, @oldspec);
 		@firstlines = ();
 		@buildrequires = ();
 		last;

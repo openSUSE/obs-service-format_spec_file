@@ -1,3 +1,4 @@
+SPDX    Name in Spec File
 AAL	AAL
 AFL-2.1	Academic Free License 2.1
 AGPL-3.0	Affero GPL
@@ -288,7 +289,6 @@ MS-PL	Ms-Pl
 MS-PL	MS-PL
 MS-RL	MS-RL
 Multics	Multics
-SPDX	Name in Spec File
 NASA-1.3	NASA-1.3
 Naumen	Naumen
 NCSA	NCSA
