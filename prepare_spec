@@ -24,7 +24,6 @@ my $vim_modeline;
 my $nosrc_result = 0;
 my $current_section = "header";
 my $had_debug_package = 0;
-my %pkg_version = ();
 my $main_license;
 my %seen_licenses = ();
 my $main_group;
@@ -490,6 +489,10 @@ sub read_and_parse_old_spec {
       }
       # reset Release
       if ( /^Release\s*:\s*(.*)/i ) {
+          if ($1 !~ m/^[0-9]*$/ && $oldspec[-1] eq "XXXRELEASE") {
+             pop @oldspec;
+	     push @oldspec, sprintf("%-16s%s","Release:", $1);
+          }
 	  # will be after Version
 	  next;
       }
@@ -535,7 +538,7 @@ sub read_and_parse_old_spec {
         $version{$c_pack} = $_;
         $version{$c_pack} =~ s/^Version:\s*(.*)\s*/$1/;
         push @oldspec, sprintf("%-16s%s","Version:",$version{$c_pack});
-	push @oldspec, sprintf("%-16s%s","Release:", "0");
+        push @oldspec, "XXXRELEASE";
         next;
       }
     }
@@ -688,6 +691,8 @@ while (@oldspec) {
 	print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
     } elsif ($line eq "XXXDOUBLELINE") {
 	print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+    } elsif ($line eq "XXXRELEASE") {
+        printf("%-16s%s\n", "Release:", "0") ;
     } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
 	my $current_package = $1;
 	my $license = $seen_licenses{$current_package} || $main_license;
