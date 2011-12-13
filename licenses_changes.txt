@@ -222,6 +222,8 @@ GPL-3.0	GPLv3
 GPL-3.0+	GPLv3+
 gSOAP-1.3b	gSOAP-1.3b
 HPND	HPND
+SUSE-IJG	Independent JPEG Group License
+SUSE-IJG	JPEG License
 IPL-1.0	IBM PL
 IPL-1.0	IBM Public License
 IPL-1.0	IBM Public License ..
