@@ -682,6 +682,8 @@ while ($oldspec[0] eq "XXXBLANKLINE") {
 
 my $license_unique = !grep { $_ ne $main_license } values %seen_licenses;
 my $groups_unique = !grep { $_ ne $main_group } values %seen_groups;
+# we need to have unique groups in the spec file as long as we support SLE11 ;(
+$groups_unique = 0;
 my $first_summary = 1;
 
 my $line;
