@@ -97,7 +97,6 @@ CC0-1.0	CC0-1.0
 CDDL-1.0	CDDL
 CDDL-1.0	CDDL 1.0
 CDDL-1.0	CDDL-1.0
-CDDL-1.0 or LGPL-2.1	CDDLv1.0 | LGPLv2.1
 CECILL-1.0	CECILL-1.0
 CECILL-1.1English	CECILL-1.1English
 CECILL-2.0	CECILL-2.0
@@ -139,7 +138,7 @@ MIT	Expat
 MIT	Expat License
 Fair	Fair
 SUSE-FLTK	Fltk
-SUSE-GFDL-1.1	FDL v1.1 or later
+SUSE-GFDL-1.1+	FDL v1.1 or later
 SUSE-GFDL-1.2+	FDL-1.2+
 SUSE-GFDL-1.3+	FDL-1.3+
 SUSE-GFDL-1.2+	FDLv1.2+
@@ -174,6 +173,7 @@ LGPL-2.1	GNU Lesser General Public License version 2.1 (LGPL v2.1)
 LGPL-3.0	GNU Lesser General Public License version 3 (LGPL v3)
 LGPL-2.1+	GNU LGPL v2.1 or later
 LGPL-2.1	GNU LGPLv2.1
+SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
 GPL-2.0	GPL 2.0
 GPL-3.0	GPL 3
 GPL-2.0	GPL v2
@@ -190,24 +190,19 @@ GPL-1.0	GPL-1.0
 GPL-1.0+	GPL-1.0+
 GPL-2.0	GPL-2
 GPL-2.0	GPL-2.0
-GPL-2.0; GPL-2.0+	GPL-2.0 GPL-2.0+
 GPL-2.0+	GPL-2.0 or later
 GPL-2.0-with-autoconf-exception	GPL-2.0-with-autoconf-exception
 GPL-2.0-with-bison-exception	GPL-2.0-with-bison-exception
 GPL-2.0-with-classpath-exception	GPL-2.0-with-classpath-exception
 GPL-2.0-with-font-exception	GPL-2.0-with-font-exception
 GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
-GPL-2.0; GPL-2.0+	GPL-2.0, GPL-2.0+
+SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 GPL-2.0+	GPL-2.0+
-Apache-2.0; GPL-2.0+	GPL-2.0+, Apache-2.0
-GPL-2.0+; LGPL-2.0+	GPL-2.0+,LGPL-2.0+
-GPL-2.0	GPL-2.Ã0
 GPL-2.0+	GPL-2+
 GPL-3.0	GPL-3
 GPL-3.0	GPL-3.0
 GPL-3.0-with-autoconf-exception	GPL-3.0-with-autoconf-exception
 GPL-3.0-with-GCC-exception	GPL-3.0-with-GCC-exception
-GPL-3.0; GPL-2.0+	GPL-3.0, GPL-2.0+
 GPL-3.0+	GPL-3.0+
 GPL-3.0+	GPL-3+
 GPL-1.0+	GPL+
@@ -216,7 +211,6 @@ GPL-2.0+	GPL2+
 GPL-3.0	GPL3
 GPL-1.0+	GPLv1+
 GPL-2.0	GPLv2
-GPL-2.0 or GPL-3.0	GPLv2 || GPLv3
 GPL-2.0+	GPLv2 or later
 GPL-2.0+	GPLv2+
 GPL-3.0	GPLv3
@@ -238,6 +232,7 @@ LGPL-2.0+	LGPL v2 or later
 LGPL-2.0	LGPL v2.0 only
 LGPL-2.0+	LGPL v2.0 or later
 LGPL-2.1	LGPL v2.1
+SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 LGPL-2.1	LGPL v2.1 only
 LGPL-2.1+	LGPL v2.1 or later
 LGPL-2.1+	LGPL v2.1+
@@ -312,7 +307,6 @@ OSL-1.0	OSL-1.0
 OSL-2.0	OSL-2.0
 OSL-3.0	OSL-3.0
 PDDL-1.0	PDDL-1.0
-Artistic-1.0 or GPL-1.0+	Perl License
 PHP-3.0.1	PHP License
 PostgreSQL	PostgreSQL
 SUSE-Public-Domain	Public domain
@@ -341,6 +335,7 @@ SimPL-2.0	SimPL-2.0
 Sleepycat	Sleepycat
 SPL-1.0	SPL-1.0
 SugarCRM-1.1.3	SugarCRM-1.1.3
+SUSE-TCL	License for TCL (Fedora calls this TCL too. SPDX doesn't have it)
 LPPL-1.3c	TeX-License ..
 Apache-2.0	The Apache Software License
 PHP-3.0.1	The PHP License, version 3.01
@@ -369,3 +364,4 @@ ZPL-2.0	ZPL-2.0
 ZPL-2.1	ZPL-2.1
 SUSE-Firmware	Firmware license, redistributable unmodified
 SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
+Artistic-1.0 or GPL-1.0+	Perl License
