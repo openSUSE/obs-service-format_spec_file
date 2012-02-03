@@ -1,4 +1,4 @@
-SPDX	Name in Spec File
+New format (spdx.org)	Old format (fedora, PDB, etc)
 AAL	AAL
 AFL-2.1	Academic Free License 2.1
 AGPL-3.0	Affero GPL
@@ -198,6 +198,8 @@ GPL-2.0-with-classpath-exception	GPL-2.0-with-classpath-exception
 GPL-2.0-with-font-exception	GPL-2.0-with-font-exception
 GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
+SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
+SUSE-GPL-3.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 GPL-2.0+	GPL-2.0+
 GPL-2.0+	GPL-2+
 GPL-3.0	GPL-3
@@ -309,7 +311,8 @@ OSL-1.0	OSL-1.0
 OSL-2.0	OSL-2.0
 OSL-3.0	OSL-3.0
 PDDL-1.0	PDDL-1.0
-PHP-3.0.1	PHP License
+PHP-3.01	PHP License
+PHP-3.01	PHP-3.0.1
 PostgreSQL	PostgreSQL
 SUSE-Public-Domain	Public domain
 SUSE-Public-Domain	Public Domain
