@@ -199,7 +199,7 @@ GPL-2.0-with-font-exception	GPL-2.0-with-font-exception
 GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
-SUSE-GPL-3.0+-with-openssl-exception	GPLv2+ with openssl linking exception
+SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
 GPL-2.0+	GPL-2.0+
 GPL-2.0+	GPL-2+
 GPL-3.0	GPL-3
