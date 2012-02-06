@@ -31,9 +31,18 @@ for i in $MYSPECFILES; do
     echo "WARNING: no spec file found"
     exit 0
   fi
-  /usr/lib/obs/service/format_spec_file.files/prepare_spec "$i" > "$MYOUTDIR/$i" || RETURN=1
-  # remove all file files which are indendical to committed files
-  cmp -s "$i" "$MYOUTDIR/$i" && rm "$MYOUTDIR/$i"
+  if /usr/lib/obs/service/format_spec_file.files/prepare_spec "$i" > "$MYOUTDIR/$i.$$"; then
+    # remove all file files which are indendical to committed files
+    # be carefull for the case that $MYOUDIR is local dir
+    if cmp -s "$i" "$MYOUTDIR/$i.$$"; then
+      rm "$MYOUTDIR/$i.$$"
+    else
+      mv "$MYOUTDIR/$i.$$" "$MYOUTDIR/$i"
+    fi
+  else
+    rm "$MYOUTDIR/$i.$$"
+    RETURN=1
+  fi
 done
 
 exit $RETURN
