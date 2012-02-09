@@ -674,11 +674,13 @@ print "# needsrootforbuild\n" if $needsrootforbuild;
 print "# needsbinariesforbuild\n" if $needsbinariesforbuild;
 print "# nodebuginfo\n" if $nodebuginfo;
 print "# icecream $icecreamforbuild\n" if $icecreamforbuild ne '';
-print "\n" if ($needsrootforbuild || $needsbinariesforbuild || $nodebuginfo || $icecreamforbuild ne '');
+#print "\n" if ($needsrootforbuild || $needsbinariesforbuild || $nodebuginfo || $icecreamforbuild ne '');
 
-while ($oldspec[0] eq "XXXBLANKLINE") {
+while ($oldspec[0] eq "XXXBLANKLINE" || $oldspec[0] eq "XXXDOUBLELINE") {
   shift @oldspec;
 }
+
+print "\n\n";
 
 my $license_unique = !grep { $_ ne $main_license } values %seen_licenses;
 my $groups_unique = !grep { $_ ne $main_group } values %seen_groups;
@@ -689,6 +691,7 @@ my $first_summary = 1;
 my $line;
 while (@oldspec) {
     $line = shift @oldspec;
+
     if ($line eq "XXXBLANKLINE") {
 	print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
     } elsif ($line eq "XXXDOUBLELINE") {
