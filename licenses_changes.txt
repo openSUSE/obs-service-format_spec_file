@@ -115,6 +115,7 @@ CPL-1.0	CPL 1.0
 CPL-1.0	CPL 1.0 ...
 CPL-1.0	CPL-1.0
 CUA-OPL-1.0	CUA-OPL-1.0
+SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
 ECL-1.0	ECL-1.0
 ECL-2.0	ECL-2.0
 EPL-1.0	Eclipse Public License
@@ -221,8 +222,10 @@ GPL-3.0	GPLv3
 GPL-3.0+	GPLv3+
 gSOAP-1.3b	gSOAP-1.3b
 SUSE-Gnuplot	Gnuplot
+SUSE-Freetype	Freetype
 HPND	HPND
 SUSE-IJG	JPEG License
+SUSE-ImageMagick	ImageMagick
 IPL-1.0	IBM PL
 IPL-1.0	IBM Public License
 IPL-1.0	IBM Public License ..
@@ -376,4 +379,4 @@ SUSE-Firmware	Firmware license, redistributable unmodified
 SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
 Artistic-1.0 or GPL-1.0+	Perl License
 SUSE-NonFree	NonFree licenses
-SUSE:NON-OSI-COMPLIANT:GPL-2.0-with-trademark-clause-with-exceptions	LiberationFontsLicense
+SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
