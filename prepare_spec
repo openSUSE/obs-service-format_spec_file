@@ -230,7 +230,7 @@ sub set_current_pkg {
   return ($curpack, $curlang);
 }
 
-sub sort_buildrequires_helper {
+sub sort_tags_helper {
   if (($a =~ /^[^#]*\(/) != ($b =~ /^[^#]*\(/)) {
     if ($a =~ /^[^#]*\(/) {
       1;
@@ -317,18 +317,23 @@ sub read_and_parse_old_spec {
     $_ =~ s/%{?epoch}?[:-]//g;
     $_ =~ s/ 0:/ /g if ( /^requires/i || /^buildreq/i );
 
-    if ( /^BuildRequires:/ ) {
-	my $cur_buildreq = $_;
-	$cur_buildreq =~ s/^BuildRequires:\s*//;
+    if ( /^BuildRequires:/i || /^Requires:/i || /^Provides:/i ) {
+	my $cur_tag = $_;
+        my $tag = '';
+	if (m/^(\S+):\s*(.*)$/) {
+           $tag = $1;
+           $cur_tag = $2;
+        }
+        
 	my %aa;
-	while ($cur_buildreq =~ m{([^,\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
+	while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
 	  $aa{$1}=1;
 	}
 	# ignore line if it looks like a "usedforbuild" line, i.e.
 	# if it contains too many base packages
 	next if (grep {$aa{$_}} qw{gcc rpm glibc bash}) > 2;
-	for my $br (sort keys(%aa)) {
-	    push @oldspec, "BuildRequires:  $br";
+	for my $value (sort keys(%aa)) {
+            push (@oldspec, sprintf("%-16s%s", capitalize_case($tag) . ":", $value));
 	}
 	next;
     }
@@ -617,23 +622,24 @@ if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
 
 read_and_parse_old_spec ( $specfile, $base_package );
 
-my $linesmoved = 1;
-while ($linesmoved) {
+for my $tag (qw(BuildRequires Requires Provides)) {
+ my $linesmoved = 1;
+ while ($linesmoved) {
     $linesmoved = 0;
     my @firstlines = ();
-    my @buildrequires = ();
+    my @tags = ();
     while ($oldspec[0]) {
 	my $l = shift @oldspec;
-	if ($l =~ m/^BuildRequires:/ ) {
-	    push(@buildrequires, $l);
+	if ($l =~ m/^$tag:/ ) {
+	    push(@tags, $l);
 	} else {
-	    # if there are already buildrequires, we need to sort and exit
-	    if (@buildrequires > 0) {
-		my @sortedbrs = sort sort_buildrequires_helper @buildrequires;
-		$linesmoved = !compare_arrays(\@buildrequires, \@sortedbrs);
-		@oldspec = (@firstlines, @sortedbrs, $l, @oldspec);
+	    # if there are already tags, we need to sort and exit
+	    if (@tags > 0) {
+		my @sortedtags = sort sort_tags_helper @tags;
+		$linesmoved = !compare_arrays(\@tags, \@sortedtags);
+		@oldspec = (@firstlines, @sortedtags, $l, @oldspec);
 		@firstlines = ();
-		@buildrequires = ();
+		@tags = ();
 		last;
 	    } else {
 		push(@firstlines, $l);
@@ -641,6 +647,7 @@ while ($linesmoved) {
 	}
     }
     @oldspec = (@firstlines, @oldspec);
+ }
 }
 
 
