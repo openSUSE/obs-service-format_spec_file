@@ -624,7 +624,7 @@ read_and_parse_old_spec ( $specfile, $base_package );
 
 for my $tag (qw(BuildRequires Requires Provides)) {
  my $linesmoved = 1;
- while ($linesmoved) {
+ sortcycle: while ($linesmoved) {
     $linesmoved = 0;
     my @firstlines = ();
     my @tags = ();
@@ -637,10 +637,16 @@ for my $tag (qw(BuildRequires Requires Provides)) {
 	    if (@tags > 0) {
 		my @sortedtags = sort sort_tags_helper @tags;
 		$linesmoved = !compare_arrays(\@tags, \@sortedtags);
-		@oldspec = (@firstlines, @sortedtags, $l, @oldspec);
-		@firstlines = ();
-		@tags = ();
-		last;
+		if ($linesmoved) {
+ 		   @oldspec = (@firstlines, @sortedtags, $l, @oldspec);
+		   @firstlines = ();
+	           @tags = ();
+		   next sortcycle;	
+                 } else {
+		   @firstlines = (@firstlines, @tags, $l);
+		   @tags = ();
+		   next;
+                 }
 	    } else {
 		push(@firstlines, $l);
 	    }
