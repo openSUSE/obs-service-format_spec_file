@@ -317,7 +317,7 @@ sub read_and_parse_old_spec {
     $_ =~ s/%{?epoch}?[:-]//g;
     $_ =~ s/ 0:/ /g if ( /^requires/i || /^buildreq/i );
 
-    if ( /^BuildRequires:/i || /^Requires:/i || /^Provides:/i ) {
+    if ( /^BuildRequires:/i || /^Requires:/i || /^Provides:/i || /^Obsoletes:/i ) {
 	my $cur_tag = $_;
         my $tag = '';
 	if (m/^(\S+):\s*(.*)$/) {
@@ -622,15 +622,15 @@ if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
 
 read_and_parse_old_spec ( $specfile, $base_package );
 
-for my $tag (qw(BuildRequires Requires Provides)) {
+for my $tag (qw(BuildRequires Requires Provides Obsoletes)) {
  my $linesmoved = 1;
  sortcycle: while ($linesmoved) {
     $linesmoved = 0;
     my @firstlines = ();
     my @tags = ();
-    while ($oldspec[0]) {
+    while (defined $oldspec[0]) {
 	my $l = shift @oldspec;
-	if ($l =~ m/^$tag:/ ) {
+	if ($l =~ m/^$tag:/i ) {
 	    push(@tags, $l);
 	} else {
 	    # if there are already tags, we need to sort and exit
@@ -640,8 +640,8 @@ for my $tag (qw(BuildRequires Requires Provides)) {
 		if ($linesmoved) {
  		   @oldspec = (@firstlines, @sortedtags, $l, @oldspec);
 		   @firstlines = ();
-	           @tags = ();
-		   next sortcycle;	
+		   @tags = ();
+		   next sortcycle;
                  } else {
 		   @firstlines = (@firstlines, @tags, $l);
 		   @tags = ();
