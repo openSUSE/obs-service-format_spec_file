@@ -34,51 +34,49 @@ my $ifhandler;
 my $definelist;
 my $debug = 0;
 
-my @global_tags_list = 
-(
- 'Autoreq',
- 'Autoreqprov',
- 'BuildArch',
- 'BuildArchitectures',
- 'BuildRequires',
- 'Conflicts',
- 'DocDir',
- 'Enhances',
- 'Enhances',
- 'EssentialFor',
- 'ExcludeArch',
- 'ExclusiveArch',
- 'Freshens',
- 'Group',
- 'Name',
- 'NoPatch',
- 'NoSource',
- 'Obsoletes', 
- 'Patch\d*',
- 'Prefix',
- 'PreReq',
- 'Provides',
- 'Recommends',
- 'Requires',
- 'Source\d*',
- 'Suggests',
- 'Summary',
- 'Supplements',
- 'Url',
+my @global_tags_list = (
+  'Autoreq',
+  'Autoreqprov',
+  'BuildArch',
+  'BuildArchitectures',
+  'BuildRequires',
+  'Conflicts',
+  'DocDir',
+  'Enhances',
+  'Enhances',
+  'EssentialFor',
+  'ExcludeArch',
+  'ExclusiveArch',
+  'Freshens',
+  'Group',
+  'Name',
+  'NoPatch',
+  'NoSource',
+  'Obsoletes', 
+  'Patch\d*',
+  'Prefix',
+  'PreReq',
+  'Provides',
+  'Recommends',
+  'Requires',
+  'Source\d*',
+  'Suggests',
+  'Summary',
+  'Supplements',
+  'Url',
 );
 
 my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
 
 my $section_tags_re ='^\s*%(?:clean|check|prep|build|install|pre|post|preun|postun|posttrans|package|' .
-                     'description|files|triggerin|triggerun|triggerpostun)\b';
+  'description|files|triggerin|triggerun|triggerpostun)\b';
 
 sub unify {
   my %h = map {$_ => 1} @_;
   return grep(delete($h{$_}), @_);
 }
 
-sub capitalize_case($)
-{
+sub capitalize_case($) {
   my ($tag) = @_;
 
   $tag = lc($tag);
@@ -95,22 +93,22 @@ sub capitalize_case($)
 }
 
 sub compare_arrays {
-    my ($first, $second) = @_;
-    return 0 unless @$first == @$second;
-    for (my $i = 0; $i < @$first; $i++) {
-	return 0 if $first->[$i] ne $second->[$i];
-    }
-    return 1;
-}  
-
-sub maybe_add_empty_line()
-{
-  push @oldspec, "XXXBLANKLINE" 
-    if ($current_section ne "description" && $oldspec[-1] !~ /^\s*$/ && $oldspec[-1] !~ /^[#%]/);
+  my ($first, $second) = @_;
+  return 0 unless @$first == @$second;
+  for (my $i = 0; $i < @$first; $i++) {
+    return 0 if $first->[$i] ne $second->[$i];
+  }
+  return 1;
 }
 
-sub change_section($)
-{
+sub maybe_add_empty_line() {
+  return if $current_section eq "description";
+
+  push @oldspec, "XXXBLANKLINE"
+    if ($oldspec[-1] !~ /^\s*$/ && $oldspec[-1] !~ /^[#%]/);
+}
+
+sub change_section($) {
   my ($new_section) = @_;
 
   maybe_add_empty_line();
@@ -122,91 +120,87 @@ sub change_section($)
 my %license_replace = ();
 use File::Basename;
 
-sub load_license_map()
-{
-    return if defined $license_replace{"GPL-2.0"};
-    my $scriptdir = File::Basename::dirname($0);
-    open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
-    # ignore header
-    readline(*MAP);
-    my %spdx;
-    while (<MAP>) {
-	chomp;
-	my ($license, $oldstring) = split(/\t/, $_, 2);
-	#$license =~ s,\s*$,,;
-	#$oldstring =~ s,\s*$,,;
-	next unless length($license);
-	#print STDERR "$license\t$oldstring\n";
-	die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
-	$license_replace{$oldstring} = $license;
-        $spdx{$license} = 1;
-    }
-    close(MAP);
-    for (keys %spdx) {
-	$license_replace{$_} = $_;
-    }
+sub load_license_map() {
+  return if defined $license_replace{"GPL-2.0"};
+  my $scriptdir = File::Basename::dirname($0);
+  open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
+  # ignore header
+  readline(*MAP);
+  my %spdx;
+  while (<MAP>) {
+    chomp;
+    my ($license, $oldstring) = split(/\t/, $_, 2);
+    #$license =~ s,\s*$,,;
+    #$oldstring =~ s,\s*$,,;
+    next unless length($license);
+    #print STDERR "$license\t$oldstring\n";
+    die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
+    $license_replace{$oldstring} = $license;
+    $spdx{$license} = 1;
+  }
+  close(MAP);
+  for (keys %spdx) {
+    $license_replace{$_} = $_;
+  }
 }
 
-sub replace_single_spdx($)
-{
-    my ($l) = @_;
+sub replace_single_spdx($) {
+  my ($l) = @_;
 
-    return '' if $l eq '';
+  return '' if $l eq '';
 
-    load_license_map();
-    $l =~ s,ORlater,or later,g;
-    $l =~ s,ORsim,or similar,g;
-    $l =~ s,^\s+,,;
-    $l =~ s,\s+$,,;
+  load_license_map();
+  $l =~ s,ORlater,or later,g;
+  $l =~ s,ORsim,or similar,g;
+  $l =~ s,^\s+,,;
+  $l =~ s,\s+$,,;
 
-    if (defined $license_replace{$l}) {
-	$l = $license_replace{$l};
-    } else {
-	print STDERR "Unknown license '$l'\n";
-    }
-    return $l;
+  if (defined $license_replace{$l}) {
+    $l = $license_replace{$l};
+  } else {
+    print STDERR "Unknown license '$l'\n";
+  }
+  return $l;
 }
 
 sub replace_spdx_and($);
-sub replace_spdx_and($)
-{
-    my ($license) = @_;
+sub replace_spdx_and($) {
+  my ($license) = @_;
 
-    # special case as or later is common in our spec files
-    $license =~ s,or later,ORlater,g;
-    $license =~ s,or similar,ORsim,g;
-    
-    #print STDERR "ORIG '$license'\n";
-    my @licenses = ();
-    if ( $license =~ /^(.*?)\(([^)]*)\)(.*?)$/ ) {
-	my ($head, $paren, $tail) = ($1, $2, $3);
-        if ($paren =~ /and|or/) {
-	    $head = replace_spdx_and($head);
-	    $tail = replace_spdx_and($tail);
-	    $paren = replace_spdx_and($paren);
-	    #print STDERR "AFTE '$head($paren)$tail'\n";
-	    return "$head($paren)$tail";
-        }
-    }
+  # special case as or later is common in our spec files
+  $license =~ s,or later,ORlater,g;
+  $license =~ s,or similar,ORsim,g;
 
-    for (split(/(\s+(?:and|or)\s+)/, $license, -1)) {
-	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:and|or)\s+)/;
-        s/\s+/ /g;
-	push @licenses, $_;
+  #print STDERR "ORIG '$license'\n";
+  my @licenses = ();
+  if ( $license =~ /^(.*?)\(([^)]*)\)(.*?)$/ ) {
+    my ($head, $paren, $tail) = ($1, $2, $3);
+    if ($paren =~ /and|or/) {
+      $head = replace_spdx_and($head);
+      $tail = replace_spdx_and($tail);
+      $paren = replace_spdx_and($paren);
+      #print STDERR "AFTE '$head($paren)$tail'\n";
+      return "$head($paren)$tail";
     }
-    #print STDERR "AFTE '" . join('', @licenses) . "'\n";
-    return join('', @licenses);
+  }
+
+  for (split(/(\s+(?:and|or)\s+)/, $license, -1)) {
+    $_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:and|or)\s+)/;
+    s/\s+/ /g;
+    push @licenses, $_;
+  }
+  #print STDERR "AFTE '" . join('', @licenses) . "'\n";
+  return join('', @licenses);
 }
 
-sub replace_spdx($)
-{
-    my ($license) = @_;
+sub replace_spdx($) {
+  my ($license) = @_;
 
-    my @licenses = ();
-    for (split(/\s*;\s*/, $license)) {
-	push @licenses, replace_spdx_and($_);
-    }
-    return join(' ; ', @licenses);
+  my @licenses = ();
+  for (split(/\s*;\s*/, $license)) {
+    push @licenses, replace_spdx_and($_);
+  }
+  return join(' ; ', @licenses);
 }
 
 sub set_current_pkg {
@@ -262,55 +256,55 @@ sub read_and_parse_old_spec {
     $_ = shift @readspec;
 
     if ( /^\s*$/ && $current_section ne "description") {
-	# stop preamble parsing on two blank lines
-        if ($print_comments eq "false" && $oldspec[0] && $oldspec[-1] eq "XXXBLANKLINE") {
-		$print_comments = "true";
-		push @oldspec, "XXXDOUBLELINE";
-		next;
-	}
-	push @oldspec, "XXXBLANKLINE";
+      # stop preamble parsing on two blank lines
+      if ($print_comments eq "false" && 
+	    $oldspec[0] && $oldspec[-1] eq "XXXBLANKLINE") {
+	$print_comments = "true";
+	push @oldspec, "XXXDOUBLELINE";
 	next;
+      }
+      push @oldspec, "XXXBLANKLINE";
+      next;
     }
 
     if ( /^# vim:/ ) {
-	$vim_modeline = $_;
-	next;
+      $vim_modeline = $_;
+      next;
     }
-    
+
     if ( /^#\s*needsrootforbuild\s*$/ ) {
-        $needsrootforbuild = 1;
-        next;
+      $needsrootforbuild = 1;
+      next;
     }
     if ( /^#\s*needsbinariesforbuild\s*$/ ) {
-        $needsbinariesforbuild = 1;
-        next;
+      $needsbinariesforbuild = 1;
+      next;
     }
     if ( /^#\s*norootforbuild/ ) {
-	next;
+      next;
     }
 
     if ( /^#\s*nodebuginfo\s*$/ ) {
-        $nodebuginfo = 1;
-        next;
+      $nodebuginfo = 1;
+      next;
     }
     if ( /^#\s*icecream/ ) {
-        $icecreamforbuild = $_;
-	$icecreamforbuild =~ s/^#\s*icecream\s*//;
-        next;
+      $icecreamforbuild = $_;
+      $icecreamforbuild =~ s/^#\s*icecream\s*//;
+      next;
     }
     if ( /^#\s*Copyright\s*/ ) {
-        my $lastlineblank = 0;
-        for (;;)
-          {
-            # check if line is ONLY a standard copyright line, if so, ignore.
-            my $c = $_;
-            $c =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
-            push(@copyrights, $_) if length $c > 5;
-            last if length $readspec[0] < 10 || $readspec[0] =~ m{modifications and additions}i || $readspec[0] !~ /^[\#\s]/
-		|| grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
-            $_ = shift @readspec;
-          }
-        next;
+      my $lastlineblank = 0;
+      for (;;) {
+	# check if line is ONLY a standard copyright line, if so, ignore.
+	my $c = $_;
+	$c =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
+	push(@copyrights, $_) if length $c > 5;
+	last if length $readspec[0] < 10 || $readspec[0] =~ m{modifications and additions}i || $readspec[0] !~ /^[\#\s]/
+	  || grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
+	$_ = shift @readspec;
+      }
+      next;
     }
     # evil epoch removal
     next if ( /^Epoch:/ );
@@ -318,24 +312,24 @@ sub read_and_parse_old_spec {
     $_ =~ s/ 0:/ /g if ( /^requires/i || /^buildreq/i );
 
     if ( /^BuildRequires:/i || /^Requires:/i || /^Provides:/i || /^Obsoletes:/i ) {
-	my $cur_tag = $_;
-        my $tag = '';
-	if (m/^(\S+):\s*(.*)$/) {
-           $tag = $1;
-           $cur_tag = $2;
-        }
-        
-	my %aa;
-	while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
-	  $aa{$1}=1;
-	}
-	# ignore line if it looks like a "usedforbuild" line, i.e.
-	# if it contains too many base packages
-	next if (grep {$aa{$_}} qw{gcc rpm glibc bash}) > 2;
-	for my $value (sort keys(%aa)) {
-            push (@oldspec, sprintf("%-16s%s", capitalize_case($tag) . ":", $value));
-	}
-	next;
+      my $cur_tag = $_;
+      my $tag = '';
+      if (m/^(\S+):\s*(.*)$/) {
+	$tag = $1;
+	$cur_tag = $2;
+      }
+
+      my %aa;
+      while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
+	$aa{$1}=1;
+      }
+      # ignore line if it looks like a "usedforbuild" line, i.e.
+      # if it contains too many base packages
+      next if (grep {$aa{$_}} qw{gcc rpm glibc bash}) > 2;
+      for my $value (sort keys(%aa)) {
+	push (@oldspec, sprintf("%-16s%s", capitalize_case($tag) . ":", $value));
+      }
+      next;
     }
     next if ( /^#\s*usedforbuild/ );
     if ( /^%\?__\*BuildRequires:/ ) {
@@ -354,14 +348,14 @@ sub read_and_parse_old_spec {
     if ( /^#/ && $current_section ne "description") {
       warn "$_ $current_section\n" if $debug;
       if ( $print_comments eq "true" || $readspec[0] =~ /^%define/ || $readspec[0] =~ /^%if/) {
-        push @oldspec, $_;
+	push @oldspec, $_;
       }
       next;
     }
 
     if ( /^%debug_package/ ) {
-	# remove, we add this ourselves
-	next;
+      # remove, we add this ourselves
+      next;
     }
     $print_comments = "true" unless /^#/;
 
@@ -380,42 +374,42 @@ sub read_and_parse_old_spec {
 	$ifhandler->{"depth"}++;
 	my $if_not = 0;
 	if ( $args[1] =~ /^\!/ ) {
-		$args[1] =~ s/^\!//;
-		$if_not = 1;
+	  $args[1] =~ s/^\!//;
+	  $if_not = 1;
 	}
 	$args[2] = "" unless $args[2];
 	if (	($args[1] eq "0")
-		|| ($args[1] eq "%name" && $args[2] eq "!=" && $args[3] eq $base_package)
-		|| ($args[1] eq "%name" && $args[2] eq "==" && $args[3] ne $base_package)
-		|| ($args[1] && !$args[3] && !$if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
-		|| ($args[2] eq "==" && $args[3] ne "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
-		|| ($args[2] eq "!=" && $args[3] eq "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
-		|| ($args[1] && !$args[3] && $if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1")
-		|| ($args[1] && $args[2] eq "!=" && $args[3] eq "1" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1") ) {
-		$ifhandler->{"disabled"} = $ifhandler->{"depth"};
-		$ifhandler->{"last_if_disabled"} = 1;
+		  || ($args[1] eq "%name" && $args[2] eq "!=" && $args[3] eq $base_package)
+		    || ($args[1] eq "%name" && $args[2] eq "==" && $args[3] ne $base_package)
+		      || ($args[1] && !$args[3] && !$if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
+			|| ($args[2] eq "==" && $args[3] ne "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
+			  || ($args[2] eq "!=" && $args[3] eq "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
+			    || ($args[1] && !$args[3] && $if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1")
+			      || ($args[1] && $args[2] eq "!=" && $args[3] eq "1" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1") ) {
+	  $ifhandler->{"disabled"} = $ifhandler->{"depth"};
+	  $ifhandler->{"last_if_disabled"} = 1;
 	}
       } elsif ( /^\s*%if/ ) {
 	$ifhandler->{"last_if_disabled"} = 0;
-        $ifhandler->{"last_if_if"} = 0;
+	$ifhandler->{"last_if_if"} = 0;
 	$ifhandler->{"depth"}++;
       } elsif ( /^\s*%endif/ ) {
 	$ifhandler->{"disabled"} = 0 if $ifhandler->{"disabled"} == $ifhandler->{"depth"};
 	$ifhandler->{"depth"}--;
       } elsif ( /^\s*%else/ ) {
 	if ($ifhandler->{"disabled"} == $ifhandler->{"depth"} && $ifhandler->{"last_if_disabled"} == 1) {
-		$ifhandler->{"disabled"} = 0;
+	  $ifhandler->{"disabled"} = 0;
 	} elsif ($ifhandler->{"disabled"} == 0 && $ifhandler->{"depth"} == 1 && $ifhandler->{"last_if_if"} == 1) {
-		$ifhandler->{"disabled"} = 1;
+	  $ifhandler->{"disabled"} = 1;
 	}
       } elsif ( /^\s*%define\s/ ) {
 	my @args = split (/\s+/,$_);
 	$_ =~ s/[\{\}\"]//g for (@args);
 	$args[2] =~ s/\Q$_\E/$definelist->{$_}/g for sort { length($b) <=> length($a) } keys (%{$definelist});
 	if ( $args[2] !~ /[\(\)\{\}\@\%\"\\]/ ) {
-		$definelist->{"%".$args[1]} = $args[2] if $ifhandler->{"disabled"} == 0;
-		$definelist->{"%{".$args[1]."}"} = $args[2] if $ifhandler->{"disabled"} == 0;
-		$definelist->{"%{?".$args[1]."}"} = $args[2] if $ifhandler->{"disabled"} == 0;
+	  $definelist->{"%".$args[1]} = $args[2] if $ifhandler->{"disabled"} == 0;
+	  $definelist->{"%{".$args[1]."}"} = $args[2] if $ifhandler->{"disabled"} == 0;
+	  $definelist->{"%{?".$args[1]."}"} = $args[2] if $ifhandler->{"disabled"} == 0;
 	}
 	while ($_ =~ /\\$/) {
 	  $_ = shift @readspec;
@@ -432,11 +426,11 @@ sub read_and_parse_old_spec {
       }
       $_ =~ s/^(%\w+)/lc($1)/e;
       if ($debug) {
-    	warn "key: $_ value: $definelist->{$_}\n" for (sort { length($b) <=> length($a) } keys (%{$definelist}));
+	warn "key: $_ value: $definelist->{$_}\n" for (sort { length($b) <=> length($a) } keys (%{$definelist}));
       }
       push @oldspec, $_;
       for my $xx (sort { length($b) <=> length($a) } keys (%{$definelist})) {
-        $_ =~ s/\Q$xx\E/$definelist->{$xx}/;
+	$_ =~ s/\Q$xx\E/$definelist->{$xx}/;
       }
       $_ =~ s/%{\?[^\}]*}//;
       if ($debug) {
@@ -461,7 +455,7 @@ sub read_and_parse_old_spec {
     }
     if ( /^%changelog\b/i ) {
       change_section("changelog");
-      # changelog comes always from *.changes.  Skip what is in spec file
+      # changelog comes always from *.changes.	Skip what is in spec file
       # at the moment.
       next;
     }
@@ -471,8 +465,8 @@ sub read_and_parse_old_spec {
     }
     if ( /^%/ ) {
       if ( m/$section_tags_re/oi ) {
-        $_ =~ s/^(%\w+)/lc($1)/e;
-        change_section("header") if (! m/\s*%files/i && !m/\s*%build/i);
+	$_ =~ s/^(%\w+)/lc($1)/e;
+	change_section("header") if (! m/\s*%files/i && !m/\s*%build/i);
 	change_section("build") if m/\s*%build/i;
 	warn "changed to $current_section for $_\n" if $debug;
       }
@@ -486,65 +480,65 @@ sub read_and_parse_old_spec {
       $c_pack .= "_disabled" if $ifhandler->{"disabled"};
 
       if ( /^Vendor:/ || /^Distribution:/ || /^Packager:/ ) {
-        next;
+	next;
       }
       # remove default value of Autoreqprov
       if ( /^Autoreqprov\s*:\s*(.*)/i ) {
-	  next if ( lc($1) eq "on" || lc($1) eq "yes");
+	next if ( lc($1) eq "on" || lc($1) eq "yes");
       }
       # reset Release
       if ( /^Release\s*:\s*(.*)/i ) {
-          if ($1 !~ m/^[0-9]*$/ && $oldspec[-1] eq "XXXRELEASE") {
-             pop @oldspec;
-	     push @oldspec, sprintf("%-16s%s","Release:", $1);
-          }
-	  # will be after Version
-	  next;
+	if ($1 !~ m/^[0-9]*$/ && $oldspec[-1] eq "XXXRELEASE") {
+	  pop @oldspec;
+	  push @oldspec, sprintf("%-16s%s","Release:", $1);
+	}
+	# will be after Version
+	next;
       }
       if ( /^Summary\s*:\s*(.*)\s*$/i ) {
-	  push @oldspec, sprintf("%-16s%s", "Summary:", $1);
-	  push @oldspec, "XXXPOSTSUMMARY $current_package";
-	  next;
+	push @oldspec, sprintf("%-16s%s", "Summary:", $1);
+	push @oldspec, "XXXPOSTSUMMARY $current_package";
+	next;
       }
 
       # remove license and print out after license later
       if ( /^License\s*:\s*(.*)\s*$/i || /^Copyright\s*:\s*(.*)\s*$/i ) {
-	  my $license = replace_spdx($1);
-	  $main_license = $license if (!$main_license);
-	  $seen_licenses{$current_package} = $license;
-	  next;
+	my $license = replace_spdx($1);
+	$main_license = $license if (!$main_license);
+	$seen_licenses{$current_package} = $license;
+	next;
       }
 
       # remove groups and print out after summary later
       if ( /^Group\s*:\s*(.*)\s*$/i ) {
-	  my $group = $1;
-	  $main_group = $group if (!$main_group);
-	  $seen_groups{$current_package} = $group;
-	  next;
+	my $group = $1;
+	$main_group = $group if (!$main_group);
+	$seen_groups{$current_package} = $group;
+	next;
       }
 
       if ( /^BuildArchitectures\s*:/i ) {
-        $_ =~ s/^[^:]+:/BuildArch:/;
+	$_ =~ s/^[^:]+:/BuildArch:/;
       }
 
       if ( /^BuildRoot\s*:/i ) {
-        push @oldspec, "BuildRoot:      %{_tmppath}/%{name}-%{version}-build";
-        next;
+	push @oldspec, "BuildRoot:	%{_tmppath}/%{name}-%{version}-build";
+	next;
       }
 
       if ( m/$global_tags_re\s*(.*)/oi ) {
-        my ($tag, $value) = ($1, $2);
-        $nosrc_result = 1 if ($tag =~ /(?:nosource|nopatch)/i);
-        push @oldspec, sprintf("%-16s%s", capitalize_case($tag) . ":", $value);
-        next;
+	my ($tag, $value) = ($1, $2);
+	$nosrc_result = 1 if ($tag =~ /(?:nosource|nopatch)/i);
+	push @oldspec, sprintf("%-16s%s", capitalize_case($tag) . ":", $value);
+	next;
       }
       if ( /^Version:/ ) {
 	warn "found Version, section = $current_section\n" if $debug;
-        $version{$c_pack} = $_;
-        $version{$c_pack} =~ s/^Version:\s*(.*)\s*/$1/;
-        push @oldspec, sprintf("%-16s%s","Version:",$version{$c_pack});
-        push @oldspec, "XXXRELEASE";
-        next;
+	$version{$c_pack} = $_;
+	$version{$c_pack} =~ s/^Version:\s*(.*)\s*/$1/;
+	push @oldspec, sprintf("%-16s%s","Version:",$version{$c_pack});
+	push @oldspec, "XXXRELEASE";
+	next;
       }
     }
     if ( $current_section ne "changelog" ) {
@@ -595,8 +589,8 @@ while ( <SPE> ) {
     $base_package =~ s/^\s*Name:\s*(\S*)\s*/$1/;
     $base_package =~ s/\Q$_\E/$xdefinelist->{$_}/ for (sort { length($b) <=> length($a) } keys (%{$xdefinelist}));
     if ($debug) {
-	warn "DEBUG: base_package = $base_package\n";
-	warn Dumper($xdefinelist);
+      warn "DEBUG: base_package = $base_package\n";
+      warn Dumper($xdefinelist);
     }
     last;
   }
@@ -608,6 +602,7 @@ warn ("base_package is $base_package\n") if $debug;
 if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
   $base_package =~ s/[0-9]$//;
 }
+
 if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
   $base_package =~ s/\-[^\-]*$//;
 }
@@ -623,37 +618,37 @@ if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
 read_and_parse_old_spec ( $specfile, $base_package );
 
 for my $tag (qw(BuildRequires Requires Provides Obsoletes)) {
- my $linesmoved = 1;
+  my $linesmoved = 1;
  sortcycle: while ($linesmoved) {
     $linesmoved = 0;
     my @firstlines = ();
     my @tags = ();
     while (defined $oldspec[0]) {
-	my $l = shift @oldspec;
-	if ($l =~ m/^$tag:/i ) {
-	    push(@tags, $l);
+      my $l = shift @oldspec;
+      if ($l =~ m/^$tag:/i ) {
+	push(@tags, $l);
+      } else {
+	# if there are already tags, we need to sort and exit
+	if (@tags > 0) {
+	  my @sortedtags = sort sort_tags_helper @tags;
+	  $linesmoved = !compare_arrays(\@tags, \@sortedtags);
+	  if ($linesmoved) {
+	    @oldspec = (@firstlines, @sortedtags, $l, @oldspec);
+	    @firstlines = ();
+	    @tags = ();
+	    next sortcycle;
+	  } else {
+	    @firstlines = (@firstlines, @tags, $l);
+	    @tags = ();
+	    next;
+	  }
 	} else {
-	    # if there are already tags, we need to sort and exit
-	    if (@tags > 0) {
-		my @sortedtags = sort sort_tags_helper @tags;
-		$linesmoved = !compare_arrays(\@tags, \@sortedtags);
-		if ($linesmoved) {
- 		   @oldspec = (@firstlines, @sortedtags, $l, @oldspec);
-		   @firstlines = ();
-		   @tags = ();
-		   next sortcycle;
-                 } else {
-		   @firstlines = (@firstlines, @tags, $l);
-		   @tags = ();
-		   next;
-                 }
-	    } else {
-		push(@firstlines, $l);
-	    }
+	  push(@firstlines, $l);
 	}
+      }
     }
     @oldspec = (@firstlines, @oldspec);
- }
+  }
 }
 
 
@@ -703,24 +698,24 @@ my $first_summary = 1;
 
 my $line;
 while (@oldspec) {
-    $line = shift @oldspec;
+  $line = shift @oldspec;
 
-    if ($line eq "XXXBLANKLINE") {
-	print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
-    } elsif ($line eq "XXXDOUBLELINE") {
-	print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
-    } elsif ($line eq "XXXRELEASE") {
-        printf("%-16s%s\n", "Release:", "0") ;
-    } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
-	my $current_package = $1;
-	my $license = $seen_licenses{$current_package} || $main_license;
-	printf("%-16s%s\n", "License:", $license) if (!$license_unique || $first_summary);
-	my $group = $seen_groups{$current_package} || $main_group;
-	printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary);
-	$first_summary = 0;
-    } else {
-	print "$line\n";
-    }
+  if ($line eq "XXXBLANKLINE") {
+    print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+  } elsif ($line eq "XXXDOUBLELINE") {
+    print "\n\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
+  } elsif ($line eq "XXXRELEASE") {
+    printf("%-16s%s\n", "Release:", "0") ;
+  } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
+    my $current_package = $1;
+    my $license = $seen_licenses{$current_package} || $main_license;
+    printf("%-16s%s\n", "License:", $license) if (!$license_unique || $first_summary);
+    my $group = $seen_groups{$current_package} || $main_group;
+    printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary);
+    $first_summary = 0;
+  } else {
+    print "$line\n";
+  }
 }
 
 print "\n" unless $line eq "XXXBLANKLINE";
