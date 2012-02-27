@@ -320,7 +320,7 @@ sub read_and_parse_old_spec {
       }
 
       my %aa;
-      while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
+      while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*(?:\%\(.*\)|[^,\s]+))?)}g) {
 	$aa{$1}=1;
       }
       # ignore line if it looks like a "usedforbuild" line, i.e.
