@@ -226,6 +226,8 @@ SUSE-Freetype	Freetype
 HPND	HPND
 SUSE-IJG	JPEG License
 SUSE-ImageMagick	ImageMagick
+SUSE-Innernet-2.0	Inner Net License 2
+SUSE-Innernet-2.00	Inner Net License 2.00
 IPL-1.0	IBM PL
 IPL-1.0	IBM Public License
 IPL-1.0	IBM Public License ..
@@ -334,6 +336,7 @@ Python-2.0	Python-2.0
 QPL-1.0	QPL
 QPL-1.0	QPL ..
 QPL-1.0	QPL-1.0
+SUSE-Qhull	Qhull
 RHeCos-1.1	RHeCos-1.1
 RPL-1.5	RPL-1.5
 RPSL-1.0	RPSL-1.0
