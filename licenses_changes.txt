@@ -54,6 +54,7 @@ BSD-3-Clause	BSD 3-Clause
 BSD-3-Clause	BSD 3-clause (or similar)
 BSD-2-Clause	BSD-2-Clause
 BSD-2-Clause	BSD-2c
+BSD-3-Clause	New BSD License
 BSD-3-Clause	BSD-3
 BSD-3-Clause	BSD-3-Clause
 BSD-3-Clause	BSD-3-clause (or similar)
@@ -201,6 +202,7 @@ GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
+SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
 GPL-2.0+	GPL-2.0+
 GPL-2.0+	GPL-2+
 GPL-3.0	GPL-3
@@ -301,6 +303,7 @@ Naumen	Naumen
 NCSA	NCSA
 NGPL	NGPL
 Nokia	Nokia
+SUSE-NetCDF	SUSE-NetCDF
 NPOSL-3.0	NPOSL-3.0
 NTP	NTP
 SUSE-Oasis-Specification-Notice	SUSE-Oasis-Specification-Notice
@@ -333,6 +336,7 @@ Python-2.0	Python Copyright
 Python-2.0	Python License ..
 Python-2.0	Python Software Foundation License
 Python-2.0	Python-2.0
+Python-2.0	PSF
 QPL-1.0	QPL
 QPL-1.0	QPL ..
 QPL-1.0	QPL-1.0
@@ -383,3 +387,4 @@ SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nat
 Artistic-1.0 or GPL-1.0+	Perl License
 SUSE-NonFree	NonFree licenses
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
+SUSE-Vim
