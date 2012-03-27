@@ -387,4 +387,8 @@ SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nat
 Artistic-1.0 or GPL-1.0+	Perl License
 SUSE-NonFree	NonFree licenses
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
-SUSE-Vim
+SUSE-Vim	SUSE-Vim
+SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
+SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
+SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA_Public_License)
+SUSE-SNIA-1.1	SNIA 1.1
