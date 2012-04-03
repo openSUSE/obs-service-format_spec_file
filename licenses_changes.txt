@@ -336,7 +336,9 @@ SPL-1.0	SPL-1.0
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SUSE-AGPL-3.0+	AGPLv3+
 SUSE-Apache-2.0+	ASLv2.0+
+SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
 SUSE-Artistic-1.0+	Artistic-1.0+
+SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
 SUSE-Firmware	Firmware license, redistributable unmodified
@@ -360,11 +362,13 @@ SUSE-IJG	JPEG License
 SUSE-ImageMagick	ImageMagick
 SUSE-Innernet-2.00	Inner Net License 2.00
 SUSE-Innernet-2.0	Inner Net License 2
+SUSE-LDPL-2.0	http://www.tldp.org/COPYRIGHT.html
 SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
 SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
 SUSE-MPL-1.1+	MPL 1.1 or later
 SUSE-MPL-1.1+	MPLv1.1+
+SUSE-mplus	http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html#license
 SUSE-NetCDF	SUSE-NetCDF
 SUSE-NonFree	NonFree licenses
 SUSE-Oasis-Specification-Notice	SUSE-Oasis-Specification-Notice
@@ -378,6 +382,7 @@ SUSE-Public-Domain	Public Domain, Freeware
 SUSE-Public-Domain	Public Domain. See http://www.sentex.ca/~mw
 SUSE-Python-1.6	CNRI (http://www.handle.net/python_licenses/python1.6_9-5-00.html)
 SUSE-Qhull	Qhull
+SUSE-QWT-1.0	LGPL-2.1 with clarifications. See http://qwt.sourceforge.net/
 SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
 SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
 SUSE-SLIB	http://www-swiss.ai.mit.edu/~jaffer/SLIB_COPYING.txt
@@ -385,6 +390,7 @@ SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA
 SUSE-SNIA-1.1	SNIA 1.1
 SUSE-TCL	License for TCL (Fedora calls this TCL too. SPDX doesn't have it)
 SUSE-Vim	SUSE-Vim
+SUSE-Xano	https://fedoraproject.org/wiki/Licensing/MinchoFontLicense
 VSL-1.0	VSL-1.0
 W3C	W3C
 W3C	W3C Software License
