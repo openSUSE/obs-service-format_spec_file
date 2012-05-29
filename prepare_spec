@@ -320,8 +320,14 @@ sub read_and_parse_old_spec {
       }
 
       my %aa;
-      while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*(?:\%\(.*\)|[^,\s]+))?)}g) {
-	$aa{$1}=1;
+      if ($cur_tag =~ /%\(/) {
+        # do not touch lines with shell execution
+	$aa{$cur_tag}=1;
+      } else {
+        # seperate tags of all other lines
+        while ($cur_tag =~ m{([^,\s]+(\s*[<=>]+\s*(?:\%\(.*\)|[^,\s]+))?)}g) {
+          $aa{$1}=1;
+        }
       }
       # ignore line if it looks like a "usedforbuild" line, i.e.
       # if it contains too many base packages
