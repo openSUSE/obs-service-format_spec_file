@@ -285,6 +285,7 @@ MPL-1.1	MPL-1.1
 MPL-1.1	MPLv1.1
 MPL-1.1	MPLv1.1 ..
 MPL-2.0	MPL-2.0
+MPL-2.0-no-copyleft-exception	MPL-2.0-no-copyleft-exception
 MS-PL	Ms-Pl
 MS-PL	MS-PL
 MS-RL	MS-RL
@@ -349,6 +350,7 @@ SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki
 SUSE-FHS	See for example, the "FHS" license here: https://launchpad.net/ubuntu/precise/+source/debian-policy/+copyright
 SUSE-Firmware	Firmware license, redistributable unmodified
 SUSE-FLTK	Fltk
+SUSE-Free-Art-1.3	http://artlibre.org/licence/lal/en
 SUSE-Freetype	Freetype
 SUSE-Freeware	Freeware
 SUSE-Freeware	Freeware license
@@ -363,8 +365,11 @@ SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-2.0-with-openssl-exception	SPDX does not have this exception
 SUSE-GPL-3.0+-with-autoconf-exception	GPLv3+ with exceptions
+SUSE-GPL-3.0-with-FLOSS-exception	GPL-3.0 with exceptions for certain FLOSS licenses
 SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
+SUSE-IBPL-1.0	http://www.firebirdsql.org/en/interbase-public-license/
+SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0/
 SUSE-IJG	JPEG License
 SUSE-ImageMagick	ImageMagick
 SUSE-Innernet-2.00	Inner Net License 2.00
@@ -400,11 +405,16 @@ SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
 SUSE-SLIB	http://www-swiss.ai.mit.edu/~jaffer/SLIB_COPYING.txt
 SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA_Public_License)
 SUSE-SNIA-1.1	SNIA 1.1
+SUSE-Sun-Laboratories	http://pastebin.com/UubnS3se
 SUSE-TCL	License for TCL (Fedora calls this TCL too. SPDX doesn't have it)
 SUSE-TeX	http://en.wikipedia.org/wiki/TeX#License
 SUSE-Vim	SUSE-Vim
+SUSE-WTFPL-2.0	http://sam.zoy.org/wtfpl/
 SUSE-Xano	https://fedoraproject.org/wiki/Licensing/MinchoFontLicense
+SUSE-Xenonsoft-1.00	http://pastebin.com/PkSpfTbr (part of spectcl)
+SUSE-XFree86-1.0	The old version of the XFree86 license is not upstream at SPDX.org
 SUSE-XFree86-with-font-exception	XFree86 with exception to clarify that a document embedding such fonts does not need to be licensed under the XFree86 license
+SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
 VSL-1.0	VSL-1.0
 W3C	W3C
 W3C	W3C Software License
