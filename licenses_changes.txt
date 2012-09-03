@@ -334,6 +334,8 @@ RHeCos-1.1	RHeCos-1.1
 RPL-1.5	RPL-1.5
 RPSL-1.0	RPSL-1.0
 RSCPL	RSCPL
+Ruby	GPL-2.0+ or Ruby
+Ruby	GPLv2+ or Ruby
 Ruby	Ruby
 SAX-PD	SAX-PD
 SimPL-2.0	SimPL-2.0
@@ -346,7 +348,9 @@ SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
 SUSE-Artistic-1.0+	Artistic-1.0+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
+SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
+SUSE-Egenix-1.1.0	Egenix Public License Agreement 1.1.0 (e.g. python-egenix-mx-base) http://www.egenix.com/products/python/mxBase/eGenix.com-Public-License-1.1.0.pdf
 SUSE-FHS	See for example, the "FHS" license here: https://launchpad.net/ubuntu/precise/+source/debian-policy/+copyright
 SUSE-Firmware	Firmware license, redistributable unmodified
 SUSE-FLTK	Fltk
@@ -364,12 +368,14 @@ SUSE-Gnuplot	Gnuplot
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-2.0-with-openssl-exception	SPDX does not have this exception
+SUSE-GPL-2.0+-with-sane-exception	Sane contains many files with an exception to permit linking against proprietary libraries
 SUSE-GPL-3.0+-with-autoconf-exception	GPLv3+ with exceptions
 SUSE-GPL-3.0-with-FLOSS-exception	GPL-3.0 with exceptions for certain FLOSS licenses
 SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
 SUSE-IBPL-1.0	http://www.firebirdsql.org/en/interbase-public-license/
 SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0/
+SUSE-IEEE	Corresponds to https://fedoraproject.org/wiki/Licensing/IEEEDocLicense
 SUSE-IJG	JPEG License
 SUSE-ImageMagick	ImageMagick
 SUSE-Innernet-2.00	Inner Net License 2.00
@@ -380,6 +386,7 @@ SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
 SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
 SUSE-MakeIndex	http://pastebin.com/CYB22gju (the license used in csindex)
+SUSE-Manpages	Manpages licenses (linux man pages e.g.)
 SUSE-MgOpen	MgOpen Fonts license (similar to Bitstream Vera but with additional language)
 SUSE-mirror	License of the mirror package is quite liberal but prohibits distribution of modified versions. Instead, you should distribute modifications as patches. This is permitted by Section 4 of the Open Source Definition
 SUSE-MPL-1.1+	MPL 1.1 or later
@@ -399,6 +406,7 @@ SUSE-Public-Domain	Public Domain. See http://www.sentex.ca/~mw
 SUSE-Python-1.6	CNRI (http://www.handle.net/python_licenses/python1.6_9-5-00.html)
 SUSE-Qhull	Qhull
 SUSE-QWT-1.0	LGPL-2.1 with clarifications. See http://qwt.sourceforge.net/
+SUSE-Redistributable-Content	This license can _only_ be used for content (i.e. no code, no documentation). Provided there are no restrictions on free (re)distribution of the content, use this license. SUSE-Firmware is a subset of this category.
 SUSE-Repoze	http://repoze.org/license.html
 SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
 SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
@@ -415,6 +423,7 @@ SUSE-Xenonsoft-1.00	http://pastebin.com/PkSpfTbr (part of spectcl)
 SUSE-XFree86-1.0	The old version of the XFree86 license is not upstream at SPDX.org
 SUSE-XFree86-with-font-exception	XFree86 with exception to clarify that a document embedding such fonts does not need to be licensed under the XFree86 license
 SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
+SUSE-XSL-Lint	http://pastebin.com/cFxX3zCb (probably deprecated but found in docbook-dsssl-stylesheets)
 VSL-1.0	VSL-1.0
 W3C	W3C
 W3C	W3C Software License
