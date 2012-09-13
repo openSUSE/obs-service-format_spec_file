@@ -409,6 +409,7 @@ SUSE-QWT-1.0	LGPL-2.1 with clarifications. See http://qwt.sourceforge.net/
 SUSE-Redistributable-Content	This license can _only_ be used for content (i.e. no code, no documentation). Provided there are no restrictions on free (re)distribution of the content, use this license. SUSE-Firmware is a subset of this category.
 SUSE-Repoze	http://repoze.org/license.html
 SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
+SUSE-SGI-FreeB-2.0	Fedora calls this MIT (it is very similar to the MIT)
 SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
 SUSE-SLIB	http://www-swiss.ai.mit.edu/~jaffer/SLIB_COPYING.txt
 SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA_Public_License)
