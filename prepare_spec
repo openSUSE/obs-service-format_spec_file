@@ -200,7 +200,7 @@ sub replace_spdx($) {
   for (split(/\s*;\s*/, $license)) {
     push @licenses, replace_spdx_and($_);
   }
-  return join(' ; ', @licenses);
+  return join(' and ', @licenses);
 }
 
 sub set_current_pkg {
