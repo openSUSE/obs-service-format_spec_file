@@ -350,7 +350,7 @@ SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
-SUSE-Docbook-XSL	Copyright---------Copyright (C) 1999-2007 Norman WalshCopyright (C) 2003 Ji KosekCopyright (C) 2004-2007 Steve BallCopyright (C) 2005-2008 The DocBook ProjectCopyright (C) 2011-2012 O'Reilly Media Permission is hereby granted, free of charge, to any personobtaining a copy of this software and associated documentationfiles (the ``Software''), to deal in the Software withoutrestriction, including without limitation the rights to use,copy, modify, merge, publish, distribute, sublicense, and/orsell copies of the Software, and to permit persons to whom theSoftware is furnished to do so, subject to the followingconditions: The above copyright notice and this permission notice shall beincluded in all copies or substantial portions of the Software. Except as contained in this notice, the names of individualscredited with contribution to this software shall not be used inadvertising or otherwise to promote the sale, use or otherdealings in this Software without prior written authorizationfrom the individuals in question. Any stylesheet derived from this Software that is publicallydistributed will be identified with a different name and theversion strings in any derived Software will be changed so thatno possibility of confusion between the derived package and thisSoftware will exist. Warranty--------THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIESOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE ANDNONINFRINGEMENT.  IN NO EVENT SHALL NORMAN WALSH OR ANY OTHERCONTRIBUTOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISINGFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OROTHER DEALINGS IN THE SOFTWARE.
+SUSE-Docbook-XSL	Copyright (C) 1999-2007 Norman Walsh
 SUSE-Egenix-1.1.0	Egenix Public License Agreement 1.1.0 (e.g. python-egenix-mx-base) http://www.egenix.com/products/python/mxBase/eGenix.com-Public-License-1.1.0.pdf
 SUSE-FHS	See for example, the "FHS" license here: https://launchpad.net/ubuntu/precise/+source/debian-policy/+copyright
 SUSE-Firmware	Firmware license, redistributable unmodified
@@ -370,11 +370,13 @@ SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-2.0-with-openssl-exception	SPDX does not have this exception
 SUSE-GPL-2.0-with-OSI-exception	GPL-2.0 with linking exception for OSI licenses (see elfutils e.g.)
+SUSE-GPL-2.0-with-plugin-exception	Many GPL-2.0 licensed applications grant an exception that permits non-free plugins (e.g. from gstreamer) to be linked against them
 SUSE-GPL-2.0+-with-sane-exception	Sane contains many files with an exception to permit linking against proprietary libraries
 SUSE-GPL-3.0+-with-autoconf-exception	GPLv3+ with exceptions
 SUSE-GPL-3.0-with-FLOSS-exception	GPL-3.0 with exceptions for certain FLOSS licenses
 SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
+SUSE-GPL-3.0-with-openssl-exception	GPLv3 with openssl linking exception (see e.g. courier-authlib 0.64.0)
 SUSE-IBPL-1.0	http://www.firebirdsql.org/en/interbase-public-license/
 SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0/
 SUSE-IEEE	Corresponds to https://fedoraproject.org/wiki/Licensing/IEEEDocLicense
