@@ -16,7 +16,9 @@ AFL-3.0	AFL-3.0
 AGPL-3.0	Affero GPL
 AGPL-3.0+	AGPL-3.0+
 AGPL-3.0	AGPL-3.0
+AGPL-3.0+	AGPLv3+
 AGPL-3.0	AGPLv3
+AGPL-3.0+	SUSE-AGPL-3.0+
 ANTLR-PD+	ANTLR-PD+
 ANTLR-PD	ANTLR-PD
 Apache-1.0+	Apache-1.0+
@@ -39,7 +41,9 @@ Apache-2.0	ASL2
 Apache-2.0	ASL 2.0
 Apache-2.0	ASLv..
 Apache-2.0	ASLv2
+Apache-2.0+	ASLv2.0+
 Apache-2.0	ASLv2.0
+Apache-2.0+	SUSE-Apache-2.0+
 Apache-2.0	The Apache Software License
 APL-1.0+	APL-1.0+
 APL-1.0	APL-1.0
@@ -60,6 +64,7 @@ Artistic-1.0	Artistic license
 Artistic-1.0	Artistic License
 Artistic-1.0	Artistic License ..
 Artistic-1.0 or GPL-1.0+	Perl License
+Artistic-1.0+	SUSE-Artistic-1.0+
 Artistic-2.0+	Artistic-2.0+
 Artistic-2.0	Artistic 2.0
 Artistic-2.0	Artistic-2.0
@@ -222,21 +227,29 @@ Fair+	Fair+
 Fair	Fair
 Frameworx-1.0+	Frameworx-1.0+
 Frameworx-1.0	Frameworx-1.0
+GFDL-1.1+	FDL v1.1 or later
 GFDL-1.1+	GFDL-1.1+
 GFDL-1.1	GFDL 1.1
 GFDL-1.1	GFDL-1.1
 GFDL-1.1	GFDLv1.1
 GFDL-1.1	GFDL v1.1
 GFDL-1.1	GNU Free Documentation License, Version 1.1 (GFDL 1.1)
+GFDL-1.1+	SUSE-GFDL-1.1+
+GFDL-1.2+	FDL-1.2+
+GFDL-1.2+	FDLv1.2+
 GFDL-1.2+	GFDL-1.2+
 GFDL-1.2	GFDL 1.2
 GFDL-1.2	GFDL-1.2
+GFDL-1.2+	GFDLv1.2+
 GFDL-1.2	GFDLv1.2
 GFDL-1.2	GFDL v1.2
 GFDL-1.2	GNU Free Documentation License, Version 1.2 (GFDL 1.2)
+GFDL-1.2+	SUSE-GFDL-1.2+
+GFDL-1.3+	FDL-1.3+
 GFDL-1.3+	GFDL-1.3+
 GFDL-1.3	GFDL-1.3
 GFDL-1.3	GNU Free Documentation License, Version 1.3 (GFDL 1.3)
+GFDL-1.3+	SUSE-GFDL-1.3+
 GPL-1.0+	GPL+
 GPL-1.0++	GPL-1.0++
 GPL-1.0+	GPL-1.0+
@@ -392,8 +405,11 @@ MPL-1.1	Mozilla Public License 1.1
 MPL-1.1	MOZILLA PUBLIC LICENSE (MPL/NPL)
 MPL-1.1+	MPL-1.1+
 MPL-1.1	MPL-1.1
+MPL-1.1+	MPL 1.1 or later
+MPL-1.1+	MPLv1.1+
 MPL-1.1	MPLv1.1
 MPL-1.1	MPLv1.1 ..
+MPL-1.1+	SUSE-MPL-1.1+
 MPL-2.0+	MPL-2.0+
 MPL-2.0	MPL-2.0
 MPL-2.0-no-copyleft-exception+	MPL-2.0-no-copyleft-exception+
@@ -491,10 +507,7 @@ SPL-1.0+	SPL-1.0+
 SPL-1.0	SPL-1.0
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
 SugarCRM-1.1.3	SugarCRM-1.1.3
-SUSE-AGPL-3.0+	AGPLv3+
-SUSE-Apache-2.0+	ASLv2.0+
 SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
-SUSE-Artistic-1.0+	SUSE-Artistic-1.0+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
@@ -508,11 +521,6 @@ SUSE-Free-Art-1.3	http://artlibre.org/licence/lal/en
 SUSE-Freetype	Freetype
 SUSE-Freeware	Freeware
 SUSE-Freeware	Freeware license
-SUSE-GFDL-1.1+	FDL v1.1 or later
-SUSE-GFDL-1.2+	FDL-1.2+
-SUSE-GFDL-1.2+	FDLv1.2+
-SUSE-GFDL-1.2+	GFDLv1.2+
-SUSE-GFDL-1.3+	FDL-1.3+
 SUSE-GL2PS-2.0	http://www.geuz.org/gl2ps/COPYING.GL2PS
 SUSE-Gnuplot	Gnuplot
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
@@ -543,8 +551,6 @@ SUSE-MakeIndex	http://pastebin.com/CYB22gju (the license used in csindex)
 SUSE-Manpages	Manpages licenses (linux man pages e.g.)
 SUSE-MgOpen	MgOpen Fonts license (similar to Bitstream Vera but with additional language)
 SUSE-mirror	License of the mirror package is quite liberal but prohibits distribution of modified versions. Instead, you should distribute modifications as patches. This is permitted by Section 4 of the Open Source Definition
-SUSE-MPL-1.1+	MPL 1.1 or later
-SUSE-MPL-1.1+	MPLv1.1+
 SUSE-mplus	http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html#license
 SUSE-NetCDF	SUSE-NetCDF
 SUSE-NonFree	NonFree licenses
