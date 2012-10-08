@@ -494,7 +494,7 @@ SugarCRM-1.1.3	SugarCRM-1.1.3
 SUSE-AGPL-3.0+	AGPLv3+
 SUSE-Apache-2.0+	ASLv2.0+
 SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
-SUSE-Artistic-1.0+	Artistic-1.0+
+SUSE-Artistic-1.0+	SUSE-Artistic-1.0+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
