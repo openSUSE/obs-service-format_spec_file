@@ -546,6 +546,7 @@ SUSE-Innernet-2.0	Inner Net License 2
 SUSE-JSON	JSON License (http://www.json.org/license.html) - also the license of jslint
 SUSE-LDPL-2.0	http://www.tldp.org/COPYRIGHT.html
 SUSE-LGPL-2.0-with-linking-exception	SUSE-LGPL-2.0-with-linking-exception
+SUSE-LGPL-2.1-with-digia-exception-1.1	qtcreator November 2012
 SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
 SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
