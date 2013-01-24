@@ -19,6 +19,8 @@ AGPL-3.0	AGPL-3.0
 AGPL-3.0+	AGPLv3+
 AGPL-3.0	AGPLv3
 AGPL-3.0+	SUSE-AGPL-3.0+
+Aladdin+	Aladdin+
+Aladdin	Aladdin
 ANTLR-PD+	ANTLR-PD+
 ANTLR-PD	ANTLR-PD
 Apache-1.0+	Apache-1.0+
@@ -68,6 +70,10 @@ Artistic-1.0+	SUSE-Artistic-1.0+
 Artistic-2.0+	Artistic-2.0+
 Artistic-2.0	Artistic 2.0
 Artistic-2.0	Artistic-2.0
+BitTorrent-1.0+	BitTorrent-1.0+
+BitTorrent-1.0	BitTorrent-1.0
+BitTorrent-1.1+	BitTorrent-1.1+
+BitTorrent-1.1	BitTorrent-1.1
 BSD-2-Clause	BSD2c
 BSD-2-Clause	BSD-2c
 BSD-2-Clause	BSD 2 clause
@@ -91,6 +97,8 @@ BSD-3-Clause	BSD 3-clause (or similar)
 BSD-3-Clause	BSD-3-clause (or similar)
 BSD-3-Clause	BSD3c (or similar)
 BSD-3-Clause	BSD3c(or similar)
+BSD-3-Clause-Clear+	BSD-3-Clause-Clear+
+BSD-3-Clause-Clear	BSD-3-Clause-Clear
 BSD-3-Clause	New BSD License
 BSD-4-Clause	BSD4c
 BSD-4-Clause+	BSD-4-Clause+
@@ -178,6 +186,8 @@ CNRI-Python+	CNRI-Python+
 CNRI-Python	CNRI-Python
 CNRI-Python-GPL-Compatible+	CNRI-Python-GPL-Compatible+
 CNRI-Python-GPL-Compatible	CNRI-Python-GPL-Compatible
+Condor-1.1+	Condor-1.1+
+Condor-1.1	Condor-1.1
 CPAL-1.0+	CPAL-1.0+
 CPAL-1.0	CPAL-1.0
 CPL-1.0	Common Public License v1.0
@@ -227,6 +237,8 @@ Fair+	Fair+
 Fair	Fair
 Frameworx-1.0+	Frameworx-1.0+
 Frameworx-1.0	Frameworx-1.0
+FTL+	FTL+
+FTL	FTL
 GFDL-1.1+	FDL v1.1 or later
 GFDL-1.1+	GFDL-1.1+
 GFDL-1.1	GFDL 1.1
@@ -315,6 +327,12 @@ gSOAP-1.3b+	gSOAP-1.3b+
 gSOAP-1.3b	gSOAP-1.3b
 HPND+	HPND+
 HPND	HPND
+IJG+	IJG+
+IJG	IJG
+Imlib2+	Imlib2+
+Imlib2	Imlib2
+Intel+	Intel+
+Intel	Intel
 IPA+	IPA+
 IPA	IPA
 IPA	see IPA_Font_License_Agreement_v1.0.txt
@@ -326,6 +344,8 @@ IPL-1.0	IPL-1.0
 ISC+	ISC+
 ISC	ISC
 ISC	ISC License
+JSON+	JSON+
+JSON	JSON
 LGPL-2.0++	LGPL-2.0++
 LGPL-2.0+	LGPL-2.0+
 LGPL-2.0	LGPL-2.0
@@ -374,6 +394,8 @@ LPPL-1.1+	LPPL-1.1+
 LPPL-1.1	LPPL-1.1
 LPPL-1.2+	LPPL-1.2+
 LPPL-1.2	LPPL-1.2
+LPPL-1.3a+	LPPL-1.3a+
+LPPL-1.3a	LPPL-1.3a
 LPPL-1.3c	LPPL ..
 LPPL-1.3c+	LPPL-1.3c+
 LPPL-1.3c	LPPL-1.3c
@@ -425,12 +447,20 @@ NASA-1.3+	NASA-1.3+
 NASA-1.3	NASA-1.3
 Naumen+	Naumen+
 Naumen	Naumen
+NBPL-1.0+	NBPL-1.0+
+NBPL-1.0	NBPL-1.0
 NCSA+	NCSA+
 NCSA	NCSA
 NGPL+	NGPL+
 NGPL	NGPL
 Nokia+	Nokia+
 Nokia	Nokia
+NOSL+	NOSL+
+NOSL	NOSL
+NPL-1.0+	NPL-1.0+
+NPL-1.0	NPL-1.0
+NPL-1.1+	NPL-1.1+
+NPL-1.1	NPL-1.1
 NPOSL-3.0+	NPOSL-3.0+
 NPOSL-3.0	NPOSL-3.0
 NTP+	NTP+
@@ -449,11 +479,43 @@ OFL-1.1	SIL Open Font License
 OFL-1.1	SIL Open Font License 1.1
 OGTSL+	OGTSL+
 OGTSL	OGTSL
+OLDAP-1.1+	OLDAP-1.1+
+OLDAP-1.1	OLDAP-1.1
+OLDAP-1.2+	OLDAP-1.2+
+OLDAP-1.2	OLDAP-1.2
+OLDAP-1.3+	OLDAP-1.3+
+OLDAP-1.3	OLDAP-1.3
+OLDAP-1.4+	OLDAP-1.4+
+OLDAP-1.4	OLDAP-1.4
+OLDAP-2.0.1+	OLDAP-2.0.1+
+OLDAP-2.0.1	OLDAP-2.0.1
+OLDAP-2.0+	OLDAP-2.0+
+OLDAP-2.0	OLDAP-2.0
+OLDAP-2.1+	OLDAP-2.1+
+OLDAP-2.1	OLDAP-2.1
+OLDAP-2.2.1+	OLDAP-2.2.1+
+OLDAP-2.2.1	OLDAP-2.2.1
+OLDAP-2.2.2+	OLDAP-2.2.2+
+OLDAP-2.2.2	OLDAP-2.2.2
+OLDAP-2.2+	OLDAP-2.2+
+OLDAP-2.2	OLDAP-2.2
+OLDAP-2.3+	OLDAP-2.3+
+OLDAP-2.3	OLDAP-2.3
+OLDAP-2.4+	OLDAP-2.4+
+OLDAP-2.4	OLDAP-2.4
+OLDAP-2.5+	OLDAP-2.5+
+OLDAP-2.5	OLDAP-2.5
+OLDAP-2.6+	OLDAP-2.6+
+OLDAP-2.6	OLDAP-2.6
+OLDAP-2.7+	OLDAP-2.7+
+OLDAP-2.7	OLDAP-2.7
 OLDAP-2.8+	OLDAP-2.8+
 OLDAP-2.8	OLDAP-2.8
 OLDAP-2.8	openldap 2.8
 OpenSSL+	OpenSSL+
 OpenSSL	OpenSSL
+OPL-1.0+	OPL-1.0+
+OPL-1.0	OPL-1.0
 OSL-1.0+	OSL-1.0+
 OSL-1.0	OSL-1.0
 OSL-2.0+	OSL-2.0+
@@ -499,10 +561,20 @@ Ruby+	Ruby+
 Ruby	Ruby
 SAX-PD+	SAX-PD+
 SAX-PD	SAX-PD
+SGI-B-1.0+	SGI-B-1.0+
+SGI-B-1.0	SGI-B-1.0
+SGI-B-1.1+	SGI-B-1.1+
+SGI-B-1.1	SGI-B-1.1
+SGI-B-2.0+	SGI-B-2.0+
+SGI-B-2.0	SGI-B-2.0
 SimPL-2.0+	SimPL-2.0+
 SimPL-2.0	SimPL-2.0
+SISSL+	SISSL+
+SISSL	SISSL
 Sleepycat+	Sleepycat+
 Sleepycat	Sleepycat
+SMLNJ+	SMLNJ+
+SMLNJ	SMLNJ
 SPL-1.0+	SPL-1.0+
 SPL-1.0	SPL-1.0
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
@@ -512,6 +584,7 @@ SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-CacertRoot	http://www.cacert.org/policy/RootDistributionLicense.php
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
+SUSE-CPL-0.5	Common Public License 0.5
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
 SUSE-Docbook-XSL	Copyright (C) 1999-2007 Norman Walsh
 SUSE-Egenix-1.1.0	Egenix Public License Agreement 1.1.0 (e.g. python-egenix-mx-base) http://www.egenix.com/products/python/mxBase/eGenix.com-Public-License-1.1.0.pdf
@@ -595,8 +668,12 @@ W3C	W3C
 W3C	W3C Software License
 Watcom-1.0+	Watcom-1.0+
 Watcom-1.0	Watcom-1.0
+WTFPL+	WTFPL+
+WTFPL	WTFPL
 WXwindows+	WXwindows+
 WXwindows	WXwindows
+X11+	X11+
+X11	X11
 XFree86-1.1+	XFree86-1.1+
 XFree86-1.1	XFree86-1.1
 Xnet+	Xnet+
