@@ -411,13 +411,6 @@ MIT	MIT-Licence
 MIT	MIT license
 MIT	MIT License
 MIT	MIT License (or similar)
-MIT	MIT/X11
-MIT	MIT/X Consortium License
-MIT	MIT/X License
-MIT	X11
-MIT	X11 (BSD like)
-MIT	X11 MIT
-MIT	X11/MIT
 Motosoto+	Motosoto+
 Motosoto	Motosoto
 MPL-1.0+	MPL-1.0+
@@ -657,10 +650,10 @@ SUSE-Vim	SUSE-Vim
 SUSE-WTFPL-2.0	http://sam.zoy.org/wtfpl/
 SUSE-Xano	https://fedoraproject.org/wiki/Licensing/MinchoFontLicense
 SUSE-Xenonsoft-1.00	http://pastebin.com/PkSpfTbr (part of spectcl)
-SUSE-XFree86-1.0	The old version of the XFree86 license is not upstream at SPDX.org
 SUSE-XFree86-with-font-exception	XFree86 with exception to clarify that a document embedding such fonts does not need to be licensed under the XFree86 license
 SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
 SUSE-XSL-Lint	http://pastebin.com/cFxX3zCb (probably deprecated but found in docbook-dsssl-stylesheets)
+SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
 VSL-1.0+	VSL-1.0+
 VSL-1.0	VSL-1.0
 W3C+	W3C+
@@ -672,8 +665,15 @@ WTFPL+	WTFPL+
 WTFPL	WTFPL
 WXwindows+	WXwindows+
 WXwindows	WXwindows
+X11	MIT/X11
+X11	MIT/X Consortium License
+X11	MIT/X License
+X11	SUSE-XFree86-1.0
 X11+	X11+
 X11	X11
+X11	X11 (BSD like)
+X11	X11 MIT
+X11	X11/MIT
 XFree86-1.1+	XFree86-1.1+
 XFree86-1.1	XFree86-1.1
 Xnet+	Xnet+
