@@ -573,87 +573,167 @@ SPL-1.0	SPL-1.0
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
+SUSE-Arphic+	SUSE-Arphic+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
+SUSE-Bitstream-Vera+	SUSE-Bitstream-Vera+
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
+SUSE-BSD-3-Clause-with-non-nuclear-addition+	SUSE-BSD-3-Clause-with-non-nuclear-addition+
 SUSE-CacertRoot	http://www.cacert.org/policy/RootDistributionLicense.php
+SUSE-CacertRoot+	SUSE-CacertRoot+
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
+SUSE-CC-Sampling-Plus-1.0+	SUSE-CC-Sampling-Plus-1.0+
 SUSE-CPL-0.5	Common Public License 0.5
+SUSE-CPL-0.5+	SUSE-CPL-0.5+
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
+SUSE-DMTF+	SUSE-DMTF+
 SUSE-Docbook-XSL	Copyright (C) 1999-2007 Norman Walsh
+SUSE-Docbook-XSL+	SUSE-Docbook-XSL+
 SUSE-Egenix-1.1.0	Egenix Public License Agreement 1.1.0 (e.g. python-egenix-mx-base) http://www.egenix.com/products/python/mxBase/eGenix.com-Public-License-1.1.0.pdf
+SUSE-Egenix-1.1.0+	SUSE-Egenix-1.1.0+
 SUSE-FHS	See for example, the "FHS" license here: https://launchpad.net/ubuntu/precise/+source/debian-policy/+copyright
+SUSE-FHS+	SUSE-FHS+
 SUSE-Firmware	Firmware license, redistributable unmodified
+SUSE-Firmware+	SUSE-Firmware+
 SUSE-FLTK	Fltk
+SUSE-FLTK+	SUSE-FLTK+
 SUSE-Free-Art-1.3	http://artlibre.org/licence/lal/en
+SUSE-Free-Art-1.3+	SUSE-Free-Art-1.3+
 SUSE-Freetype	Freetype
+SUSE-Freetype+	SUSE-Freetype+
 SUSE-Freeware	Freeware
 SUSE-Freeware	Freeware license
+SUSE-Freeware+	SUSE-Freeware+
 SUSE-GL2PS-2.0	http://www.geuz.org/gl2ps/COPYING.GL2PS
+SUSE-GL2PS-2.0+	SUSE-GL2PS-2.0+
 SUSE-Gnuplot	Gnuplot
+SUSE-Gnuplot+	SUSE-Gnuplot+
+SUSE-GPL-2.0-with-FLOSS-exception+	SUSE-GPL-2.0-with-FLOSS-exception+
 SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-2.0-with-openssl-exception	SPDX does not have this exception
+SUSE-GPL-2.0-with-openssl-exception+	SUSE-GPL-2.0-with-openssl-exception+
+SUSE-GPL-2.0+-with-openssl-exception+	SUSE-GPL-2.0+-with-openssl-exception+
 SUSE-GPL-2.0-with-OSI-exception	GPL-2.0 with linking exception for OSI licenses (see elfutils e.g.)
+SUSE-GPL-2.0-with-OSI-exception+	SUSE-GPL-2.0-with-OSI-exception+
 SUSE-GPL-2.0-with-plugin-exception	Many GPL-2.0 licensed applications grant an exception that permits non-free plugins (e.g. from gstreamer) to be linked against them
+SUSE-GPL-2.0-with-plugin-exception+	SUSE-GPL-2.0-with-plugin-exception+
 SUSE-GPL-2.0+-with-sane-exception	Sane contains many files with an exception to permit linking against proprietary libraries
+SUSE-GPL-2.0+-with-sane-exception+	SUSE-GPL-2.0+-with-sane-exception+
 SUSE-GPL-3.0+-with-autoconf-exception	GPLv3+ with exceptions
+SUSE-GPL-3.0+-with-autoconf-exception+	SUSE-GPL-3.0+-with-autoconf-exception+
 SUSE-GPL-3.0-with-FLOSS-exception	GPL-3.0 with exceptions for certain FLOSS licenses
+SUSE-GPL-3.0-with-FLOSS-exception+	SUSE-GPL-3.0-with-FLOSS-exception+
 SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
+SUSE-GPL-3.0+-with-font-exception+	SUSE-GPL-3.0+-with-font-exception+
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
 SUSE-GPL-3.0-with-openssl-exception	GPLv3 with openssl linking exception (see e.g. courier-authlib 0.64.0)
+SUSE-GPL-3.0-with-openssl-exception+	SUSE-GPL-3.0-with-openssl-exception+
+SUSE-GPL-3.0+-with-openssl-exception+	SUSE-GPL-3.0+-with-openssl-exception+
 SUSE-GPL-3.0-with-template-exception	See e.g. dh-make from debian (debian/copyright)
+SUSE-GPL-3.0-with-template-exception+	SUSE-GPL-3.0-with-template-exception+
 SUSE-IBPL-1.0	http://www.firebirdsql.org/en/interbase-public-license/
+SUSE-IBPL-1.0+	SUSE-IBPL-1.0+
 SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0/
+SUSE-IDPL-1.0+	SUSE-IDPL-1.0+
 SUSE-IEEE	Corresponds to https://fedoraproject.org/wiki/Licensing/IEEEDocLicense
+SUSE-IEEE+	SUSE-IEEE+
 SUSE-IJG	JPEG License
+SUSE-IJG+	SUSE-IJG+
 SUSE-ImageMagick	ImageMagick
+SUSE-ImageMagick+	SUSE-ImageMagick+
 SUSE-Innernet-2.00	Inner Net License 2.00
+SUSE-Innernet-2.00+	SUSE-Innernet-2.00+
 SUSE-Innernet-2.0	Inner Net License 2
+SUSE-Innernet-2.0+	SUSE-Innernet-2.0+
 SUSE-JSON	JSON License (http://www.json.org/license.html) - also the license of jslint
+SUSE-JSON+	SUSE-JSON+
 SUSE-LDPL-2.0	http://www.tldp.org/COPYRIGHT.html
+SUSE-LDPL-2.0+	SUSE-LDPL-2.0+
+SUSE-LGPL-2.0-with-linking-exception+	SUSE-LGPL-2.0-with-linking-exception+
 SUSE-LGPL-2.0-with-linking-exception	SUSE-LGPL-2.0-with-linking-exception
 SUSE-LGPL-2.1-with-digia-exception-1.1	qtcreator November 2012
+SUSE-LGPL-2.1-with-digia-exception-1.1+	SUSE-LGPL-2.1-with-digia-exception-1.1+
 SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
+SUSE-LGPL-2.1+-with-GCC-exception+	SUSE-LGPL-2.1+-with-GCC-exception+
 SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
+SUSE-LGPL-2.1-with-nokia-exception-1.1+	SUSE-LGPL-2.1-with-nokia-exception-1.1+
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
+SUSE-Liberation+	SUSE-Liberation+
 SUSE-MakeIndex	http://pastebin.com/CYB22gju (the license used in csindex)
+SUSE-MakeIndex+	SUSE-MakeIndex+
 SUSE-Manpages	Manpages licenses (linux man pages e.g.)
+SUSE-Manpages+	SUSE-Manpages+
 SUSE-MgOpen	MgOpen Fonts license (similar to Bitstream Vera but with additional language)
+SUSE-MgOpen+	SUSE-MgOpen+
 SUSE-mirror	License of the mirror package is quite liberal but prohibits distribution of modified versions. Instead, you should distribute modifications as patches. This is permitted by Section 4 of the Open Source Definition
+SUSE-mirror+	SUSE-mirror+
 SUSE-mplus	http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html#license
+SUSE-mplus+	SUSE-mplus+
+SUSE-NetCDF+	SUSE-NetCDF+
 SUSE-NetCDF	SUSE-NetCDF
 SUSE-NonFree	NonFree licenses
+SUSE-NonFree+	SUSE-NonFree+
+SUSE-Oasis-Specification-Notice+	SUSE-Oasis-Specification-Notice+
 SUSE-Oasis-Specification-Notice	SUSE-Oasis-Specification-Notice
+SUSE-OldFSFDocLicense+	SUSE-OldFSFDocLicense+
+SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
 SUSE-OML	Open Market License (tracked by Fedora as OML)
+SUSE-OML+	SUSE-OML+
 SUSE-OSL-1.1	OSL-1.1
+SUSE-OSL-1.1+	SUSE-OSL-1.1+
 SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
+SUSE-Permissive+	SUSE-Permissive+
 SUSE-PHP-2.02	PHP 2.02
+SUSE-PHP-2.02+	SUSE-PHP-2.02+
 SUSE-Public-Domain	Public domain
 SUSE-Public-Domain	Public Domain
 SUSE-Public-Domain	Public Domain, Freeware
 SUSE-Public-Domain	Public Domain. See http://www.sentex.ca/~mw
+SUSE-Public-Domain+	SUSE-Public-Domain+
 SUSE-Python-1.6	CNRI (http://www.handle.net/python_licenses/python1.6_9-5-00.html)
+SUSE-Python-1.6+	SUSE-Python-1.6+
 SUSE-Qhull	Qhull
+SUSE-Qhull+	SUSE-Qhull+
 SUSE-QWT-1.0	LGPL-2.1 with clarifications. See http://qwt.sourceforge.net/
+SUSE-QWT-1.0+	SUSE-QWT-1.0+
+SUSE-Redistributable-Content+	SUSE-Redistributable-Content+
 SUSE-Redistributable-Content	This license can _only_ be used for content (i.e. no code, no documentation). Provided there are no restrictions on free (re)distribution of the content, use this license. SUSE-Firmware is a subset of this category.
 SUSE-Repoze	http://repoze.org/license.html
+SUSE-Repoze+	SUSE-Repoze+
 SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
+SUSE-Sendmail+	SUSE-Sendmail+
 SUSE-SGI-FreeB-2.0	Fedora calls this MIT (it is very similar to the MIT)
+SUSE-SGI-FreeB-2.0+	SUSE-SGI-FreeB-2.0+
 SUSE-SIP	http://www.riverbankcomputing.co.uk/software/sip/license
+SUSE-SIP+	SUSE-SIP+
 SUSE-SLIB	http://www-swiss.ai.mit.edu/~jaffer/SLIB_COPYING.txt
+SUSE-SLIB+	SUSE-SLIB+
 SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA_Public_License)
+SUSE-SNIA-1.0+	SUSE-SNIA-1.0+
 SUSE-SNIA-1.1	SNIA 1.1
+SUSE-SNIA-1.1+	SUSE-SNIA-1.1+
 SUSE-Sun-Laboratories	http://pastebin.com/UubnS3se
+SUSE-Sun-Laboratories+	SUSE-Sun-Laboratories+
 SUSE-TCL	License for TCL (Fedora calls this TCL too. SPDX doesn't have it)
+SUSE-TCL+	SUSE-TCL+
 SUSE-TeX	http://en.wikipedia.org/wiki/TeX#License
+SUSE-TeX+	SUSE-TeX+
+SUSE-TGPPL-1.0	https://zooko.com/uri/URI:DIR2-RO:d23ekhh2b4xashf53ycrfoynkq:y4vpazbrt2beddyhgwcch4sduhnmmefdotlyelojxg4tyzllhb4a/tgppl.html
+SUSE-TGPPL-1.0+	SUSE-TGPPL-1.0+
+SUSE-Vim+	SUSE-Vim+
 SUSE-Vim	SUSE-Vim
 SUSE-WTFPL-2.0	http://sam.zoy.org/wtfpl/
+SUSE-WTFPL-2.0+	SUSE-WTFPL-2.0+
 SUSE-Xano	https://fedoraproject.org/wiki/Licensing/MinchoFontLicense
+SUSE-Xano+	SUSE-Xano+
 SUSE-Xenonsoft-1.00	http://pastebin.com/PkSpfTbr (part of spectcl)
+SUSE-Xenonsoft-1.00+	SUSE-Xenonsoft-1.00+
+SUSE-XFree86-with-font-exception+	SUSE-XFree86-with-font-exception+
 SUSE-XFree86-with-font-exception	XFree86 with exception to clarify that a document embedding such fonts does not need to be licensed under the XFree86 license
+SUSE-xinetd+	SUSE-xinetd+
 SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
 SUSE-XSL-Lint	http://pastebin.com/cFxX3zCb (probably deprecated but found in docbook-dsssl-stylesheets)
-SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
+SUSE-XSL-Lint+	SUSE-XSL-Lint+
 VSL-1.0+	VSL-1.0+
 VSL-1.0	VSL-1.0
 W3C+	W3C+
