@@ -578,6 +578,8 @@ SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-Bitstream-Vera+	SUSE-Bitstream-Vera+
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
 SUSE-BSD-3-Clause-with-non-nuclear-addition+	SUSE-BSD-3-Clause-with-non-nuclear-addition+
+SUSE-BSD-Mark-Modifications	BSD-Mark-Modifications
+SUSE-BSD-Mark-Modifications+	SUSE-BSD-Mark-Modifications+
 SUSE-CacertRoot	http://www.cacert.org/policy/RootDistributionLicense.php
 SUSE-CacertRoot+	SUSE-CacertRoot+
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
