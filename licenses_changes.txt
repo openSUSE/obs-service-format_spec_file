@@ -13,6 +13,8 @@ AFL-2.1	AFL 2.1
 AFL-2.1	AFL-2.1
 AFL-3.0+	AFL-3.0+
 AFL-3.0	AFL-3.0
+AGPL-1.0+	AGPL-1.0+
+AGPL-1.0	AGPL-1.0
 AGPL-3.0	Affero GPL
 AGPL-3.0+	AGPL-3.0+
 AGPL-3.0	AGPL-3.0
@@ -34,6 +36,7 @@ Apache-2.0	Apache 2.0
 Apache-2.0	Apache-2.0
 Apache-2.0	Apache License
 Apache-2.0	Apache License 2.0
+Apache-2.0	Apache License Version 2.0
 Apache-2.0	Apache License, Version 2.0
 Apache-2.0	Apache Software License
 Apache-2.0	Apache Software License ..
@@ -200,8 +203,12 @@ CPL-1.0	CPL 1.0
 CPL-1.0	CPL 1.0 ...
 CPL-1.0	CPL-1.0
 CPL-1.0	CPL (Common Public License) v1
+CPOL-1.02+	CPOL-1.02+
+CPOL-1.02	CPOL-1.02
 CUA-OPL-1.0+	CUA-OPL-1.0+
 CUA-OPL-1.0	CUA-OPL-1.0
+D-FSL-1.0+	D-FSL-1.0+
+D-FSL-1.0	D-FSL-1.0
 ECL-1.0+	ECL-1.0+
 ECL-1.0	ECL-1.0
 ECL-2.0+	ECL-2.0+
@@ -542,6 +549,8 @@ QPL-1.0+	QPL-1.0+
 QPL-1.0	QPL-1.0
 RHeCos-1.1+	RHeCos-1.1+
 RHeCos-1.1	RHeCos-1.1
+RPL-1.1+	RPL-1.1+
+RPL-1.1	RPL-1.1
 RPL-1.5+	RPL-1.5+
 RPL-1.5	RPL-1.5
 RPSL-1.0+	RPSL-1.0+
@@ -574,6 +583,8 @@ SugarCRM-1.1.3+	SugarCRM-1.1.3+
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SUSE-Arphic	http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE
 SUSE-Arphic+	SUSE-Arphic+
+SUSE-Beerware	Beerware License like http://en.wikipedia.org/wiki/Beerware#License
+SUSE-Beerware+	SUSE-Beerware+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-Bitstream-Vera+	SUSE-Bitstream-Vera+
 SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which clarifies the software is not licensed for use in design, build or operation of nuclear facility
@@ -683,6 +694,8 @@ SUSE-OML	Open Market License (tracked by Fedora as OML)
 SUSE-OML+	SUSE-OML+
 SUSE-OSL-1.1	OSL-1.1
 SUSE-OSL-1.1+	SUSE-OSL-1.1+
+SUSE-Permissive-Modify-By-Patch	Similar to SUSE-Permissive but copyright holder has specified that modification is only allowed by patch
+SUSE-Permissive-Modify-By-Patch+	SUSE-Permissive-Modify-By-Patch+
 SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
 SUSE-Permissive+	SUSE-Permissive+
 SUSE-PHP-2.02	PHP 2.02
