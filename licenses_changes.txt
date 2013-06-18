@@ -616,6 +616,8 @@ SUSE-Freetype+	SUSE-Freetype+
 SUSE-Freeware	Freeware
 SUSE-Freeware	Freeware license
 SUSE-Freeware+	SUSE-Freeware+
+SUSE-Gitslave	Similar to LGPL-2.1 but without sections 3 and 13
+SUSE-Gitslave+	SUSE-Gitslave+
 SUSE-GL2PS-2.0	http://www.geuz.org/gl2ps/COPYING.GL2PS
 SUSE-GL2PS-2.0+	SUSE-GL2PS-2.0+
 SUSE-Gnuplot	Gnuplot
@@ -703,6 +705,7 @@ SUSE-PHP-2.02+	SUSE-PHP-2.02+
 SUSE-Public-Domain	Public domain
 SUSE-Public-Domain	Public Domain
 SUSE-Public-Domain	Public Domain, Freeware
+SUSE-Public-Domain	Public Domain License
 SUSE-Public-Domain	Public Domain. See http://www.sentex.ca/~mw
 SUSE-Public-Domain+	SUSE-Public-Domain+
 SUSE-Python-1.6	CNRI (http://www.handle.net/python_licenses/python1.6_9-5-00.html)
