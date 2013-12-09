@@ -68,7 +68,11 @@ Artistic-1.0	Artistic-1.0
 Artistic-1.0	Artistic license
 Artistic-1.0	Artistic License
 Artistic-1.0	Artistic License ..
+Artistic-1.0-cl8+	Artistic-1.0-cl8+
+Artistic-1.0-cl8	Artistic-1.0-cl8
 Artistic-1.0 or GPL-1.0+	Perl License
+Artistic-1.0-Perl+	Artistic-1.0-Perl+
+Artistic-1.0-Perl	Artistic-1.0-Perl
 Artistic-1.0+	SUSE-Artistic-1.0+
 Artistic-2.0+	Artistic-2.0+
 Artistic-2.0	Artistic 2.0
@@ -334,6 +338,8 @@ gSOAP-1.3b+	gSOAP-1.3b+
 gSOAP-1.3b	gSOAP-1.3b
 HPND+	HPND+
 HPND	HPND
+IBM-pibs+	IBM-pibs+
+IBM-pibs	IBM-pibs
 IJG+	IJG+
 IJG	IJG
 Imlib2+	Imlib2+
@@ -571,6 +577,8 @@ SGI-B-2.0+	SGI-B-2.0+
 SGI-B-2.0	SGI-B-2.0
 SimPL-2.0+	SimPL-2.0+
 SimPL-2.0	SimPL-2.0
+SISSL-1.2+	SISSL-1.2+
+SISSL-1.2	SISSL-1.2
 SISSL+	SISSL+
 SISSL	SISSL
 Sleepycat+	Sleepycat+
@@ -752,6 +760,8 @@ SUSE-xinetd+	SUSE-xinetd+
 SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
 SUSE-XSL-Lint	http://pastebin.com/cFxX3zCb (probably deprecated but found in docbook-dsssl-stylesheets)
 SUSE-XSL-Lint+	SUSE-XSL-Lint+
+Unlicense+	Unlicense+
+Unlicense	Unlicense
 VSL-1.0+	VSL-1.0+
 VSL-1.0	VSL-1.0
 W3C+	W3C+
