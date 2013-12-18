@@ -7,6 +7,6 @@ for i in `w3m -dump -cols 1000 http://spdx.org/licenses/ | grep "License Text" |
 	echo "$i	$i" >> licenses_changes.txt ; 
 	echo "$i+	$i+" >> licenses_changes.txt ;
 done
-sort -o licenses_changes.txt -u licenses_changes.txt
+LC_ALL=C sort -o licenses_changes.txt -u licenses_changes.txt
 ( echo "First line" ; cat licenses_changes.txt ) > t
 mv t licenses_changes.txt
