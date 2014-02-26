@@ -724,6 +724,6 @@ while (@oldspec) {
   }
 }
 
-print "\n" unless $line eq "XXXBLANKLINE";
+print "\n" unless $line eq "XXXBLANKLINE" || $line eq "";
 print "%changelog\n";
 
