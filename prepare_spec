@@ -320,7 +320,7 @@ sub read_and_parse_old_spec {
       }
 
       my %aa;
-      if ($cur_tag =~ /%\(/) {
+      if ($cur_tag =~ /%\(/ || $cur_tag =~ /%\{/) {
         # do not touch lines with shell execution
 	$aa{$cur_tag}=1;
       } else {
