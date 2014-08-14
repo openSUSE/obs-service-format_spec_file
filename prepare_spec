@@ -715,7 +715,7 @@ while (@oldspec) {
   } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
     my $current_package = $1;
     my $license = $seen_licenses{$current_package} || $main_license;
-    printf("%-16s%s\n", "License:", $license) if (!$license_unique || $first_summary || $current_package eq $base_package);
+    printf("%-16s%s\n", "License:", $license) if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
     my $group = $seen_groups{$current_package} || $main_group;
     printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary || $current_package eq $base_package);
     $first_summary = 0;
