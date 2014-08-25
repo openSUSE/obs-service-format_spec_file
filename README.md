@@ -4,6 +4,7 @@ It happens to be *the* repository for valid licenses to be used in openSUSE spec
 SPDX Licenses
 
 License Tag | Description
+----------- | -----------
 Glide | 3dfx Glide License
 Abstyles | Abstyles License
 AFL-1.1 | Academic Free License v1.1
