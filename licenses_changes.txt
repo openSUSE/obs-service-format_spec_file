@@ -140,6 +140,7 @@ Bahyph+	Bahyph+
 Barr	Barr
 Barr+	Barr+
 Beerware	Beerware
+Beerware	SUSE-Beerware
 Beerware+	Beerware+
 BitTorrent-1.0	BitTorrent-1.0
 BitTorrent-1.0+	BitTorrent-1.0+
@@ -225,7 +226,6 @@ CECILL-1.0	CECILL-1.0
 CECILL-1.0+	CECILL-1.0+
 CECILL-1.1	CECILL-1.1
 CECILL-1.1+	CECILL-1.1+
-CECILL-1.1English	CECILL-1.1English
 CECILL-2.0	CECILL-2.0
 CECILL-2.0+	CECILL-2.0+
 CECILL-B	CECILL-B
@@ -357,7 +357,6 @@ GPL-2.0+	GNU General Public License version 2 or later
 GPL-2.0+	GNU General Public License version 2 or later (GPL v2 or later)
 GPL-2.0+	GNU General Public License version 2 or later (GPLv2 or later)
 GPL-2.0+	GPL v2 or later
-GPL-2.0+	GPL v2 or later  
 GPL-2.0+	GPL v2+
 GPL-2.0+	GPL v2.0 or later
 GPL-2.0+	GPL-2+
@@ -410,6 +409,7 @@ HaskellReport+	HaskellReport+
 IBM-pibs	IBM-pibs
 IBM-pibs+	IBM-pibs+
 IJG	IJG
+IJG	SUSE-IJG
 IJG+	IJG+
 IPA	IPA
 IPA	see IPA_Font_License_Agreement_v1.0.txt
@@ -431,6 +431,7 @@ Intel+	Intel+
 Intel-ACPI	Intel-ACPI
 Intel-ACPI+	Intel-ACPI+
 JSON	JSON
+JSON	SUSE-JSON
 JSON+	JSON+
 JasPer-2.0	JasPer-2.0
 JasPer-2.0+	JasPer-2.0+
@@ -535,6 +536,7 @@ MS-RL+	MS-RL+
 MTLL	MTLL
 MTLL+	MTLL+
 MakeIndex	MakeIndex
+MakeIndex	SUSE-MakeIndex
 MakeIndex+	MakeIndex+
 MirOS	MirOS
 MirOS+	MirOS+
@@ -569,6 +571,7 @@ NTP+	NTP+
 Naumen	Naumen
 Naumen+	Naumen+
 NetCDF	NetCDF
+NetCDF	SUSE-NetCDF
 NetCDF+	NetCDF+
 Newsletr	Newsletr
 Newsletr+	Newsletr+
@@ -626,6 +629,7 @@ OLDAP-2.8	OLDAP-2.8
 OLDAP-2.8	openldap 2.8
 OLDAP-2.8+	OLDAP-2.8+
 OML	OML
+OML	SUSE-OML
 OML+	OML+
 OPL-1.0	OPL-1.0
 OPL-1.0	Open Publication License 1.0
@@ -633,6 +637,7 @@ OPL-1.0+	OPL-1.0+
 OSL-1.0	OSL-1.0
 OSL-1.0+	OSL-1.0+
 OSL-1.1	OSL-1.1
+OSL-1.1	SUSE-OSL-1.1
 OSL-1.1+	OSL-1.1+
 OSL-2.0	OSL-2.0
 OSL-2.0+	OSL-2.0+
@@ -668,6 +673,7 @@ QPL-1.0	QPL ..
 QPL-1.0	QPL-1.0
 QPL-1.0+	QPL-1.0+
 Qhull	Qhull
+Qhull	SUSE-Qhull
 Qhull+	Qhull+
 RHeCos-1.1	RHeCos-1.1
 RHeCos-1.1+	RHeCos-1.1+
@@ -712,8 +718,6 @@ SUSE-BSD-3-Clause-with-non-nuclear-addition	BSD-3-Clause with addition which cla
 SUSE-BSD-3-Clause-with-non-nuclear-addition+	SUSE-BSD-3-Clause-with-non-nuclear-addition+
 SUSE-BSD-Mark-Modifications	BSD-Mark-Modifications
 SUSE-BSD-Mark-Modifications+	SUSE-BSD-Mark-Modifications+
-SUSE-Beerware	Beerware License like http://en.wikipedia.org/wiki/Beerware#License
-SUSE-Beerware+	SUSE-Beerware+
 SUSE-Bitstream-Vera	http://www.xfree86.org/current/LICENSE13.html
 SUSE-Bitstream-Vera+	SUSE-Bitstream-Vera+
 SUSE-CC-Sampling-Plus-1.0	Creative Commons Sampling Plus 1.0
@@ -749,7 +753,7 @@ SUSE-GPL-2.0+-with-openssl-exception	GPLv2+ with openssl linking exception
 SUSE-GPL-2.0+-with-openssl-exception+	SUSE-GPL-2.0+-with-openssl-exception+
 SUSE-GPL-2.0+-with-sane-exception	Sane contains many files with an exception to permit linking against proprietary libraries
 SUSE-GPL-2.0+-with-sane-exception+	SUSE-GPL-2.0+-with-sane-exception+
-SUSE-GPL-2.0-with-FLOSS-exception	SUSE-GPL-2.0-with-FLOSS-exception
+SUSE-GPL-2.0-with-FLOSS-exception	GPL-2.0-with-FLOSS-exception
 SUSE-GPL-2.0-with-FLOSS-exception+	SUSE-GPL-2.0-with-FLOSS-exception+
 SUSE-GPL-2.0-with-OSI-exception	GPL-2.0 with linking exception for OSI licenses (see elfutils e.g.)
 SUSE-GPL-2.0-with-OSI-exception+	SUSE-GPL-2.0-with-OSI-exception+
@@ -767,7 +771,7 @@ SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
 SUSE-GPL-3.0+-with-openssl-exception+	SUSE-GPL-3.0+-with-openssl-exception+
 SUSE-GPL-3.0-with-FLOSS-exception	GPL-3.0 with exceptions for certain FLOSS licenses
 SUSE-GPL-3.0-with-FLOSS-exception+	SUSE-GPL-3.0-with-FLOSS-exception+
-SUSE-GPL-3.0-with-font-exception	SUSE-GPL-3.0-with-font-exception
+SUSE-GPL-3.0-with-font-exception	GPL-3.0-with-font-exception
 SUSE-GPL-3.0-with-font-exception+	SUSE-GPL-3.0-with-font-exception+
 SUSE-GPL-3.0-with-openssl-exception	GPLv3 with openssl linking exception (see e.g. courier-authlib 0.64.0)
 SUSE-GPL-3.0-with-openssl-exception+	SUSE-GPL-3.0-with-openssl-exception+
@@ -783,17 +787,13 @@ SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-v
 SUSE-IDPL-1.0+	SUSE-IDPL-1.0+
 SUSE-IEEE	Corresponds to https://fedoraproject.org/wiki/Licensing/IEEEDocLicense
 SUSE-IEEE+	SUSE-IEEE+
-SUSE-IJG	JPEG License
-SUSE-IJG+	SUSE-IJG+
 SUSE-Innernet-2.0	Inner Net License 2
 SUSE-Innernet-2.0+	SUSE-Innernet-2.0+
 SUSE-Innernet-2.00	Inner Net License 2.00
 SUSE-Innernet-2.00+	SUSE-Innernet-2.00+
-SUSE-JSON	JSON License (http://www.json.org/license.html) - also the license of jslint
-SUSE-JSON+	SUSE-JSON+
 SUSE-LDPL-2.0	http://www.tldp.org/COPYRIGHT.html
 SUSE-LDPL-2.0+	SUSE-LDPL-2.0+
-SUSE-LGPL-2.0-with-linking-exception	SUSE-LGPL-2.0-with-linking-exception
+SUSE-LGPL-2.0-with-linking-exception	LGPL-2.0-with-linking-exception
 SUSE-LGPL-2.0-with-linking-exception+	SUSE-LGPL-2.0-with-linking-exception+
 SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
 SUSE-LGPL-2.1+-with-GCC-exception+	SUSE-LGPL-2.1+-with-GCC-exception+
@@ -805,23 +805,15 @@ SUSE-LGPL-3.0-with-openssl-exception	e.g python-psycopg2
 SUSE-LGPL-3.0-with-openssl-exception+	SUSE-LGPL-3.0-with-openssl-exception+
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
 SUSE-Liberation+	SUSE-Liberation+
-SUSE-MakeIndex	http://pastebin.com/CYB22gju (the license used in csindex)
-SUSE-MakeIndex+	SUSE-MakeIndex+
 SUSE-Manpages	Manpages licenses (linux man pages e.g.)
 SUSE-Manpages+	SUSE-Manpages+
 SUSE-Matplotlib	E.g. python -matplotlib -> LICENSE/LICENSE
 SUSE-Matplotlib+	SUSE-Matplotlib+
 SUSE-MgOpen	MgOpen Fonts license (similar to Bitstream Vera but with additional language)
 SUSE-MgOpen+	SUSE-MgOpen+
-SUSE-NetCDF	SUSE-NetCDF
-SUSE-NetCDF+	SUSE-NetCDF+
 SUSE-NonFree	NonFree licenses
 SUSE-NonFree+	SUSE-NonFree+
-SUSE-OML	Open Market License (tracked by Fedora as OML)
-SUSE-OML+	SUSE-OML+
-SUSE-OSL-1.1	OSL-1.1
-SUSE-OSL-1.1+	SUSE-OSL-1.1+
-SUSE-Oasis-Specification-Notice	SUSE-Oasis-Specification-Notice
+SUSE-Oasis-Specification-Notice	Oasis-Specification-Notice
 SUSE-Oasis-Specification-Notice+	SUSE-Oasis-Specification-Notice+
 SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
 SUSE-OldFSFDocLicense+	SUSE-OldFSFDocLicense+
@@ -841,8 +833,6 @@ SUSE-Python-1.6	CNRI (http://www.handle.net/python_licenses/python1.6_9-5-00.htm
 SUSE-Python-1.6+	SUSE-Python-1.6+
 SUSE-QWT-1.0	LGPL-2.1 with clarifications. See http://qwt.sourceforge.net/
 SUSE-QWT-1.0+	SUSE-QWT-1.0+
-SUSE-Qhull	Qhull
-SUSE-Qhull+	SUSE-Qhull+
 SUSE-Redistributable-Content	This license can _only_ be used for content (i.e. no code, no documentation). Provided there are no restrictions on free (re)distribution of the content, use this license. SUSE-Firmware is a subset of this category.
 SUSE-Redistributable-Content+	SUSE-Redistributable-Content+
 SUSE-Repoze	http://repoze.org/license.html
@@ -861,16 +851,12 @@ SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
 SUSE-Sendmail+	SUSE-Sendmail+
 SUSE-Sun-Laboratories	http://pastebin.com/UubnS3se
 SUSE-Sun-Laboratories+	SUSE-Sun-Laboratories+
-SUSE-TCL	License for TCL (Fedora calls this TCL too. SPDX doesn't have it)
-SUSE-TCL+	SUSE-TCL+
 SUSE-TGPPL-1.0	https://zooko.com/uri/URI:DIR2-RO:d23ekhh2b4xashf53ycrfoynkq:y4vpazbrt2beddyhgwcch4sduhnmmefdotlyelojxg4tyzllhb4a/tgppl.html
 SUSE-TGPPL-1.0+	SUSE-TGPPL-1.0+
 SUSE-TeX	http://en.wikipedia.org/wiki/TeX#License
 SUSE-TeX+	SUSE-TeX+
 SUSE-Ubuntu-Font-License-1.0	http://font.ubuntu.com/licence/
 SUSE-Ubuntu-Font-License-1.0+	SUSE-Ubuntu-Font-License-1.0+
-SUSE-Vim	SUSE-Vim
-SUSE-Vim+	SUSE-Vim+
 SUSE-XFree86-with-font-exception	XFree86 with exception to clarify that a document embedding such fonts does not need to be licensed under the XFree86 license
 SUSE-XFree86-with-font-exception+	SUSE-XFree86-with-font-exception+
 SUSE-XSL-Lint	http://pastebin.com/cFxX3zCb (probably deprecated but found in docbook-dsssl-stylesheets)
@@ -883,8 +869,6 @@ SUSE-mirror	License of the mirror package is quite liberal but prohibits distrib
 SUSE-mirror+	SUSE-mirror+
 SUSE-mplus	http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html#license
 SUSE-mplus+	SUSE-mplus+
-SUSE-xinetd	Xinedt license (Fedora also uses a custom license here)
-SUSE-xinetd+	SUSE-xinetd+
 SWL	SWL
 SWL+	SWL+
 Saxpath	Saxpath
@@ -897,6 +881,7 @@ StandardML-NJ	StandardML-NJ
 StandardML-NJ+	StandardML-NJ+
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
+TCL	SUSE-TCL
 TCL	TCL
 TCL+	TCL+
 TMate	TMate
@@ -914,6 +899,7 @@ VOSTROM	VOSTROM
 VOSTROM+	VOSTROM+
 VSL-1.0	VSL-1.0
 VSL-1.0+	VSL-1.0+
+Vim	SUSE-Vim
 Vim	Vim
 Vim+	Vim+
 W3C	W3C
@@ -995,6 +981,7 @@ psfrag	psfrag
 psfrag+	psfrag+
 psutils	psutils
 psutils+	psutils+
+xinetd	SUSE-xinetd
 xinetd	xinetd
 xinetd+	xinetd+
 xpp	xpp
