@@ -24,19 +24,35 @@ if test -n "$dups"; then
   exit 1
 fi
 
+: > licenses_changes.raw
 ( 
 echo "This is the git for openSUSE:Tools/obs-service-format_spec_file"
 echo "It happens to be *the* repository for valid licenses to be used in openSUSE spec files"
 echo ""
-echo "SPDX Licenses"
+echo "# [SPDX Licenses](http://spdx.org/licenses)"
 echo ""
 echo "License Tag | Description"
+echo "----------- | -----------"
 IFS=:
 w3m -dump -cols 1000 http://spdx.org/licenses/ | grep "License Text" | sed -e 's, *Y *License Text,,; s, *License Text,,; s,\s* \([^ ]*\)$,:\1,' | while read text license; do
   echo "$license | $text"
+  echo "$license" >> licenses_changes.raw
 done
 unset IFS
 
+echo ""
+echo "# SUSE Additions"
+echo ""
+echo "License Tag"
+echo "-----------"
+
+IFS=:
+grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do 
+  echo "$nl"
+done
+unset IFS
+
+rm licenses_changes.raw
 ) > README.md
 
 cat licenses_changes.ntxt licenses_changes.ptxt | sort -u -o licenses_changes.stxt

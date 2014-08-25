@@ -1,7 +1,7 @@
 This is the git for openSUSE:Tools/obs-service-format_spec_file
 It happens to be *the* repository for valid licenses to be used in openSUSE spec files
 
-SPDX Licenses
+# [SPDX Licenses](http://spdx.org/licenses)
 
 License Tag | Description
 ----------- | -----------
@@ -311,3 +311,84 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 ZPL-1.1 | Zope Public License 1.1
 ZPL-2.0 | Zope Public License 2.0
 ZPL-2.1 | Zope Public License 2.1
+
+# SUSE Additions
+
+License Tag
+-----------
+SUSE-Arphic
+SUSE-BSD-3-Clause-with-non-nuclear-addition
+SUSE-BSD-Mark-Modifications
+SUSE-Bitstream-Vera
+SUSE-CC-Sampling-Plus-1.0
+SUSE-CPL-0.5
+SUSE-CacertRoot
+SUSE-DMTF
+SUSE-Docbook-XSL
+SUSE-EULA
+SUSE-Egenix-1.1.0
+SUSE-FHS
+SUSE-FLTK
+SUSE-Firmware
+SUSE-Free-Art-1.3
+SUSE-Freetype
+SUSE-Freeware
+SUSE-GL2PS-2.0
+SUSE-GPL-2.0+-with-openssl-exception
+SUSE-GPL-2.0+-with-sane-exception
+SUSE-GPL-2.0-with-FLOSS-exception
+SUSE-GPL-2.0-with-OSI-exception
+SUSE-GPL-2.0-with-linking-exception
+SUSE-GPL-2.0-with-openssl-exception
+SUSE-GPL-2.0-with-plugin-exception
+SUSE-GPL-3.0+-with-autoconf-exception
+SUSE-GPL-3.0+-with-font-exception
+SUSE-GPL-3.0+-with-openssl-exception
+SUSE-GPL-3.0-with-FLOSS-exception
+SUSE-GPL-3.0-with-font-exception
+SUSE-GPL-3.0-with-openssl-exception
+SUSE-GPL-3.0-with-template-exception
+SUSE-Gitslave
+SUSE-Gnuplot
+SUSE-IBPL-1.0
+SUSE-IDPL-1.0
+SUSE-IEEE
+SUSE-Innernet-2.0
+SUSE-Innernet-2.00
+SUSE-LDPL-2.0
+SUSE-LGPL-2.0-with-linking-exception
+SUSE-LGPL-2.1+-with-GCC-exception
+SUSE-LGPL-2.1-with-digia-exception-1.1
+SUSE-LGPL-2.1-with-nokia-exception-1.1
+SUSE-LGPL-3.0-with-openssl-exception
+SUSE-Liberation
+SUSE-Manpages
+SUSE-Matplotlib
+SUSE-MgOpen
+SUSE-NonFree
+SUSE-Oasis-Specification-Notice
+SUSE-OldFSFDocLicense
+SUSE-PHP-2.02
+SUSE-Permissive
+SUSE-Permissive-Modify-By-Patch
+SUSE-Public-Domain
+SUSE-Python-1.6
+SUSE-QWT-1.0
+SUSE-Redistributable-Content
+SUSE-Repoze
+SUSE-SGI-FreeB-2.0
+SUSE-SIP
+SUSE-SLIB
+SUSE-SNIA-1.0
+SUSE-SNIA-1.1
+SUSE-Sendmail
+SUSE-Sun-Laboratories
+SUSE-TGPPL-1.0
+SUSE-TeX
+SUSE-Ubuntu-Font-License-1.0
+SUSE-XFree86-with-font-exception
+SUSE-XSL-Lint
+SUSE-Xano
+SUSE-Xenonsoft-1.00
+SUSE-mirror
+SUSE-mplus
