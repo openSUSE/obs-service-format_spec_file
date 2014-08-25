@@ -43,12 +43,12 @@ unset IFS
 echo ""
 echo "# SUSE Additions"
 echo ""
-echo "License Tag"
-echo "-----------"
+echo "|License Tag|"
+echo "|-----------|"
 
 IFS=:
 grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do 
-  echo "$nl"
+  echo "|$nl|"
 done
 unset IFS
 
