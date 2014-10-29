@@ -847,6 +847,8 @@ SUSE-SNIA-1.0	SNIA Public License (https://fedoraproject.org/wiki/Licensing/SNIA
 SUSE-SNIA-1.0+	SUSE-SNIA-1.0+
 SUSE-SNIA-1.1	SNIA 1.1
 SUSE-SNIA-1.1+	SUSE-SNIA-1.1+
+SUSE-Scrot	Scrot license (advertising clause)
+SUSE-Scrot+	SUSE-Scrot+
 SUSE-Sendmail	Sendmail License (http://www.sendmail.org/ftp/LICENSE)
 SUSE-Sendmail+	SUSE-Sendmail+
 SUSE-Sun-Laboratories	http://pastebin.com/UubnS3se

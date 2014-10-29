@@ -381,6 +381,7 @@ ZPL-2.1 | Zope Public License 2.1
 |SUSE-SLIB|
 |SUSE-SNIA-1.0|
 |SUSE-SNIA-1.1|
+|SUSE-Scrot|
 |SUSE-Sendmail|
 |SUSE-Sun-Laboratories|
 |SUSE-TGPPL-1.0|
