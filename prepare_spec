@@ -660,7 +660,7 @@ for my $tag (qw(BuildRequires Requires Provides Obsoletes)) {
 
 my $thisyear = localtime->year() + 1900;
 
-unshift @copyrights, "# Copyright (c) $thisyear SUSE LINUX Products GmbH, Nuernberg, Germany.";
+unshift @copyrights, "# Copyright (c) $thisyear SUSE LINUX GmbH, Nuernberg, Germany.";
 
 my $copy_list = join("\n", @copyrights);
 
