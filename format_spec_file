@@ -15,7 +15,7 @@ while test $# -gt 0; do
     ;;
     *)
       echo Unknown parameter $1.
-      echo 'Usage: this service is not excepting parameters'
+      echo 'Usage: this service is not accepting parameters'
       exit 1
     ;;
   esac
