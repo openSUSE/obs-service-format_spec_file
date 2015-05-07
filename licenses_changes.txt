@@ -311,6 +311,8 @@ Fair	Fair
 Fair+	Fair+
 Frameworx-1.0	Frameworx-1.0
 Frameworx-1.0+	Frameworx-1.0+
+FreeImage	FreeImage
+FreeImage+	FreeImage+
 GFDL-1.1	GFDL 1.1
 GFDL-1.1	GFDL v1.1
 GFDL-1.1	GFDL-1.1
@@ -340,7 +342,6 @@ GPL-1.0	GPL-1.0
 GPL-1.0+	GPL+
 GPL-1.0+	GPL-1.0+
 GPL-1.0+	GPLv1+
-GPL-1.0++	GPL-1.0++
 GPL-2.0	GLPv2
 GPL-2.0	GNU GPL v2
 GPL-2.0	GNU General Public License (GPL) v2
@@ -366,17 +367,6 @@ GPL-2.0+	GPL2+
 GPL-2.0+	GPLv2 or later
 GPL-2.0+	GPLv2+
 GPL-2.0+	libGeoIPUpdate is GPLv2 or later
-GPL-2.0++	GPL-2.0++
-GPL-2.0-with-GCC-exception	GPL-2.0-with-GCC-exception
-GPL-2.0-with-GCC-exception+	GPL-2.0-with-GCC-exception+
-GPL-2.0-with-autoconf-exception	GPL-2.0-with-autoconf-exception
-GPL-2.0-with-autoconf-exception+	GPL-2.0-with-autoconf-exception+
-GPL-2.0-with-bison-exception	GPL-2.0-with-bison-exception
-GPL-2.0-with-bison-exception+	GPL-2.0-with-bison-exception+
-GPL-2.0-with-classpath-exception	GPL-2.0-with-classpath-exception
-GPL-2.0-with-classpath-exception+	GPL-2.0-with-classpath-exception+
-GPL-2.0-with-font-exception	GPL-2.0-with-font-exception
-GPL-2.0-with-font-exception+	GPL-2.0-with-font-exception+
 GPL-3.0	GNU GPL version 3
 GPL-3.0	GNU General Public License version 3 (GPLv3)
 GPL-3.0	GPL 3
@@ -391,11 +381,6 @@ GPL-3.0+	GPL v3 or later
 GPL-3.0+	GPL-3+
 GPL-3.0+	GPL-3.0+
 GPL-3.0+	GPLv3+
-GPL-3.0++	GPL-3.0++
-GPL-3.0-with-GCC-exception	GPL-3.0-with-GCC-exception
-GPL-3.0-with-GCC-exception+	GPL-3.0-with-GCC-exception+
-GPL-3.0-with-autoconf-exception	GPL-3.0-with-autoconf-exception
-GPL-3.0-with-autoconf-exception+	GPL-3.0-with-autoconf-exception+
 Giftware	Giftware
 Giftware+	Giftware+
 Glide	Glide
@@ -408,6 +393,8 @@ HaskellReport	HaskellReport
 HaskellReport+	HaskellReport+
 IBM-pibs	IBM-pibs
 IBM-pibs+	IBM-pibs+
+ICU	ICU
+ICU+	ICU+
 IJG	IJG
 IJG	SUSE-IJG
 IJG+	IJG+
@@ -444,7 +431,6 @@ LGPL-2.0+	LGPL v2 or later
 LGPL-2.0+	LGPL v2.0 or later
 LGPL-2.0+	LGPL-2.0+
 LGPL-2.0+	LGPLv2.0+
-LGPL-2.0++	LGPL-2.0++
 LGPL-2.1	GNU LGPLv2.1
 LGPL-2.1	GNU Lesser General Public License version 2.1 (LGPL v2.1)
 LGPL-2.1	LGPL 2.1
@@ -462,7 +448,6 @@ LGPL-2.1+	LGPL-2.0.1 or later
 LGPL-2.1+	LGPL-2.1+
 LGPL-2.1+	LGPLv2+
 LGPL-2.1+	LGPLv2.1+
-LGPL-2.1++	LGPL-2.1++
 LGPL-3.0	GNU Lesser General Public License (LGPL), Version 3
 LGPL-3.0	GNU Lesser General Public License version 3 (LGPL v3)
 LGPL-3.0	LGPL-3.0
@@ -470,7 +455,6 @@ LGPL-3.0	LGPLv3
 LGPL-3.0+	LGPL v3 or later
 LGPL-3.0+	LGPL-3.0+
 LGPL-3.0+	LGPLv3+
-LGPL-3.0++	LGPL-3.0++
 LPL-1.0	LPL-1.0
 LPL-1.0+	LPL-1.0+
 LPL-1.02	LPL-1.02
@@ -632,7 +616,7 @@ OML	OML
 OML	SUSE-OML
 OML+	OML+
 OPL-1.0	OPL-1.0
-OPL-1.0	Open Publication License 1.0
+OPL-1.0	Open Public License 1.0
 OPL-1.0+	OPL-1.0+
 OSL-1.0	OSL-1.0
 OSL-1.0+	OSL-1.0+
@@ -726,6 +710,8 @@ SUSE-CPL-0.5	Common Public License 0.5
 SUSE-CPL-0.5+	SUSE-CPL-0.5+
 SUSE-CacertRoot	http://www.cacert.org/policy/RootDistributionLicense.php
 SUSE-CacertRoot+	SUSE-CacertRoot+
+SUSE-Curb	https://raw.githubusercontent.com/taf2/curb/master/LICENSE
+SUSE-Curb+	SUSE-Curb+
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
 SUSE-DMTF+	SUSE-DMTF+
 SUSE-Docbook-XSL	Copyright (C) 1999-2007 Norman Walsh
@@ -817,6 +803,8 @@ SUSE-Oasis-Specification-Notice	Oasis-Specification-Notice
 SUSE-Oasis-Specification-Notice+	SUSE-Oasis-Specification-Notice+
 SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
 SUSE-OldFSFDocLicense+	SUSE-OldFSFDocLicense+
+SUSE-OpenPublication-1.0	http://opencontent.org/openpub/ - note this is not the OPL-1.0
+SUSE-OpenPublication-1.0+	SUSE-OpenPublication-1.0+
 SUSE-PHP-2.02	PHP 2.02
 SUSE-PHP-2.02+	SUSE-PHP-2.02+
 SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
@@ -879,8 +867,6 @@ SimPL-2.0	SimPL-2.0
 SimPL-2.0+	SimPL-2.0+
 Sleepycat	Sleepycat
 Sleepycat+	Sleepycat+
-StandardML-NJ	StandardML-NJ
-StandardML-NJ+	StandardML-NJ+
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
 TCL	SUSE-TCL
@@ -907,11 +893,11 @@ Vim+	Vim+
 W3C	W3C
 W3C	W3C Software License
 W3C+	W3C+
+W3C-19980720	W3C-19980720
+W3C-19980720+	W3C-19980720+
 WTFPL	SUSE-WTFPL-2.0
 WTFPL	WTFPL
 WTFPL+	WTFPL+
-WXwindows	WXwindows
-WXwindows+	WXwindows+
 Watcom-1.0	Watcom-1.0
 Watcom-1.0+	Watcom-1.0+
 Wsuipa	Wsuipa
@@ -952,6 +938,8 @@ Zend-2.0	Zend-2.0
 Zend-2.0+	Zend-2.0+
 Zimbra-1.3	Zimbra-1.3
 Zimbra-1.3+	Zimbra-1.3+
+Zimbra-1.4	Zimbra-1.4
+Zimbra-1.4+	Zimbra-1.4+
 Zlib	Zlib
 Zlib	Zlib License
 Zlib	zlib
@@ -965,8 +953,6 @@ diffmark	diffmark
 diffmark+	diffmark+
 dvipdfm	dvipdfm
 dvipdfm+	dvipdfm+
-eCos-2.0	eCos-2.0
-eCos-2.0+	eCos-2.0+
 eGenix	eGenix
 eGenix+	eGenix+
 gSOAP-1.3b	gSOAP-1.3b

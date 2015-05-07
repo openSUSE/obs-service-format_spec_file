@@ -113,7 +113,6 @@ Dotseqn | Dotseqn License
 DSDP | DSDP License
 dvipdfm | dvipdfm License
 EPL-1.0 | Eclipse Public License 1.0
-eCos-2.0 | eCos license version 2.0
 ECL-1.0 | Educational Community License v1.0
 ECL-2.0 | Educational Community License v2.0
 eGenix | eGenix.com Public License 1.1.0
@@ -130,6 +129,7 @@ Eurosym | Eurosym License
 Fair | Fair License
 MIT-feh | feh License
 Frameworx-1.0 | Frameworx Open License 1.0
+FreeImage | FreeImage Public License v1.0
 FTL | Freetype Project License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
@@ -141,24 +141,11 @@ GFDL-1.1 | GNU Free Documentation License v1.1
 GFDL-1.2 | GNU Free Documentation License v1.2
 GFDL-1.3 | GNU Free Documentation License v1.3
 GPL-1.0 | GNU General Public License v1.0 only
-GPL-1.0+ | GNU General Public License v1.0 or later
 GPL-2.0 | GNU General Public License v2.0 only
-GPL-2.0+ | GNU General Public License v2.0 or later
-GPL-2.0-with-autoconf-exception | GNU General Public License v2.0 w/Autoconf exception
-GPL-2.0-with-bison-exception | GNU General Public License v2.0 w/Bison exception
-GPL-2.0-with-classpath-exception | GNU General Public License v2.0 w/Classpath exception
-GPL-2.0-with-font-exception | GNU General Public License v2.0 w/Font exception
-GPL-2.0-with-GCC-exception | GNU General Public License v2.0 w/GCC Runtime Library exception
 GPL-3.0 | GNU General Public License v3.0 only
-GPL-3.0+ | GNU General Public License v3.0 or later
-GPL-3.0-with-autoconf-exception | GNU General Public License v3.0 w/Autoconf exception
-GPL-3.0-with-GCC-exception | GNU General Public License v3.0 w/GCC Runtime Library exception
 LGPL-2.1 | GNU Lesser General Public License v2.1 only
-LGPL-2.1+ | GNU Lesser General Public License v2.1 or later
 LGPL-3.0 | GNU Lesser General Public License v3.0 only
-LGPL-3.0+ | GNU Lesser General Public License v3.0 or later
 LGPL-2.0 | GNU Library General Public License v2 only
-LGPL-2.0+ | GNU Library General Public License v2 or later
 gnuplot | gnuplot License
 gSOAP-1.3b | gSOAP Public License v1.3b
 HaskellReport | Haskell Language Report License
@@ -237,6 +224,7 @@ OLDAP-2.4 | Open LDAP Public License v2.4
 OLDAP-2.5 | Open LDAP Public License v2.5
 OLDAP-2.6 | Open LDAP Public License v2.6
 OLDAP-2.7 | Open LDAP Public License v2.7
+OLDAP-2.8 | Open LDAP Public License v2.8
 OML | Open Market License
 OPL-1.0 | Open Public License v1.0
 OSL-1.0 | Open Software License 1.0
@@ -244,7 +232,6 @@ OSL-1.1 | Open Software License 1.1
 OSL-2.0 | Open Software License 2.0
 OSL-2.1 | Open Software License 2.1
 OSL-3.0 | Open Software License 3.0
-OLDAP-2.8 | OpenLDAP Public License v2.8
 OpenSSL | OpenSSL License
 PHP-3.0 | PHP License v3.0
 PHP-3.01 | PHP License v3.01
@@ -275,7 +262,6 @@ SimPL-2.0 | Simple Public License 2.0
 Sleepycat | Sleepycat License
 SNIA | SNIA Public License 1.1
 SMLNJ | Standard ML of New Jersey License
-StandardML-NJ | Standard ML of New Jersey License
 SugarCRM-1.1.3 | SugarCRM Public License v1.1.3
 SISSL | Sun Industry Standards Source License v1.1
 SISSL-1.2 | Sun Industry Standards Source License v1.2
@@ -291,9 +277,9 @@ NCSA | University of Illinois/NCSA Open Source License
 Vim | Vim License
 VOSTROM | VOSTROM Public License for Open Source
 VSL-1.0 | Vovida Software License v1.0
-W3C | W3C Software Notice and License
+W3C | W3C Software Notice and License (2002-12-31)
+W3C-19980720 | W3C Software Notice and License (1998-07-20)
 Wsuipa | Wsuipa License
-WXwindows | wxWindows Library License
 Xnet | X.Net License
 X11 | X11 License
 Xerox | Xerox License
@@ -306,11 +292,13 @@ YPL-1.1 | Yahoo! Public License v1.1
 Zed | Zed License
 Zend-2.0 | Zend License v2.0
 Zimbra-1.3 | Zimbra Public License v1.3
+Zimbra-1.4 | Zimbra Public License v1.4
 Zlib | zlib License
 zlib-acknowledgement | zlib/libpng License with Acknowledgement
 ZPL-1.1 | Zope Public License 1.1
 ZPL-2.0 | Zope Public License 2.0
 ZPL-2.1 | Zope Public License 2.1
+ICU | ICU License
 
 # SUSE Additions
 
@@ -323,6 +311,7 @@ ZPL-2.1 | Zope Public License 2.1
 |SUSE-CC-Sampling-Plus-1.0|
 |SUSE-CPL-0.5|
 |SUSE-CacertRoot|
+|SUSE-Curb|
 |SUSE-DMTF|
 |SUSE-Docbook-XSL|
 |SUSE-EULA|
@@ -368,6 +357,7 @@ ZPL-2.1 | Zope Public License 2.1
 |SUSE-NonFree|
 |SUSE-Oasis-Specification-Notice|
 |SUSE-OldFSFDocLicense|
+|SUSE-OpenPublication-1.0|
 |SUSE-PHP-2.02|
 |SUSE-Permissive|
 |SUSE-Permissive-Modify-By-Patch|
