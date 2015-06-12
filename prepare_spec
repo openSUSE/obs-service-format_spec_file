@@ -1,7 +1,7 @@
 #! /usr/bin/perl -w
 #
 # vim:sw=2:et
-# 
+#
 
 BEGIN {
   unshift @INC, ".";
@@ -52,7 +52,7 @@ my @global_tags_list = (
   'Name',
   'NoPatch',
   'NoSource',
-  'Obsoletes', 
+  'Obsoletes',
   'Patch\d*',
   'Prefix',
   'PreReq',
@@ -257,7 +257,7 @@ sub read_and_parse_old_spec {
 
     if ( /^\s*$/ && $current_section ne "description") {
       # stop preamble parsing on two blank lines
-      if ($print_comments eq "false" && 
+      if ($print_comments eq "false" &&
 	    $oldspec[0] && $oldspec[-1] eq "XXXBLANKLINE") {
 	$print_comments = "true";
 	push @oldspec, "XXXDOUBLELINE";
