@@ -199,6 +199,7 @@ CC-BY-ND-2.5+	CC-BY-ND-2.5+
 CC-BY-ND-3.0	CC-BY-ND-3.0
 CC-BY-ND-3.0+	CC-BY-ND-3.0+
 CC-BY-ND-4.0	CC-BY-ND-4.0
+CC-BY-ND-4.0	http://spdx.org/licenses/CC-BY-ND-4.0.html#licenseText
 CC-BY-ND-4.0+	CC-BY-ND-4.0+
 CC-BY-SA-1.0	CC-BY-SA-1.0
 CC-BY-SA-1.0+	CC-BY-SA-1.0+
@@ -232,6 +233,8 @@ CECILL-B	CECILL-B
 CECILL-B+	CECILL-B+
 CECILL-C	CECILL-C
 CECILL-C+	CECILL-C+
+CNRI-Jython	CNRI-Jython
+CNRI-Jython+	CNRI-Jython+
 CNRI-Python	CNRI-Python
 CNRI-Python+	CNRI-Python+
 CNRI-Python-GPL-Compatible	CNRI-Python-GPL-Compatible
@@ -455,6 +458,8 @@ LGPL-3.0	LGPLv3
 LGPL-3.0+	LGPL v3 or later
 LGPL-3.0+	LGPL-3.0+
 LGPL-3.0+	LGPLv3+
+LGPLLR	LGPLLR
+LGPLLR+	LGPLLR+
 LPL-1.0	LPL-1.0
 LPL-1.0+	LPL-1.0+
 LPL-1.02	LPL-1.02
@@ -667,6 +672,8 @@ RPL-1.5	RPL-1.5
 RPL-1.5+	RPL-1.5+
 RPSL-1.0	RPSL-1.0
 RPSL-1.0+	RPSL-1.0+
+RSA-MD	RSA-MD
+RSA-MD+	RSA-MD+
 RSCPL	RSCPL
 RSCPL+	RSCPL+
 Rdisc	Rdisc
@@ -710,6 +717,8 @@ SUSE-CPL-0.5	Common Public License 0.5
 SUSE-CPL-0.5+	SUSE-CPL-0.5+
 SUSE-CacertRoot	http://www.cacert.org/policy/RootDistributionLicense.php
 SUSE-CacertRoot+	SUSE-CacertRoot+
+SUSE-Copyleft-Next-0.3.0	https://raw.githubusercontent.com/richardfontana/copyleft-next/master/Releases/copyleft-next-0.3.0
+SUSE-Copyleft-Next-0.3.0+	SUSE-Copyleft-Next-0.3.0+
 SUSE-Curb	https://raw.githubusercontent.com/taf2/curb/master/LICENSE
 SUSE-Curb+	SUSE-Curb+
 SUSE-DMTF	Distributed Management Task Force ( see https://fedoraproject.org/wiki/Licensing/DMTF )
@@ -867,6 +876,12 @@ SimPL-2.0	SimPL-2.0
 SimPL-2.0+	SimPL-2.0+
 Sleepycat	Sleepycat
 Sleepycat+	Sleepycat+
+Spencer-86	Spencer-86
+Spencer-86+	Spencer-86+
+Spencer-94	Spencer-94
+Spencer-94+	Spencer-94+
+Spencer-99	Spencer-99
+Spencer-99+	Spencer-99+
 SugarCRM-1.1.3	SugarCRM-1.1.3
 SugarCRM-1.1.3+	SugarCRM-1.1.3+
 TCL	SUSE-TCL
@@ -878,6 +893,8 @@ TORQUE-1.1	TORQUE-1.1
 TORQUE-1.1+	TORQUE-1.1+
 TOSL	TOSL
 TOSL+	TOSL+
+UPL-1.0	UPL-1.0
+UPL-1.0+	UPL-1.0+
 Unicode	http://www.unicode.org/copyright.html
 Unicode-TOU	Unicode-TOU
 Unicode-TOU+	Unicode-TOU+

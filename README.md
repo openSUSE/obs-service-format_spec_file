@@ -62,6 +62,7 @@ CECILL-B | CeCILL-B Free Software License Agreement
 CECILL-C | CeCILL-C Free Software License Agreement
 ClArtistic | Clarified Artistic License
 MIT-CMU | CMU License
+CNRI-Jython | CNRI Jython License
 CNRI-Python | CNRI Python License
 CNRI-Python-GPL-Compatible | CNRI Python Open Source GPL Compatible License Agreement
 CPOL-1.02 | Code Project Open License 1.02
@@ -152,6 +153,7 @@ HaskellReport | Haskell Language Report License
 HPND | Historic Permission Notice and Disclaimer
 IBM-pibs | IBM PowerPC Initialization and Boot Software
 IPL-1.0 | IBM Public License v1.0
+ICU | ICU License
 ImageMagick | ImageMagick License
 iMatix | iMatix Standard Function Library Agreement
 Imlib2 | Imlib2 License
@@ -170,6 +172,7 @@ LPPL-1.3c | LaTeX Project Public License v1.3c
 Latex2e | Latex2e License
 BSD-3-Clause-LBNL | Lawrence Berkeley National Labs BSD variant license
 Leptonica | Leptonica License
+LGPLLR | Lesser General Public License For Linguistic Resources
 Libpng | libpng License
 libtiff | libtiff License
 LPL-1.02 | Lucent Public License v1.02
@@ -248,6 +251,7 @@ RPL-1.1 | Reciprocal Public License 1.1
 RPL-1.5 | Reciprocal Public License 1.5
 RHeCos-1.1 | Red Hat eCos Public License v1.1
 RSCPL | Ricoh Source Code Public License
+RSA-MD | RSA Message-Digest License
 Ruby | Ruby License
 SAX-PD | Sax Public Domain Notice
 Saxpath | Saxpath License
@@ -261,6 +265,9 @@ OFL-1.1 | SIL Open Font License 1.1
 SimPL-2.0 | Simple Public License 2.0
 Sleepycat | Sleepycat License
 SNIA | SNIA Public License 1.1
+Spencer-86 | Spencer License 86
+Spencer-94 | Spencer License 94
+Spencer-99 | Spencer License 99
 SMLNJ | Standard ML of New Jersey License
 SugarCRM-1.1.3 | SugarCRM Public License v1.1.3
 SISSL | Sun Industry Standards Source License v1.1
@@ -273,12 +280,13 @@ TMate | TMate Open Source License
 TORQUE-1.1 | TORQUE v2.5+ Software License v1.1
 TOSL | Trusster Open Source License
 Unicode-TOU | Unicode Terms of Use
+UPL-1.0 | Universal Permissive License v1.0
 NCSA | University of Illinois/NCSA Open Source License
 Vim | Vim License
 VOSTROM | VOSTROM Public License for Open Source
 VSL-1.0 | Vovida Software License v1.0
-W3C | W3C Software Notice and License (2002-12-31)
 W3C-19980720 | W3C Software Notice and License (1998-07-20)
+W3C | W3C Software Notice and License (2002-12-31)
 Wsuipa | Wsuipa License
 Xnet | X.Net License
 X11 | X11 License
@@ -298,7 +306,6 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 ZPL-1.1 | Zope Public License 1.1
 ZPL-2.0 | Zope Public License 2.0
 ZPL-2.1 | Zope Public License 2.1
-ICU | ICU License
 
 # SUSE Additions
 
@@ -311,6 +318,7 @@ ICU | ICU License
 |SUSE-CC-Sampling-Plus-1.0|
 |SUSE-CPL-0.5|
 |SUSE-CacertRoot|
+|SUSE-Copyleft-Next-0.3.0|
 |SUSE-Curb|
 |SUSE-DMTF|
 |SUSE-Docbook-XSL|
