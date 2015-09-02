@@ -308,7 +308,7 @@ sub read_and_parse_old_spec {
     }
     # evil epoch removal
     next if ( /^Epoch:/ );
-    $_ =~ s/%{?epoch}?[:-]//g;
+    $_ =~ s/%\{?epoch}?[:-]//g;
     $_ =~ s/ 0:/ /g if ( /^requires/i || /^buildreq/i );
 
     if ( /^BuildRequires:/i || /^Requires:/i || /^Provides:/i || /^Obsoletes:/i ) {
@@ -438,7 +438,7 @@ sub read_and_parse_old_spec {
       for my $xx (sort { length($b) <=> length($a) } keys (%{$definelist})) {
 	$_ =~ s/\Q$xx\E/$definelist->{$xx}/;
       }
-      $_ =~ s/%{\?[^\}]*}//;
+      $_ =~ s/%\{\?[^\}]*}//;
       if ($debug) {
 	warn "after: $_\n";
       }
