@@ -391,3 +391,4 @@ ZPL-2.1 | Zope Public License 2.1
 |SUSE-Xenonsoft-1.00|
 |SUSE-mirror|
 |SUSE-mplus|
+|SUSE-wxWidgets-3.1|

@@ -868,6 +868,8 @@ SUSE-mirror	License of the mirror package is quite liberal but prohibits distrib
 SUSE-mirror+	SUSE-mirror+
 SUSE-mplus	http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html#license
 SUSE-mplus+	SUSE-mplus+
+SUSE-wxWidgets-3.1	https://www.wxwidgets.org/about/licence/
+SUSE-wxWidgets-3.1+	SUSE-wxWidgets-3.1+
 SWL	SWL
 SWL+	SWL+
 Saxpath	Saxpath
