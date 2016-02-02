@@ -776,6 +776,8 @@ SUSE-Gitslave	Similar to LGPL-2.1 but without sections 3 and 13
 SUSE-Gitslave+	SUSE-Gitslave+
 SUSE-Gnuplot	Gnuplot
 SUSE-Gnuplot+	SUSE-Gnuplot+
+SUSE-Hack-Open-Font-2.0 https://github.com/chrissimpkins/Hack/blob/master/LICENSE.md
+SUSE-Hack-Open-Font-2.0 SUSE-Hack-Open-Font-2.0
 SUSE-IBPL-1.0	http://www.firebirdsql.org/en/interbase-public-license/
 SUSE-IBPL-1.0+	SUSE-IBPL-1.0+
 SUSE-IDPL-1.0	http://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0/

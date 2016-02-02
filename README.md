@@ -352,6 +352,7 @@ ZPL-2.1 | Zope Public License 2.1
 |SUSE-IEEE|
 |SUSE-Innernet-2.0|
 |SUSE-Innernet-2.00|
+|SUSE-Hack-Open-Font-2.0|
 |SUSE-LDPL-2.0|
 |SUSE-LGPL-2.0-with-linking-exception|
 |SUSE-LGPL-2.1+-with-GCC-exception|
