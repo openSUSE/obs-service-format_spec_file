@@ -243,7 +243,7 @@ sub read_and_parse_old_spec {
   $ifhandler->{"disabled"} = 0;
 
   my @readspec;
-  open ( SPEC , "$specfile" ) || die "can't read specfile";
+  open ( SPEC , '<', "$specfile" ) || die "can't read specfile";
   @readspec = <SPEC>;
   close SPEC;
   chomp @readspec;
@@ -551,7 +551,7 @@ if ( $specdir eq "" ) {
 }
 my $xdefinelist;
 my $seen_name = 0;
-open ( SPE , "$specfile" );
+open ( SPE , '<', "$specfile" );
 while ( <SPE> ) {
   chomp;
 
