@@ -136,6 +136,7 @@ MIT-feh | feh License
 Frameworx-1.0 | Frameworx Open License 1.0
 FreeImage | FreeImage Public License v1.0
 FTL | Freetype Project License
+FSFAP | FSF All Permissive License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
 Giftware | Giftware License
@@ -181,6 +182,11 @@ Leptonica | Leptonica License
 LGPLLR | Lesser General Public License For Linguistic Resources
 Libpng | libpng License
 libtiff | libtiff License
+LAL-1.2 | Licence Art Libre 1.2
+LAL-1.3 | Licence Art Libre 1.3
+LiLiQ-P-1.1 | Licence Libre du Qu?bec ? Permissive version 1.1
+LiLiQ-Rplus-1.1 | Licence Libre du Qu?bec ? R?ciprocit? forte version 1.1
+LiLiQ-R-1.1 | Licence Libre du Qu?bec ? R?ciprocit? version 1.1
 LPL-1.02 | Lucent Public License v1.02
 LPL-1.0 | Lucent Public License Version 1.0
 MakeIndex | MakeIndex License
@@ -210,6 +216,7 @@ Newsletr | Newsletr License
 NLPL | No Limit Public License
 Nokia | Nokia Open Source License
 NPOSL-3.0 | Non-Profit Open Software License 3.0
+NLOD-1.0 | Norwegian Licence for Open Government Data
 Noweb | Noweb License
 NRL | NRL License
 NTP | NTP License
@@ -243,6 +250,7 @@ OSL-2.0 | Open Software License 2.0
 OSL-2.1 | Open Software License 2.1
 OSL-3.0 | Open Software License 3.0
 OpenSSL | OpenSSL License
+OSET-PL-2.1 | OSET Public License version 2.1
 PHP-3.0 | PHP License v3.0
 PHP-3.01 | PHP License v3.01
 Plexus | Plexus Classworlds License
@@ -264,6 +272,7 @@ SAX-PD | Sax Public Domain Notice
 Saxpath | Saxpath License
 SCEA | SCEA Shared Source License
 SWL | Scheme Widget Library (SWL) Software License Agreement
+SMPPL | Secure Messaging Protocol Public License
 Sendmail | Sendmail License
 SGI-B-1.0 | SGI Free Software License B v1.0
 SGI-B-1.1 | SGI Free Software License B v1.1
