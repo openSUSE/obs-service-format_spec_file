@@ -26,6 +26,10 @@ RETURN=0
 if [ -z "$MYSPECFILES" ]; then
   MYSPECFILES=`echo *.spec`
 fi
+if [ -z "$MYOUTDIR" ]; then
+  MYOUTDIR=`pwd`
+fi
+
 for i in $MYSPECFILES; do
   if [ "$i" == '*.spec' ]; then
     echo "WARNING: no spec file found"
