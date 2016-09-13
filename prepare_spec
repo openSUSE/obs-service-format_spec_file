@@ -713,6 +713,14 @@ while (@oldspec) {
   } elsif ($line eq "XXXRELEASE") {
     printf("%-16s%s\n", "Release:", "0") ;
   } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
+    # There is a chance to have some comments that should appear before
+    # licenses and groups so print them here.
+    $line = shift @oldspec;
+    while ($line =~ m/^#.*/) {
+      print "$line\n";
+      $line = shift @oldspec;
+    }
+    unshift(@oldspec, $line);
     my $current_package = $1;
     my $license = $seen_licenses{$current_package} || $main_license;
     printf("%-16s%s\n", "License:", $license) if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
