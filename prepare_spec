@@ -19,6 +19,7 @@ my $icecreamforbuild = "";
 my @copyrights = ();
 my $needsrootforbuild = 0;
 my $needsbinariesforbuild = 0;
+my $needssslcertforbuild = 0;
 my $nodebuginfo = 0;
 my $vim_modeline;
 my $nosrc_result = 0;
@@ -280,6 +281,11 @@ sub read_and_parse_old_spec {
       $needsbinariesforbuild = 1;
       next;
     }
+    if ( /^#\s*needssslcertforbuild\s*$/ ) {
+      $needssslcertforbuild = 1;
+      next;
+    }
+
     if ( /^#\s*norootforbuild/ ) {
       next;
     }
@@ -301,7 +307,7 @@ sub read_and_parse_old_spec {
 	$c =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
 	push(@copyrights, $_) if length $c > 5;
 	last if length $readspec[0] < 10 || $readspec[0] =~ m{modifications and additions}i || $readspec[0] !~ /^[\#\s]/
-	  || grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","nodebuginfo","icecream","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
+	  || grep { $readspec[0] =~ /^#\s*$_/ } ("needsrootforbuild","needsbinariesforbuild","needssslcertforbuild", "nodebuginfo","icecream","usedforbuild","Commandline","MD5SUM","!BuildIgnore");
 	$_ = shift @readspec;
       }
       next;
@@ -687,8 +693,9 @@ EOF
 print "# needsrootforbuild\n" if $needsrootforbuild;
 print "# needsbinariesforbuild\n" if $needsbinariesforbuild;
 print "# nodebuginfo\n" if $nodebuginfo;
+print "# needssslcertforbuild\n" if $needssslcertforbuild;
 print "# icecream $icecreamforbuild\n" if $icecreamforbuild ne '';
-#print "\n" if ($needsrootforbuild || $needsbinariesforbuild || $nodebuginfo || $icecreamforbuild ne '');
+#print "\n" if ($needsrootforbuild || $needsbinariesforbuild || $nodebuginfo || $icecreamforbuild || $needssslcertforbuild ne '');
 
 while ($oldspec[0] eq "XXXBLANKLINE" || $oldspec[0] eq "XXXDOUBLELINE") {
   shift @oldspec;
