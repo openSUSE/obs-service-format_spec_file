@@ -248,6 +248,8 @@ sub read_and_parse_old_spec {
   $ifhandler->{"disabled"} = 0;
 
   my @readspec;
+  my %seen_summary;
+
   open ( SPEC , '<', "$specfile" ) || die "can't read specfile";
   @readspec = <SPEC>;
   close SPEC;
@@ -510,22 +512,25 @@ sub read_and_parse_old_spec {
       if ( /^Summary\s*:\s*(.*)\s*$/i ) {
 	push @oldspec, sprintf("%-16s%s", "Summary:", $1);
 	push @oldspec, "XXXPOSTSUMMARY $current_package";
+	$seen_summary{$current_package} = 1;
 	next;
       }
 
-      # remove license and print out after license later
       if ( /^License\s*:\s*(.*)\s*$/i || /^Copyright\s*:\s*(.*)\s*$/i ) {
 	my $license = replace_spdx($1);
 	$main_license = $license if (!$main_license);
 	$seen_licenses{$current_package} = $license;
+	die "The 'License:' field for the '$current_package' package should be placed after Summary:" if ! $seen_summary{$current_package};
+	push @oldspec, "XXXLICENSE $current_package";
 	next;
       }
 
-      # remove groups and print out after summary later
       if ( /^Group\s*:\s*(.*)\s*$/i ) {
 	my $group = $1;
 	$main_group = $group if (!$main_group);
 	$seen_groups{$current_package} = $group;
+	die "The 'Group:' field for the '$current_package' package should be placed after Summary:" if ! $seen_summary{$current_package};
+	push @oldspec, "XXXGROUP $current_package";
 	next;
       }
 
@@ -629,6 +634,10 @@ if ( ! stat ((glob("$specdir/$base_package*.spec"))[0] || "") ) {
 
 read_and_parse_old_spec ( $specfile, $base_package );
 
+# We always expect Group and License to be present
+die "No License field found" if !$main_license;
+die "Νο Group field found" if !$main_group;
+
 for my $tag (qw(BuildRequires Requires Provides Obsoletes)) {
   my $linesmoved = 1;
  sortcycle: while ($linesmoved) {
@@ -710,7 +719,13 @@ $groups_unique = 0;
 my $first_summary = 1;
 
 my $line;
+my @post_licensegroup_fields;
+
 while (@oldspec) {
+  my @comments = ();
+  my @license_comments = ();
+  my @group_comments = ();
+
   $line = shift @oldspec;
 
   if ($line eq "XXXBLANKLINE") {
@@ -723,19 +738,46 @@ while (@oldspec) {
     # There is a chance to have some comments that should appear before
     # licenses and groups so print them here.
     $line = shift @oldspec;
-    while ($line =~ m/^#.*/) {
-      print "$line\n";
+    # Scan spec file until we reach the end of this specific package
+    while ($line !~ m/^%package (.*)$/ && @oldspec) {
+      if ($line =~ m/^#.*/) {
+        # Record comments
+        push @comments, $line;
+      } elsif ($line =~ m/XXXLICENSE (.*)$/) {
+        push @license_comments, @comments;
+        splice(@comments);
+      } elsif ($line =~ m/XXXGROUP (.*)$/) {
+        push @group_comments, @comments;
+        splice(@comments);
+      } else {
+        # Record everything else
+        push @post_licensegroup_fields, @comments;
+        push @post_licensegroup_fields, $line;
+        # reset comments
+        splice(@comments);
+      }
       $line = shift @oldspec;
     }
-    unshift(@oldspec, $line);
+    # Add the %package back
+    push @post_licensegroup_fields, $line if $line;
+
+    foreach(@license_comments) {
+      print "$_\n";
+    }
+    splice(@license_comments);
     my $current_package = $1;
     my $license = $seen_licenses{$current_package} || $main_license;
     printf("%-16s%s\n", "License:", $license) if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
+    foreach(@group_comments) {
+      print "$_\n";
+    }
+    splice(@group_comments);
     my $group = $seen_groups{$current_package} || $main_group;
     if ($group) {
       printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary || $current_package eq $base_package);
     }
-    $first_summary = 0;
+    unshift @oldspec, @post_licensegroup_fields;
+    splice(@post_licensegroup_fields);
   } else {
     print "$line\n";
   }
