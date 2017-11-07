@@ -182,7 +182,7 @@ sub replace_spdx_and($)
     my @licenses = ();
     if ( $license =~ /^(.*?)\(([^)]*)\)(.*?)$/ ) {
 	my ($head, $paren, $tail) = ($1, $2, $3);
-        if ($paren =~ /and|or/) {
+        if ($paren =~ /AND|OR/) {
 	    $head = replace_spdx_and($head);
 	    $tail = replace_spdx_and($tail);
 	    $paren = replace_spdx_and($paren);
@@ -191,8 +191,8 @@ sub replace_spdx_and($)
         }
     }
 
-    for (split(/(\s+(?:and|or)\s+)/, $license, -1)) {
-	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:and|or)\s+)/;
+    for (split(/(\s+(?:AND|OR)\s+)/, $license, -1)) {
+	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/;
         s/\s+/ /g;
 	push @licenses, $_;
     }
