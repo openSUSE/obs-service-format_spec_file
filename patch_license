@@ -182,7 +182,7 @@ sub replace_spdx_and($)
     my @licenses = ();
     if ( $license =~ /^(.*?)\(([^)]*)\)(.*?)$/ ) {
 	my ($head, $paren, $tail) = ($1, $2, $3);
-        if ($paren =~ /AND|OR/) {
+        if ($paren =~ /AND|OR/i) {
 	    $head = replace_spdx_and($head);
 	    $tail = replace_spdx_and($tail);
 	    $paren = replace_spdx_and($paren);
@@ -191,9 +191,10 @@ sub replace_spdx_and($)
         }
     }
 
-    for (split(/(\s+(?:AND|OR)\s+)/, $license, -1)) {
-	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/;
+    for (split(/(\s+(?:AND|OR)\s+)/i, $license, -1)) {
+	$_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/i;
         s/\s+/ /g;
+        $_ = uc $_ if /(\s+(?:AND|OR)\s+)/i;
 	push @licenses, $_;
     }
     #print STDERR "AFTE '" . join('', @licenses) . "'\n";
@@ -304,7 +305,7 @@ sub read_and_parse_old_spec {
     }
     # evil epoch removal
     next if ( /^Epoch:/ );
-    $_ =~ s/%{?epoch}?[:-]//g;
+    $_ =~ s/%\{?epoch}?[:-]//g;
     $_ =~ s/ 0:/ /g if ( /^requires/i || /^buildreq/i );
 
     if ( /^BuildRequires:/ ) {
@@ -423,7 +424,7 @@ sub read_and_parse_old_spec {
       for my $xx (sort { length($b) <=> length($a) } keys (%{$definelist})) {
         $_ =~ s/\Q$xx\E/$definelist->{$xx}/;
       }
-      $_ =~ s/%{\?[^\}]*}//;
+      $_ =~ s/%\{\?[^\}]*}//;
       if ($debug) {
 	warn "after: $_\n";
       }
