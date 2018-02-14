@@ -19,12 +19,16 @@ AFL-3.0	AFL-3.0
 AFL-3.0+	AFL-3.0+
 AGPL-1.0	AGPL-1.0
 AGPL-1.0+	AGPL-1.0+
-AGPL-3.0	AGPL-3.0
-AGPL-3.0	AGPLv3
-AGPL-3.0	Affero GPL
-AGPL-3.0+	AGPL-3.0+
-AGPL-3.0+	AGPLv3+
-AGPL-3.0+	SUSE-AGPL-3.0+
+AGPL-3.0-only	AGPL-3.0
+AGPL-3.0-only	AGPL-3.0-only
+AGPL-3.0-only	AGPLv3
+AGPL-3.0-only	Affero GPL
+AGPL-3.0-only+	AGPL-3.0-only+
+AGPL-3.0-or-later	AGPL-3.0+
+AGPL-3.0-or-later	AGPL-3.0-or-later
+AGPL-3.0-or-later	AGPLv3+
+AGPL-3.0-or-later	SUSE-AGPL-3.0+
+AGPL-3.0-or-later+	AGPL-3.0-or-later+
 AMDPLPA	AMDPLPA
 AMDPLPA+	AMDPLPA+
 AML	AML
@@ -97,6 +101,8 @@ Artistic-1.0-cl8+	Artistic-1.0-cl8+
 Artistic-2.0	Artistic 2.0
 Artistic-2.0	Artistic-2.0
 Artistic-2.0+	Artistic-2.0+
+BSD-1-Clause	BSD-1-Clause
+BSD-1-Clause+	BSD-1-Clause+
 BSD-2-Clause	BSD 2 Clause
 BSD-2-Clause	BSD 2 clause
 BSD-2-Clause	BSD 2-Clause
@@ -109,7 +115,9 @@ BSD-2-Clause-FreeBSD	BSD-2-Clause-FreeBSD
 BSD-2-Clause-FreeBSD+	BSD-2-Clause-FreeBSD+
 BSD-2-Clause-NetBSD	BSD-2-Clause-NetBSD
 BSD-2-Clause-NetBSD+	BSD-2-Clause-NetBSD+
+BSD-2-Clause-Patent	BSD-2-Clause-Patent
 BSD-2-Clause-Patent	https://opensource.org/licenses/BSDplusPatent
+BSD-2-Clause-Patent+	BSD-2-Clause-Patent+
 BSD-3-Clause	BSD (3-Clause)
 BSD-3-Clause	BSD 3-Clause
 BSD-3-Clause	BSD 3-clause (or similar)
@@ -234,6 +242,10 @@ CDDL-1.0	CDDL-1.0
 CDDL-1.0+	CDDL-1.0+
 CDDL-1.1	CDDL-1.1
 CDDL-1.1+	CDDL-1.1+
+CDLA-Permissive-1.0	CDLA-Permissive-1.0
+CDLA-Permissive-1.0+	CDLA-Permissive-1.0+
+CDLA-Sharing-1.0	CDLA-Sharing-1.0
+CDLA-Sharing-1.0+	CDLA-Sharing-1.0+
 CECILL-1.0	CECILL-1.0
 CECILL-1.0+	CECILL-1.0+
 CECILL-1.1	CECILL-1.1
@@ -306,12 +318,16 @@ EPL-1.0	Eclipse Public License
 EPL-1.0	Eclipse Public License 1.0
 EPL-1.0	Eclipse-1.0
 EPL-1.0+	EPL-1.0+
+EPL-2.0	EPL-2.0
+EPL-2.0+	EPL-2.0+
 EUDatagrid	EUDatagrid
 EUDatagrid+	EUDatagrid+
 EUPL-1.0	EUPL-1.0
 EUPL-1.0+	EUPL-1.0+
 EUPL-1.1	EUPL-1.1
 EUPL-1.1+	EUPL-1.1+
+EUPL-1.2	EUPL-1.2
+EUPL-1.2+	EUPL-1.2+
 Entessa	Entessa
 Entessa+	Entessa+
 ErlPL-1.1	ErlPL-1.1
@@ -333,74 +349,98 @@ Frameworx-1.0	Frameworx-1.0
 Frameworx-1.0+	Frameworx-1.0+
 FreeImage	FreeImage
 FreeImage+	FreeImage+
-GFDL-1.1	GFDL 1.1
-GFDL-1.1	GFDL v1.1
-GFDL-1.1	GFDL-1.1
-GFDL-1.1	GFDLv1.1
-GFDL-1.1	GNU Free Documentation License, Version 1.1 (GFDL 1.1)
-GFDL-1.1+	FDL v1.1 or later
-GFDL-1.1+	GFDL-1.1+
-GFDL-1.1+	SUSE-GFDL-1.1+
-GFDL-1.2	GFDL 1.2
-GFDL-1.2	GFDL v1.2
-GFDL-1.2	GFDL-1.2
-GFDL-1.2	GFDLv1.2
-GFDL-1.2	GNU Free Documentation License, Version 1.2 (GFDL 1.2)
-GFDL-1.2+	FDL-1.2+
-GFDL-1.2+	FDLv1.2+
-GFDL-1.2+	GFDL-1.2+
-GFDL-1.2+	GFDLv1.2+
-GFDL-1.2+	SUSE-GFDL-1.2+
-GFDL-1.3	GFDL-1.3
-GFDL-1.3	GNU Free Documentation License, Version 1.3 (GFDL 1.3)
-GFDL-1.3+	FDL-1.3+
-GFDL-1.3+	GFDL-1.3+
-GFDL-1.3+	SUSE-GFDL-1.3+
+GFDL-1.1-only	GFDL 1.1
+GFDL-1.1-only	GFDL v1.1
+GFDL-1.1-only	GFDL-1.1
+GFDL-1.1-only	GFDL-1.1-only
+GFDL-1.1-only	GFDLv1.1
+GFDL-1.1-only	GNU Free Documentation License, Version 1.1 (GFDL 1.1)
+GFDL-1.1-only+	GFDL-1.1-only+
+GFDL-1.1-or-later	FDL v1.1 or later
+GFDL-1.1-or-later	GFDL-1.1+
+GFDL-1.1-or-later	GFDL-1.1-or-later
+GFDL-1.1-or-later	SUSE-GFDL-1.1+
+GFDL-1.1-or-later+	GFDL-1.1-or-later+
+GFDL-1.2-only	GFDL 1.2
+GFDL-1.2-only	GFDL v1.2
+GFDL-1.2-only	GFDL-1.2
+GFDL-1.2-only	GFDL-1.2-only
+GFDL-1.2-only	GFDLv1.2
+GFDL-1.2-only	GNU Free Documentation License, Version 1.2 (GFDL 1.2)
+GFDL-1.2-only+	GFDL-1.2-only+
+GFDL-1.2-or-later	FDL-1.2+
+GFDL-1.2-or-later	FDLv1.2+
+GFDL-1.2-or-later	GFDL-1.2+
+GFDL-1.2-or-later	GFDL-1.2-or-later
+GFDL-1.2-or-later	GFDLv1.2+
+GFDL-1.2-or-later	SUSE-GFDL-1.2+
+GFDL-1.2-or-later+	GFDL-1.2-or-later+
+GFDL-1.3-only	GFDL-1.3
+GFDL-1.3-only	GFDL-1.3-only
+GFDL-1.3-only	GNU Free Documentation License, Version 1.3 (GFDL 1.3)
+GFDL-1.3-only+	GFDL-1.3-only+
+GFDL-1.3-or-later	FDL-1.3+
+GFDL-1.3-or-later	GFDL-1.3+
+GFDL-1.3-or-later	GFDL-1.3-or-later
+GFDL-1.3-or-later	SUSE-GFDL-1.3+
+GFDL-1.3-or-later+	GFDL-1.3-or-later+
 GL2PS	GL2PS
 GL2PS+	GL2PS+
-GPL-1.0	GPL-1.0
-GPL-1.0+	GPL+
-GPL-1.0+	GPL-1.0+
-GPL-1.0+	GPLv1+
-GPL-2.0	GLPv2
-GPL-2.0	GNU GPL v2
-GPL-2.0	GNU General Public License (GPL) v2
-GPL-2.0	GNU General Public License version 2 (GPL v2)
-GPL-2.0	GPL 2.0
-GPL-2.0	GPL v2
-GPL-2.0	GPL v2 only
-GPL-2.0	GPL v2.0
-GPL-2.0	GPL-2
-GPL-2.0	GPL-2.0
-GPL-2.0	GPL2
-GPL-2.0	GPLv2
-GPL-2.0+	GNU General Public License version 2 or later
-GPL-2.0+	GNU General Public License version 2 or later (GPL v2 or later)
-GPL-2.0+	GNU General Public License version 2 or later (GPLv2 or later)
-GPL-2.0+	GPL v2 or later
-GPL-2.0+	GPL v2+
-GPL-2.0+	GPL v2.0 or later
-GPL-2.0+	GPL-2+
-GPL-2.0+	GPL-2.0 or later
-GPL-2.0+	GPL-2.0+
-GPL-2.0+	GPL2+
-GPL-2.0+	GPLv2 or later
-GPL-2.0+	GPLv2+
-GPL-2.0+	libGeoIPUpdate is GPLv2 or later
-GPL-3.0	GNU GPL version 3
-GPL-3.0	GNU General Public License version 3 (GPLv3)
-GPL-3.0	GPL 3
-GPL-3.0	GPL v3
-GPL-3.0	GPL v3 only
-GPL-3.0	GPL-3
-GPL-3.0	GPL-3.0
-GPL-3.0	GPL3
-GPL-3.0	GPLv3
-GPL-3.0+	GNU GPL v3 or later
-GPL-3.0+	GPL v3 or later
-GPL-3.0+	GPL-3+
-GPL-3.0+	GPL-3.0+
-GPL-3.0+	GPLv3+
+GPL-1.0-only	GPL-1.0-only
+GPL-1.0-only+	GPL-1.0-only+
+GPL-1.0-or-later	GPL+
+GPL-1.0-or-later	GPL-1.0+
+GPL-1.0-or-later	GPL-1.0-or-later
+GPL-1.0-or-later	GPLv1+
+GPL-1.0-or-later+	GPL-1.0-or-later+
+GPL-2.0-only	GLPv2
+GPL-2.0-only	GNU GPL v2
+GPL-2.0-only	GNU General Public License (GPL) v2
+GPL-2.0-only	GNU General Public License version 2 (GPL v2)
+GPL-2.0-only	GPL 2.0
+GPL-2.0-only	GPL v2
+GPL-2.0-only	GPL v2 only
+GPL-2.0-only	GPL v2.0
+GPL-2.0-only	GPL-2
+GPL-2.0-only	GPL-2.0
+GPL-2.0-only	GPL-2.0-only
+GPL-2.0-only	GPL2
+GPL-2.0-only	GPLv2
+GPL-2.0-only+	GPL-2.0-only+
+GPL-2.0-or-later	GNU General Public License version 2 or later
+GPL-2.0-or-later	GNU General Public License version 2 or later (GPL v2 or later)
+GPL-2.0-or-later	GNU General Public License version 2 or later (GPLv2 or later)
+GPL-2.0-or-later	GPL v2 or later
+GPL-2.0-or-later	GPL v2+
+GPL-2.0-or-later	GPL v2.0 or later
+GPL-2.0-or-later	GPL-2+
+GPL-2.0-or-later	GPL-2.0 or later
+GPL-2.0-or-later	GPL-2.0+
+GPL-2.0-or-later	GPL-2.0-or-later
+GPL-2.0-or-later	GPL2+
+GPL-2.0-or-later	GPLv2 or later
+GPL-2.0-or-later	GPLv2+
+GPL-2.0-or-later	libGeoIPUpdate is GPLv2 or later
+GPL-2.0-or-later+	GPL-2.0-or-later+
+GPL-3.0-only	GNU GPL version 3
+GPL-3.0-only	GNU General Public License version 3 (GPLv3)
+GPL-3.0-only	GPL 3
+GPL-3.0-only	GPL v3
+GPL-3.0-only	GPL v3 only
+GPL-3.0-only	GPL-3
+GPL-3.0-only	GPL-3.0
+GPL-3.0-only	GPL-3.0-only
+GPL-3.0-only	GPL3
+GPL-3.0-only	GPLv3
+GPL-3.0-only+	GPL-3.0-only+
+GPL-3.0-or-later	GNU GPL v3 or later
+GPL-3.0-or-later	GPL v3 or later
+GPL-3.0-or-later	GPL-3+
+GPL-3.0-or-later	GPL-3.0+
+GPL-3.0-or-later	GPL-3.0-or-later
+GPL-3.0-or-later	GPLv3+
+GPL-3.0-or-later WITH Autoconf-exception-3.0	GPLv3+ with exceptions
+GPL-3.0-or-later+	GPL-3.0-or-later+
 GPL-3.0-with-Qt-Company-Qt-exception-1.1	GPL-3.0-with-Qt-Company-Qt-exception-1.1
 Giftware	Giftware
 Giftware+	Giftware+
@@ -452,40 +492,56 @@ LAL-1.2	https://spdx.org/licenses/LAL-1.2.html
 LAL-1.2+	LAL-1.2+
 LAL-1.3	LAL-1.3
 LAL-1.3+	LAL-1.3+
-LGPL-2.0	LGPL v2
-LGPL-2.0	LGPL v2.0 only
-LGPL-2.0	LGPL-2.0
-LGPL-2.0	LGPLv2
-LGPL-2.0	LGPLv2.0
-LGPL-2.0+	LGPL v2 or later
-LGPL-2.0+	LGPL v2.0 or later
-LGPL-2.0+	LGPL-2.0+
-LGPL-2.0+	LGPLv2.0+
-LGPL-2.1	GNU LGPLv2.1
-LGPL-2.1	GNU Lesser General Public License version 2.1 (LGPL v2.1)
-LGPL-2.1	LGPL 2.1
-LGPL-2.1	LGPL v2.1
-LGPL-2.1	LGPL v2.1 only
-LGPL-2.1	LGPL-2.1
-LGPL-2.1	LGPL2.1
-LGPL-2.1	LGPLv2.1
-LGPL-2.1+	GNU LGPL v2.1 or later
-LGPL-2.1+	LGPL V2+
-LGPL-2.1+	LGPL v2+
-LGPL-2.1+	LGPL v2.1 or later
-LGPL-2.1+	LGPL v2.1+
-LGPL-2.1+	LGPL-2.0.1 or later
-LGPL-2.1+	LGPL-2.1+
-LGPL-2.1+	LGPLv2+
-LGPL-2.1+	LGPLv2.1+
+LGPL-2.0-only	LGPL v2
+LGPL-2.0-only	LGPL v2.0 only
+LGPL-2.0-only	LGPL-2.0
+LGPL-2.0-only	LGPL-2.0-only
+LGPL-2.0-only	LGPLv2
+LGPL-2.0-only	LGPLv2.0
+LGPL-2.0-only+	LGPL-2.0-only+
+LGPL-2.0-or-later	LGPL v2 or later
+LGPL-2.0-or-later	LGPL v2.0 or later
+LGPL-2.0-or-later	LGPL-2.0+
+LGPL-2.0-or-later	LGPL-2.0-or-later
+LGPL-2.0-or-later	LGPLv2.0+
+LGPL-2.0-or-later+	LGPL-2.0-or-later+
+LGPL-2.1-only	GNU LGPLv2.1
+LGPL-2.1-only	GNU Lesser General Public License version 2.1 (LGPL v2.1)
+LGPL-2.1-only	LGPL 2.1
+LGPL-2.1-only	LGPL v2.1
+LGPL-2.1-only	LGPL v2.1 only
+LGPL-2.1-only	LGPL-2.1
+LGPL-2.1-only	LGPL-2.1-only
+LGPL-2.1-only	LGPL2.1
+LGPL-2.1-only	LGPLv2.1
+LGPL-2.1-only+	LGPL-2.1-only+
+LGPL-2.1-or-later	GNU LGPL v2.1 or later
+LGPL-2.1-or-later	LGPL V2+
+LGPL-2.1-or-later	LGPL v2+
+LGPL-2.1-or-later	LGPL v2.1 or later
+LGPL-2.1-or-later	LGPL v2.1+
+LGPL-2.1-or-later	LGPL-2.0.1 or later
+LGPL-2.1-or-later	LGPL-2.1+
+LGPL-2.1-or-later	LGPL-2.1-or-later
+LGPL-2.1-or-later	LGPLv2+
+LGPL-2.1-or-later	LGPLv2.1+
+LGPL-2.1-or-later WITH GCC-exception-2.0	LGPLv2+ with GCC exception
+LGPL-2.1-or-later WITH GCC-exception-2.0	SUSE-LGPL-2.1+-with-GCC-exception
+LGPL-2.1-or-later+	LGPL-2.1-or-later+
 LGPL-2.1-with-Qt-Company-Qt-exception-1.1	LGPL-2.1-with-Qt-Company-Qt-exception-1.1
-LGPL-3.0	GNU Lesser General Public License (LGPL), Version 3
-LGPL-3.0	GNU Lesser General Public License version 3 (LGPL v3)
-LGPL-3.0	LGPL-3.0
-LGPL-3.0	LGPLv3
-LGPL-3.0+	LGPL v3 or later
-LGPL-3.0+	LGPL-3.0+
-LGPL-3.0+	LGPLv3+
+LGPL-3.0-only	GNU Lesser General Public License (LGPL), Version 3
+LGPL-3.0-only	GNU Lesser General Public License version 3 (LGPL v3)
+LGPL-3.0-only	LGPL-3.0
+LGPL-3.0-only	LGPL-3.0-only
+LGPL-3.0-only	LGPLv3
+LGPL-3.0-only WITH openvpn-openssl-exception	SUSE-LGPL-3.0-with-openssl-exception
+LGPL-3.0-only WITH openvpn-openssl-exception	e.g python-psycopg2
+LGPL-3.0-only+	LGPL-3.0-only+
+LGPL-3.0-or-later	LGPL v3 or later
+LGPL-3.0-or-later	LGPL-3.0+
+LGPL-3.0-or-later	LGPL-3.0-or-later
+LGPL-3.0-or-later	LGPLv3+
+LGPL-3.0-or-later+	LGPL-3.0-or-later+
 LGPL-3.0-with-Qt-Company-Qt-exception-1.1	LGPL-3.0-with-Qt-Company-Qt-exception-1.1
 LGPLLR	LGPLLR
 LGPLLR+	LGPLLR+
@@ -605,10 +661,9 @@ Newsletr	Newsletr
 Newsletr+	Newsletr+
 Nokia	Nokia
 Nokia+	Nokia+
+NonFree	NonFree licenses
 Noweb	Noweb
 Noweb+	Noweb+
-Nunit	Nunit
-Nunit+	Nunit+
 OCCT-PL	OCCT-PL
 OCCT-PL+	OCCT-PL+
 OCLC-2.0	OCLC-2.0
@@ -803,8 +858,6 @@ SUSE-GPL-2.0-with-openssl-exception	SPDX does not have this exception
 SUSE-GPL-2.0-with-openssl-exception+	SUSE-GPL-2.0-with-openssl-exception+
 SUSE-GPL-2.0-with-plugin-exception	Many GPL-2.0 licensed applications grant an exception that permits non-free plugins (e.g. from gstreamer) to be linked against them
 SUSE-GPL-2.0-with-plugin-exception+	SUSE-GPL-2.0-with-plugin-exception+
-SUSE-GPL-3.0+-with-autoconf-exception	GPLv3+ with exceptions
-SUSE-GPL-3.0+-with-autoconf-exception+	SUSE-GPL-3.0+-with-autoconf-exception+
 SUSE-GPL-3.0+-with-font-exception	GPLv3+ with exceptions (Fedora)
 SUSE-GPL-3.0+-with-font-exception+	SUSE-GPL-3.0+-with-font-exception+
 SUSE-GPL-3.0+-with-openssl-exception	GPLv3+ with openssl linking exception
@@ -837,14 +890,10 @@ SUSE-LDPL-2.0	http://www.tldp.org/COPYRIGHT.html
 SUSE-LDPL-2.0+	SUSE-LDPL-2.0+
 SUSE-LGPL-2.0-with-linking-exception	LGPL-2.0-with-linking-exception
 SUSE-LGPL-2.0-with-linking-exception+	SUSE-LGPL-2.0-with-linking-exception+
-SUSE-LGPL-2.1+-with-GCC-exception	LGPLv2+ with GCC exception
-SUSE-LGPL-2.1+-with-GCC-exception+	SUSE-LGPL-2.1+-with-GCC-exception+
 SUSE-LGPL-2.1-with-digia-exception-1.1	qtcreator November 2012
 SUSE-LGPL-2.1-with-digia-exception-1.1+	SUSE-LGPL-2.1-with-digia-exception-1.1+
 SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 SUSE-LGPL-2.1-with-nokia-exception-1.1+	SUSE-LGPL-2.1-with-nokia-exception-1.1+
-SUSE-LGPL-3.0-with-openssl-exception	e.g python-psycopg2
-SUSE-LGPL-3.0-with-openssl-exception+	SUSE-LGPL-3.0-with-openssl-exception+
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
 SUSE-Liberation+	SUSE-Liberation+
 SUSE-MIT-Khronos	https://github.com/KhronosGroup/KTX/blob/master/lib/loader.c
@@ -855,8 +904,6 @@ SUSE-Matplotlib	E.g. python -matplotlib -> LICENSE/LICENSE
 SUSE-Matplotlib+	SUSE-Matplotlib+
 SUSE-MgOpen	MgOpen Fonts license (similar to Bitstream Vera but with additional language)
 SUSE-MgOpen+	SUSE-MgOpen+
-SUSE-NonFree	NonFree licenses
-SUSE-NonFree+	SUSE-NonFree+
 SUSE-Oasis-Specification-Notice	Oasis-Specification-Notice
 SUSE-Oasis-Specification-Notice+	SUSE-Oasis-Specification-Notice+
 SUSE-OldFSFDocLicense	Tracked by Fedora as OldFSFDocLicense (see https://fedoraproject.org/wiki/Licensing:OldFSFDocLicense?rd=Licensing/OldFSFDocLicense)
