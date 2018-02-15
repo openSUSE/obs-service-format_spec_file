@@ -386,6 +386,7 @@ GFDL-1.3-or-later	SUSE-GFDL-1.3+
 GFDL-1.3-or-later+	GFDL-1.3-or-later+
 GL2PS	GL2PS
 GL2PS+	GL2PS+
+GPL-1.0-only	GPL-1.0
 GPL-1.0-only	GPL-1.0-only
 GPL-1.0-only+	GPL-1.0-only+
 GPL-1.0-or-later	GPL+
@@ -662,6 +663,7 @@ Newsletr+	Newsletr+
 Nokia	Nokia
 Nokia+	Nokia+
 NonFree	NonFree licenses
+NonFree	SUSE-NonFree
 Noweb	Noweb
 Noweb+	Noweb+
 OCCT-PL	OCCT-PL
