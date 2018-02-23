@@ -65,7 +65,7 @@ my @global_tags_list =
  'Suggests',
  'Summary',
  'Supplements',
- 'Url',
+ 'URL',
 );
 
 my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
