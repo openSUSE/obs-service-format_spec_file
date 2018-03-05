@@ -80,6 +80,8 @@ sub unify {
 sub capitalize_case($) {
   my ($tag) = @_;
 
+  return $tag if $tag =~ m/Url|URL/;
+
   $tag = lc($tag);
 
   $tag =~ s/docdir/DocDir/i;
