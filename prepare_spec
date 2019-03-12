@@ -329,8 +329,8 @@ sub read_and_parse_old_spec {
       }
 
       my %aa;
-      if ($cur_tag =~ /%\(/ || $cur_tag =~ /%\{/) {
-        # do not touch lines with shell execution
+      if ($cur_tag =~ /%\(/ || $cur_tag =~ /%\{/ || $cur_tag =~ /\(.*\)/) {
+        # do not touch lines with shell execution or rich deps in brackets
 	$aa{$cur_tag}=1;
       } else {
         # seperate tags of all other lines
