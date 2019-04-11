@@ -17,7 +17,8 @@ AFL-2.0 | Academic Free License v2.0
 AFL-2.1 | Academic Free License v2.1
 AFL-3.0 | Academic Free License v3.0
 Afmparse | Afmparse License
-AGPL-1.0 | Affero General Public License v1.0
+AGPL-1.0-only | Affero General Public License v1.0 only
+AGPL-1.0-or-later | Affero General Public License v1.0 or later
 AGPL-3.0-only | GNU Affero General Public License v3.0 only
 AGPL-3.0-or-later | GNU Affero General Public License v3.0 or later
 Aladdin | Aladdin Free Public License
@@ -34,9 +35,9 @@ APSL-1.0 | Apple Public Source License 1.0
 APSL-1.1 | Apple Public Source License 1.1
 APSL-1.2 | Apple Public Source License 1.2
 APSL-2.0 | Apple Public Source License 2.0
+Artistic-1.0 | Artistic License 1.0
 Artistic-1.0-cl8 | Artistic License 1.0 w/clause 8
 Artistic-1.0-Perl | Artistic License 1.0 (Perl)
-Artistic-1.0 | Artistic License 1.0
 Artistic-2.0 | Artistic License 2.0
 Bahyph | Bahyph License
 Barr | Barr License
@@ -45,19 +46,19 @@ BitTorrent-1.0 | BitTorrent Open Source License v1.0
 BitTorrent-1.1 | BitTorrent Open Source License v1.1
 Borceux | Borceux license
 BSD-1-Clause | BSD 1-Clause License
+BSD-2-Clause | BSD 2-Clause "Simplified" License
 BSD-2-Clause-FreeBSD | BSD 2-Clause FreeBSD License
 BSD-2-Clause-NetBSD | BSD 2-Clause NetBSD License
 BSD-2-Clause-Patent | BSD-2-Clause Plus Patent License
-BSD-2-Clause | BSD 2-Clause "Simplified" License
+BSD-3-Clause | BSD 3-Clause "New" or "Revised" License
 BSD-3-Clause-Attribution | BSD with attribution
 BSD-3-Clause-Clear | BSD 3-Clause Clear License
 BSD-3-Clause-LBNL | Lawrence Berkeley National Labs BSD variant license
-BSD-3-Clause-No-Nuclear-License-2014 | BSD 3-Clause No Nuclear License 2014
 BSD-3-Clause-No-Nuclear-License | BSD 3-Clause No Nuclear License
+BSD-3-Clause-No-Nuclear-License-2014 | BSD 3-Clause No Nuclear License 2014
 BSD-3-Clause-No-Nuclear-Warranty | BSD 3-Clause No Nuclear Warranty
-BSD-3-Clause | BSD 3-Clause "New" or "Revised" License
-BSD-4-Clause-UC | BSD-4-Clause (University of California-Specific)
 BSD-4-Clause | BSD 4-Clause "Original" or "Old" License
+BSD-4-Clause-UC | BSD-4-Clause (University of California-Specific)
 BSD-Protection | BSD Protection License
 BSD-Source-Code | BSD Source Code Attribution
 BSL-1.0 | Boost Software License 1.0
@@ -65,36 +66,36 @@ bzip2-1.0.5 | bzip2 and libbzip2 License v1.0.5
 bzip2-1.0.6 | bzip2 and libbzip2 License v1.0.6
 Caldera | Caldera License
 CATOSL-1.1 | Computer Associates Trusted Open Source License 1.1
-CC-BY-1.0 | Creative Commons Attribution 1.0
-CC-BY-2.0 | Creative Commons Attribution 2.0
-CC-BY-2.5 | Creative Commons Attribution 2.5
-CC-BY-3.0 | Creative Commons Attribution 3.0
-CC-BY-4.0 | Creative Commons Attribution 4.0
-CC-BY-NC-1.0 | Creative Commons Attribution Non Commercial 1.0
-CC-BY-NC-2.0 | Creative Commons Attribution Non Commercial 2.0
-CC-BY-NC-2.5 | Creative Commons Attribution Non Commercial 2.5
-CC-BY-NC-3.0 | Creative Commons Attribution Non Commercial 3.0
-CC-BY-NC-4.0 | Creative Commons Attribution Non Commercial 4.0
-CC-BY-NC-ND-1.0 | Creative Commons Attribution Non Commercial No Derivatives 1.0
-CC-BY-NC-ND-2.0 | Creative Commons Attribution Non Commercial No Derivatives 2.0
-CC-BY-NC-ND-2.5 | Creative Commons Attribution Non Commercial No Derivatives 2.5
-CC-BY-NC-ND-3.0 | Creative Commons Attribution Non Commercial No Derivatives 3.0
-CC-BY-NC-ND-4.0 | Creative Commons Attribution Non Commercial No Derivatives 4.0
-CC-BY-NC-SA-1.0 | Creative Commons Attribution Non Commercial Share Alike 1.0
-CC-BY-NC-SA-2.0 | Creative Commons Attribution Non Commercial Share Alike 2.0
-CC-BY-NC-SA-2.5 | Creative Commons Attribution Non Commercial Share Alike 2.5
-CC-BY-NC-SA-3.0 | Creative Commons Attribution Non Commercial Share Alike 3.0
-CC-BY-NC-SA-4.0 | Creative Commons Attribution Non Commercial Share Alike 4.0
-CC-BY-ND-1.0 | Creative Commons Attribution No Derivatives 1.0
-CC-BY-ND-2.0 | Creative Commons Attribution No Derivatives 2.0
-CC-BY-ND-2.5 | Creative Commons Attribution No Derivatives 2.5
-CC-BY-ND-3.0 | Creative Commons Attribution No Derivatives 3.0
-CC-BY-ND-4.0 | Creative Commons Attribution No Derivatives 4.0
-CC-BY-SA-1.0 | Creative Commons Attribution Share Alike 1.0
-CC-BY-SA-2.0 | Creative Commons Attribution Share Alike 2.0
-CC-BY-SA-2.5 | Creative Commons Attribution Share Alike 2.5
-CC-BY-SA-3.0 | Creative Commons Attribution Share Alike 3.0
-CC-BY-SA-4.0 | Creative Commons Attribution Share Alike 4.0
+CC-BY-1.0 | Creative Commons Attribution 1.0 Generic
+CC-BY-2.0 | Creative Commons Attribution 2.0 Generic
+CC-BY-2.5 | Creative Commons Attribution 2.5 Generic
+CC-BY-3.0 | Creative Commons Attribution 3.0 Unported
+CC-BY-4.0 | Creative Commons Attribution 4.0 International
+CC-BY-NC-1.0 | Creative Commons Attribution Non Commercial 1.0 Generic
+CC-BY-NC-2.0 | Creative Commons Attribution Non Commercial 2.0 Generic
+CC-BY-NC-2.5 | Creative Commons Attribution Non Commercial 2.5 Generic
+CC-BY-NC-3.0 | Creative Commons Attribution Non Commercial 3.0 Unported
+CC-BY-NC-4.0 | Creative Commons Attribution Non Commercial 4.0 International
+CC-BY-NC-ND-1.0 | Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
+CC-BY-NC-ND-2.0 | Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
+CC-BY-NC-ND-2.5 | Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
+CC-BY-NC-ND-3.0 | Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
+CC-BY-NC-ND-4.0 | Creative Commons Attribution Non Commercial No Derivatives 4.0 International
+CC-BY-NC-SA-1.0 | Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
+CC-BY-NC-SA-2.0 | Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
+CC-BY-NC-SA-2.5 | Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
+CC-BY-NC-SA-3.0 | Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
+CC-BY-NC-SA-4.0 | Creative Commons Attribution Non Commercial Share Alike 4.0 International
+CC-BY-ND-1.0 | Creative Commons Attribution No Derivatives 1.0 Generic
+CC-BY-ND-2.0 | Creative Commons Attribution No Derivatives 2.0 Generic
+CC-BY-ND-2.5 | Creative Commons Attribution No Derivatives 2.5 Generic
+CC-BY-ND-3.0 | Creative Commons Attribution No Derivatives 3.0 Unported
+CC-BY-ND-4.0 | Creative Commons Attribution No Derivatives 4.0 International
+CC-BY-SA-1.0 | Creative Commons Attribution Share Alike 1.0 Generic
+CC-BY-SA-2.0 | Creative Commons Attribution Share Alike 2.0 Generic
+CC-BY-SA-2.5 | Creative Commons Attribution Share Alike 2.5 Generic
+CC-BY-SA-3.0 | Creative Commons Attribution Share Alike 3.0 Unported
+CC-BY-SA-4.0 | Creative Commons Attribution Share Alike 4.0 International
 CC0-1.0 | Creative Commons Zero v1.0 Universal
 CDDL-1.0 | Common Development and Distribution License 1.0
 CDDL-1.1 | Common Development and Distribution License 1.1
@@ -106,11 +107,15 @@ CECILL-2.0 | CeCILL Free Software License Agreement v2.0
 CECILL-2.1 | CeCILL Free Software License Agreement v2.1
 CECILL-B | CeCILL-B Free Software License Agreement
 CECILL-C | CeCILL-C Free Software License Agreement
+CERN-OHL-1.1 | CERN Open Hardware License v1.1
+CERN-OHL-1.2 | CERN Open Hardware Licence v1.2
 ClArtistic | Clarified Artistic License
 CNRI-Jython | CNRI Jython License
-CNRI-Python-GPL-Compatible | CNRI Python Open Source GPL Compatible License Agreement
 CNRI-Python | CNRI Python License
+CNRI-Python-GPL-Compatible | CNRI Python Open Source GPL Compatible License Agreement
 Condor-1.1 | Condor Public License v1.1
+copyleft-next-0.3.0 | copyleft-next 0.3.0
+copyleft-next-0.3.1 | copyleft-next 0.3.1
 CPAL-1.0 | Common Public Attribution License 1.0
 CPL-1.0 | Common Public License 1.0
 CPOL-1.02 | Code Project Open License 1.02
@@ -166,6 +171,7 @@ GPL-3.0-or-later | GNU General Public License v3.0 or later
 gSOAP-1.3b | gSOAP Public License v1.3b
 HaskellReport | Haskell Language Report License
 HPND | Historical Permission Notice and Disclaimer
+HPND-sell-variant | Historical Permission Notice and Disclaimer - sell variant
 IBM-pibs | IBM PowerPC Initialization and Boot Software
 ICU | ICU License
 IJG | Independent JPEG Group License
@@ -173,13 +179,14 @@ ImageMagick | ImageMagick License
 iMatix | iMatix Standard Function Library Agreement
 Imlib2 | Imlib2 License
 Info-ZIP | Info-ZIP License
-Intel-ACPI | Intel ACPI Software License Agreement
 Intel | Intel Open Source License
+Intel-ACPI | Intel ACPI Software License Agreement
 Interbase-1.0 | Interbase Public License v1.0
 IPA | IPA Font License
 IPL-1.0 | IBM Public License v1.0
 ISC | ISC License
 JasPer-2.0 | JasPer License
+JPNIC | Japan Network Information Center License
 JSON | JSON License
 LAL-1.2 | Licence Art Libre 1.2
 LAL-1.3 | Licence Art Libre 1.3
@@ -193,10 +200,12 @@ LGPL-3.0-only | GNU Lesser General Public License v3.0 only
 LGPL-3.0-or-later | GNU Lesser General Public License v3.0 or later
 LGPLLR | Lesser General Public License For Linguistic Resources
 Libpng | libpng License
+libpng-2.0 | PNG Reference Library version 2
 libtiff | libtiff License
 LiLiQ-P-1.1 | Licence Libre du Qu?bec ? Permissive version 1.1
 LiLiQ-R-1.1 | Licence Libre du Qu?bec ? R?ciprocit? version 1.1
 LiLiQ-Rplus-1.1 | Licence Libre du Qu?bec ? R?ciprocit? forte version 1.1
+Linux-OpenIB | Linux Kernel Variant of OpenIB.org license
 LPL-1.0 | Lucent Public License Version 1.0
 LPL-1.02 | Lucent Public License v1.02
 LPPL-1.0 | LaTeX Project Public License v1.0
@@ -206,18 +215,19 @@ LPPL-1.3a | LaTeX Project Public License v1.3a
 LPPL-1.3c | LaTeX Project Public License v1.3c
 MakeIndex | MakeIndex License
 MirOS | MirOS License
+MIT | MIT License
+MIT-0 | MIT No Attribution
 MIT-advertising | Enlightenment License (e16)
 MIT-CMU | CMU License
 MIT-enna | enna License
 MIT-feh | feh License
-MIT | MIT License
 MITNFA | MIT +no-false-attribs license
 Motosoto | Motosoto License
 mpich2 | mpich2 License
 MPL-1.0 | Mozilla Public License 1.0
 MPL-1.1 | Mozilla Public License 1.1
-MPL-2.0-no-copyleft-exception | Mozilla Public License 2.0 (no copyleft exception)
 MPL-2.0 | Mozilla Public License 2.0
+MPL-2.0-no-copyleft-exception | Mozilla Public License 2.0 (no copyleft exception)
 MS-PL | Microsoft Public License
 MS-RL | Microsoft Reciprocal License
 MTLL | Matrix Template Library License
@@ -244,19 +254,23 @@ NTP | NTP License
 OCCT-PL | Open CASCADE Technology Public License
 OCLC-2.0 | OCLC Research Public License 2.0
 ODbL-1.0 | ODC Open Database License v1.0
+ODC-By-1.0 | Open Data Commons Attribution License v1.0
 OFL-1.0 | SIL Open Font License 1.0
 OFL-1.1 | SIL Open Font License 1.1
+OGL-UK-1.0 | Open Government Licence v1.0
+OGL-UK-2.0 | Open Government Licence v2.0
+OGL-UK-3.0 | Open Government Licence v3.0
 OGTSL | Open Group Test Suite License
 OLDAP-1.1 | Open LDAP Public License v1.1
 OLDAP-1.2 | Open LDAP Public License v1.2
 OLDAP-1.3 | Open LDAP Public License v1.3
 OLDAP-1.4 | Open LDAP Public License v1.4
-OLDAP-2.0.1 | Open LDAP Public License v2.0.1
 OLDAP-2.0 | Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
+OLDAP-2.0.1 | Open LDAP Public License v2.0.1
 OLDAP-2.1 | Open LDAP Public License v2.1
+OLDAP-2.2 | Open LDAP Public License v2.2
 OLDAP-2.2.1 | Open LDAP Public License v2.2.1
 OLDAP-2.2.2 | Open LDAP Public License 2.2.2
-OLDAP-2.2 | Open LDAP Public License v2.2
 OLDAP-2.3 | Open LDAP Public License v2.3
 OLDAP-2.4 | Open LDAP Public License v2.4
 OLDAP-2.5 | Open LDAP Public License v2.5
@@ -294,12 +308,13 @@ SAX-PD | Sax Public Domain Notice
 Saxpath | Saxpath License
 SCEA | SCEA Shared Source License
 Sendmail | Sendmail License
+Sendmail-8.23 | Sendmail License 8.23
 SGI-B-1.0 | SGI Free Software License B v1.0
 SGI-B-1.1 | SGI Free Software License B v1.1
 SGI-B-2.0 | SGI Free Software License B v2.0
 SimPL-2.0 | Simple Public License 2.0
-SISSL-1.2 | Sun Industry Standards Source License v1.2
 SISSL | Sun Industry Standards Source License v1.1
+SISSL-1.2 | Sun Industry Standards Source License v1.2
 Sleepycat | Sleepycat License
 SMLNJ | Standard ML of New Jersey License
 SMPPL | Secure Messaging Protocol Public License
@@ -310,11 +325,14 @@ Spencer-99 | Spencer License 99
 SPL-1.0 | Sun Public License v1.0
 SugarCRM-1.1.3 | SugarCRM Public License v1.1.3
 SWL | Scheme Widget Library (SWL) Software License Agreement
+TAPR-OHL-1.0 | TAPR Open Hardware License v1.0
 TCL | TCL/TK License
 TCP-wrappers | TCP Wrappers License
 TMate | TMate Open Source License
 TORQUE-1.1 | TORQUE v2.5+ Software License v1.1
 TOSL | Trusster Open Source License
+TU-Berlin-1.0 | Technische Universitaet Berlin License 1.0
+TU-Berlin-2.0 | Technische Universitaet Berlin License 2.0
 Unicode-DFS-2015 | Unicode License Agreement - Data Files and Software (2015)
 Unicode-DFS-2016 | Unicode License Agreement - Data Files and Software (2016)
 Unicode-TOU | Unicode Terms of Use
@@ -323,9 +341,9 @@ UPL-1.0 | Universal Permissive License v1.0
 Vim | Vim License
 VOSTROM | VOSTROM Public License for Open Source
 VSL-1.0 | Vovida Software License v1.0
+W3C | W3C Software Notice and License (2002-12-31)
 W3C-19980720 | W3C Software Notice and License (1998-07-20)
 W3C-20150513 | W3C Software Notice and Document License (2015-05-13)
-W3C | W3C Software Notice and License (2002-12-31)
 Watcom-1.0 | Sybase Open Watcom Public License 1.0
 Wsuipa | Wsuipa License
 WTFPL | Do What The F*ck You Want To Public License
@@ -342,8 +360,8 @@ Zed | Zed License
 Zend-2.0 | Zend License v2.0
 Zimbra-1.3 | Zimbra Public License v1.3
 Zimbra-1.4 | Zimbra Public License v1.4
-zlib-acknowledgement | zlib/libpng License with Acknowledgement
 Zlib | zlib License
+zlib-acknowledgement | zlib/libpng License with Acknowledgement
 ZPL-1.1 | Zope Public License 1.1
 ZPL-2.0 | Zope Public License 2.0
 ZPL-2.1 | Zope Public License 2.1
