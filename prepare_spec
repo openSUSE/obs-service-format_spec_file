@@ -258,6 +258,9 @@ sub read_and_parse_old_spec {
 
   while (@readspec) {
     $_ = shift @readspec;
+    
+    # Simple dos2unix
+    $_ =~ s/\r//g;
 
     if ( /^\s*$/ && $current_section ne "description") {
       # stop preamble parsing on two blank lines
