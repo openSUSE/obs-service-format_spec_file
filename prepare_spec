@@ -361,7 +361,7 @@ sub read_and_parse_old_spec {
 
     if ( /^#/ && $current_section ne "description") {
       warn "$_ $current_section\n" if $debug;
-      if ( $print_comments eq "true" || $readspec[0] =~ /^%define/ || $readspec[0] =~ /^%if/) {
+      if ( $print_comments eq "true" || $readspec[0] =~ /^%define/ || $readspec[0] =~ /^%global/ || $readspec[0] =~ /^%if/) {
 	push @oldspec, $_;
       }
       next;
@@ -377,7 +377,7 @@ sub read_and_parse_old_spec {
       next;
     }
 
-    if ( /^\s*%if/ || /^\s*%\{/ || /^\s*%define/ || /^\s*%el/ || /^\s*%endif/ ) {
+    if ( /^\s*%if/ || /^\s*%\{/ || /^\s*%define/ || /^\s*%global/ || /^\s*%el/ || /^\s*%endif/ ) {
       change_section("header") if ($current_section eq "description");
       push @oldspec, $_;
       if ( /^\s*%if\s/ ) {
@@ -416,7 +416,7 @@ sub read_and_parse_old_spec {
 	} elsif ($ifhandler->{"disabled"} == 0 && $ifhandler->{"depth"} == 1 && $ifhandler->{"last_if_if"} == 1) {
 	  $ifhandler->{"disabled"} = 1;
 	}
-      } elsif ( /^\s*%define\s/ ) {
+      } elsif ( /^\s*%define\s/ || /^\s*%global\s/ ) {
 	my @args = split (/\s+/,$_);
 	$_ =~ s/[\{\}\"]//g for (@args);
 	$args[2] =~ s/\Q$_\E/$definelist->{$_}/g for sort { length($b) <=> length($a) } keys (%{$definelist});
@@ -587,7 +587,7 @@ my $seen_name = 0;
 open ( SPE , '<', "$specfile" ) || die("open $specfile: $!\n");
 while ( <SPE> ) {
   chomp();
-  if ( /^%define/ ) {
+  if ( /^%define/ || /^%global/ ) {
     my @args = split (/\s+/,$_);
     $_ =~ s/[\{\}\"]//g for (@args);
     $args[2] =~ s/\Q$_\E/$xdefinelist->{$_}/ for (sort { length($b) <=> length($a) } keys (%{$xdefinelist}));
