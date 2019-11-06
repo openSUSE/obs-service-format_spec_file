@@ -64,7 +64,7 @@ my @global_tags_list = (
   'Suggests',
   'Summary',
   'Supplements',
-  'Url',
+  'URL',
 );
 
 my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
@@ -80,8 +80,6 @@ sub unify {
 sub capitalize_case($) {
   my ($tag) = @_;
 
-  return $tag if $tag =~ m/Url|URL/;
-
   $tag = lc($tag);
 
   $tag =~ s/docdir/DocDir/i;
@@ -90,6 +88,7 @@ sub capitalize_case($) {
   $tag =~ s/source/Source/i;
   $tag =~ s/req/Req/i;
   $tag =~ s/prov/Prov/i;
+  $tag =~ s/url/URL/i;
   $tag =~ s/^(\w)/uc($1)/e;
 
   return $tag;
