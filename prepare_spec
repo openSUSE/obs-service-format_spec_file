@@ -34,6 +34,7 @@ my $disabled_packs;
 my $ifhandler;
 my $definelist;
 my $debug = 0;
+my $first_summary = 1;
 
 my @global_tags_list = (
   'Autoreq',
@@ -239,6 +240,19 @@ sub sort_tags_helper {
   }
 }
 
+sub print_license_and_group {
+  my ($current_package, $base_package, $license_unique, $groups_unique) = @_;
+  my $retval = "";
+  my $license = $seen_licenses{$current_package} || $main_license;
+  $retval .= sprintf("%-16s%s\n", "License:", $license) if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
+  my $group = $seen_groups{$current_package} || $main_group;
+  if ($group) {
+    $retval .= sprintf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary || $current_package eq $base_package);
+  }
+  $first_summary = 0;
+  return $retval;
+}
+
 sub read_and_parse_old_spec {
   my ( $specfile, $base_package ) = @_;
   my $current_package = $base_package;
@@ -383,6 +397,7 @@ sub read_and_parse_old_spec {
       if ( /^\s*%if\s/ ) {
 	my @args = split (/\s+/,$_);
 	$_ =~ s/[\{\}\"]//g for (@args);
+	$ifhandler->{"last_if_args"} = join(":",@args);
 	$ifhandler->{"last_if_disabled"} = 0;
 	$ifhandler->{"last_if_if"} = 1;
 	$ifhandler->{"depth"}++;
@@ -404,13 +419,16 @@ sub read_and_parse_old_spec {
 	  $ifhandler->{"last_if_disabled"} = 1;
 	}
       } elsif ( /^\s*%if/ ) {
+	$ifhandler->{"last_if_args"} = "other";
 	$ifhandler->{"last_if_disabled"} = 0;
 	$ifhandler->{"last_if_if"} = 0;
 	$ifhandler->{"depth"}++;
       } elsif ( /^\s*%endif/ ) {
+	$ifhandler->{"last_if_args"} = "";
 	$ifhandler->{"disabled"} = 0 if $ifhandler->{"disabled"} == $ifhandler->{"depth"};
 	$ifhandler->{"depth"}--;
       } elsif ( /^\s*%else/ ) {
+	$ifhandler->{"last_if_args"} .= ":else";
 	if ($ifhandler->{"disabled"} == $ifhandler->{"depth"} && $ifhandler->{"last_if_disabled"} == 1) {
 	  $ifhandler->{"disabled"} = 0;
 	} elsif ($ifhandler->{"disabled"} == 0 && $ifhandler->{"depth"} == 1 && $ifhandler->{"last_if_if"} == 1) {
@@ -519,7 +537,10 @@ sub read_and_parse_old_spec {
       if ( /^License\s*:\s*(.*)\s*$/i || /^Copyright\s*:\s*(.*)\s*$/i ) {
 	my $license = replace_spdx($1);
 	$main_license = $license if (!$main_license);
-	$seen_licenses{$current_package} = $license;
+	my $curpack = $current_package;
+	$seen_licenses{$curpack} = $license;
+	$curpack .= $ifhandler->{last_if_args} if $ifhandler->{last_if_args};
+	$seen_licenses{$curpack} = $license;
 	next;
       }
 
@@ -527,7 +548,10 @@ sub read_and_parse_old_spec {
       if ( /^Group\s*:\s*(.*)\s*$/i ) {
 	my $group = $1;
 	$main_group = $group if (!$main_group);
-	$seen_groups{$current_package} = $group;
+	my $curpack = $current_package;
+	$seen_groups{$curpack} = $group;
+	$curpack .= $ifhandler->{last_if_args} if $ifhandler->{last_if_args};
+	$seen_groups{$curpack} = $group;
 	next;
       }
 
@@ -709,12 +733,10 @@ my $license_unique = !grep { $_ ne $main_license } values %seen_licenses;
 my $groups_unique = !grep { $_ ne $main_group } values %seen_groups;
 # we need to have unique groups in the spec file as long as we support SLE11 ;(
 $groups_unique = 0;
-my $first_summary = 1;
 
 my $line;
 while (@oldspec) {
   $line = shift @oldspec;
-
   if ($line eq "XXXBLANKLINE") {
     print "\n" unless $oldspec[0] && ($oldspec[0] =~ m/^XXX.*LINE/ || $oldspec[0] =~ /^\s*$/ || $oldspec[0] =~ /^\n/);
   } elsif ($line eq "XXXDOUBLELINE") {
@@ -722,6 +744,7 @@ while (@oldspec) {
   } elsif ($line eq "XXXRELEASE") {
     printf("%-16s%s\n", "Release:", "0") ;
   } elsif ($line =~ m/XXXPOSTSUMMARY (.*)$/) {
+    my $current_package = $1;
     # There is a chance to have some comments that should appear before
     # licenses and groups so print them here.
     $line = shift @oldspec;
@@ -729,15 +752,35 @@ while (@oldspec) {
       print "$line\n";
       $line = shift @oldspec;
     }
-    unshift(@oldspec, $line);
-    my $current_package = $1;
-    my $license = $seen_licenses{$current_package} || $main_license;
-    printf("%-16s%s\n", "License:", $license) if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
-    my $group = $seen_groups{$current_package} || $main_group;
-    if ($group) {
-      printf("%-16s%s\n", "Group:", $group) if (!$groups_unique || $first_summary || $current_package eq $base_package);
+    # try to handle the stale if/else/endif case (bug#1065524)
+    my $did_hit = 0;
+    my $out_buffer = "";
+    # but only do this if the if block begins _after_ the summary line
+    if ($line =~ /^\s*%if/) {
+      my $last_if_args = "";
+      while ($line =~ /^\s*%if/ || $line =~ /^\s*%else/ || $line =~ /^\s*%endif/) {
+	if ($line =~ /^\s*%if\s/) {
+	  my @args = split (/\s+/,$line);
+	  $_ =~ s/[\{\}\"]//g for (@args);
+	  $last_if_args = join(":",@args);
+	} elsif ($line =~ /^\s*%if/) {
+	  $last_if_args = "other";
+	} elsif ($line =~ /^\s*%else/) {
+	  $last_if_args .= ":else";
+	} elsif ($line =~ /^\s*%endif/) {
+	  $last_if_args = "";
+	}
+	$out_buffer .= "$line\n";
+	if ($last_if_args && $seen_licenses{"$current_package$last_if_args"}) {
+	  $out_buffer .= print_license_and_group("$current_package$last_if_args", $base_package, $license_unique, $groups_unique);
+	  $did_hit = 1;
+	}
+	$line = shift @oldspec;
+      }
     }
-    $first_summary = 0;
+    unshift(@oldspec, $line);
+    print print_license_and_group($current_package, $base_package, $license_unique, $groups_unique) unless $did_hit;
+    print $out_buffer;
   } else {
     print "$line\n";
   }
