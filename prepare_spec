@@ -35,7 +35,7 @@ our $base_package = "";
 
   sub set_after_lines {
     my ($self, $nr) = @_;
-    $self->{before_lines} = $nr;
+    $self->{after_lines} = $nr;
   }
 
   sub print_before_lines {
@@ -61,6 +61,12 @@ our $base_package = "";
     else {
       $self->{after_lines} += 1;
     }
+  }
+
+  sub merge_with_empty {
+    my ($self, $section) = @_;
+    $self->{after_lines} += scalar(@{$section->{lines}});
+    return 1;
   }
 
   sub print {
@@ -141,6 +147,12 @@ our $base_package = "";
     }
 
   }
+
+# we don't want merges
+  sub merge_with_empty {
+    return 0;
+  }
+
 }
 
 {
@@ -154,7 +166,7 @@ our $base_package = "";
 
     my $self = shift;
     if ($debug) {
-      print "PREAMBLE\n";
+      print "PREAMBLE B:$self->{before_lines} A:$self->{after_lines}\n";
       return;
     }
     my $thisyear = localtime->year() + 1900;
@@ -589,19 +601,32 @@ EOF
         $self->create_tag_section($self->capitalize_case($1), $2);
         next;
       }
+      if ($self->current_name() ne 'empty' && $self->current_name() ne 'comment') {
       $self->add_to_current_section($_);
+      } else {
+        $self->create_section("line", $_);
+      }
+    }
+  }
+
+  sub merge_empty_sections() {
+    my $self = shift;
+
+    my $lastsection;
+    for my $section (@{$self->{sections}}) {
+      if ($section->name() eq 'empty') {
+        if ($lastsection->merge_with_empty($section)) {
+          $self->delete_section($section);
+          return $self->merge_empty_sections();
+        }
+      }
+      $lastsection = $section;
     }
   }
 }
 
 my $had_debug_package = 0;
-my $main_license;
-my %seen_licenses = ();
-my $main_group;
-my %seen_groups = ();
 my $ifhandler;
-my $first_summary = 1;
-
 
 sub unify {
   my %h = map { $_ => 1 } @_;
@@ -725,22 +750,6 @@ sub sort_tags_helper {
   }
 }
 
-sub print_license_and_group {
-  my ($current_package, $base_package, $license_unique, $groups_unique) = @_;
-  my $retval  = "";
-  my $license = $seen_licenses{$current_package} || $main_license;
-  $retval .= sprintf("%-16s%s\n", "License:", $license)
-    if $license && (!$license_unique || $first_summary || $current_package eq $base_package);
-  my $group = $seen_groups{$current_package} || $main_group;
-  if ($group) {
-    $retval .= sprintf("%-16s%s\n", "Group:", $group)
-      if (!$groups_unique || $first_summary || $current_package eq $base_package);
-  }
-  $first_summary = 0;
-  return $retval;
-}
-
-
 if ($ARGV[0] eq '--debug') {
   $debug = 1;
   shift @ARGV;
@@ -809,12 +818,22 @@ if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
 
 my $parser = Parser->new;
 $parser->read_and_parse_old_spec($specfile, $base_package);
+
 $parser->merge_empty_sections();
 
 # make sure we've got an empty changelog at the end
 my $section = $parser->find("changelog");
 $parser->delete_section($section) if $section;
-$section = $parser->create_section("changelog", "%changelog");
-$section->set_before_lines(1);
+my $lastsection = $parser->current();
+$section = $parser->create_section("section", "%changelog");
+if ($lastsection->{after_lines} == 0) {
+  $section->set_before_lines(1);
+} else {
+  # one is enough
+  $lastsection->set_after_lines(1);
+}
+
+# 2 empty lines after preamble
+$parser->find("preamble")->set_after_lines(2);
 
 $parser->print_all();
