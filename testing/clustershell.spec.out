@@ -77,11 +77,8 @@ server farms. Command line utilities like clush, clubak and nodeset (or
 cluset) allow traditional shell scripts to take benefit of the features
 offered by the library.
 
-
 %package -n python2-%{name}
 Summary:        ClusterShell module for Python 2
-License:        LGPL-2.1-only
-Group:          Productivity/Clustering/Computing
 BuildRequires:  %{python2_pkgprefix}-devel
 BuildRequires:  %{python2_pkgprefix}-setuptools
 Requires:       %{python2_pkgprefix}-setuptools
@@ -95,11 +92,8 @@ Requires:       PyYAML
 %description -n python2-%{name}
 ClusterShell Python 2 module and related command line tools.
 
-
 %package -n %{python3_pkgprefix}-%{name}
 Summary:        ClusterShell module for Python 3
-License:        LGPL-2.1-only
-Group:          Productivity/Clustering/Computing
 BuildRequires:  %{python3_pkgprefix}-devel
 BuildRequires:  %{python3_pkgprefix}-setuptools
 Requires:       %{python3_pkgprefix}-PyYAML
@@ -108,7 +102,6 @@ Requires:       %{python3_pkgprefix}-setuptools
 
 %description -n %{python3_pkgprefix}-%{name}
 ClusterShell Python 3 module and related command line tools.
-
 
 %prep
 %setup -q -n %{srcname}-%{version}

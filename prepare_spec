@@ -12,6 +12,112 @@ our $base_package = "";
 
 {
 
+  package SPDXMapper;
+
+  sub new {
+    my ($class, $name, $line) = @_;
+    my $self = {map => {}};
+
+    bless $self, $class;
+    $self->load_license_map();
+    return $self;
+
+  }
+
+  sub load_license_map() {
+    my $self      = shift;
+    my $scriptdir = File::Basename::dirname($0);
+    open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
+
+    # ignore header
+    readline(*MAP);
+    my %spdx;
+    while (<MAP>) {
+      chomp;
+      my ($license, $oldstring) = split(/\t/, $_, 2);
+
+      #$license =~ s,\s*$,,;
+      #$oldstring =~ s,\s*$,,;
+      next unless length($license);
+
+      #print STDERR "$license\t$oldstring\n";
+      die "$oldstring is given twice in $_" if defined $self->{map}->{$oldstring};
+      $self->{map}->{$oldstring} = $license;
+      $spdx{$license} = 1;
+    }
+    close(MAP);
+    for (keys %spdx) {
+      $self->{map}->{$_} = $_;
+    }
+  }
+
+  sub replace_single_spdx($) {
+    my ($self, $l) = @_;
+
+    return '' if $l eq '';
+
+    $l =~ s,ORlater,or later,g;
+    $l =~ s,ORsim,or similar,g;
+    $l =~ s,^\s+,,;
+    $l =~ s,\s+$,,;
+
+    if (defined $self->{map}->{$l}) {
+      $l = $self->{map}->{$l};
+    }
+    else {
+      print STDERR "Unknown license '$l'\n";
+    }
+    return $l;
+  }
+
+  sub replace_spdx_and($);
+
+  sub replace_spdx_and($) {
+    my ($self, $license) = @_;
+
+    # special case as or later is common in our spec files
+    $license =~ s,or later,ORlater,g;
+    $license =~ s,or similar,ORsim,g;
+
+    #print STDERR "ORIG '$license'\n";
+    my @licenses = ();
+    if ($license =~ /^(.*?)\(([^)]*)\)(.*?)$/) {
+      my ($head, $paren, $tail) = ($1, $2, $3);
+      if ($paren =~ /AND|OR/i) {
+        $head  = replace_spdx_and($head);
+        $tail  = replace_spdx_and($tail);
+        $paren = replace_spdx_and($paren);
+
+        #print STDERR "AFTE '$head($paren)$tail'\n";
+        return "$head($paren)$tail";
+      }
+    }
+
+    for (split(/(\s+(?:AND|OR)\s+)/i, $license, -1)) {
+      $_ = $self->replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/i;
+      s/\s+/ /g;
+      $_ = uc $_ if /(\s+(?:AND|OR)\s+)/i;
+      push @licenses, $_;
+    }
+
+    #print STDERR "AFTE '" . join('', @licenses) . "'\n";
+    return join('', @licenses);
+  }
+
+  sub replace_spdx($) {
+    my ($self, $license) = @_;
+
+    my @licenses = ();
+    for my $license (split(/\s*;\s*/, $license)) {
+      push @licenses, $self->replace_spdx_and($license);
+    }
+    return join(' and ', @licenses);
+  }
+
+}
+
+{
+
   package Section;
 
   sub new {
@@ -112,8 +218,13 @@ our $base_package = "";
     return 0;
   }
 
-  sub value() {
+  sub value {
     return shift->{lines}->[0];
+  }
+
+  sub set_value {
+    my ($self, $value) = @_;
+    $self->{lines}->[0] = $value;
   }
 }
 
@@ -620,111 +731,15 @@ EOF
       }
     }
   }
-}
 
-my $had_debug_package = 0;
-my $ifhandler;
-
-sub compare_arrays {
-  my ($first, $second) = @_;
-  return 0 unless @$first == @$second;
-  for (my $i = 0; $i < @$first; $i++) {
-    return 0 if $first->[$i] ne $second->[$i];
-  }
-  return 1;
-}
-
-my %license_replace = ();
-
-sub load_license_map() {
-  return if defined $license_replace{"GPL-2.0"};
-  my $scriptdir = File::Basename::dirname($0);
-  open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
-
-  # ignore header
-  readline(*MAP);
-  my %spdx;
-  while (<MAP>) {
-    chomp;
-    my ($license, $oldstring) = split(/\t/, $_, 2);
-
-    #$license =~ s,\s*$,,;
-    #$oldstring =~ s,\s*$,,;
-    next unless length($license);
-
-    #print STDERR "$license\t$oldstring\n";
-    die "$oldstring is given twice in $_" if defined $license_replace{$oldstring};
-    $license_replace{$oldstring} = $license;
-    $spdx{$license}              = 1;
-  }
-  close(MAP);
-  for (keys %spdx) {
-    $license_replace{$_} = $_;
-  }
-}
-
-sub replace_single_spdx($) {
-  my ($l) = @_;
-
-  return '' if $l eq '';
-
-  load_license_map();
-  $l =~ s,ORlater,or later,g;
-  $l =~ s,ORsim,or similar,g;
-  $l =~ s,^\s+,,;
-  $l =~ s,\s+$,,;
-
-  if (defined $license_replace{$l}) {
-    $l = $license_replace{$l};
-  }
-  else {
-    print STDERR "Unknown license '$l'\n";
-  }
-  return $l;
-}
-
-sub replace_spdx_and($);
-
-sub replace_spdx_and($) {
-  my ($license) = @_;
-
-  # special case as or later is common in our spec files
-  $license =~ s,or later,ORlater,g;
-  $license =~ s,or similar,ORsim,g;
-
-  #print STDERR "ORIG '$license'\n";
-  my @licenses = ();
-  if ($license =~ /^(.*?)\(([^)]*)\)(.*?)$/) {
-    my ($head, $paren, $tail) = ($1, $2, $3);
-    if ($paren =~ /AND|OR/i) {
-      $head  = replace_spdx_and($head);
-      $tail  = replace_spdx_and($tail);
-      $paren = replace_spdx_and($paren);
-
-      #print STDERR "AFTE '$head($paren)$tail'\n";
-      return "$head($paren)$tail";
+  sub replace_licenses {
+    my ($self, $mapper) = @_;
+    for my $section (@{$self->{sections}}) {
+      if ($section->name() eq 'License') {
+        $section->set_value($mapper->replace_spdx($section->value()));
+      }
     }
   }
-
-  for (split(/(\s+(?:AND|OR)\s+)/i, $license, -1)) {
-    $_ = replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/i;
-    s/\s+/ /g;
-    $_ = uc $_ if /(\s+(?:AND|OR)\s+)/i;
-    push @licenses, $_;
-  }
-
-  #print STDERR "AFTE '" . join('', @licenses) . "'\n";
-  return join('', @licenses);
-}
-
-sub replace_spdx($) {
-  my ($license) = @_;
-
-  my @licenses = ();
-  for (split(/\s*;\s*/, $license)) {
-    push @licenses, replace_spdx_and($_);
-  }
-  return join(' and ', @licenses);
 }
 
 if ($ARGV[0] eq '--debug') {
@@ -799,6 +814,9 @@ my $parser = Parser->new;
 $parser->read_and_parse_old_spec($specfile, $base_package);
 $parser->merge_empty_sections();
 $parser->reorder_tags();
+
+my $mapper = SPDXMapper->new;
+$parser->replace_licenses($mapper);
 
 # 2 empty lines after preamble
 $parser->find("preamble")->set_after_lines(2);
