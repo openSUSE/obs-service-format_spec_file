@@ -250,6 +250,7 @@ EOF
     $tag =~ s/patch/Patch/i;
     $tag =~ s/source/Source/i;
     $tag =~ s/req/Req/i;
+    $tag =~ s/confl/Confl/i;
     $tag =~ s/prov/Prov/i;
     $tag =~ s/url/URL/i;
     $tag =~ s/^(\w)/uc($1)/e;
@@ -310,7 +311,8 @@ EOF
       'NoSource',      'Obsoletes',    'Patch\d*',    'Prefix',
       'PreReq',        'Provides',     'Recommends',  'Requires',
       'Source\d*',     'Suggests',     'Summary',     'Supplements',
-      'URL',           'Version',      'License',     'Release'
+      'URL',           'Version',      'License',     'Release',
+      'BuildConflicts'
     );
 
     my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
@@ -790,6 +792,9 @@ $parser->read_and_parse_old_spec($specfile, $base_package);
 $parser->merge_empty_sections();
 $parser->reorder_tags();
 
+# 2 empty lines after preamble
+$parser->find("preamble")->set_after_lines(2);
+
 # make sure we've got an empty changelog at the end
 my $section = $parser->find("changelog");
 $parser->delete_section($section) if $section;
@@ -802,8 +807,5 @@ else {
   # one is enough
   $lastsection->set_after_lines(1);
 }
-
-# 2 empty lines after preamble
-$parser->find("preamble")->set_after_lines(2);
 
 $parser->print_all();
