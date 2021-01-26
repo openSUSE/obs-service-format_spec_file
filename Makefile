@@ -13,4 +13,12 @@ install:
 	install -m 0644 licenses_changes.txt $(DESTDIR)$(servicedir)/format_spec_file.files
 	install -m 0644 licences_exceptions.txt $(DESTDIR)$(servicedir)/format_spec_file.files
 
-.PHONY: all install
+check:
+	temp=`mktemp` ;\
+	for i in testing/*.spec; do \
+	  perl prepare_spec $$i > $$temp ;\
+	  diff -u $$temp $$i.out ;\
+	done ;\
+	rm $$temp
+
+.PHONY: all install check
