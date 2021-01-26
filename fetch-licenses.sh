@@ -1,3 +1,7 @@
+#! /bin/sh
+
+set -ex
+
 export LC_ALL=C
 curl -s 'https://docs.google.com/spreadsheets/d/14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs/export?format=tsv&id=14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs&gid=0' | grep -v "New format" \
   | sed -e 's,\s*$,,' > licenses_changes.ntxt
@@ -55,12 +59,7 @@ unset IFS
 rm licenses_changes.raw
 ) > README.md
 
-for i in `w3m -dump -cols 1000 http://spdx.org/licenses/exceptions-index.html | grep "License Exception Text" | sed -e 's, *Y *License Exception Text,,; s, *License Exception Text,,; s,\s* \([^ ]*\)$,:\1,' | cut -d: -f2`; do
-    echo "$i" >> license_exceptions.ntxt ;
-done
-
-cat license_exceptions.ntxt | sort -u -o licences_exceptions.txt
-rm license_exceptions.ntxt
+curl -s https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json | jq -r '.exceptions | .[] | .licenseExceptionId' | sort -u -o licences_exceptions.txt
 
 cat licenses_changes.ntxt licenses_changes.ptxt | sort -u -o licenses_changes.stxt
 ( echo "First line" ; cat licenses_changes.stxt ) > licenses_changes.txt
