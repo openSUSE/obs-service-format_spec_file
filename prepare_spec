@@ -271,6 +271,8 @@ sub read_and_parse_old_spec {
 
   while (@readspec) {
     $_ = shift @readspec;
+    # trim all trailing whitespace (including \r, see issue 33)
+    $_ =~ s/\s+$//;
 
     if ( /^\s*$/ && $current_section ne "description") {
       # stop preamble parsing on two blank lines

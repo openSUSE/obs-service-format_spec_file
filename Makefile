@@ -17,7 +17,7 @@ check:
 	temp=`mktemp` ;\
 	for i in testing/*.spec; do \
 	  perl prepare_spec $$i > $$temp ;\
-	  diff -u $$temp $$i.out ;\
+	  diff -u $$i.out $$temp ;\
 	done ;\
 	rm $$temp
 

@@ -489,7 +489,7 @@ This package provides INFO, HTML and PDF user manual for GDB.
 
 %if %{build_testsuite}
 %description
-Results from running the GDB testsuite. 
+Results from running the GDB testsuite.
 %endif
 
 %prep
@@ -671,7 +671,7 @@ export CFLAGS="$RPM_OPT_FLAGS"
 
 # Add your -Wno-x/-Wno-error=y options here:
 for opt in -Wno-error=odr; do
-  # checking for acceptance of -Wno-foo is a bit wieldy: GCC doesn't 
+  # checking for acceptance of -Wno-foo is a bit wieldy: GCC doesn't
   # warn about unknown -Wno- flags, _except_ if there are other
   # diagnostics as well, so let's force an uninitialized use warning
   # and grep for the diagnostic about the -Wno flag:
@@ -1150,7 +1150,7 @@ cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1/gstack.1
 %if 0%{?el5:1}
 rm -f $RPM_BUILD_ROOT%{_infodir}/annotate.info*
 rm -f $RPM_BUILD_ROOT%{_infodir}/gdb.info*
-%endif # 0%{?el5:1} 
+%endif # 0%{?el5:1}
 # -j1: There is some race resulting in:
 # /usr/bin/texi2dvi: texinfo.tex appears to be broken, quitting.
 make -j1 -C gdb/doc install DESTDIR=$RPM_BUILD_ROOT
