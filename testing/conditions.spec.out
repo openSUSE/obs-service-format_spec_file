@@ -1,0 +1,64 @@
+#
+# spec file for package 
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+%{?!_fillupdir:%define _fillupdir /var/adm/fillup-templates}
+%if 0%{?suse_version} == 1110
+# _libexecdir points to /usr/lib64 for SLE11
+%define _libexecdir /lib
+%endif
+Version:        2.8.2
+Release:        0
+%ifpython2
+%endif
+Summary:        AppArmor userlevel parser utility
+License:        GPL-2.0-or-later
+Group:          Productivity/Networking/Security
+Source0:        apparmor-%{version}.tar.gz
+Source1:        apparmor-%{version}.tar.gz.asc
+Source2:        %{name}.keyring
+%if %{distro} == "suse"
+PreReq:         %{insserv_prereq}
+PreReq:         aaa_base
+%endif
+BuildRequires:  pkg-config
+BuildRequires:  python
+%{if %{with editor}}
+%ifarch ppc64
+Requires:       naughty-stuff
+%endif # test commentary
+BuildRequires:  gcc-c++
+BuildRequires:  update-desktop-files
+%endif
+BuildRequires:  bbb
+Requires:       insserv
+%if (0%{?suse_version} && 0%{?suse_version} >= 1210)
+Requires:       wine
+%endif
+%if %{?pkg_vcmp:%pkg_vcmp java-devel >= 9}%{!?pkg_vcmp:0}
+Requires:       other
+%endif
+# Fix no-dependency-on python-base on SLE11 and openSUSE 11.4
+%if 0%{?suse_version} <= 1140
+%py_requires
+%endif
+%if (0%{?sle_version} == 120100 && 0%{?is_opensuse} == 0) || 0%{?suse_version} == 1310
+Requires:       something
+%endif
+BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+
+%changelog

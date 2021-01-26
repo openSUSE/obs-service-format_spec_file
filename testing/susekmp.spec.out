@@ -1,0 +1,28 @@
+#
+# spec file for package 
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+%package guest-KMP
+Summary:        Guest kernel modules for VirtualBox
+Group:          System/Emulators/PC
+Supplements:    modalias(x86cpu:vendor%%3A0002%%3Afamily%%3A*%%3Amodel%%3A*%%3Afeature%%3A*)
+Supplements:    modalias(dmi:*:[bs]vnD[Ee][Ll][Ll]*:*)
+#SUSE specify macro to define guest kmp package
+%{?suse_kernel_module_package:%{suse_kernel_module_package} -p %{SOURCE8} -n %{name}-guest -f %{SOURCE6} kdump um xen xenpae}
+%kernel_module_package -p %{name}-kmp-preamble
+
+%changelog

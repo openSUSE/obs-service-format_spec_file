@@ -1,0 +1,75 @@
+#
+# spec file for package replace_pwdutils
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+Name:           at
+Version:        3.1.23
+Release:        0
+Summary:        A Job Manager
+License:        GPL-2.0-or-later
+Group:          System/Daemons
+URL:            http://ftp.debian.org/debian/pool/main/a/at
+Source:         http://ftp.debian.org/debian/pool/main/a/at/%{name}_%{version}.orig.tar.gz
+BuildRequires:  autoconf >= 2.69
+BuildRequires:  automake
+BuildRequires:  pam-devel
+BuildRequires:  pwdutils
+Requires(post): pwdutils
+Requires(post): update-alternatives
+Requires(posttrans): pwdutils
+Requires(posttrans): systemd
+Requires(postun): pwdutils
+Requires(postun): update-alternatives
+Requires(pre):  pwdutils
+Requires(pre):  apache2
+Requires(pretrans): pwdutils
+Requires(pretrans): update-alternatives
+Requires(preun): pwdutils
+Requires(preun): chkconfig
+Requires:       libmariadb
+Requires:       pwdutils
+Requires:       pwdutils-util
+Recommends:     smtp_daemon
+
+%ifarch x86_64
+Requires(pre):  pwdutils
+%else
+Requires(pre):  shadow
+%endif
+
+%if 0%{old_RHEL} > 0
+Requires(post): pwdutils
+Requires(pre):  pwdutils
+%endif
+
+%if 0%{with_tokudb} > 0
+Requires:       pwdutils
+%endif
+
+%if 0%{?suse_version} >= 1320 || 0%{?is_opensuse}
+Requires(pre):  pwdutils
+%else
+Requires(pre):  shadow
+%endif
+
+%if 0%{?suse_version} <= 1140
+Requires(post): shadow
+%else
+Requires(post): pwdutils
+%endif
+
+%changelog
