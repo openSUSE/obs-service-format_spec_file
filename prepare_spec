@@ -131,8 +131,8 @@ our $base_package = "";
       print "PREAMBLE B:$self->{before_lines} A:$self->{after_lines}\n";
       return;
     }
-    my $thisyear = localtime->year() + 1900;
-    my @copyrights;
+    my $thisyear   = localtime->year() + 1900;
+    my @copyrights = @{$self->{copyright} || []};
     unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
 
     my $copy_list = join("\n", @copyrights);
@@ -161,6 +161,14 @@ EOF
       }
     }
     $self->print_after_lines();
+  }
+
+  sub add_copyright {
+    my ($self, $copyright) = @_;
+    if (!defined $self->{copyright}) {
+      $self->{copyright} = [];
+    }
+    push(@{$self->{copyright}}, $copyright);
   }
 
   sub add_footer {
@@ -318,7 +326,7 @@ EOF
     my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
 
     my $section_tags_re = '^\s*%(?:clean|check|prep|build|install|pre|post|preun|postun|posttrans|package|'
-      . 'description|files|triggerin|triggerun|triggerpostun)\b';
+      . 'description|files|triggerin|triggerun|triggerpostun|verifyscript)\b';
 
 
     my $definelist;

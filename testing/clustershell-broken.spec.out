@@ -116,7 +116,6 @@ Requires:       %{python3_pkgprefix}-setuptools
 %description -n %{python3_pkgprefix}-%{name}
 ClusterShell Python 3 module and related command line tools.
 
-
 %prep
 %setup -q -n %{srcname}-%{version}
 
