@@ -1,3 +1,0 @@
-BuildRequires:  Vc-devel
-
-%changelog
