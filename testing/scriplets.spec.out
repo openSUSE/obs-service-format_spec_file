@@ -1,0 +1,49 @@
+#
+# spec file for package 
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+%post -n %libname -p /sbin/ldconfig
+
+%post
+/sbin/ldconfig
+
+%post
+/sbin/ldconfig
+someothercommand
+
+%post -n %{_libname}
+%{run_ldconfig}
+
+%filetriggerin tools -- %{_datadir}/icons
+if [ "$(realpath %{_bindir}/gtk-update-icon-cache)" = "%{_bindir}/gtk-update-icon-cache-2.0" ]; then
+  for ICON_THEME in $(cut -d / -f 5 | sort -u); do
+    if [ -f "%{_datadir}/icons/${ICON_THEME}/index.theme" ]; then
+      %{_bindir}/gtk-update-icon-cache --quiet --force "%{_datadir}/icons/${ICON_THEME}"
+    fi
+  done
+fi
+
+%filetriggerpostun tools -- %{_datadir}/icons
+if [ "$(realpath %{_bindir}/gtk-update-icon-cache)" = "%{_bindir}/gtk-update-icon-cache-2.0" ]; then
+  for ICON_THEME in $(cut -d / -f 5 | sort -u); do
+    if [ -f "%{_datadir}/icons/${ICON_THEME}/index.theme" ]; then
+      %{_bindir}/gtk-update-icon-cache --quiet --force "%{_datadir}/icons/${ICON_THEME}"
+    fi
+  done
+fi
+
+%changelog

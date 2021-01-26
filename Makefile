@@ -14,12 +14,12 @@ install:
 	install -m 0644 licences_exceptions.txt $(DESTDIR)$(servicedir)/format_spec_file.files
 
 check:
-	temp=`mktemp` ;\
+	set -e ;\
 	for i in testing/*.spec; do \
-	  perl prepare_spec $$i > $$temp ;\
-	  diff -u $$i.out $$temp ;\
+	  perl prepare_spec $$i > $$i.new ;\
+	  diff -u $$i.out $$i.new ;\
+	  rm $$i.new ;\
 	done ;\
-	rm $$temp
 
 format:
 	perltidy -pro=.perltidyrc prepare_spec  -b -bext='/'

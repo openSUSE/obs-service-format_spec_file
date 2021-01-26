@@ -1,0 +1,45 @@
+#
+# spec file for package 
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+BuildRequires:  aaa<3.2.1
+BuildRequires:  iii  <=     4.2.1 jjj>  %{version} eee=%{version}-%{release} bbb
+BuildRequires:  rrr >= %{version} kkk
+BuildRequires:  zzz
+
+Requires:       %{some_packagename} => %{some_version}
+Requires:       iii  <=     4.2.1 jjj>  %{version} eee=%{version}-%{release} bbb
+Requires:       rrr >= %{version} kkk
+Requires:       aaa<3.2.1 zzz     pkgconfig(glib-2.0) perl(DBD::SQLite)
+
+PreReq:         iii  <=     4.2.1 jjj>  %{version} eee=%{version}-%{release} aaa
+PreReq:         aaa<3.2.1 zzz
+PreReq:         rrr >= %{version} kkk
+
+BuildRequires:  %{rubygem fast_gettext}
+BuildRequires:  %{rubygem rails >= 3.2}
+
+Requires:       php5 => %{phpversion}
+Provides:       locale(ru;bg)
+Requires:       %{libname} >= %{version} libcurl-devel
+Provides:       %{name} = 0.3.0~gitbcaa
+Obsoletes:      %{name} = 0.3.0~gitbcaa
+Provides:       %{name} = 0.3.0+gitbcaa
+Obsoletes:      %{name} = 0.3.0+gitbcaa
+Requires:       alsa%{dep_postfix} >= 1.0.23
+
+%changelog

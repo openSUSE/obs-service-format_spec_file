@@ -1,0 +1,53 @@
+#
+# spec file for package 
+#
+# Copyright (c) 2021 SUSE LLC
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
+%package dhcp_dns_server
+%pattern_serverfunctions
+Summary:        DHCP and DNS Server
+Group:          Metapackages
+Provides:       patterns-openSUSE-dhcp_dns_server = %{version}
+Provides:       pattern() = dhcp_dns_server
+Provides:       pattern-icon() = yast-dns-server
+Provides:       pattern-visible()
+Obsoletes:      patterns-openSUSE-dhcp_dns_server < %{version}
+Requires:       pattern() = basesystem
+Recommends:     pattern() = yast_basis
+Provides:       pattern-order() = 3040
+Requires:       curl
+Recommends:     wget
+
+%package devel_gnome
+%pattern_development
+Summary:        GNOME Development
+Group:          Metapackages
+Recommends:     gtk3
+
+Provides:       pattern() = devel_gnome
+Provides:       pattern-icon() = pattern-gnome-devel
+# Don't freely assign order values, contact release managers
+Provides:       pattern-order() = 3160
+Provides:       pattern-visible()
+# SECTION PATTERNDATA
+Suggests:       pattern() = devel_C_C++
+Requires:       pattern() = gnome_basis
+# /SECTION PATTERNDATA
+Provides:       patterns-openSUSE-devel_gnome = %{version}
+Obsoletes:      patterns-openSUSE-devel_gnome < %{version}
+Suggests:       python-gobject
+
+%changelog
