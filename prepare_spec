@@ -86,47 +86,6 @@ our $base_package = "";
     }
   }
 
-  sub reorder_tags {
-    my $self = shift;
-    for my $tag (qw(BuildRequires Requires Provides Obsoletes)) {
-      my $linesmoved = 1;
-    sortcycle: while ($linesmoved) {
-        $linesmoved = 0;
-        my @firstlines;
-        my @lines = @{$self->{lines}};
-        my @tags;
-
-        for my $l (@{$self->{lines}}) {
-          if ($l =~ m/^$tag:/i) {
-            push(@tags, $l);
-          }
-          else {
-            # if there are already tags, we need to sort and exit
-            if (@tags > 0) {
-              my @sortedtags = sort sort_tags_helper @tags;
-              $linesmoved = !compare_arrays(\@tags, \@sortedtags);
-              if ($linesmoved) {
-                @lines      = (@firstlines, @sortedtags, $l, @lines);
-                @firstlines = ();
-                @tags       = ();
-                next sortcycle;
-              }
-              else {
-                @lines = (@firstlines, @tags, $l);
-                @tags  = ();
-                next;
-              }
-            }
-            else {
-              push(@firstlines, $l);
-            }
-          }
-        }
-        $self->{lines} = [@firstlines, @lines];
-      }
-    }
-
-  }
 }
 
 {
@@ -140,10 +99,10 @@ our $base_package = "";
     die "something is fishy: "
       unless $self->{before_lines} == 0 && $self->{after_lines} == 0 && length($self->{lines}) != 1;
     if ($debug) {
-      printf("TAG %-16s%s\n", $self->{name} . ":", $self->{lines}->[0]);
+      printf("TAG %-16s%s\n", $self->{name} . ":", $self->value());
     }
     else {
-      printf("%-16s%s\n", $self->{name} . ":", $self->{lines}->[0]);
+      printf("%-16s%s\n", $self->{name} . ":", $self->value());
     }
 
   }
@@ -153,6 +112,9 @@ our $base_package = "";
     return 0;
   }
 
+  sub value() {
+    return shift->{lines}->[0];
+  }
 }
 
 {
@@ -602,8 +564,9 @@ EOF
         next;
       }
       if ($self->current_name() ne 'empty' && $self->current_name() ne 'comment') {
-      $self->add_to_current_section($_);
-      } else {
+        $self->add_to_current_section($_);
+      }
+      else {
         $self->create_section("line", $_);
       }
     }
@@ -623,15 +586,34 @@ EOF
       $lastsection = $section;
     }
   }
+
+  # make sure two tags combined together are in proper sorting
+  sub reorder_tags {
+    my $self = shift;
+    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends)) {
+      my $lastsection;
+      for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
+        my $section = $self->{sections}->[$i];
+        if ($section->name() eq $tag) {
+          if ($lastsection) {
+            if (($section->value() cmp $lastsection->value()) < 0) {
+              $self->{sections}->[$i] = $lastsection;
+              $self->{sections}->[$i - 1] = $section;
+              return $self->reorder_tags();
+            }
+          }
+          $lastsection = $section;
+        }
+        else {
+          $lastsection = undef;
+        }
+      }
+    }
+  }
 }
 
 my $had_debug_package = 0;
 my $ifhandler;
-
-sub unify {
-  my %h = map { $_ => 1 } @_;
-  return grep(delete($h{$_}), @_);
-}
 
 sub compare_arrays {
   my ($first, $second) = @_;
@@ -735,21 +717,6 @@ sub replace_spdx($) {
   return join(' and ', @licenses);
 }
 
-
-sub sort_tags_helper {
-  if (($a =~ /^[^#]*\(/) != ($b =~ /^[^#]*\(/)) {
-    if ($a =~ /^[^#]*\(/) {
-      1;
-    }
-    else {
-      -1;
-    }
-  }
-  else {
-    $a cmp $b;
-  }
-}
-
 if ($ARGV[0] eq '--debug') {
   $debug = 1;
   shift @ARGV;
@@ -781,6 +748,7 @@ while (<SPE>) {
     if ($args[2] !~ /[\(\)\{\}\@\%\"\\]/) {
       $xdefinelist->{"%" . $args[1]} = $args[2];
       $xdefinelist->{"%{" . $args[1] . "}"} = $args[2];
+
     }
   }
   if (/^\s*Name:/) {
@@ -792,6 +760,7 @@ while (<SPE>) {
     if ($debug) {
       warn "DEBUG: base_package = $base_package\n";
       warn Dumper($xdefinelist);
+
     }
     last;
   }
@@ -818,8 +787,8 @@ if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
 
 my $parser = Parser->new;
 $parser->read_and_parse_old_spec($specfile, $base_package);
-
 $parser->merge_empty_sections();
+$parser->reorder_tags();
 
 # make sure we've got an empty changelog at the end
 my $section = $parser->find("changelog");
@@ -828,7 +797,8 @@ my $lastsection = $parser->current();
 $section = $parser->create_section("section", "%changelog");
 if ($lastsection->{after_lines} == 0) {
   $section->set_before_lines(1);
-} else {
+}
+else {
   # one is enough
   $lastsection->set_after_lines(1);
 }
