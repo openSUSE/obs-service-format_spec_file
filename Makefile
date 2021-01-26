@@ -21,4 +21,7 @@ check:
 	done ;\
 	rm $$temp
 
-.PHONY: all install check
+format:
+	perltidy -pro=.perltidyrc prepare_spec  -b -bext='/'
+
+.PHONY: all install check format
