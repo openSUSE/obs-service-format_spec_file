@@ -38,10 +38,10 @@ BuildRequires:  libtool
 BuildRequires:  makeinfo
 BuildRequires:  openssl-devel
 BuildRequires:  pkg-config
-BuildRequires:  socat
 BuildRequires:  pkgconfig(gnutls)
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(libtasn1)
+BuildRequires:  socat
 %if 0%{?suse_version} < 1230
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %endif
@@ -85,7 +85,7 @@ Group:          Development/Libraries/C and C++
 Requires:       %{libmicrohttpd} = %{version}
 Requires:       pkg-config
 Requires:       pkgconfig(gnutls)
-Requires(post,preun): info
+Requires(post,preun):info
 
 %description devel
 Headers, pkg-config files, so link and other development files for %{name}
