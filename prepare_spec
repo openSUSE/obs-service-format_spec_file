@@ -459,6 +459,13 @@ EOF
       # trim all trailing whitespace (including \r, see issue 33)
       $_ =~ s/\s+$//;
 
+      if ($self->current_name() eq 'description') {
+        unless (m/^%/) {
+          $self->add_to_current_section($_);
+          next;
+        }
+      }
+
       if (/^\s*$/) {
         if ($self->current_name() eq 'empty' || $self->current_name() eq 'preamble') {
           $self->add_to_current_section("");
@@ -469,45 +476,47 @@ EOF
         next;
       }
 
-      if (/^# vim:/ && $self->current_name() eq "preamble") {
-        $self->current()->set_vim_mode($_);
-        next;
-      }
+      if ($self->current_name() eq "preamble") {
+        if (/^# vim:/) {
+          $self->current()->set_vim_mode($_);
+          next;
+        }
 
-      if (/^#\s*needsrootforbuild\s*$/) {
-        $self->find("preamble")->add_footer("# needsrootforbuild");
-        next;
-      }
-      if (/^#\s*needsbinariesforbuild\s*$/) {
-        $self->find("preamble")->add_footer("# needsbinariesforbuild");
-        next;
-      }
-      if (/^#\s*needssslcertforbuild\s*$/) {
-        $self->create_section("needssslcertforbuild", "");
-        next;
-      }
+        if (/^#\s*needsrootforbuild\s*$/) {
+          $self->current()->add_footer("# needsrootforbuild");
+          next;
+        }
+        if (/^#\s*needsbinariesforbuild\s*$/) {
+          $self->current()->add_footer("# needsbinariesforbuild");
+          next;
+        }
+        if (/^#\s*needssslcertforbuild\s*$/) {
+          $self->current()->add_footer("# needssslcertforbuild");
+          next;
+        }
 
-      if (/^#\s*norootforbuild/) {
-        $self->create_section("norootforbuild", "");
-        next;
-      }
+        if (/^#\s*norootforbuild/) {
+          $self->current()->add_footer("# norootforbuild");
+          next;
+        }
 
-      if (/^#\s*nodebuginfo\s*$/) {
-        $self->create_section("nodebuginfo", "");
-        next;
-      }
+        if (/^#\s*nodebuginfo\s*$/) {
+          $self->current()->add_footer("# nodebuginfo");
+          next;
+        }
 
-      if (/^#\s*icecream/) {
-        $self->create_icecream_section($_);
-        next;
-      }
+        if (/^#\s*icecream/) {
+          $self->create_icecream_section($_);
+          next;
+        }
 
-      if (/^#\s*Copyright\s*/ && $self->current_name() eq 'preamble') {
-        $self->create_copyright_section($_);
-        next;
-      }
+        if (/^#\s*Copyright\s*/) {
+          $self->create_copyright_section($_);
+          next;
+        }
 
-      next if (/^#\s*usedforbuild/);
+        next if (/^#\s*usedforbuild/);
+      }
 
       if (/^%\?__\*BuildRequires:/ || /^#!__\*BuildRequires:/) {
         $self->create_section("masked", $_);
@@ -612,13 +621,8 @@ EOF
         }
         next;
       }
-      if (/^%package\b/i or /^%prep\b/i) {
-        if (/^%package\b/i) {
-          $self->create_section("header", $_);
-        }
-        else {
-          $self->create_section("prep", $_);
-        }
+      if (/^%package\b/i) {
+        $self->create_section("package", $_);
         $_ =~ s/^(%\w+)/lc($1)/e;
         if ($debug) {
           warn "key: $_ value: $definelist->{$_}\n" for (sort { length($b) <=> length($a) } keys(%{$definelist}));
@@ -633,18 +637,17 @@ EOF
         $current_package = $self->set_current_pkg($_);
         next;
       }
+
       if (/^%description\b/i) {
         $self->create_section("description", $_);
         next;
       }
-      if (/^%install\b/i) {
-        $self->create_section("install", $_);
-        next;
-      }
+
       if (/^%changelog\b/i) {
         $self->create_section("changelog", $_);
         next;
       }
+
       if (/^%/) {
         if (m/$section_tags_re/oi) {
           $_ =~ s/^(%\w+)/lc($1)/e;
@@ -738,7 +741,8 @@ EOF
       if ($lastsection && $lastsection->name() eq 'preamble') {
         $section->set_before_lines(0);
       }
-      elsif ($section->name() eq 'section') {
+      elsif (grep { $section->name() eq $_ } (qw/section description changelog package/)) {
+        $lastsection->set_after_lines(0);
         $section->set_before_lines(1);
       }
       $lastsection = $section;
@@ -769,16 +773,6 @@ EOF
           $self->delete_section($lastsection);
           return $self->merge_empty_sections();
         }
-      }
-      $lastsection = $section;
-    }
-
-    # and now transfer after to before for 'section' sections
-    $lastsection = undef;
-    for my $section (@{$self->{sections}}) {
-      if ($lastsection && $section->name() eq 'section') {
-        $section->{before_lines} += $lastsection->{after_lines};
-        $lastsection->{after_lines} = 0;
       }
       $lastsection = $section;
     }
