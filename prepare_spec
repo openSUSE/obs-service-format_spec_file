@@ -169,9 +169,15 @@ our $base_package = "";
     }
   }
 
-  sub merge_with_empty {
+  sub merge_with_empty_after {
     my ($self, $section) = @_;
     $self->{after_lines} += scalar(@{$section->{lines}});
+    return 1;
+  }
+
+  sub merge_with_empty_before {
+    my ($self, $section) = @_;
+    $self->{before_lines} += scalar(@{$section->{lines}});
     return 1;
   }
 
@@ -213,8 +219,13 @@ our $base_package = "";
 
   }
 
-# we don't want merges
-  sub merge_with_empty {
+  # we don't want merges
+  sub merge_with_empty_after {
+    return 0;
+  }
+
+  # we don't want merges
+  sub merge_with_empty_before {
     return 0;
   }
 
@@ -693,16 +704,59 @@ EOF
     }
   }
 
-  sub merge_empty_sections() {
+  sub set_section_whitespace {
     my $self = shift;
 
+    # 2 empty lines after preamble
+    $self->find("preamble")->set_after_lines(2);
+
+    # one line before each section
+    my $lastsection = undef;
+    for my $section (@{$self->{sections}}) {
+      if ($lastsection && $lastsection->name() eq 'preamble') {
+        $section->set_before_lines(0);
+      }
+      elsif ($section->name() eq 'section') {
+        $section->set_before_lines(1);
+      }
+      $lastsection = $section;
+    }
+
+  }
+
+  sub merge_empty_sections {
+    my $self = shift;
+
+    # first we merge empty with sections before
     my $lastsection;
     for my $section (@{$self->{sections}}) {
       if ($section->name() eq 'empty') {
-        if ($lastsection->merge_with_empty($section)) {
+        if ($lastsection->merge_with_empty_after($section)) {
           $self->delete_section($section);
           return $self->merge_empty_sections();
         }
+      }
+      $lastsection = $section;
+    }
+
+    # and then try to do the same with sections after (as tags can't be merged)
+    $lastsection = undef;
+    for my $section (@{$self->{sections}}) {
+      if ($lastsection && $lastsection->name() eq 'empty') {
+        if ($section->merge_with_empty_before($lastsection)) {
+          $self->delete_section($lastsection);
+          return $self->merge_empty_sections();
+        }
+      }
+      $lastsection = $section;
+    }
+
+    # and now transfer after to before for 'section' sections
+    $lastsection = undef;
+    for my $section (@{$self->{sections}}) {
+      if ($lastsection && $section->name() eq 'section') {
+        $section->{before_lines} += $lastsection->{after_lines};
+        $lastsection->{after_lines} = 0;
       }
       $lastsection = $section;
     }
@@ -817,9 +871,7 @@ $parser->reorder_tags();
 
 my $mapper = SPDXMapper->new;
 $parser->replace_licenses($mapper);
-
-# 2 empty lines after preamble
-$parser->find("preamble")->set_after_lines(2);
+$parser->set_section_whitespace();
 
 # make sure we've got an empty changelog at the end
 my $section = $parser->find("changelog");
