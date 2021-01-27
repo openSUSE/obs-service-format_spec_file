@@ -17,13 +17,9 @@
 
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
-# needsrootforbuild
 # needsbinariesforbuild
 # nodebuginfo
+# needsrootforbuild
 # needssslcertforbuild
-
-
-# binariesforbuild
-# rootforbuild
 
 %changelog
