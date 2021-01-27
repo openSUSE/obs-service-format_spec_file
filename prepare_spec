@@ -2,6 +2,20 @@
 #
 # vim:sw=2:et
 #
+# Copyright (C) 1958-2021 SUSE LLC
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, see <http://www.gnu.org/licenses/>.
 
 use strict;
 use Data::Dumper;
@@ -14,17 +28,19 @@ our $base_package = "";
 
   package SPDXMapper;
 
+  use Text::Balanced 'extract_bracketed';
+  use Data::Dumper;
+
   sub new {
     my ($class, $name, $line) = @_;
-    my $self = {map => {}};
+    my $self = {changes => {}, allowed => {}, exceptions => {}};
 
     bless $self, $class;
-    $self->load_license_map();
+    $self->init();
     return $self;
-
   }
 
-  sub load_license_map() {
+  sub init {
     my $self      = shift;
     my $scriptdir = File::Basename::dirname($0);
     open(MAP, "$scriptdir/licenses_changes.txt") || die "can't open licenses_changes.txt";
@@ -35,85 +51,279 @@ our $base_package = "";
     while (<MAP>) {
       chomp;
       my ($license, $oldstring) = split(/\t/, $_, 2);
-
-      #$license =~ s,\s*$,,;
-      #$oldstring =~ s,\s*$,,;
       next unless length($license);
-
-      #print STDERR "$license\t$oldstring\n";
       die "$oldstring is given twice in $_" if defined $self->{map}->{$oldstring};
-      $self->{map}->{$oldstring} = $license;
-      $spdx{$license} = 1;
+      $self->{changes}->{$oldstring} = $license;
+      $self->{allowed}->{$license}   = 1;
     }
     close(MAP);
-    for (keys %spdx) {
-      $self->{map}->{$_} = $_;
+    my $token = join '|',
+      map { '(?:(?<=[\s()])|^)' . quotemeta . '(?:(?=[\s()])|$)' }
+      sort { length $b <=> length $a } keys %{$self->{changes}};
+    $self->{token_re} = qr/($token)/;
+    open(LIST, "$scriptdir/licences_exceptions.txt") || die "can't open licences_exceptions.txt";
+    while (<LIST>) {
+      chomp;
+      $self->{exceptions}->{$_} = 1;
     }
+    close(LIST);
   }
 
-  sub replace_single_spdx($) {
-    my ($self, $l) = @_;
+  # Partial implementation of SPDX 2.1 (with changes for expressions used at SUSE)
+  sub parse {
+    my ($self, $string) = @_;
 
-    return '' if $l eq '';
-
-    $l =~ s,ORlater,or later,g;
-    $l =~ s,ORsim,or similar,g;
-    $l =~ s,^\s+,,;
-    $l =~ s,\s+$,,;
-
-    if (defined $self->{map}->{$l}) {
-      $l = $self->{map}->{$l};
-    }
-    else {
-      print STDERR "Unknown license '$l'\n";
-    }
-    return $l;
-  }
-
-  sub replace_spdx_and($);
-
-  sub replace_spdx_and($) {
-    my ($self, $license) = @_;
-
-    # special case as or later is common in our spec files
-    $license =~ s,or later,ORlater,g;
-    $license =~ s,or similar,ORsim,g;
-
-    #print STDERR "ORIG '$license'\n";
-    my @licenses = ();
-    if ($license =~ /^(.*?)\(([^)]*)\)(.*?)$/) {
-      my ($head, $paren, $tail) = ($1, $2, $3);
-      if ($paren =~ /AND|OR/i) {
-        $head  = replace_spdx_and($head);
-        $tail  = replace_spdx_and($tail);
-        $paren = replace_spdx_and($paren);
-
-        #print STDERR "AFTE '$head($paren)$tail'\n";
-        return "$head($paren)$tail";
-      }
+    unless ($string) {
+      $self->{tree} = ({license => ''});
+      return $self->{tree};
     }
 
-    for (split(/(\s+(?:AND|OR)\s+)/i, $license, -1)) {
-      $_ = $self->replace_single_spdx($_) unless $_ eq '' || /(\s+(?:AND|OR)\s+)/i;
-      s/\s+/ /g;
-      $_ = uc $_ if /(\s+(?:AND|OR)\s+)/i;
-      push @licenses, $_;
-    }
+    # Normalize licenses, convert ";" to "and"
+    my $before = $string;
+    $string =~ s/\s*;\s*/ and /g;
+    $string =~ s/$self->{token_re}/$self->{changes}->{$1}/xgo;
 
-    #print STDERR "AFTE '" . join('', @licenses) . "'\n";
-    return join('', @licenses);
+    $self->{tokens} = [_tokenize($string)];
+
+    # Tokenize and parse expression
+    $self->{tree} = $self->_expression();
+    return $self->{tree};
   }
 
   sub replace_spdx($) {
     my ($self, $license) = @_;
-
-    my @licenses = ();
-    for my $license (split(/\s*;\s*/, $license)) {
-      push @licenses, $self->replace_spdx_and($license);
+    my $tree = eval { $self->parse($license); };
+    if (my $err = $@) {
+      chomp $err;
+      print STDERR "Can't parse '$license' as SPDX: $err";
+      return $license;
     }
-    return join(' and ', @licenses);
+    my $out = _tree_to_string(_sorted_tree($tree));
+    return $out;
   }
 
+  sub _eat_token {
+    my $self = shift;
+    shift @{$self->{tokens}};
+  }
+
+  sub _current_token {
+    my $self = shift;
+    return undef unless @{$self->{tokens}};
+    return $self->{tokens}->[0];
+  }
+
+  sub _parse_with {
+    my $self  = shift;
+    my $first = $self->_current_token();
+    if ($first eq '(') {
+      $self->_eat_token();
+      my $node = $self->_parse_or();
+      die "problem" unless $self->_current_token() eq ')';
+      $self->_eat_token();
+      return $node;
+    }
+    else {
+      die "'$first' is not a valid SPDX license" unless $self->{allowed}->{$first};
+      $self->_eat_token();
+      if (($self->_current_token() || '') eq 'with') {
+        $self->_eat_token();
+        my $exception = $self->_current_token();
+        die "'$exception' is not a valid SPDX exception" unless $self->{exceptions}->{$exception};
+        $self->_eat_token();
+        return {license => $first, exception => $exception};
+      }
+      return {license => $first};
+    }
+  }
+
+  sub _parse_and {
+    my $self = shift;
+
+    my $left = $self->_parse_with();
+    while (defined $self->_current_token() && $self->_current_token() eq 'and') {
+      $self->_eat_token();
+      $left = {op => 'and', left => $left, right => $self->_parse_with()};
+    }
+    return $left;
+
+  }
+
+  sub _parse_or {
+    my $self = shift;
+
+    my $left = $self->_parse_and();
+    while (defined $self->_current_token() && $self->_current_token() eq 'or') {
+      $self->_eat_token();
+      $left = {op => 'or', left => $left, right => $self->_parse_and()};
+    }
+    return $left;
+  }
+
+  sub _expression {
+    my $self = shift;
+    my $node = $self->_parse_or();
+    die("left tokens " . $self->_current_token()) if $self->_current_token();
+    return $node;
+  }
+
+  sub _sorted_tree {
+    my $tree = shift;
+
+    return $tree unless $tree->{op};
+
+    my $lt = _sorted_tree($tree->{left});
+    my $rt = _sorted_tree($tree->{right});
+    if ((_tree_to_string($lt) cmp _tree_to_string($rt)) > 0) {
+      $tree->{left}  = $rt;
+      $tree->{right} = $lt;
+    }
+    else {
+      $tree->{right} = $rt;
+      $tree->{left}  = $lt;
+    }
+
+    return $tree;
+  }
+
+  sub _spdx {
+    my ($self, $license) = @_;
+    $self->{allowed}->{$license} ? $license : die "Invalid SPDX license: $license\n";
+  }
+
+  sub _tokenize {
+    my $string = shift;
+
+    # Ignore outer parentheses
+    $string =~ s/^\s*\((.*)\)\s*$/$1/ if ((extract_bracketed($string, '()'))[0] // '') eq $string;
+
+    # Macro
+    die "Invalid license expression: $string\n" if index($string, '%') >= 0;
+
+    my @tokens;
+    while (length $string) {
+
+      # Compound expression
+      if ($string =~ /^\s*\(/) {
+        (my $token, $string) = extract_bracketed SPDXMapper::_trim($string), '()';
+        die "Invalid license expression: $string\n" unless defined $token;
+        if (substr($token, 0, 1) eq '(') {
+          $token = substr($token, 1, length($token) - 2);
+          push @tokens, '(';
+          push @tokens, _tokenize($token);
+          push @tokens, ')';
+        }
+        else {
+          push @tokens, $token if defined $token;
+        }
+      }
+
+      # Operator
+      elsif ($string =~ s/^\s+(and|or|with)//i) { push @tokens, lc $1 }
+
+      # Simple expression
+      elsif ($string =~ s/^\s*((?:(?!\s+and|\s+or|\s+with).)+)//i) {
+        push @tokens, SPDXMapper::_trim $1;
+      }
+
+      # This should not happen
+      else { die "Invalid license expression: $string\n" }
+    }
+
+    return @tokens;
+  }
+
+  sub _tree_to_string {
+    my $tree = shift;
+
+    if ($tree->{op}) {
+      my $ls = _tree_to_string($tree->{left});
+      $ls = _wrap_mixed($tree->{left}, $tree->{op}, $ls);
+      my $rs = _tree_to_string($tree->{right});
+      $rs = _wrap_mixed($tree->{right}, $tree->{op}, $rs);
+      return sprintf("$ls %s $rs", uc $tree->{op});
+    }
+
+    if ($tree->{exception}) {
+      return sprintf("%s WITH %s", $tree->{license}, $tree->{exception});
+    }
+    return $tree->{license};
+  }
+
+
+  sub _trim {
+    my $str = shift;
+    $str =~ s/^\s+//;
+    $str =~ s/\s+$//;
+    return $str;
+  }
+
+  sub _wrap_mixed {
+    my ($tree, $op, $str) = @_;
+    return $tree->{op} && $tree->{op} ne $op ? "($str)" : $str;
+  }
+
+  sub internal_test {
+    my $self = shift;
+
+    use Test::More;
+    use Data::Dumper;
+    my $tree = $self->parse("MIT AND Apache-2.0");
+    is_deeply($tree, {'left' => {'license' => 'MIT'}, 'op' => 'and', 'right' => {'license' => 'Apache-2.0'}});
+
+    $tree = $self->parse('Academic Free License 2.1');
+    is_deeply($tree, {'license' => 'AFL-2.1'});
+
+    $tree = $self->parse('AGPL-3.0-only and Ruby and Artistic-1.0');
+    my $ast = {
+      'left'  => {'left' => {'license' => 'AGPL-3.0-only'}, 'op' => 'and', 'right' => {'license' => 'Ruby'}},
+      'op'    => 'and',
+      'right' => {'license' => 'Artistic-1.0'}
+    };
+    is_deeply($tree, $ast);
+
+    $tree = $self->parse('LGPL-2.1-or-later WITH WxWindows-exception-3.1');
+    $ast  = {license => 'LGPL-2.1-or-later', exception => 'WxWindows-exception-3.1'};
+    is_deeply($tree, $ast);
+
+    $tree = $self->parse("MIT OR Apache-2.0 OR CC0-1.0");
+    is_deeply(
+      $tree,
+      {
+        'op'    => 'or',
+        'left'  => {'right'   => {'license' => 'Apache-2.0'}, 'left' => {'license' => 'MIT'}, 'op' => 'or'},
+        'right' => {'license' => 'CC0-1.0'}
+      }
+    );
+    $tree
+      = $self->parse(
+      'GPL-2.0-or-later AND MIT OR (Apache-2.0 AND LGPL-2.1-or-later WITH WxWindows-exception-3.1) OR (BSD-3-Clause AND CC0-1.0)'
+      );
+    $ast = {
+      'op'   => 'or',
+      'left' => {
+        'right' => {
+          'left'  => {'license' => 'Apache-2.0'},
+          'op'    => 'and',
+          'right' => {'license' => 'LGPL-2.1-or-later', 'exception' => 'WxWindows-exception-3.1'}
+        },
+        'left' => {'right' => {'license' => 'MIT'}, 'left' => {'license' => 'GPL-2.0-or-later'}, 'op' => 'and'},
+        'op'   => 'or'
+      },
+      'right' => {'right' => {'license' => 'CC0-1.0'}, 'op' => 'and', 'left' => {'license' => 'BSD-3-Clause'}}
+    };
+    is_deeply($tree, $ast);
+
+    is($self->replace_spdx("MIT or GPL-2.0+"),          "GPL-2.0-or-later OR MIT");
+    is($self->replace_spdx("GPL-2.0; GPL-3.0"),         "GPL-2.0-only AND GPL-3.0-only");
+    is($self->replace_spdx("MIT or GPL-2.0+ and BSD3"), "(BSD-3-Clause AND GPL-2.0-or-later) OR MIT");
+    is(
+      $self->replace_spdx("MIT and GPL-2.0+ or BSD3 WITH GCC-exception-3.1 and CC0-1.0"),
+      "(BSD-3-Clause WITH GCC-exception-3.1 AND CC0-1.0) OR (GPL-2.0-or-later AND MIT)"
+    );
+
+    done_testing();
+  }
 }
 
 {
@@ -947,6 +1157,9 @@ $parser->merge_comments();
 $parser->reorder_tags();
 
 my $mapper = SPDXMapper->new;
+
+#$mapper->internal_test();
+#exit(0);
 $parser->replace_licenses($mapper);
 $parser->set_section_whitespace();
 $parser->fix_release_tag();

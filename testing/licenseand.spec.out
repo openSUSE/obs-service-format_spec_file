@@ -16,12 +16,18 @@
 #
 
 
+License:        GPL-2.0-only AND GPL-3.0-only
+
 %package test
+License:        BSD-3-Clause AND GPL-3.0-only
 
 %package test2
+License:        MIT
 
 %package test3
+License:        Apache-2.0 OR (GPL-3.0-only WITH GCC-exception-3.1 AND MIT)
 
 %package test4
+License:        GPL-2.0-or-later AND LGPL-2.1-or-later
 
 %changelog

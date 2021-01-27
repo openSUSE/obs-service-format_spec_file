@@ -1,10 +1,10 @@
 License: GPL-2.0; GPL-3.0
 
 %package test
-License: BSD;GPL-3.0
+License: BSD3c;GPL-3.0
 
 %package test2
-LICENSE: MIT;
+LICENSE: MIT
 
 %package test3
 LICense:  (GPL-3.0 with GCC-exception-3.1 and MIT) or Apache-2.0
