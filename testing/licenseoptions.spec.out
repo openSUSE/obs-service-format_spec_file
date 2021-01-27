@@ -17,6 +17,7 @@
 
 
 Name:           licenses
+License:        GPL-2.0-only OR LGPL-2.1-only
 
 %package samelicense
 Summary:        blabla

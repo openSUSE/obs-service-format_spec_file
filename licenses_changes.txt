@@ -64,7 +64,7 @@ Artistic-1.0	Artistic License
 Artistic-1.0	Artistic License ..
 Artistic-1.0	Artistic license
 Artistic-1.0	Artistic-1.0
-Artistic-1.0 or GPL-1.0+	Perl License
+Artistic-1.0 OR GPL-1.0-or-later	Perl License
 Artistic-1.0+	SUSE-Artistic-1.0+
 Artistic-1.0-Perl	Artistic-1.0-Perl
 Artistic-1.0-cl8	Artistic-1.0-cl8
@@ -318,6 +318,7 @@ GPL-3.0-only	GPL-3.0
 GPL-3.0-only	GPL-3.0-only
 GPL-3.0-only	GPL3
 GPL-3.0-only	GPLv3
+GPL-3.0-only WITH GCC-exception-3.1	GPL-3.0-with-GCC-exception
 GPL-3.0-or-later	GNU GPL v3 or later
 GPL-3.0-or-later	GPL v3 or later
 GPL-3.0-or-later	GPL-3+
