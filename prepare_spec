@@ -228,12 +228,15 @@ our $base_package = "";
 
   sub print {
     my $self = shift;
-    die "something is fishy: "
-      unless $self->{before_lines} == 0 && $self->{after_lines} == 0 && length($self->{lines}) != 1;
+    die("something is fishy: " . Dumper($self))
+      unless ($self->{before_lines} == 0 || $self->{comment})
+      && $self->{after_lines} == 0
+      && length($self->{lines}) != 1;
     if ($debug) {
       printf("TAG '%s' = '%s'\n", $self->{name}, $self->value());
     }
     else {
+      $self->print_before_lines();
       $self->print_comment();
       printf("%-16s%s\n", $self->{name} . ":", $self->value());
     }
@@ -454,7 +457,9 @@ EOF
     my $check_printed   = "false";
     my %version;
     my $ifhandler;
-    $ifhandler->{"disabled"} = 0;
+    $ifhandler->{disabled}         = 0;
+    $ifhandler->{depth}            = 0;
+    $ifhandler->{last_if_disabled} = 0;
 
     my @readspec;
     open(SPEC, '<', "$specfile") || die "can't read specfile";
@@ -683,7 +688,12 @@ EOF
           $self->create_section("section", $_);
         }
         else {
-          $self->add_to_current_section($_);
+          if ($self->current_name() eq 'preamble') {
+            $self->create_section("header", $_);
+          }
+          else {
+            $self->add_to_current_section($_);
+          }
         }
         next;
       }
@@ -886,7 +896,7 @@ while (<SPE>) {
     my @args = split(/\s+/, $_);
     $_ =~ s/[\{\}\"]//g for (@args);
     $args[2] =~ s/\Q$_\E/$xdefinelist->{$_}/ for (sort { length($b) <=> length($a) } keys(%{$xdefinelist}));
-    if ($args[2] !~ /[\(\)\{\}\@\%\"\\]/) {
+    if ($args[2] && $args[2] !~ /[\(\)\{\}\@\%\"\\]/) {
       $xdefinelist->{"%" . $args[1]} = $args[2];
       $xdefinelist->{"%{" . $args[1] . "}"} = $args[2];
 
@@ -935,7 +945,6 @@ $parser->reorder_tags();
 my $mapper = SPDXMapper->new;
 $parser->replace_licenses($mapper);
 $parser->set_section_whitespace();
-
 $parser->fix_release_tag();
 
 # make sure we've got an empty changelog at the end
