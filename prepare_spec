@@ -186,7 +186,7 @@ our $base_package = "";
     if ($debug) {
       print "Section $self->{name} B:$self->{before_lines} A:$self->{after_lines}\n";
       for my $line (@{$self->{lines}}) {
-        print "LINE $line\n";
+        print "    $line\n";
       }
     }
     else {
@@ -211,7 +211,7 @@ our $base_package = "";
     die "something is fishy: "
       unless $self->{before_lines} == 0 && $self->{after_lines} == 0 && length($self->{lines}) != 1;
     if ($debug) {
-      printf("TAG %-16s%s\n", $self->{name} . ":", $self->value());
+      printf("TAG '%s' = '%s'\n", $self->{name}, $self->value());
     }
     else {
       printf("%-16s%s\n", $self->{name} . ":", $self->value());
@@ -704,6 +704,28 @@ EOF
     }
   }
 
+  sub fix_release_tag {
+    my $self         = shift;
+    my $foundrelease = 0;
+    for my $section (@{$self->{sections}}) {
+      if ($section->name() eq 'Release') {
+        $foundrelease = 1;
+        if ($section->value() =~ m/^[0-9]*$/) {
+          $section->set_value("0");
+        }
+      }
+    }
+    return if $foundrelease;
+    for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
+      my $section = $self->{sections}->[$i];
+      if ($section->name() eq 'Version') {
+        splice @{$self->{sections}}, $i + 1, 0, (Tag->new("Release", "0"));
+        return;
+      }
+    }
+
+  }
+
   sub set_section_whitespace {
     my $self = shift;
 
@@ -872,6 +894,8 @@ $parser->reorder_tags();
 my $mapper = SPDXMapper->new;
 $parser->replace_licenses($mapper);
 $parser->set_section_whitespace();
+
+$parser->fix_release_tag();
 
 # make sure we've got an empty changelog at the end
 my $section = $parser->find("changelog");
