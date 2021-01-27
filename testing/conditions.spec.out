@@ -22,8 +22,8 @@
 %define _libexecdir /lib
 %endif
 Version:        2.8.2
-Release:        0
 %ifpython2
+Release:        0
 %endif
 Summary:        AppArmor userlevel parser utility
 License:        GPL-2.0-or-later
