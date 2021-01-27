@@ -16,4 +16,7 @@
 #
 
 
+BuildRequires:  automake
+BuildRequires:  unzip,dos2unix
+
 %changelog

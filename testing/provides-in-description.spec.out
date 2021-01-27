@@ -38,6 +38,7 @@ Provides:
 %make_install
 
 %post
+
 %postun
 
 %files

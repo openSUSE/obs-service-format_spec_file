@@ -455,6 +455,7 @@ Java, and other languages, by executing them in a controlled fashion
 and printing their data.
 
 %ifnarch riscv64
+
 %package -n gdbserver
 Summary:        A standalone server for GDB (the GNU source-level debugger)
 License:        GPL-3.0-or-later AND GPL-3.0-with-GCC-exception AND LGPL-2.1-or-later AND LGPL-3.0-or-later
@@ -488,6 +489,7 @@ This package provides INFO, HTML and PDF user manual for GDB.
 %endif
 
 %if %{build_testsuite}
+
 %description
 Results from running the GDB testsuite.
 %endif
@@ -1199,6 +1201,7 @@ then
 fi
 
 %if %{build_main}
+
 %files
 %defattr(-,root,root)
 %doc README NEWS
@@ -1224,6 +1227,7 @@ fi
 %endif
 
 %if %{build_testsuite}
+
 %files
 %defattr(-,root,root)
 %doc %{gdb_build}/gdb/gdb-*.sum
@@ -1234,6 +1238,7 @@ fi
 
 %if %{build_main}
 %ifnarch riscv64 sparcv9 hppa
+
 %files -n gdbserver
 %defattr(-,root,root)
 %{_bindir}/gdbserver
@@ -1245,6 +1250,7 @@ fi
 %endif
 
 %if %{build_main}
+
 %post doc
 # This step is part of the installation of the RPM. Not to be confused
 # with the 'make install ' of the build (rpmbuild) process.

@@ -32,6 +32,7 @@
 %defattr(\s*\([^)]*\))?
 %define
 %defined
+
 %description
 %desktop_database_post[^\s]*
 %dir
@@ -41,6 +42,7 @@
 %endif
 %exclude
 %fdupes
+
 %files
 %files_fontsconf_file
 %fillup_[^\s]*
@@ -65,6 +67,7 @@
 %ifnarch
 %include
 %insserv_[^\s]*
+
 %install
 %install_info
 %install_info_delete
@@ -86,6 +89,7 @@
 %nagios_command_user_group_add
 %nagios_user_group_add
 %__os_install_post
+
 %package
 %patch[0-9]*
 %perl_gen_filelist
@@ -93,12 +97,18 @@
 %perl_process_[^\s]*
 %pom_add_dep
 %pom_remove_dep
+
 %post
+
 %posttrans
+
 %postun
+
 %pre
+
 %prep
 %pretrans
+
 %preun
 %py_compile
 %python_alternative
@@ -134,8 +144,11 @@
 %systemd_preun
 %systemd_requires
 %tmpfiles_create
+
 %triggerin
+
 %triggerpostun
+
 %triggerun
 %udev_rules_update
 %undefine
