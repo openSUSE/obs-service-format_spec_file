@@ -1047,19 +1047,59 @@ EOF
     }
   }
 
+  sub split_tag {
+    my ($self, $section) = @_;
+    my %aa;
+    my $value = $section->value();
+
+    # support very special macros only
+    my %replacements = ('MACRO-VERSION' => '%{version}', 'MACRO-RELEASE' => '%{release}');
+    for my $replacement (keys %replacements) {
+      $value =~ s,\Q$replacements{$replacement}\E,$replacement,g;
+    }
+    if ($value =~ /%\(/ || $value =~ /%\{/ || $value =~ /^\(/) {
+
+      # do not touch lines with macros we don't know
+      return undef;
+    }
+    while ($value =~ m{([^,<=>\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
+      $aa{$1} = 1;
+    }
+    if (scalar keys %aa > 1) {
+      my @newtags;
+      for my $key (keys %aa) {
+        for my $replacement (keys %replacements) {
+          $key =~ s,$replacement,$replacements{$replacement},g;
+        }
+        push(@newtags, Tag->new($section->name(), $key));
+      }
+      return \@newtags;
+    }
+    return undef;
+  }
+
   # make sure two tags combined together are in proper sorting
   sub reorder_tags {
     my $self = shift;
-    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends)) {
+
+  START:
+    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends PreReq)) {
       my $lastsection;
       for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
         my $section = $self->{sections}->[$i];
         if ($section->name() eq $tag && !$section->{comment}) {
+          my $newtags = $self->split_tag($section);
+          if ($newtags) {
+            splice @{$self->{sections}}, $i, 1, @$newtags;
+            goto START;
+          }
           if ($lastsection) {
             if (($section->value() cmp $lastsection->value()) < 0) {
               $self->{sections}->[$i] = $lastsection;
               $self->{sections}->[$i - 1] = $section;
-              return $self->reorder_tags();
+
+              # perl dislikes deep recursion
+              goto START;
             }
           }
           $lastsection = $section;

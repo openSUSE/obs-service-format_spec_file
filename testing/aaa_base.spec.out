@@ -39,7 +39,12 @@ Requires:       /usr/bin/tput
 Requires:       /usr/bin/xz
 Requires:       distribution-release
 Requires:       filesystem
-Recommends:     logrotate netcfg udev iputils iproute2 aaa_base-extras
+Recommends:     aaa_base-extras
+Recommends:     iproute2
+Recommends:     iputils
+Recommends:     logrotate
+Recommends:     netcfg
+Recommends:     udev
 Requires(pre):  /usr/bin/rm
 Requires(pre):  glibc >= 2.30
 Requires(post): fillup /usr/bin/chmod /usr/bin/chown
