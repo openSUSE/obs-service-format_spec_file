@@ -86,6 +86,7 @@ cluset) allow traditional shell scripts to take benefit of the features
 offered by the library.
 
 %if 0%{?py2}
+
 %package -n python2-%{name}
 Summary:        ClusterShell module for Python 2
 Group:          Productivity/Clustering/Computing
