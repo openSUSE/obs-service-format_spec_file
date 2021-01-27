@@ -471,6 +471,11 @@ our $base_package = "";
     my ($self, $value) = @_;
     $self->{lines}->[0] = $value;
   }
+
+  sub add_line {
+    my ($self, $line) = @_;
+    die "You can't add to Tags: add_line($self->{name}, $line)";
+  }
 }
 
 {
@@ -781,11 +786,8 @@ EOF
         next;
       }
 
-      if (/^%debug_package/) {
-
-        # remove, we add this ourselves
-        next;
-      }
+      # remove, we add this ourselves
+      next if /^%debug_package/;
 
       if (/^%define\s*vendor\s/ || /^%define\s*distribution\s/) {
         next;
@@ -849,7 +851,7 @@ EOF
           my @args = split(/\s+/, $_);
           $_ =~ s/[\{\}\"]//g for (@args);
           $args[2] =~ s/\Q$_\E/$definelist->{$_}/g for sort { length($b) <=> length($a) } keys(%{$definelist});
-          if ($args[2] !~ /[\(\)\{\}\@\%\"\\]/) {
+          if ($args[2] && $args[2] !~ /[\(\)\{\}\@\%\"\\]/) {
             $definelist->{"%" . $args[1]}         = $args[2] if $ifhandler->{"disabled"} == 0;
             $definelist->{"%{" . $args[1] . "}"}  = $args[2] if $ifhandler->{"disabled"} == 0;
             $definelist->{"%{?" . $args[1] . "}"} = $args[2] if $ifhandler->{"disabled"} == 0;
@@ -861,6 +863,7 @@ EOF
         }
         next;
       }
+
       if (/^%package\b/i) {
         $self->create_section("package", $_);
         $_ =~ s/^(%\w+)/lc($1)/e;
@@ -888,19 +891,10 @@ EOF
         next;
       }
 
-      if (/^%/) {
-        if (m/$section_tags_re/oi) {
-          $_ =~ s/^(%\w+)/lc($1)/e;
-          $self->create_section("section", $_);
-        }
-        else {
-          if ($self->current_name() eq 'preamble' || $self->current_name() eq 'empty') {
-            $self->create_section("header", $_);
-          }
-          else {
-            $self->add_to_current_section($_);
-          }
-        }
+
+      if (/^%/ && m/$section_tags_re/oi) {
+        $_ =~ s/^(%\w+)/lc($1)/e;
+        $self->create_section("section", $_);
         next;
       }
 
@@ -947,7 +941,12 @@ EOF
         $self->create_tag_section($self->capitalize_case($1), $2);
         next;
       }
-      if ($self->current_name() ne 'empty' && $self->current_name() ne 'comment') {
+
+      if ( $self->current_name() ne 'empty'
+        && $self->current_name() ne 'comment'
+        && ref($self->current()) ne 'Tag'
+        && $self->current_name() ne 'preamble')
+      {
         $self->add_to_current_section($_);
       }
       else {
