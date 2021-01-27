@@ -20,9 +20,14 @@ Name:           prereq
 Requires(post): something
 Requires(pre):  test1
 Requires(post): asomething bsomething
+PreReq:         %fillup_prereq
+PreReq:         %insserv_prereq
+PreReq:         /bin/mkdir
+PreReq:         /bin/rm
+PreReq:         /usr/bin/chroot
 PreReq:         deprecatedrequires
-PreReq:         uglyline1 uglyline2
-PreReq:         /bin/rm /bin/mkdir /usr/bin/chroot %fillup_prereq %insserv_prereq
+PreReq:         uglyline1
+PreReq:         uglyline2
 Requires(postun):somethingcrazy
 
 %changelog

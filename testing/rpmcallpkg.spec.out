@@ -17,9 +17,10 @@
 
 
 %if %{with kde4}
+
 %package -n %{name}-client-kde4
-Summary:        KDE 4 Backend for sflphone
 Group:          Productivity/Telephony/SIP/Clients
+Summary:        KDE 4 Backend for sflphone
 Requires:       %{name} = %{version}-%{release}
 %kde4_runtime_requires
 %kde4_pimlibs_requires
