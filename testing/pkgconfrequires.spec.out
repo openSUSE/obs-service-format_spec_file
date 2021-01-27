@@ -21,5 +21,6 @@ BuildRequires:  pkgconfig(ncurses)
 %endif
 BuildRequires:  pkg-config >= 2.2
 BuildRequires:  pkgconfig(blabla)
+Requires:       pkgconfig(blabla)
 
 %changelog

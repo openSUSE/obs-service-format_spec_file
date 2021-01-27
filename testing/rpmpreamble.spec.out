@@ -118,7 +118,9 @@ find %{buildroot} -type f -name "*.la" -delete -print
 make -j 1 check
 
 %post -n %{libmicrohttpd} -p /sbin/ldconfig
+
 %postun -n %{libmicrohttpd} -p /sbin/ldconfig
+
 %post devel
 %install_info --info-dir=%{_infodir} %{_infodir}/libmicrohttpd.info%{ext_info}
 %install_info --info-dir=%{_infodir} %{_infodir}/libmicrohttpd-tutorial.info%{ext_info}

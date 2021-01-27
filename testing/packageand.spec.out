@@ -22,9 +22,9 @@ Suggests:       packageand(packE:packF)
 Supplements:    packageand(packG:packH)
 Enhances:       packageand(packI:packJ)
 Conflicts:      packageand(packK:packL)
+Supplements:    packageand(MozillaFirefox:branding-openSUSE)
+Supplements:    packageand(libpulse0:libxine1)
 Supplements:    packageand(nginx:moodle)
 Supplements:    packageand(pam_xyz:pam-32bit)
-Supplements:    packageand(libpulse0:libxine1)
-Supplements:    packageand(MozillaFirefox:branding-openSUSE)
 
 %changelog
