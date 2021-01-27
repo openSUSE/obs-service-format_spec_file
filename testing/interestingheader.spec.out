@@ -29,15 +29,20 @@ BuildRequires:  tcl-devel >= 8.5
 BuildRequires:  update-desktop-files
 
 Summary:        .spec file cleaner
-License:        GPL-2.0-or-later
-Group:          Productivity/Multimedia/Sound/Midi
 Summary(de):    Ein Synthesizer der dritten Art
 Name:           din
 Version:        5.2.1
 Release:        0.1
 Source:         %{name}-%{version}.tar.bz2
 Source1:        %{name}.png
+Group:          Productivity/Multimedia/Sound/Midi
+License:        GPL-2.0-or-later
 URL:            http://www.dinisnoise.org/
 Prefix:         /usr
+
+Requires:       Mesa
+Requires:       fftw3
+Requires:       jack
+Requires:       tcl >= 8.5
 
 %changelog

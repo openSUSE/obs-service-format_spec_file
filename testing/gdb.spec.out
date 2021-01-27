@@ -54,8 +54,8 @@ ExclusiveArch:  do_not_build
 
 %if %{build_main}
 Summary:        A GNU source-level debugger for C, C++, Fortran and other languages
-License:        SUSE-Public-Domain
-Group:          Development/Languages/C and C++
+License:        GPL-3.0-or-later AND GPL-3.0-with-GCC-exception AND LGPL-2.1-or-later AND LGPL-3.0-or-later
+Group:          Development/Tools/Debuggers
 %endif
 %if %{build_testsuite}
 Summary:        GDB testsuite results

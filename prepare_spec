@@ -164,8 +164,8 @@ our $base_package = "";
       if ($self->{after_lines}) {
         for (my $i = 0; $i < $self->{after_lines}; $i++) { push(@{$self->{lines}}, ""); }
         $self->{after_lines} = 0;
-
       }
+      die "Don't add to empty" if $self->{name} eq 'empty';
       push(@{$self->{lines}}, $line);
     }
     else {
@@ -360,7 +360,7 @@ EOF
   sub create_icecream_section {
     my ($self, $line) = @_;
     $line =~ s/^#\s*icecream\s*//;
-    $self->find("preamble")->add_footer("# icecream $line");
+    $self->find("preamble")->add_footer("# icecream $line") if $line ne '';
   }
 
   sub create_copyright_section {
@@ -529,10 +529,8 @@ EOF
           next;
         }
 
-        if (/^#\s*norootforbuild/) {
-          $self->current()->add_footer("# norootforbuild");
-          next;
-        }
+        next if m/^#\s*usedforbuild/;
+        next if m/^#\s*norootforbuild/;
 
         if (/^#\s*nodebuginfo\s*$/) {
           $self->current()->add_footer("# nodebuginfo");
@@ -548,8 +546,6 @@ EOF
           $self->create_copyright_section($_);
           next;
         }
-
-        next if (/^#\s*usedforbuild/);
       }
 
       if (/^%\?__\*BuildRequires:/ || /^#!__\*BuildRequires:/) {
@@ -688,7 +684,7 @@ EOF
           $self->create_section("section", $_);
         }
         else {
-          if ($self->current_name() eq 'preamble') {
+          if ($self->current_name() eq 'preamble' || $self->current_name() eq 'empty') {
             $self->create_section("header", $_);
           }
           else {
@@ -728,6 +724,10 @@ EOF
         next;
       }
 
+      if (m/^(Summary\([^:\s]*\))\s*:\s*(.*)/oi) {
+        $self->create_tag_section($self->capitalize_case($1), $2);
+        next;
+      }
       if (m/$global_tags_re\s*(.*)/oi) {
         $self->create_tag_section($self->capitalize_case($1), $2);
         next;
@@ -809,17 +809,21 @@ EOF
   sub merge_empty_sections {
     my $self = shift;
 
+  sections_before:
+
     # first we merge empty with sections before
     my $lastsection;
     for my $section (@{$self->{sections}}) {
       if ($section->name() eq 'empty') {
         if ($lastsection->merge_with_empty_after($section)) {
           $self->delete_section($section);
-          return $self->merge_empty_sections();
+          goto sections_before;
         }
       }
       $lastsection = $section;
     }
+
+  sections_after:
 
     # and then try to do the same with sections after (as tags can't be merged)
     $lastsection = undef;
@@ -827,7 +831,7 @@ EOF
       if ($lastsection && $lastsection->name() eq 'empty') {
         if ($section->merge_with_empty_before($lastsection)) {
           $self->delete_section($lastsection);
-          return $self->merge_empty_sections();
+          goto sections_after;
         }
       }
       $lastsection = $section;
