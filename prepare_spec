@@ -122,7 +122,7 @@ our $base_package = "";
 
   sub new {
     my ($class, $name, $line) = @_;
-    my $self = {name => $name, lines => [], before_lines => 0, after_lines => 0};
+    my $self = {name => $name, lines => [], before_lines => 0, after_lines => 0, comment => undef};
     push(@{$self->{lines}}, $line) if defined $line;
 
     bless $self, $class;
@@ -138,10 +138,14 @@ our $base_package = "";
     $self->{before_lines} = $nr;
   }
 
-
   sub set_after_lines {
     my ($self, $nr) = @_;
     $self->{after_lines} = $nr;
+  }
+
+  sub print_comment {
+    my $self = shift;
+    $self->{comment}->print() if $self->{comment};
   }
 
   sub print_before_lines {
@@ -169,6 +173,15 @@ our $base_package = "";
     }
   }
 
+  sub set_comment {
+    my ($self, $comment) = @_;
+    die "No 2 comments" if $self->{comment};
+    $self->{comment} = $comment;
+    die "unmergable comment" if $self->{before_lines};
+    $self->{before_lines}    = $comment->{before_lines};
+    $comment->{before_lines} = 0;
+  }
+
   sub merge_with_empty_after {
     my ($self, $section) = @_;
     $self->{after_lines} += scalar(@{$section->{lines}});
@@ -185,12 +198,19 @@ our $base_package = "";
     my $self = shift;
     if ($debug) {
       print "Section $self->{name} B:$self->{before_lines} A:$self->{after_lines}\n";
+      if ($self->{comment}) {
+        print("Has comment:\n");
+        for my $line (@{$self->{comment}->{lines}}) {
+          print "    $line\n";
+        }
+      }
       for my $line (@{$self->{lines}}) {
         print "    $line\n";
       }
     }
     else {
       $self->print_before_lines();
+      $self->print_comment();
       for my $line (@{$self->{lines}}) {
         print "$line\n";
       }
@@ -214,6 +234,7 @@ our $base_package = "";
       printf("TAG '%s' = '%s'\n", $self->{name}, $self->value());
     }
     else {
+      $self->print_comment();
       printf("%-16s%s\n", $self->{name} . ":", $self->value());
     }
 
@@ -253,6 +274,8 @@ our $base_package = "";
       print "PREAMBLE B:$self->{before_lines} A:$self->{after_lines}\n";
       return;
     }
+    print "$self->{vim_mode}\n" if $self->{vim_mode};
+
     my $thisyear   = localtime->year() + 1900;
     my @copyrights = @{$self->{copyright} || []};
     unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
@@ -291,6 +314,11 @@ EOF
       $self->{copyright} = [];
     }
     push(@{$self->{copyright}}, $copyright);
+  }
+
+  sub set_vim_mode {
+    my ($self, $line) = @_;
+    $self->{vim_mode} = $line;
   }
 
   sub add_footer {
@@ -380,6 +408,7 @@ EOF
     $tag =~ s/patch/Patch/i;
     $tag =~ s/source/Source/i;
     $tag =~ s/req/Req/i;
+    $tag =~ s/pre/Pre/;
     $tag =~ s/confl/Confl/i;
     $tag =~ s/prov/Prov/i;
     $tag =~ s/url/URL/i;
@@ -434,15 +463,15 @@ EOF
     chomp @readspec;
 
     my @global_tags_list = (
-      'Autoreq',       'Autoreqprov',  'BuildArch',   'BuildArchitectures',
-      'BuildRequires', 'Conflicts',    'DocDir',      'Enhances',
-      'Enhances',      'EssentialFor', 'ExcludeArch', 'ExclusiveArch',
-      'Freshens',      'Group',        'Name',        'NoPatch',
-      'NoSource',      'Obsoletes',    'Patch\d*',    'Prefix',
-      'PreReq',        'Provides',     'Recommends',  'Requires',
-      'Source\d*',     'Suggests',     'Summary',     'Supplements',
-      'URL',           'Version',      'License',     'Release',
-      'BuildConflicts'
+      'Autoreq',        'Autoreqprov',  'BuildArch',   'BuildArchitectures',
+      'BuildRequires',  'Conflicts',    'DocDir',      'Enhances',
+      'Enhances',       'EssentialFor', 'ExcludeArch', 'ExclusiveArch',
+      'Freshens',       'Group',        'Name',        'NoPatch',
+      'NoSource',       'Obsoletes',    'Patch\d*',    'Prefix',
+      'PreReq',         'Provides',     'Recommends',  'Requires',
+      'Source\d*',      'Suggests',     'Summary',     'Supplements',
+      'URL',            'Version',      'License',     'Release',
+      'BuildConflicts', 'BuildPreReq',  'RemovePathPostfixes'
     );
 
     my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
@@ -684,8 +713,8 @@ EOF
         $self->create_tag_section("BuildRoot", "%{_tmppath}/%{name}-%{version}-build");
         next;
       }
-      if (m/^(Requires\((post|pre)\))\s*:\s*(.*)/oi) {
-        $self->create_tag_section($1, $3);
+      if (m/^(Requires\([^:\s]*\))\s*:\s*(.*)/oi) {
+        $self->create_tag_section($1, $2);
         next;
       }
 
@@ -750,6 +779,23 @@ EOF
 
   }
 
+  # make comments a subsection
+  sub merge_comments() {
+    my $self = shift;
+
+    my $lastsection;
+    for my $section (@{$self->{sections}}) {
+      if ($lastsection && $lastsection->name() eq 'comment') {
+        next if $lastsection->{after_lines} + $section->{before_lines};
+        $section->set_comment($lastsection);
+        $self->delete_section($lastsection);
+        return $self->merge_comments();
+
+      }
+      $lastsection = $section;
+    }
+  }
+
   sub merge_empty_sections {
     my $self = shift;
 
@@ -785,7 +831,7 @@ EOF
       my $lastsection;
       for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
         my $section = $self->{sections}->[$i];
-        if ($section->name() eq $tag) {
+        if ($section->name() eq $tag && !$section->{comment}) {
           if ($lastsection) {
             if (($section->value() cmp $lastsection->value()) < 0) {
               $self->{sections}->[$i] = $lastsection;
@@ -883,6 +929,7 @@ if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
 my $parser = Parser->new;
 $parser->read_and_parse_old_spec($specfile, $base_package);
 $parser->merge_empty_sections();
+$parser->merge_comments();
 $parser->reorder_tags();
 
 my $mapper = SPDXMapper->new;
