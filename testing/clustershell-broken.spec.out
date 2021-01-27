@@ -169,12 +169,14 @@ install -p -m 0644 doc/extras/vim/syntax/groupsconf.vim %{buildroot}/%{vimdatadi
 %{?suse_version:%fdupes %{buildroot}}
 
 %if 0%{?rhel}
+
 %clean
 rm -rf %{buildroot}
 %endif
 
 # Unversioned python3 for rhel8
 %if 0%{?py2}
+
 %files -n python2-%{name}
 %if 0%{?rhel}
 %defattr(-,root,root,-)
@@ -198,6 +200,7 @@ rm -rf %{buildroot}
 %{python3_sitelib}/ClusterShell-*-py?.?.egg-info
 
 %else
+
 %files -n %{python3_pkgprefix}-%{name}
 %if 0%{?rhel}
 %defattr(-,root,root,-)
