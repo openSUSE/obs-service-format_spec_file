@@ -17,7 +17,6 @@
 
 
 %if %{with kde4}
-
 %package -n %{name}-client-kde4
 Group:          Productivity/Telephony/SIP/Clients
 Summary:        KDE 4 Backend for sflphone

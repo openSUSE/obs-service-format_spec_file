@@ -156,7 +156,6 @@ install -p -m 0644 doc/extras/vim/syntax/clushconf.vim %{buildroot}/%{vimdatadir
 install -p -m 0644 doc/extras/vim/syntax/groupsconf.vim %{buildroot}/%{vimdatadir}/syntax/
 
 %if 0%{?rhel}
-
 %clean
 rm -rf %{buildroot}
 %endif

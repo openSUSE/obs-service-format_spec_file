@@ -152,9 +152,9 @@ Release:        0
 Provides:       firefox = %{mainver}
 Provides:       firefox = %{version}-%{release}
 %endif
-Provides:       web_browser
 Provides:       appdata()
 Provides:       appdata(firefox.appdata.xml)
+Provides:       web_browser
 # this is needed to match this package with the kde4 helper package without the main package
 # having a hard requirement on the kde4 package
 %define kde_helper_version 6
@@ -218,8 +218,8 @@ Patch101:       firefox-kde.patch
 Patch102:       firefox-branded-icons.patch
 %endif
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-Requires(post):   coreutils shared-mime-info desktop-file-utils
-Requires(postun): shared-mime-info desktop-file-utils
+Requires(post): coreutils shared-mime-info desktop-file-utils
+Requires(postun):shared-mime-info desktop-file-utils
 Requires:       %{name}-branding >= 68
 %requires_ge    mozilla-nspr
 %requires_ge    mozilla-nss
