@@ -38,10 +38,10 @@ BuildRequires:  libtool
 BuildRequires:  makeinfo
 BuildRequires:  openssl-devel
 BuildRequires:  pkg-config
+BuildRequires:  socat
 BuildRequires:  pkgconfig(gnutls)
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(libtasn1)
-BuildRequires:  socat
 %if 0%{?suse_version} < 1230
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %endif
