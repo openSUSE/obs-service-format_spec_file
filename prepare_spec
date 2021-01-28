@@ -1062,7 +1062,7 @@ EOF
     my $value = $section->value();
 
     # support very special macros only
-    my %replacements = ('MACRO-VERSION' => '%{version}', 'MACRO-RELEASE' => '%{release}');
+    my %replacements = ('MACRO-VERSION' => '%{version}', 'MACRO-RELEASE' => '%{release}', 'MACRO-NAME' => '%{name}');
     for my $replacement (keys %replacements) {
       $value =~ s,\Q$replacements{$replacement}\E,$replacement,g;
     }
@@ -1148,7 +1148,7 @@ EOF
   sub reorder_tags {
     my $self = shift;
 
-    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends PreReq)) {
+    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends PreReq Conflicts)) {
       $self->reorder_tag($tag);
     }
   }
