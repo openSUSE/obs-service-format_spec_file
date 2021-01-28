@@ -436,6 +436,18 @@ our $base_package = "";
 
   use base 'Section';
 
+  sub new {
+    use Carp 'confess';
+    my ($class, $name, $value, $package) = @_;
+    confess "no package " unless $package;
+
+    my $self = $class->SUPER::new($name, $value);
+    $self->{package} = $package;
+
+    bless $self, $class;
+    return $self;
+  }
+
   sub print {
     my $self = shift;
     die("something is fishy: " . Dumper($self))
@@ -443,7 +455,7 @@ our $base_package = "";
       && $self->{after_lines} == 0
       && length($self->{lines}) != 1;
     if ($debug) {
-      printf("TAG '%s' = '%s'\n", $self->{name}, $self->value());
+      printf("TAG '%s' = '%s' (package %s)\n", $self->{name}, $self->value(), $self->{package});
     }
     else {
       $self->print_before_lines();
@@ -553,8 +565,8 @@ EOF
   package Parser;
 
   sub new {
-    my $class = shift;
-    my $self  = {'sections' => []};
+    my ($class, $base_package) = @_;
+    my $self = {'sections' => [], current_package => $base_package};
     bless $self, $class;
     push(@{$self->{sections}}, Preamble->new("preamble", undef));
     return $self;
@@ -569,7 +581,7 @@ EOF
 
   sub create_tag_section {
     my ($self, $name, $line) = @_;
-    push(@{$self->{sections}}, Tag->new($name, $line));
+    push(@{$self->{sections}}, Tag->new($name, $line, $self->{current_package}));
   }
 
   sub create_icecream_section {
@@ -665,12 +677,8 @@ EOF
     return $curpack;
   }
 
-  sub read_and_parse_old_spec {
-    my ($self, $specfile, $base_package) = @_;
-    my $current_package = $base_package;
-    my $current_lang    = "";
-    my $check_printed   = "false";
-    my %version;
+  sub read_and_parse_spec {
+    my ($self, $specfile) = @_;
     my $ifhandler;
     $ifhandler->{disabled}         = 0;
     $ifhandler->{depth}            = 0;
@@ -877,7 +885,7 @@ EOF
         if ($debug) {
           warn "after: $_\n";
         }
-        $current_package = $self->set_current_pkg($_);
+        $self->{current_package} = $self->set_current_pkg($_);
         next;
       }
 
@@ -891,15 +899,11 @@ EOF
         next;
       }
 
-
       if (/^%/ && m/$section_tags_re/oi) {
         $_ =~ s/^(%\w+)/lc($1)/e;
         $self->create_section("section", $_);
         next;
       }
-
-      my $c_pack = $current_package;
-      $c_pack .= "_disabled" if $ifhandler->{"disabled"};
 
       if (/^Vendor:/ || /^Distribution:/ || /^Packager:/) {
         next;
@@ -970,7 +974,7 @@ EOF
     for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
       my $section = $self->{sections}->[$i];
       if ($section->name() eq 'Version') {
-        splice @{$self->{sections}}, $i + 1, 0, (Tag->new("Release", "0"));
+        splice @{$self->{sections}}, $i + 1, 0, (Tag->new("Release", "0", $section->{package}));
         return;
       }
     }
@@ -1071,7 +1075,7 @@ EOF
         for my $replacement (keys %replacements) {
           $key =~ s,$replacement,$replacements{$replacement},g;
         }
-        push(@newtags, Tag->new($section->name(), $key));
+        push(@newtags, Tag->new($section->name(), $key, $section->{package}));
       }
       return \@newtags;
     }
@@ -1171,26 +1175,16 @@ while (<SPE>) {
 }
 close(SPE);
 
-warn("base_package is $base_package\n") if $debug;
-
-if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
-  $base_package =~ s/[0-9]$//;
-}
-
-if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
-  $base_package =~ s/\-[^\-]*$//;
-}
-
-warn("base_package is $base_package\n") if $debug;
-
-if (!stat((glob("$specdir/$base_package*.spec"))[0] || "")) {
+if (!$base_package) {
   $base_package = $specbase;
   $base_package =~ s/\.spec$//;
   $base_package =~ s/\-.*$//;
 }
 
-my $parser = Parser->new;
-$parser->read_and_parse_old_spec($specfile, $base_package);
+warn("base_package is $base_package\n") if $debug;
+
+my $parser = Parser->new($base_package);
+$parser->read_and_parse_spec($specfile);
 $parser->merge_empty_sections();
 $parser->merge_comments();
 $parser->reorder_tags();
