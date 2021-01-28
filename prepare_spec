@@ -981,6 +981,15 @@ EOF
 
   }
 
+  sub _section_to_ignore {
+    my ($section, $lastsection) = @_;
+
+    # a very special case that we see often is %if ... surrounding sections
+    return 1 if $lastsection->{lines}->[0] =~ m/%if/;
+    return 1 if $section->{lines}->[0]     =~ m/%(post|postun|pre|preun) .*-p /;
+    return 0;
+  }
+
   sub set_section_whitespace {
     my $self = shift;
 
@@ -995,15 +1004,13 @@ EOF
       }
       elsif ((grep { $section->name() eq $_ } (qw/description package/)) || $section->name() =~ m/-section$/) {
 
-        # a very special case that we see often is %if ... surrounding sections
-        if ($lastsection->{lines}->[0] !~ m/%if/) {
+        if (!_section_to_ignore($section, $lastsection)) {
           $lastsection->set_after_lines(0);
           $section->set_before_lines(1);
         }
       }
       $lastsection = $section;
     }
-
   }
 
   # make comments a subsection
