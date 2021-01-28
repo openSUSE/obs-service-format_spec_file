@@ -95,7 +95,7 @@ our $base_package = "";
     my $tree = eval { $self->parse($license); };
     if (my $err = $@) {
       chomp $err;
-      print STDERR "Can't parse '$license' as SPDX: $err";
+      print STDERR "Can't parse '$license' as SPDX: $err\n" if $debug;
       return $license;
     }
     my $out = _tree_to_string(_sorted_tree($tree));
@@ -146,7 +146,6 @@ our $base_package = "";
       $left = {op => 'and', left => $left, right => $self->_parse_with()};
     }
     return $left;
-
   }
 
   sub _parse_or {
@@ -572,8 +571,27 @@ EOF
     return $self;
   }
 
+# description is a big absorber but if it ends in comments, those comments aren't meant for it
+  sub _split_final_comments {
+    my $self    = shift;
+    my $section = $self->current();
+    return unless $section->{after_lines};
+    return unless $section->{lines}->[-1] =~ m/^#/;
+
+    my $comment = Section->new("comment", undef);
+    my @lines;
+    while ($section->{lines}->[-1] =~ m/^#/) {
+      my $line = pop @{$section->{lines}};
+      unshift @{$comment->{lines}}, $line;
+    }
+    push(@{$self->{sections}}, $comment);
+  }
+
   sub create_section {
     my ($self, $name, $line) = @_;
+
+    # now worst hack ever
+    $self->_split_final_comments() if $self->current_name() eq 'description';
     my $section = Section->new($name, $line);
     push(@{$self->{sections}}, $section);
     return $section;
