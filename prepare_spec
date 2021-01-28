@@ -1092,6 +1092,22 @@ EOF
     return undef;
   }
 
+  # put cmake() and pkgconfig() at the end
+  sub _sort_tags_helper {
+    my ($a, $b) = @_;
+    if (($a =~ /^[^#]*\(/) != ($b =~ /^[^#]*\(/)) {
+      if ($a =~ /^[^#]*\(/) {
+        1;
+      }
+      else {
+        -1;
+      }
+    }
+    else {
+      $a cmp $b;
+    }
+  }
+
   sub reorder_tag {
     my ($self, $tag) = @_;
 
@@ -1110,7 +1126,7 @@ EOF
             last;
           }
           if ($lastsection) {
-            if (($section->value() cmp $lastsection->value()) < 0) {
+            if (_sort_tags_helper($section->value(), $lastsection->value()) < 0) {
               $self->{sections}->[$i]     = $lastsection;
               $self->{sections}->[$i - 1] = $section;
               $switched                   = 1;

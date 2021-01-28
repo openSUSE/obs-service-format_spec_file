@@ -152,9 +152,9 @@ Release:        0
 Provides:       firefox = %{mainver}
 Provides:       firefox = %{version}-%{release}
 %endif
+Provides:       web_browser
 Provides:       appdata()
 Provides:       appdata(firefox.appdata.xml)
-Provides:       web_browser
 # this is needed to match this package with the kde4 helper package without the main package
 # having a hard requirement on the kde4 package
 %define kde_helper_version 6

@@ -17,13 +17,13 @@
 
 
 BuildRequires:  cbla-devel
+BuildRequires:  perl-devel
+BuildRequires:  rocket-devel
+BuildRequires:  something-devel
 BuildRequires:  cmake(bla)
 BuildRequires:  cmake(dla)
 BuildRequires:  perl(DBI)
-BuildRequires:  perl-devel
 BuildRequires:  pkgconfig(bla)
-BuildRequires:  rocket-devel
 BuildRequires:  rubygem(something)
-BuildRequires:  something-devel
 
 %changelog
