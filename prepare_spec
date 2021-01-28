@@ -1013,13 +1013,16 @@ EOF
     my $lastsection;
     for my $section (@{$self->{sections}}) {
       if ($lastsection && $lastsection->name() eq 'comment') {
-        next if $lastsection->{after_lines} + $section->{before_lines};
-        $section->set_comment($lastsection);
-        $self->delete_section($lastsection);
-        return $self->merge_comments();
+        if ($lastsection->{after_lines} + $section->{before_lines} == 0) {
+
+          $section->set_comment($lastsection);
+          $self->delete_section($lastsection);
+          return $self->merge_comments();
+        }
       }
       $lastsection = $section;
     }
+
   }
 
   sub merge_empty_sections {
