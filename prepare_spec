@@ -704,9 +704,8 @@ EOF
 
     my $global_tags_re = '^\s*(' . join("|", @global_tags_list) . ')\s*:';
 
-    my $section_tags_re = '^\s*%(?:clean|check|prep|build|install|pre|post|preun|postun|posttrans|package|'
-      . 'description|files|triggerin|triggerun|triggerpostun|verifyscript)\b';
-
+    my $section_tags_re = '^\s*%(clean|changelog|check|prep|build|install|pre|post|preun|postun|'
+      . 'posttrans|package|description|files|triggerin|triggerun|triggerpostun|verifyscript)\b';
 
     my $definelist;
 
@@ -899,14 +898,10 @@ EOF
         next;
       }
 
-      if (/^%changelog\b/i) {
-        $self->create_section("changelog", $_);
-        next;
-      }
-
-      if (/^%/ && m/$section_tags_re/oi) {
+      if (m/$section_tags_re/oi) {
+        my $name = lc($1);
         $_ =~ s/^(%\w+)/lc($1)/e;
-        $self->create_section("section", $_);
+        $self->create_section(lc($name) . '-section', $_);
         next;
       }
 
@@ -998,9 +993,13 @@ EOF
       if ($lastsection && $lastsection->name() eq 'preamble') {
         $section->set_before_lines(0);
       }
-      elsif (grep { $section->name() eq $_ } (qw/section description changelog package/)) {
-        $lastsection->set_after_lines(0);
-        $section->set_before_lines(1);
+      elsif ((grep { $section->name() eq $_ } (qw/description package/)) || $section->name() =~ m/-section$/) {
+
+        # a very special case that we see often is %if ... surrounding sections
+        if ($lastsection->{lines}->[0] !~ m/%if/) {
+          $lastsection->set_after_lines(0);
+          $section->set_before_lines(1);
+        }
       }
       $lastsection = $section;
     }
@@ -1018,7 +1017,6 @@ EOF
         $section->set_comment($lastsection);
         $self->delete_section($lastsection);
         return $self->merge_comments();
-
       }
       $lastsection = $section;
     }
@@ -1203,10 +1201,10 @@ $parser->set_section_whitespace();
 $parser->fix_release_tag();
 
 # make sure we've got an empty changelog at the end
-my $section = $parser->find("changelog");
+my $section = $parser->find("changelog-section");
 $parser->delete_section($section) if $section;
 my $lastsection = $parser->current();
-$section = $parser->create_section("section", "%changelog");
+$section = $parser->create_section("changelog-section", "%changelog");
 if ($lastsection->{after_lines} == 0) {
   $section->set_before_lines(1);
 }

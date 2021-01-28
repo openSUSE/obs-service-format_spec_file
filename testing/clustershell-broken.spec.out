@@ -86,7 +86,6 @@ cluset) allow traditional shell scripts to take benefit of the features
 offered by the library.
 
 %if 0%{?py2}
-
 %package -n python2-%{name}
 Summary:        ClusterShell module for Python 2
 Group:          Productivity/Clustering/Computing
@@ -170,14 +169,12 @@ install -p -m 0644 doc/extras/vim/syntax/groupsconf.vim %{buildroot}/%{vimdatadi
 %{?suse_version:%fdupes %{buildroot}}
 
 %if 0%{?rhel}
-
 %clean
 rm -rf %{buildroot}
 %endif
 
 # Unversioned python3 for rhel8
 %if 0%{?py2}
-
 %files -n python2-%{name}
 %if 0%{?rhel}
 %defattr(-,root,root,-)
