@@ -1014,7 +1014,6 @@ EOF
     for my $section (@{$self->{sections}}) {
       if ($lastsection && $lastsection->name() eq 'comment') {
         if ($lastsection->{after_lines} + $section->{before_lines} == 0) {
-
           $section->set_comment($lastsection);
           $self->delete_section($lastsection);
           return $self->merge_comments();
@@ -1072,7 +1071,12 @@ EOF
       # do not touch lines with macros we don't know
       return undef;
     }
-    while ($value =~ m{([^,<=>\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
+
+    # replace every comma not in brackets with a space
+    # "modalias(foo,bar)" should not be split, but "foo,bar"
+    # TODO: find out why /g without while doesn't cut the bill
+    while ($value =~ s/^([^(,]*),/$1 /g) { }
+    while ($value =~ m{([^<=>\s]+(\s*[<=>]+\s*[^,\s]+)?)}g) {
       $aa{$1} = 1;
     }
     if (scalar keys %aa > 1) {
@@ -1088,12 +1092,13 @@ EOF
     return undef;
   }
 
-  # make sure two tags combined together are in proper sorting
-  sub reorder_tags {
-    my $self = shift;
+  sub reorder_tag {
+    my ($self, $tag) = @_;
 
-  START:
-    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends PreReq)) {
+    my $switched;
+
+    do {
+      $switched = 0;
       my $lastsection;
       for my $i (0 .. scalar(@{$self->{sections}}) - 1) {
         my $section = $self->{sections}->[$i];
@@ -1101,15 +1106,16 @@ EOF
           my $newtags = $self->split_tag($section);
           if ($newtags) {
             splice @{$self->{sections}}, $i, 1, @$newtags;
-            goto START;
+            $switched = 1;
+            last;
           }
           if ($lastsection) {
             if (($section->value() cmp $lastsection->value()) < 0) {
-              $self->{sections}->[$i] = $lastsection;
+              $self->{sections}->[$i]     = $lastsection;
               $self->{sections}->[$i - 1] = $section;
-
-              # perl dislikes deep recursion
-              goto START;
+              $switched                   = 1;
+              $lastsection                = undef;
+              next;
             }
           }
           $lastsection = $section;
@@ -1118,6 +1124,16 @@ EOF
           $lastsection = undef;
         }
       }
+    } while ($switched);
+  }
+
+
+  # make sure two tags combined together are in proper sorting
+  sub reorder_tags {
+    my $self = shift;
+
+    for my $tag (qw(BuildRequires Requires Provides Obsoletes Supplements Recommends PreReq)) {
+      $self->reorder_tag($tag);
     }
   }
 
@@ -1191,6 +1207,7 @@ warn("base_package is $base_package\n") if $debug;
 
 my $parser = Parser->new($base_package);
 $parser->read_and_parse_spec($specfile);
+
 $parser->merge_empty_sections();
 $parser->merge_comments();
 $parser->reorder_tags();
