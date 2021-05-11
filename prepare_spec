@@ -506,17 +506,18 @@ our $header_name;
     }
     print "$self->{vim_mode}\n" if $self->{vim_mode};
 
-    my $thisyear   = localtime($ENV{SOURCE_DATE_EPOCH}||time)->year() + 1900;
-    my @copyrights = @{$self->{copyright} || []};
+    my $thisyear   = localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
+    my @copyrights = @{$self->{copyright}              || []};
     unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
 
     my $copy_list = join("\n", @copyrights);
 
     print "#\n";
     if ($header_name) {
-       print "# spec file for package $header_name\n";
-    } else {
-       print "# spec file\n";
+      print "# spec file for package $header_name\n";
+    }
+    else {
+      print "# spec file\n";
     }
     print <<EOF;
 #
@@ -847,10 +848,10 @@ EOF
                ($args[1] eq "0")
             || ($args[1] eq "%name" && $args[2] eq "!=" && $args[3] eq $base_package)
             || ($args[1] eq "%name" && $args[2] eq "==" && $args[3] ne $base_package)
-            || ($args[1] && !$args[3] && !$if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
+            || ($args[1]         && !$args[3] && !$if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
             || ($args[2] eq "==" && $args[3] ne "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
             || ($args[2] eq "!=" && $args[3] eq "0" && $definelist->{$args[1]} && $definelist->{$args[1]} eq "0")
-            || ($args[1] && !$args[3] && $if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1")
+            || ($args[1]         && !$args[3] && $if_not && $definelist->{$args[1]} && $definelist->{$args[1]} eq "1")
             || ( $args[1]
               && $args[2] eq "!="
               && $args[3] eq "1"
@@ -1094,11 +1095,17 @@ EOF
     my $value = $section->value();
 
     # support very special macros only
-    my %replacements = ('MACRO-VERSION' => '%{version}', 'MACRO-RELEASE' => '%{release}', 'MACRO-NAME' => '%{name}');
+    my %replacements = (
+      'MACRO-VERSION'  => '%{version}',
+      'MACRO-RELEASE'  => '%{release}',
+      'MACRO-NAME'     => '%{name}',
+      'MACRO-FILLUP'   => '%fillup_prereq',
+      'MACRO-INSSEREV' => '%insserv_prereq'
+    );
     for my $replacement (keys %replacements) {
       $value =~ s,\Q$replacements{$replacement}\E,$replacement,g;
     }
-    if ($value =~ /%\(/ || $value =~ /%\{/ || $value =~ /^\(/) {
+    if ($value =~ /%/ || $value =~ /^\(/) {
 
       # do not touch lines with macros we don't know
       return undef;
@@ -1231,9 +1238,10 @@ while (<SPE>) {
   }
   if (/^\s*Name:/) {
     if ($seen_name) {
-       # if there are more than one name, ignore it
-       $header_name = undef;
-       next;
+
+      # if there are more than one name, ignore it
+      $header_name = undef;
+      next;
     }
     $seen_name    = 1;
     $base_package = $_;
@@ -1242,6 +1250,7 @@ while (<SPE>) {
     if ($debug) {
       warn "DEBUG: base_package = $base_package\n";
     }
+
     # ignore names with macros
     $header_name = undef if $header_name =~ m/%/;
     last;
