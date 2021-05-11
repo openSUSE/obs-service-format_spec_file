@@ -47,11 +47,13 @@ BSD-2-Clause | BSD 2-Clause "Simplified" License
 BSD-3-Clause-Attribution | BSD with attribution
 BSD-3-Clause-Clear | BSD 3-Clause Clear License
 BSD-3-Clause-LBNL | Lawrence Berkeley National Labs BSD variant license
+BSD-3-Clause-Modification | BSD 3-Clause Modification
 BSD-3-Clause-No-Nuclear-License-2014 | BSD 3-Clause No Nuclear License 2014
 BSD-3-Clause-No-Nuclear-License | BSD 3-Clause No Nuclear License
 BSD-3-Clause-No-Nuclear-Warranty | BSD 3-Clause No Nuclear Warranty
 BSD-3-Clause-Open-MPI | BSD 3-Clause Open MPI variant
 BSD-3-Clause | BSD 3-Clause "New" or "Revised" License
+BSD-4-Clause-Shortened | BSD 4 Clause Shortened
 BSD-4-Clause-UC | BSD-4-Clause (University of California-Specific)
 BSD-4-Clause | BSD 4-Clause "Original" or "Old" License
 BSD-Protection | BSD Protection License
@@ -65,6 +67,7 @@ BitTorrent-1.0 | BitTorrent Open Source License v1.0
 BitTorrent-1.1 | BitTorrent Open Source License v1.1
 BlueOak-1.0.0 | Blue Oak Model License 1.0.0
 Borceux | Borceux license
+C-UDA-1.0 | Computational Use of Data Agreement v1.0
 CAL-1.0-Combined-Work-Exception | Cryptographic Autonomy License 1.0 (Combined Work Exception)
 CAL-1.0 | Cryptographic Autonomy License 1.0
 CATOSL-1.1 | Computer Associates Trusted Open Source License 1.1
@@ -99,6 +102,7 @@ CC-BY-ND-4.0 | Creative Commons Attribution No Derivatives 4.0 International
 CC-BY-SA-1.0 | Creative Commons Attribution Share Alike 1.0 Generic
 CC-BY-SA-2.0-UK | Creative Commons Attribution Share Alike 2.0 England and Wales
 CC-BY-SA-2.0 | Creative Commons Attribution Share Alike 2.0 Generic
+CC-BY-SA-2.1-JP | Creative Commons Attribution Share Alike 2.1 Japan
 CC-BY-SA-2.5 | Creative Commons Attribution Share Alike 2.5 Generic
 CC-BY-SA-3.0-AT | Creative Commons Attribution-Share Alike 3.0 Austria
 CC-BY-SA-3.0 | Creative Commons Attribution Share Alike 3.0 Unported
@@ -135,6 +139,7 @@ CrystalStacker | CrystalStacker License
 Cube | Cube License
 D-FSL-1.0 | Deutsche Freie Software Lizenz
 DOC | DOC License
+DRL-1.0 | Detection Rule License 1.0
 DSDP | DSDP License
 Dotseqn | Dotseqn License
 ECL-1.0 | Educational Community License v1.0
@@ -157,7 +162,9 @@ FSFULLR | FSF Unlimited License (with License Retention)
 FTL | Freetype Project License
 Fair | Fair License
 Frameworx-1.0 | Frameworx Open License 1.0
+FreeBSD-DOC | FreeBSD Documentation License
 FreeImage | FreeImage Public License v1.0
+GD | GD License
 GFDL-1.1-invariants-only | GNU Free Documentation License v1.1 only - invariants
 GFDL-1.1-invariants-or-later | GNU Free Documentation License v1.1 or later - invariants
 GFDL-1.1-no-invariants-only | GNU Free Documentation License v1.1 only - no invariants
@@ -232,6 +239,7 @@ Libpng | libpng License
 Linux-OpenIB | Linux Kernel Variant of OpenIB.org license
 MIT-0 | MIT No Attribution
 MIT-CMU | CMU License
+MIT-Modern-Variant | MIT License Modern Variant
 MIT-advertising | Enlightenment License (e16)
 MIT-enna | enna License
 MIT-feh | feh License
@@ -252,6 +260,7 @@ MulanPSL-1.0 | Mulan Permissive Software License, Version 1
 MulanPSL-2.0 | Mulan Permissive Software License, Version 2
 Multics | Multics License
 Mup | Mup License
+NAIST-2003 | Nara Institute of Science and Technology License (2003)
 NASA-1.3 | NASA Open Source Agreement 1.3
 NBPL-1.0 | Net Boolean Public License v1
 NCGL-UK-2.0 | Non-Commercial Government Licence
@@ -278,7 +287,7 @@ O-UDA-1.0 | Open Use of Data Agreement v1.0
 OCCT-PL | Open CASCADE Technology Public License
 OCLC-2.0 | OCLC Research Public License 2.0
 ODC-By-1.0 | Open Data Commons Attribution License v1.0
-ODbL-1.0 | ODC Open Database License v1.0
+ODbL-1.0 | Open Data Commons Open Database License v1.0
 OFL-1.0-RFN | SIL Open Font License 1.0 with Reserved Font Name
 OFL-1.0-no-RFN | SIL Open Font License 1.0 with no Reserved Font Name
 OFL-1.0 | SIL Open Font License 1.0
@@ -286,6 +295,7 @@ OFL-1.1-RFN | SIL Open Font License 1.1 with Reserved Font Name
 OFL-1.1-no-RFN | SIL Open Font License 1.1 with no Reserved Font Name
 OFL-1.1 | SIL Open Font License 1.1
 OGC-1.0 | OGC Software License, Version 1.0
+OGDL-Taiwan-1.0 | Taiwan Open Government Data License, version 1.0
 OGL-Canada-2.0 | Open Government Licence - Canada
 OGL-UK-1.0 | Open Government Licence v1.0
 OGL-UK-2.0 | Open Government Licence v2.0
@@ -316,7 +326,7 @@ OSL-2.0 | Open Software License 2.0
 OSL-2.1 | Open Software License 2.1
 OSL-3.0 | Open Software License 3.0
 OpenSSL | OpenSSL License
-PDDL-1.0 | ODC Public Domain Dedication & License 1.0
+PDDL-1.0 | Open Data Commons Public Domain Dedication & License 1.0
 PHP-3.01 | PHP License v3.01
 PHP-3.0 | PHP License v3.0
 PSF-2.0 | Python Software Foundation License 2.0
