@@ -1035,13 +1035,15 @@ EOF
   sub merge_comments() {
     my $self = shift;
 
-    my $lastsection;
+  comments_before:
+
+    my $lastsection = undef;
     for my $section (@{$self->{sections}}) {
       if ($lastsection && $lastsection->name() eq 'comment') {
         if ($lastsection->{after_lines} + $section->{before_lines} == 0) {
           $section->set_comment($lastsection);
           $self->delete_section($lastsection);
-          return $self->merge_comments();
+          goto comments_before;
         }
       }
       $lastsection = $section;
