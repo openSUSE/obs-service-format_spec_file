@@ -23,6 +23,7 @@ use File::Basename;
 
 our $debug        = 0;
 our $base_package = "";
+our $header_name;
 
 {
 
@@ -511,9 +512,13 @@ our $base_package = "";
 
     my $copy_list = join("\n", @copyrights);
 
+    print "#\n";
+    if ($header_name) {
+       print "# spec file for package $header_name\n";
+    } else {
+       print "# spec file\n";
+    }
     print <<EOF;
-#
-# spec file for package $base_package
 #
 $copy_list
 #
@@ -1225,16 +1230,20 @@ while (<SPE>) {
     }
   }
   if (/^\s*Name:/) {
-    next if $seen_name;
+    if ($seen_name) {
+       # if there are more than one name, ignore it
+       $header_name = undef;
+       next;
+    }
     $seen_name    = 1;
     $base_package = $_;
     $base_package =~ s/^\s*Name:\s*(\S*)\s*/$1/;
-    $base_package =~ s/\Q$_\E/$xdefinelist->{$_}/ for (sort { length($b) <=> length($a) } keys(%{$xdefinelist}));
+    $header_name = $base_package;
     if ($debug) {
       warn "DEBUG: base_package = $base_package\n";
-      warn Dumper($xdefinelist);
-
     }
+    # ignore names with macros
+    $header_name = undef if $header_name =~ m/%/;
     last;
   }
 }
