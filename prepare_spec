@@ -964,7 +964,7 @@ EOF
         next;
       }
 
-      if (m/^(Patch.*):\s*(.*)/oi || m/^(Source.*):\s*(.*)/oi) {
+      if (m/^(Patch\d*):\s*(.*)/oi || m/^(Source\d*):\s*(.*)/oi) {
         $self->create_tag_section($self->capitalize_case($1), $2);
         next;
       }
