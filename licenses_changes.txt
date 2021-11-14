@@ -96,6 +96,7 @@ BSD-3-Clause-Attribution	BSD-3-Clause-Attribution
 BSD-3-Clause-Clear	BSD-3-Clause-Clear
 BSD-3-Clause-LBNL	BSD-3-Clause-LBNL
 BSD-3-Clause-Modification	BSD-3-Clause-Modification
+BSD-3-Clause-No-Military-License	BSD-3-Clause-No-Military-License
 BSD-3-Clause-No-Nuclear-License	BSD-3-Clause-No-Nuclear-License
 BSD-3-Clause-No-Nuclear-License-2014	BSD-3-Clause-No-Nuclear-License-2014
 BSD-3-Clause-No-Nuclear-Warranty	BSD-3-Clause-No-Nuclear-Warranty
@@ -124,30 +125,40 @@ CATOSL-1.1	CATOSL-1.1
 CC-BY-1.0	CC-BY-1.0
 CC-BY-2.0	CC-BY-2.0
 CC-BY-2.5	CC-BY-2.5
+CC-BY-2.5-AU	CC-BY-2.5-AU
 CC-BY-3.0	CC-BY-3.0
 CC-BY-3.0-AT	CC-BY-3.0-AT
+CC-BY-3.0-DE	CC-BY-3.0-DE
+CC-BY-3.0-NL	CC-BY-3.0-NL
 CC-BY-3.0-US	CC-BY-3.0-US
 CC-BY-4.0	CC-BY-4.0
 CC-BY-NC-1.0	CC-BY-NC-1.0
 CC-BY-NC-2.0	CC-BY-NC-2.0
 CC-BY-NC-2.5	CC-BY-NC-2.5
 CC-BY-NC-3.0	CC-BY-NC-3.0
+CC-BY-NC-3.0-DE	CC-BY-NC-3.0-DE
 CC-BY-NC-4.0	CC-BY-NC-4.0
 CC-BY-NC-ND-1.0	CC-BY-NC-ND-1.0
 CC-BY-NC-ND-2.0	CC-BY-NC-ND-2.0
 CC-BY-NC-ND-2.5	CC-BY-NC-ND-2.5
 CC-BY-NC-ND-3.0	CC-BY-NC-ND-3.0
+CC-BY-NC-ND-3.0-DE	CC-BY-NC-ND-3.0-DE
 CC-BY-NC-ND-3.0-IGO	CC-BY-NC-ND-3.0-IGO
 CC-BY-NC-ND-4.0	CC-BY-NC-ND-4.0
 CC-BY-NC-SA-1.0	CC-BY-NC-SA-1.0
 CC-BY-NC-SA-2.0	CC-BY-NC-SA-2.0
+CC-BY-NC-SA-2.0-FR	CC-BY-NC-SA-2.0-FR
+CC-BY-NC-SA-2.0-UK	CC-BY-NC-SA-2.0-UK
 CC-BY-NC-SA-2.5	CC-BY-NC-SA-2.5
 CC-BY-NC-SA-3.0	CC-BY-NC-SA-3.0
+CC-BY-NC-SA-3.0-DE	CC-BY-NC-SA-3.0-DE
+CC-BY-NC-SA-3.0-IGO	CC-BY-NC-SA-3.0-IGO
 CC-BY-NC-SA-4.0	CC-BY-NC-SA-4.0
 CC-BY-ND-1.0	CC-BY-ND-1.0
 CC-BY-ND-2.0	CC-BY-ND-2.0
 CC-BY-ND-2.5	CC-BY-ND-2.5
 CC-BY-ND-3.0	CC-BY-ND-3.0
+CC-BY-ND-3.0-DE	CC-BY-ND-3.0-DE
 CC-BY-ND-4.0	CC-BY-ND-4.0
 CC-BY-ND-4.0	http://spdx.org/licenses/CC-BY-ND-4.0.html#licenseText
 CC-BY-SA-1.0	CC-BY-SA-1.0
@@ -160,6 +171,7 @@ CC-BY-SA-3.0	CC BY-SA 3.0
 CC-BY-SA-3.0	CC BY-SA V3.0
 CC-BY-SA-3.0	CC-BY-SA-3.0
 CC-BY-SA-3.0-AT	CC-BY-SA-3.0-AT
+CC-BY-SA-3.0-DE	CC-BY-SA-3.0-DE
 CC-BY-SA-4.0	CC-BY-SA-4.0
 CC-BY-SA-4.0	http://creativecommons.org/licenses/by-sa/4.0/legalcode
 CC-PDDC	CC-PDDC
@@ -168,7 +180,9 @@ CDDL-1.0	CDDL
 CDDL-1.0	CDDL 1.0
 CDDL-1.0	CDDL-1.0
 CDDL-1.1	CDDL-1.1
+CDL-1.0	CDL-1.0
 CDLA-Permissive-1.0	CDLA-Permissive-1.0
+CDLA-Permissive-2.0	CDLA-Permissive-2.0
 CDLA-Sharing-1.0	CDLA-Sharing-1.0
 CECILL-1.0	CECILL-1.0
 CECILL-1.1	CECILL-1.1
@@ -184,6 +198,7 @@ CERN-OHL-W-2.0	CERN-OHL-W-2.0
 CNRI-Jython	CNRI-Jython
 CNRI-Python	CNRI-Python
 CNRI-Python-GPL-Compatible	CNRI-Python-GPL-Compatible
+COIL-1.0	COIL-1.0
 CPAL-1.0	CPAL-1.0
 CPL-1.0	CPL (Common Public License) v1
 CPL-1.0	CPL 1.0
@@ -198,6 +213,7 @@ CPOL-1.02	CPOL-1.02
 CUA-OPL-1.0	CUA-OPL-1.0
 Caldera	Caldera
 ClArtistic	ClArtistic
+Community-Spec-1.0	Community-Spec-1.0
 Condor-1.1	Condor-1.1
 Crossword	Crossword
 CrystalStacker	CrystalStacker
@@ -230,6 +246,7 @@ Entessa	Entessa
 ErlPL-1.1	ErlPL-1.1
 ErlPL-1.1	Erlang Public License
 Eurosym	Eurosym
+FDK-AAC	FDK-AAC
 FSFAP	FSFAP
 FSFUL	FSFUL
 FSFULLR	FSFULLR
@@ -429,6 +446,7 @@ LiLiQ-R-1.1	LiLiQ-R-1.1
 LiLiQ-Rplus-1.1	LiLiQ-Rplus-1.1
 Libpng	Libpng
 Linux-OpenIB	Linux-OpenIB
+Linux-man-pages-copyleft	Linux-man-pages-copyleft
 MIT	Expat
 MIT	Expat License
 MIT	MIT
@@ -478,6 +496,7 @@ NGPL	NGPL
 NIST-PD	NIST-PD
 NIST-PD-fallback	NIST-PD-fallback
 NLOD-1.0	NLOD-1.0
+NLOD-2.0	NLOD-2.0
 NLPL	NLPL
 NOSL	NOSL
 NPL-1.0	NPL-1.0
@@ -538,6 +557,7 @@ OML	OML
 OML	SUSE-OML
 OPL-1.0	OPL-1.0
 OPL-1.0	Open Public License 1.0
+OPUBL-1.0	OPUBL-1.0
 OSET-PL-2.1	OSET-PL-2.1
 OSL-1.0	OSL-1.0
 OSL-1.1	OSL-1.1

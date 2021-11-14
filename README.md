@@ -48,6 +48,7 @@ BSD-3-Clause-Attribution | BSD with attribution
 BSD-3-Clause-Clear | BSD 3-Clause Clear License
 BSD-3-Clause-LBNL | Lawrence Berkeley National Labs BSD variant license
 BSD-3-Clause-Modification | BSD 3-Clause Modification
+BSD-3-Clause-No-Military-License | BSD 3-Clause No Military License
 BSD-3-Clause-No-Nuclear-License-2014 | BSD 3-Clause No Nuclear License 2014
 BSD-3-Clause-No-Nuclear-License | BSD 3-Clause No Nuclear License
 BSD-3-Clause-No-Nuclear-Warranty | BSD 3-Clause No Nuclear Warranty
@@ -73,30 +74,40 @@ CAL-1.0 | Cryptographic Autonomy License 1.0
 CATOSL-1.1 | Computer Associates Trusted Open Source License 1.1
 CC-BY-1.0 | Creative Commons Attribution 1.0 Generic
 CC-BY-2.0 | Creative Commons Attribution 2.0 Generic
+CC-BY-2.5-AU | Creative Commons Attribution 2.5 Australia
 CC-BY-2.5 | Creative Commons Attribution 2.5 Generic
 CC-BY-3.0-AT | Creative Commons Attribution 3.0 Austria
+CC-BY-3.0-DE | Creative Commons Attribution 3.0 Germany
+CC-BY-3.0-NL | Creative Commons Attribution 3.0 Netherlands
 CC-BY-3.0-US | Creative Commons Attribution 3.0 United States
 CC-BY-3.0 | Creative Commons Attribution 3.0 Unported
 CC-BY-4.0 | Creative Commons Attribution 4.0 International
 CC-BY-NC-1.0 | Creative Commons Attribution Non Commercial 1.0 Generic
 CC-BY-NC-2.0 | Creative Commons Attribution Non Commercial 2.0 Generic
 CC-BY-NC-2.5 | Creative Commons Attribution Non Commercial 2.5 Generic
+CC-BY-NC-3.0-DE | Creative Commons Attribution Non Commercial 3.0 Germany
 CC-BY-NC-3.0 | Creative Commons Attribution Non Commercial 3.0 Unported
 CC-BY-NC-4.0 | Creative Commons Attribution Non Commercial 4.0 International
 CC-BY-NC-ND-1.0 | Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
 CC-BY-NC-ND-2.0 | Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
 CC-BY-NC-ND-2.5 | Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
+CC-BY-NC-ND-3.0-DE | Creative Commons Attribution Non Commercial No Derivatives 3.0 Germany
 CC-BY-NC-ND-3.0-IGO | Creative Commons Attribution Non Commercial No Derivatives 3.0 IGO
 CC-BY-NC-ND-3.0 | Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
 CC-BY-NC-ND-4.0 | Creative Commons Attribution Non Commercial No Derivatives 4.0 International
 CC-BY-NC-SA-1.0 | Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
+CC-BY-NC-SA-2.0-FR | Creative Commons Attribution-NonCommercial-ShareAlike 2.0 France
+CC-BY-NC-SA-2.0-UK | Creative Commons Attribution Non Commercial Share Alike 2.0 England and Wales
 CC-BY-NC-SA-2.0 | Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
 CC-BY-NC-SA-2.5 | Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
+CC-BY-NC-SA-3.0-DE | Creative Commons Attribution Non Commercial Share Alike 3.0 Germany
+CC-BY-NC-SA-3.0-IGO | Creative Commons Attribution Non Commercial Share Alike 3.0 IGO
 CC-BY-NC-SA-3.0 | Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
 CC-BY-NC-SA-4.0 | Creative Commons Attribution Non Commercial Share Alike 4.0 International
 CC-BY-ND-1.0 | Creative Commons Attribution No Derivatives 1.0 Generic
 CC-BY-ND-2.0 | Creative Commons Attribution No Derivatives 2.0 Generic
 CC-BY-ND-2.5 | Creative Commons Attribution No Derivatives 2.5 Generic
+CC-BY-ND-3.0-DE | Creative Commons Attribution No Derivatives 3.0 Germany
 CC-BY-ND-3.0 | Creative Commons Attribution No Derivatives 3.0 Unported
 CC-BY-ND-4.0 | Creative Commons Attribution No Derivatives 4.0 International
 CC-BY-SA-1.0 | Creative Commons Attribution Share Alike 1.0 Generic
@@ -104,14 +115,17 @@ CC-BY-SA-2.0-UK | Creative Commons Attribution Share Alike 2.0 England and Wales
 CC-BY-SA-2.0 | Creative Commons Attribution Share Alike 2.0 Generic
 CC-BY-SA-2.1-JP | Creative Commons Attribution Share Alike 2.1 Japan
 CC-BY-SA-2.5 | Creative Commons Attribution Share Alike 2.5 Generic
-CC-BY-SA-3.0-AT | Creative Commons Attribution-Share Alike 3.0 Austria
+CC-BY-SA-3.0-AT | Creative Commons Attribution Share Alike 3.0 Austria
+CC-BY-SA-3.0-DE | Creative Commons Attribution Share Alike 3.0 Germany
 CC-BY-SA-3.0 | Creative Commons Attribution Share Alike 3.0 Unported
 CC-BY-SA-4.0 | Creative Commons Attribution Share Alike 4.0 International
 CC-PDDC | Creative Commons Public Domain Dedication and Certification
 CC0-1.0 | Creative Commons Zero v1.0 Universal
 CDDL-1.0 | Common Development and Distribution License 1.0
 CDDL-1.1 | Common Development and Distribution License 1.1
+CDL-1.0 | Common Documentation License 1.0
 CDLA-Permissive-1.0 | Community Data License Agreement Permissive 1.0
+CDLA-Permissive-2.0 | Community Data License Agreement Permissive 2.0
 CDLA-Sharing-1.0 | Community Data License Agreement Sharing 1.0
 CECILL-1.0 | CeCILL Free Software License Agreement v1.0
 CECILL-1.1 | CeCILL Free Software License Agreement v1.1
@@ -127,12 +141,14 @@ CERN-OHL-W-2.0 | CERN Open Hardware Licence Version 2 - Weakly Reciprocal
 CNRI-Jython | CNRI Jython License
 CNRI-Python-GPL-Compatible | CNRI Python Open Source GPL Compatible License Agreement
 CNRI-Python | CNRI Python License
+COIL-1.0 | Copyfree Open Innovation License
 CPAL-1.0 | Common Public Attribution License 1.0
 CPL-1.0 | Common Public License 1.0
 CPOL-1.02 | Code Project Open License 1.02
 CUA-OPL-1.0 | CUA Office Public License v1.0
 Caldera | Caldera License
 ClArtistic | Clarified Artistic License
+Community-Spec-1.0 | Community Specification License 1.0
 Condor-1.1 | Condor Public License v1.1
 Crossword | Crossword License
 CrystalStacker | CrystalStacker License
@@ -156,6 +172,7 @@ EUPL-1.2 | European Union Public License 1.2
 Entessa | Entessa Public License v1.0
 ErlPL-1.1 | Erlang Public License v1.1
 Eurosym | Eurosym License
+FDK-AAC | Fraunhofer FDK AAC Codec Library
 FSFAP | FSF All Permissive License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
@@ -237,6 +254,7 @@ LiLiQ-R-1.1 | Licence Libre du Québec – Réciprocité version 1.1
 LiLiQ-Rplus-1.1 | Licence Libre du Québec – Réciprocité forte version 1.1
 Libpng | libpng License
 Linux-OpenIB | Linux Kernel Variant of OpenIB.org license
+Linux-man-pages-copyleft | Linux man-pages Copyleft
 MIT-0 | MIT No Attribution
 MIT-CMU | CMU License
 MIT-Modern-Variant | MIT License Modern Variant
@@ -268,7 +286,8 @@ NCSA | University of Illinois/NCSA Open Source License
 NGPL | Nethack General Public License
 NIST-PD-fallback | NIST Public Domain Notice with license fallback
 NIST-PD | NIST Public Domain Notice
-NLOD-1.0 | Norwegian Licence for Open Government Data
+NLOD-1.0 | Norwegian Licence for Open Government Data (NLOD) 1.0
+NLOD-2.0 | Norwegian Licence for Open Government Data (NLOD) 2.0
 NLPL | No Limit Public License
 NOSL | Netizen Open Source License
 NPL-1.0 | Netscape Public License v1.0
@@ -319,6 +338,7 @@ OLDAP-2.7 | Open LDAP Public License v2.7
 OLDAP-2.8 | Open LDAP Public License v2.8
 OML | Open Market License
 OPL-1.0 | Open Public License v1.0
+OPUBL-1.0 | Open Publication License v1.0
 OSET-PL-2.1 | OSET Public License version 2.1
 OSL-1.0 | Open Software License 1.0
 OSL-1.1 | Open Software License 1.1
