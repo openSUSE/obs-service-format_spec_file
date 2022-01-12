@@ -506,8 +506,8 @@ our $header_name;
     }
     print "$self->{vim_mode}\n" if $self->{vim_mode};
 
-    my $thisyear   = localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
-    my @copyrights = @{$self->{copyright}              || []};
+    my $thisyear   = $ENV{COPYRIGHT_YEAR} || localtime($ENV{SOURCE_DATE_EPOCH} localtime->year() + 1900;
+    my @copyrights = @{$self->{copyright} || []};
     unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
 
     my $copy_list = join("\n", @copyrights);
