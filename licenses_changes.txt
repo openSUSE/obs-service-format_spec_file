@@ -715,6 +715,7 @@ SUSE-LGPL-2.1-with-nokia-exception-1.1	Part of the license choice in libqt4
 SUSE-LGPL-2.1-with-nokia-exception-1.1+	SUSE-LGPL-2.1-with-nokia-exception-1.1+
 SUSE-Liberation	LiberationFontsLicense (Fedora calls this the Liberation license - it will be easier to get it upstream if we adopt that)
 SUSE-Liberation+	SUSE-Liberation+
+SUSE-LicenseRef-KDE-Accepted-LGPL LicenseRef-KDE-Accepted-LGPL
 SUSE-MIT-Khronos	https://github.com/KhronosGroup/KTX/blob/master/lib/loader.c
 SUSE-MIT-Khronos+	SUSE-MIT-Khronos+
 SUSE-Manpages	Manpages licenses (linux man pages e.g.)

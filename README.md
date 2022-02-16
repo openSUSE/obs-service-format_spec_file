@@ -509,6 +509,7 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-LGPL-2.1-with-digia-exception-1.1|
 |SUSE-LGPL-2.1-with-nokia-exception-1.1|
 |SUSE-Liberation|
+|SUSE-LicenseRef-KDE-Accepted-LGPL|
 |SUSE-MIT-Khronos|
 |SUSE-Manpages|
 |SUSE-Matplotlib|
