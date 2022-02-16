@@ -36,6 +36,7 @@ Aladdin | Aladdin Free Public License
 Apache-1.0 | Apache License 1.0
 Apache-1.1 | Apache License 1.1
 Apache-2.0 | Apache License 2.0
+App-s2p | App::s2p License
 Artistic-1.0-Perl | Artistic License 1.0 (Perl)
 Artistic-1.0-cl8 | Artistic License 1.0 w/clause 8
 Artistic-1.0 | Artistic License 1.0
@@ -154,6 +155,7 @@ Crossword | Crossword License
 CrystalStacker | CrystalStacker License
 Cube | Cube License
 D-FSL-1.0 | Deutsche Freie Software Lizenz
+DL-DE-BY-2.0 | Data licence Germany – attribution – version 2.0
 DOC | DOC License
 DRL-1.0 | Detection Rule License 1.0
 DSDP | DSDP License
@@ -169,6 +171,7 @@ EUDatagrid | EU DataGrid Software License
 EUPL-1.0 | European Union Public License 1.0
 EUPL-1.1 | European Union Public License 1.1
 EUPL-1.2 | European Union Public License 1.2
+Elastic-2.0 | Elastic License 2.0
 Entessa | Entessa Public License v1.0
 ErlPL-1.1 | Erlang Public License v1.1
 Eurosym | Eurosym License
@@ -230,6 +233,7 @@ Intel | Intel Open Source License
 Interbase-1.0 | Interbase Public License v1.0
 JPNIC | Japan Network Information Center License
 JSON | JSON License
+Jam | Jam License
 JasPer-2.0 | JasPer License
 LAL-1.2 | Licence Art Libre 1.2
 LAL-1.3 | Licence Art Libre 1.3
@@ -385,6 +389,7 @@ SSH-short | SSH short notice
 SSPL-1.0 | Server Side Public License, v 1
 SWL | Scheme Widget Library (SWL) Software License Agreement
 Saxpath | Saxpath License
+SchemeReport | Scheme Language Report License
 Sendmail-8.23 | Sendmail License 8.23
 Sendmail | Sendmail License
 SimPL-2.0 | Simple Public License 2.0
@@ -416,6 +421,7 @@ W3C | W3C Software Notice and License (2002-12-31)
 WTFPL | Do What The F*ck You Want To Public License
 Watcom-1.0 | Sybase Open Watcom Public License 1.0
 Wsuipa | Wsuipa License
+X11-distribute-modifications-variant | X11 License Distribution Modification Variant
 X11 | X11 License
 XFree86-1.1 | XFree86 License 1.1
 XSkat | XSkat License
@@ -432,7 +438,6 @@ Zimbra-1.3 | Zimbra Public License v1.3
 Zimbra-1.4 | Zimbra Public License v1.4
 Zlib | zlib License
 blessing | SQLite Blessing
-bzip2-1.0.5 | bzip2 and libbzip2 License v1.0.5
 bzip2-1.0.6 | bzip2 and libbzip2 License v1.0.6
 copyleft-next-0.3.0 | copyleft-next 0.3.0
 copyleft-next-0.3.1 | copyleft-next 0.3.1

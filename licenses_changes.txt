@@ -58,6 +58,7 @@ Apache-2.0	Apache-2.0
 Apache-2.0	The Apache Software License
 Apache-2.0+	ASLv2.0+
 Apache-2.0+	SUSE-Apache-2.0+
+App-s2p	App-s2p
 Artistic-1.0	Artistic
 Artistic-1.0	Artistic 1.0
 Artistic-1.0	Artistic License
@@ -219,6 +220,7 @@ Crossword	Crossword
 CrystalStacker	CrystalStacker
 Cube	Cube
 D-FSL-1.0	D-FSL-1.0
+DL-DE-BY-2.0	DL-DE-BY-2.0
 DOC	DOC
 DRL-1.0	DRL-1.0
 DSDP	DSDP
@@ -242,6 +244,7 @@ EUDatagrid	EUDatagrid
 EUPL-1.0	EUPL-1.0
 EUPL-1.1	EUPL-1.1
 EUPL-1.2	EUPL-1.2
+Elastic-2.0	Elastic-2.0
 Entessa	Entessa
 ErlPL-1.1	ErlPL-1.1
 ErlPL-1.1	Erlang Public License
@@ -380,6 +383,7 @@ Interbase-1.0	Interbase-1.0
 JPNIC	JPNIC
 JSON	JSON
 JSON	SUSE-JSON
+Jam	Jam
 JasPer-2.0	JasPer-2.0
 LAL-1.2	LAL-1.2
 LAL-1.2	https://spdx.org/licenses/LAL-1.2.html
@@ -783,6 +787,7 @@ SUSE-wxWidgets-3.1	https://www.wxwidgets.org/about/licence/
 SUSE-wxWidgets-3.1+	SUSE-wxWidgets-3.1+
 SWL	SWL
 Saxpath	Saxpath
+SchemeReport	SchemeReport
 Sendmail	SUSE-Sendmail
 Sendmail	Sendmail
 Sendmail-8.23	Sendmail-8.23
@@ -828,6 +833,7 @@ X11	X11
 X11	X11 (BSD like)
 X11	X11 MIT
 X11	X11/MIT
+X11-distribute-modifications-variant	X11-distribute-modifications-variant
 XFree86-1.1	XFree86-1.1
 XSkat	XSkat
 Xerox	Xerox
@@ -849,7 +855,6 @@ Zlib	Zlib License
 Zlib	zlib
 Zlib	zlib/libpng License
 blessing	blessing
-bzip2-1.0.5	bzip2-1.0.5
 bzip2-1.0.6	bzip2-1.0.6
 copyleft-next-0.3.0	copyleft-next-0.3.0
 copyleft-next-0.3.1	copyleft-next-0.3.1
