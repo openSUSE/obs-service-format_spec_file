@@ -62,7 +62,7 @@ our $header_name;
       map { '(?:(?<=[\s()])|^)' . quotemeta . '(?:(?=[\s()])|$)' }
       sort { length $b <=> length $a } keys %{$self->{changes}};
     $self->{token_re} = qr/($token)/;
-    open(LIST, "$scriptdir/licences_exceptions.txt") || die "can't open licences_exceptions.txt";
+    open(LIST, "$scriptdir/licenses_exceptions.txt") || die "can't open licenses_exceptions.txt";
     while (<LIST>) {
       chomp;
       $self->{exceptions}->{$_} = 1;
