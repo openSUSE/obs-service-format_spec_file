@@ -58,7 +58,7 @@ unset IFS
 rm licenses_changes.raw
 ) > README.md
 
-curl -s https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json | jq -r '.exceptions | .[] | .licenseExceptionId' | sort -u -o licences_exceptions.txt
+curl -s https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json | jq -r '.exceptions | .[] | .licenseExceptionId' | sort -u -o licenses_exceptions.txt
 
 cat licenses_changes.ntxt licenses_changes.ptxt | sort -u -o licenses_changes.stxt
 ( echo "First line" ; cat licenses_changes.stxt ) > licenses_changes.txt

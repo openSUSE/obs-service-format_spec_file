@@ -11,7 +11,7 @@ install:
 	install -d $(DESTDIR)$(servicedir)/format_spec_file.files
 	install -m 0755 prepare_spec $(DESTDIR)$(servicedir)/format_spec_file.files
 	install -m 0644 licenses_changes.txt $(DESTDIR)$(servicedir)/format_spec_file.files
-	install -m 0644 licences_exceptions.txt $(DESTDIR)$(servicedir)/format_spec_file.files
+	install -m 0644 licenses_exceptions.txt $(DESTDIR)$(servicedir)/format_spec_file.files
 
 check:
 	set -e ;\
