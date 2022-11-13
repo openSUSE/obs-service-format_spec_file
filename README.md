@@ -36,6 +36,8 @@ Aladdin | Aladdin Free Public License
 Apache-1.0 | Apache License 1.0
 Apache-1.1 | Apache License 1.1
 Apache-2.0 | Apache License 2.0
+App-s2p | App::s2p License
+Arphic-1999 | Arphic Public License
 Artistic-1.0-Perl | Artistic License 1.0 (Perl)
 Artistic-1.0-cl8 | Artistic License 1.0 w/clause 8
 Artistic-1.0 | Artistic License 1.0
@@ -61,11 +63,13 @@ BSD-Protection | BSD Protection License
 BSD-Source-Code | BSD Source Code Attribution
 BSL-1.0 | Boost Software License 1.0
 BUSL-1.1 | Business Source License 1.1
+Baekmuk | Baekmuk License
 Bahyph | Bahyph License
 Barr | Barr License
 Beerware | Beerware License
 BitTorrent-1.0 | BitTorrent Open Source License v1.0
 BitTorrent-1.1 | BitTorrent Open Source License v1.1
+Bitstream-Vera | Bitstream Vera Font License
 BlueOak-1.0.0 | Blue Oak Model License 1.0.0
 Borceux | Borceux license
 C-UDA-1.0 | Computational Use of Data Agreement v1.0
@@ -78,6 +82,7 @@ CC-BY-2.5-AU | Creative Commons Attribution 2.5 Australia
 CC-BY-2.5 | Creative Commons Attribution 2.5 Generic
 CC-BY-3.0-AT | Creative Commons Attribution 3.0 Austria
 CC-BY-3.0-DE | Creative Commons Attribution 3.0 Germany
+CC-BY-3.0-IGO | Creative Commons Attribution 3.0 IGO
 CC-BY-3.0-NL | Creative Commons Attribution 3.0 Netherlands
 CC-BY-3.0-US | Creative Commons Attribution 3.0 United States
 CC-BY-3.0 | Creative Commons Attribution 3.0 Unported
@@ -154,6 +159,7 @@ Crossword | Crossword License
 CrystalStacker | CrystalStacker License
 Cube | Cube License
 D-FSL-1.0 | Deutsche Freie Software Lizenz
+DL-DE-BY-2.0 | Data licence Germany – attribution – version 2.0
 DOC | DOC License
 DRL-1.0 | Detection Rule License 1.0
 DSDP | DSDP License
@@ -169,6 +175,7 @@ EUDatagrid | EU DataGrid Software License
 EUPL-1.0 | European Union Public License 1.0
 EUPL-1.1 | European Union Public License 1.1
 EUPL-1.2 | European Union Public License 1.2
+Elastic-2.0 | Elastic License 2.0
 Entessa | Entessa Public License v1.0
 ErlPL-1.1 | Erlang Public License v1.1
 Eurosym | Eurosym License
@@ -176,6 +183,7 @@ FDK-AAC | Fraunhofer FDK AAC Codec Library
 FSFAP | FSF All Permissive License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
+FSFULLRWD | FSF Unlimited License (With License Retention    and Warranty Disclaimer)
 FTL | Freetype Project License
 Fair | Fair License
 Frameworx-1.0 | Frameworx Open License 1.0
@@ -230,6 +238,7 @@ Intel | Intel Open Source License
 Interbase-1.0 | Interbase Public License v1.0
 JPNIC | Japan Network Information Center License
 JSON | JSON License
+Jam | Jam License
 JasPer-2.0 | JasPer License
 LAL-1.2 | Licence Art Libre 1.2
 LAL-1.3 | Licence Art Libre 1.3
@@ -247,6 +256,8 @@ LPPL-1.1 | LaTeX Project Public License v1.1
 LPPL-1.2 | LaTeX Project Public License v1.2
 LPPL-1.3a | LaTeX Project Public License v1.3a
 LPPL-1.3c | LaTeX Project Public License v1.3c
+LZMA-SDK-9.11-to-9.20 | LZMA SDK License (versions 9.11 to 9.20)
+LZMA-SDK-9.22 | LZMA SDK License (versions 9.22 and beyond)
 Latex2e | Latex2e License
 Leptonica | Leptonica License
 LiLiQ-P-1.1 | Licence Libre du Québec – Permissive version 1.1
@@ -268,10 +279,12 @@ MPL-1.0 | Mozilla Public License 1.0
 MPL-1.1 | Mozilla Public License 1.1
 MPL-2.0-no-copyleft-exception | Mozilla Public License 2.0 (no copyleft exception)
 MPL-2.0 | Mozilla Public License 2.0
+MS-LPL | Microsoft Limited Public License
 MS-PL | Microsoft Public License
 MS-RL | Microsoft Reciprocal License
 MTLL | Matrix Template Library License
 MakeIndex | MakeIndex License
+Minpack | Minpack License
 MirOS | The MirOS Licence
 Motosoto | Motosoto License
 MulanPSL-1.0 | Mulan Permissive Software License, Version 1
@@ -284,6 +297,7 @@ NBPL-1.0 | Net Boolean Public License v1
 NCGL-UK-2.0 | Non-Commercial Government Licence
 NCSA | University of Illinois/NCSA Open Source License
 NGPL | Nethack General Public License
+NICTA-1.0 | NICTA Public Software License, Version 1.0
 NIST-PD-fallback | NIST Public Domain Notice with license fallback
 NIST-PD | NIST Public Domain Notice
 NLOD-1.0 | Norwegian Licence for Open Government Data (NLOD) 1.0
@@ -356,6 +370,7 @@ Plexus | Plexus Classworlds License
 PolyForm-Noncommercial-1.0.0 | PolyForm Noncommercial License 1.0.0
 PolyForm-Small-Business-1.0.0 | PolyForm Small Business License 1.0.0
 PostgreSQL | PostgreSQL License
+Python-2.0.1 | Python License 2.0.1
 Python-2.0 | Python License 2.0
 QPL-1.0 | Q Public License 1.0
 Qhull | Qhull License
@@ -385,6 +400,7 @@ SSH-short | SSH short notice
 SSPL-1.0 | Server Side Public License, v 1
 SWL | Scheme Widget Library (SWL) Software License Agreement
 Saxpath | Saxpath License
+SchemeReport | Scheme Language Report License
 Sendmail-8.23 | Sendmail License 8.23
 Sendmail | Sendmail License
 SimPL-2.0 | Simple Public License 2.0
@@ -416,6 +432,7 @@ W3C | W3C Software Notice and License (2002-12-31)
 WTFPL | Do What The F*ck You Want To Public License
 Watcom-1.0 | Sybase Open Watcom Public License 1.0
 Wsuipa | Wsuipa License
+X11-distribute-modifications-variant | X11 License Distribution Modification Variant
 X11 | X11 License
 XFree86-1.1 | XFree86 License 1.1
 XSkat | XSkat License
@@ -432,8 +449,8 @@ Zimbra-1.3 | Zimbra Public License v1.3
 Zimbra-1.4 | Zimbra Public License v1.4
 Zlib | zlib License
 blessing | SQLite Blessing
-bzip2-1.0.5 | bzip2 and libbzip2 License v1.0.5
 bzip2-1.0.6 | bzip2 and libbzip2 License v1.0.6
+checkmk | Checkmk License
 copyleft-next-0.3.0 | copyleft-next 0.3.0
 copyleft-next-0.3.1 | copyleft-next 0.3.1
 curl | curl License
@@ -447,7 +464,9 @@ iMatix | iMatix Standard Function Library Agreement
 libpng-2.0 | PNG Reference Library version 2
 libselinux-1.0 | libselinux public domain notice
 libtiff | libtiff License
+mpi-permissive | mpi Permissive License
 mpich2 | mpich2 License
+mplus | mplus Font License
 psfrag | psfrag License
 psutils | psutils License
 xinetd | xinetd License
@@ -458,10 +477,8 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 
 |License Tag|
 |-----------|
-|SUSE-Arphic|
 |SUSE-BSD-3-Clause-with-non-nuclear-addition|
 |SUSE-BSD-Mark-Modifications|
-|SUSE-Bitstream-Vera|
 |SUSE-CC-Sampling-Plus-1.0|
 |SUSE-CPL-0.5|
 |SUSE-CacertRoot|
@@ -519,7 +536,6 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-QWT-1.0|
 |SUSE-Redistributable-Content|
 |SUSE-Repoze|
-|SUSE-SGI-FreeB-2.0|
 |SUSE-SIP|
 |SUSE-SLIB|
 |SUSE-SNIA-1.0|
@@ -535,5 +551,4 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-Xano|
 |SUSE-Xenonsoft-1.00|
 |SUSE-mirror|
-|SUSE-mplus|
 |SUSE-wxWidgets-3.1|
