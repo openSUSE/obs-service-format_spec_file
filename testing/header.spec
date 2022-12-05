@@ -27,3 +27,4 @@
 # rootforbuild
 # needsrootforbuild
 # needssslcertforbuild
+# needspubkeyforbuild

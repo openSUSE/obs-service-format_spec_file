@@ -775,6 +775,10 @@ EOF
           $self->current()->add_footer("# needssslcertforbuild");
           next;
         }
+        if (/^#\s*needspubkeyforbuild\s*$/) {
+          $self->current()->add_footer("# needspubkeyforbuild");
+          next;
+        }
 
         next if m/^#\s*usedforbuild/;
         next if m/^#\s*norootforbuild/;
