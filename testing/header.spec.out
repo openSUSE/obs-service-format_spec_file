@@ -21,5 +21,6 @@
 # nodebuginfo
 # needsrootforbuild
 # needssslcertforbuild
+# needspubkeyforbuild
 
 %changelog
