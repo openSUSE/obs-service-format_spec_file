@@ -666,7 +666,7 @@ EOF
     $tag =~ s/pre/Pre/;
     $tag =~ s/confl/Confl/i;
     $tag =~ s/prov/Prov/i;
-    $tag =~ s/url/URL/i;
+    $tag =~ s/url/Url/i;
     $tag =~ s/^(\w)/uc($1)/e;
 
     return $tag;
