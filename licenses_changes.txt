@@ -32,6 +32,7 @@ APSL-1.1	APSL-1.1
 APSL-1.2	APSL-1.2
 APSL-2.0	APSL-2.0
 Abstyles	Abstyles
+AdaCore-doc	AdaCore-doc
 Adobe-2006	Adobe-2006
 Adobe-Glyph	Adobe-Glyph
 Afmparse	Afmparse
@@ -109,6 +110,10 @@ BSD-4-Clause	BSD4c
 BSD-4-Clause	BSD4c(or similar)
 BSD-4-Clause-Shortened	BSD-4-Clause-Shortened
 BSD-4-Clause-UC	BSD-4-Clause-UC
+BSD-4.3RENO	BSD-4.3RENO
+BSD-4.3TAHOE	BSD-4.3TAHOE
+BSD-Advertising-Acknowledgement	BSD-Advertising-Acknowledgement
+BSD-Attribution-HPND-disclaimer	BSD-Attribution-HPND-disclaimer
 BSD-Protection	BSD-Protection
 BSD-Source-Code	BSD-Source-Code
 BSL-1.0	BSL-1.0
@@ -120,10 +125,12 @@ Beerware	Beerware
 Beerware	SUSE-Beerware
 BitTorrent-1.0	BitTorrent-1.0
 BitTorrent-1.1	BitTorrent-1.1
+Bitstream-Charter	Bitstream-Charter
 Bitstream-Vera	Bitstream-Vera
 Bitstream-Vera	SUSE-Bitstream-Vera
 BlueOak-1.0.0	BlueOak-1.0.0
 Borceux	Borceux
+Brian-Gladman-3-Clause	Brian-Gladman-3-Clause
 C-UDA-1.0	C-UDA-1.0
 CAL-1.0	CAL-1.0
 CAL-1.0-Combined-Work-Exception	CAL-1.0-Combined-Work-Exception
@@ -154,6 +161,7 @@ CC-BY-NC-ND-3.0-IGO	CC-BY-NC-ND-3.0-IGO
 CC-BY-NC-ND-4.0	CC-BY-NC-ND-4.0
 CC-BY-NC-SA-1.0	CC-BY-NC-SA-1.0
 CC-BY-NC-SA-2.0	CC-BY-NC-SA-2.0
+CC-BY-NC-SA-2.0-DE	CC-BY-NC-SA-2.0-DE
 CC-BY-NC-SA-2.0-FR	CC-BY-NC-SA-2.0-FR
 CC-BY-NC-SA-2.0-UK	CC-BY-NC-SA-2.0-UK
 CC-BY-NC-SA-2.5	CC-BY-NC-SA-2.5
@@ -202,6 +210,8 @@ CERN-OHL-1.2	CERN-OHL-1.2
 CERN-OHL-P-2.0	CERN-OHL-P-2.0
 CERN-OHL-S-2.0	CERN-OHL-S-2.0
 CERN-OHL-W-2.0	CERN-OHL-W-2.0
+CFITSIO	CFITSIO
+CMU-Mach	CMU-Mach
 CNRI-Jython	CNRI-Jython
 CNRI-Python	CNRI-Python
 CNRI-Python-GPL-Compatible	CNRI-Python-GPL-Compatible
@@ -220,8 +230,10 @@ CPOL-1.02	CPOL-1.02
 CUA-OPL-1.0	CUA-OPL-1.0
 Caldera	Caldera
 ClArtistic	ClArtistic
+Clips	Clips
 Community-Spec-1.0	Community-Spec-1.0
 Condor-1.1	Condor-1.1
+Cornell-Lossless-JPEG	Cornell-Lossless-JPEG
 Crossword	Crossword
 CrystalStacker	CrystalStacker
 Cube	Cube
@@ -364,15 +376,22 @@ GPL-3.0-with-Qt-Company-Qt-exception-1.1	GPL-3.0-with-Qt-Company-Qt-exception-1.
 Giftware	Giftware
 Glide	Glide
 Glulxe	Glulxe
+Graphics-Gems	Graphics-Gems
+HP-1986	HP-1986
 HPND	HPND
+HPND-Markus-Kuhn	HPND-Markus-Kuhn
+HPND-export-US	HPND-export-US
 HPND-sell-variant	HPND-sell-variant
+HPND-sell-variant-MIT-disclaimer	HPND-sell-variant-MIT-disclaimer
 HTMLTIDY	HTMLTIDY
 HaskellReport	HaskellReport
 Hippocratic-2.1	Hippocratic-2.1
 IBM-pibs	IBM-pibs
 ICU	ICU
+IEC-Code-Components-EULA	IEC-Code-Components-EULA
 IJG	IJG
 IJG	SUSE-IJG
+IJG-short	IJG-short
 IPA	IPA
 IPA	see IPA_Font_License_Agreement_v1.0.txt
 IPL-1.0	IBM PL
@@ -387,11 +406,14 @@ Info-ZIP	Info-ZIP
 Intel	Intel
 Intel-ACPI	Intel-ACPI
 Interbase-1.0	Interbase-1.0
+JPL-image	JPL-image
 JPNIC	JPNIC
 JSON	JSON
 JSON	SUSE-JSON
 Jam	Jam
 JasPer-2.0	JasPer-2.0
+Kazlib	Kazlib
+Knuth-CTAN	Knuth-CTAN
 LAL-1.2	LAL-1.2
 LAL-1.2	https://spdx.org/licenses/LAL-1.2.html
 LAL-1.3	LAL-1.3
@@ -441,6 +463,7 @@ LGPL-3.0-or-later	LGPL-3.0-or-later
 LGPL-3.0-or-later	LGPLv3+
 LGPL-3.0-with-Qt-Company-Qt-exception-1.1	LGPL-3.0-with-Qt-Company-Qt-exception-1.1
 LGPLLR	LGPLLR
+LOOP	LOOP
 LPL-1.0	LPL-1.0
 LPL-1.02	LPL-1.02
 LPPL-1.0	LPPL-1.0
@@ -453,6 +476,7 @@ LPPL-1.3c	TeX-License ..
 LZMA-SDK-9.11-to-9.20	LZMA-SDK-9.11-to-9.20
 LZMA-SDK-9.22	LZMA-SDK-9.22
 Latex2e	Latex2e
+Latex2e-translated-notice	Latex2e-translated-notice
 Leptonica	Leptonica
 LiLiQ-P-1.1	LiLiQ-P-1.1
 LiLiQ-R-1.1	LiLiQ-R-1.1
@@ -470,7 +494,9 @@ MIT	MIT license
 MIT	MIT-Licence
 MIT-0	MIT-0
 MIT-CMU	MIT-CMU
+MIT-Festival	MIT-Festival
 MIT-Modern-Variant	MIT-Modern-Variant
+MIT-Wu	MIT-Wu
 MIT-advertising	MIT-advertising
 MIT-enna	MIT-enna
 MIT-feh	MIT-feh
@@ -495,6 +521,7 @@ MS-RL	MS-RL
 MTLL	MTLL
 MakeIndex	MakeIndex
 MakeIndex	SUSE-MakeIndex
+Martin-Birgmeier	Martin-Birgmeier
 Minpack	Minpack
 MirOS	MirOS
 Motosoto	Motosoto
@@ -511,6 +538,7 @@ NGPL	NGPL
 NICTA-1.0	NICTA-1.0
 NIST-PD	NIST-PD
 NIST-PD-fallback	NIST-PD-fallback
+NIST-Software	NIST-Software
 NLOD-1.0	NLOD-1.0
 NLOD-2.0	NLOD-2.0
 NLPL	NLPL
@@ -535,6 +563,7 @@ OCCT-PL	OCCT-PL
 OCLC-2.0	OCLC-2.0
 ODC-By-1.0	ODC-By-1.0
 ODbL-1.0	ODbL-1.0
+OFFIS	OFFIS
 OFL-1.0	OFL-1.0
 OFL-1.0-RFN	OFL-1.0-RFN
 OFL-1.0-no-RFN	OFL-1.0-no-RFN
@@ -581,6 +610,7 @@ OSL-1.1	SUSE-OSL-1.1
 OSL-2.0	OSL-2.0
 OSL-2.1	OSL-2.1
 OSL-3.0	OSL-3.0
+OpenPBS-2.3	OpenPBS-2.3
 OpenSSL	OpenSSL
 PDDL-1.0	PDDL-1.0
 PHP-3.0	PHP-3.0
@@ -606,6 +636,7 @@ Python-2.0.1	Python-2.0.1
 QPL-1.0	QPL
 QPL-1.0	QPL ..
 QPL-1.0	QPL-1.0
+QPL-1.0-INRIA-2004	QPL-1.0-INRIA-2004
 Qhull	Qhull
 Qhull	SUSE-Qhull
 RHeCos-1.1	RHeCos-1.1
@@ -803,6 +834,8 @@ Spencer-86	Spencer-86
 Spencer-94	Spencer-94
 Spencer-99	Spencer-99
 SugarCRM-1.1.3	SugarCRM-1.1.3
+SunPro	SunPro
+Symlinks	Symlinks
 TAPR-OHL-1.0	TAPR-OHL-1.0
 TCL	SUSE-TCL
 TCL	TCL
@@ -810,14 +843,19 @@ TCP-wrappers	TCP-wrappers
 TMate	TMate
 TORQUE-1.1	TORQUE-1.1
 TOSL	TOSL
+TPDL	TPDL
+TPL-1.0	TPL-1.0
+TTWL	TTWL
 TU-Berlin-1.0	TU-Berlin-1.0
 TU-Berlin-2.0	TU-Berlin-2.0
+UCAR	UCAR
 UCL-1.0	UCL-1.0
 UPL-1.0	UPL-1.0
 Unicode	http://www.unicode.org/copyright.html
 Unicode-DFS-2015	Unicode-DFS-2015
 Unicode-DFS-2016	Unicode-DFS-2016
 Unicode-TOU	Unicode-TOU
+UnixCrypt	UnixCrypt
 Unlicense	Unlicense
 VOSTROM	VOSTROM
 VSL-1.0	VSL-1.0
@@ -876,13 +914,17 @@ iMatix	iMatix
 libpng-2.0	libpng-2.0
 libselinux-1.0	libselinux-1.0
 libtiff	libtiff
+libutil-David-Nugent	libutil-David-Nugent
 mpi-permissive	mpi-permissive
 mpich2	mpich2
 mplus	SUSE-mplus
 mplus	mplus
 psfrag	psfrag
 psutils	psutils
+snprintf	snprintf
+w3m	w3m
 xinetd	SUSE-xinetd
 xinetd	xinetd
+xlock	xlock
 xpp	xpp
 zlib-acknowledgement	zlib-acknowledgement
