@@ -28,6 +28,7 @@ APSL-1.0 | Apple Public Source License 1.0
 APSL-1.1 | Apple Public Source License 1.1
 APSL-1.2 | Apple Public Source License 1.2
 APSL-2.0 | Apple Public Source License 2.0
+ASWF-Digital-Assets-1.0 | ASWF Digital Assets License version 1.0
 Abstyles | Abstyles License
 AdaCore-doc | AdaCore Doc License
 Adobe-2006 | Adobe Systems Incorporated Source Code License Agreement
@@ -130,6 +131,7 @@ CC-BY-SA-2.1-JP | Creative Commons Attribution Share Alike 2.1 Japan
 CC-BY-SA-2.5 | Creative Commons Attribution Share Alike 2.5 Generic
 CC-BY-SA-3.0-AT | Creative Commons Attribution Share Alike 3.0 Austria
 CC-BY-SA-3.0-DE | Creative Commons Attribution Share Alike 3.0 Germany
+CC-BY-SA-3.0-IGO | Creative Commons Attribution-ShareAlike 3.0 IGO
 CC-BY-SA-3.0 | Creative Commons Attribution Share Alike 3.0 Unported
 CC-BY-SA-4.0 | Creative Commons Attribution Share Alike 4.0 International
 CC-PDDC | Creative Commons Public Domain Dedication and Certification
@@ -290,6 +292,7 @@ LiLiQ-Rplus-1.1 | Licence Libre du Québec – Réciprocité forte version 1.1
 Libpng | libpng License
 Linux-OpenIB | Linux Kernel Variant of OpenIB.org license
 Linux-man-pages-copyleft | Linux man-pages Copyleft
+Linux-man-pages-one-para | Linux man-pages One Paragraph
 MIT-0 | MIT No Attribution
 MIT-CMU | CMU License
 MIT-Festival | MIT Festival Variant
@@ -379,6 +382,7 @@ OLDAP-2.5 | Open LDAP Public License v2.5
 OLDAP-2.6 | Open LDAP Public License v2.6
 OLDAP-2.7 | Open LDAP Public License v2.7
 OLDAP-2.8 | Open LDAP Public License v2.8
+OLFL-1.3 | Open Logistics Foundation License Version 1.3
 OML | Open Market License
 OPL-1.0 | Open Public License v1.0
 OPUBL-1.0 | Open Publication License v1.0
@@ -418,6 +422,7 @@ SCEA | SCEA Shared Source License
 SGI-B-1.0 | SGI Free Software License B v1.0
 SGI-B-1.1 | SGI Free Software License B v1.1
 SGI-B-2.0 | SGI Free Software License B v2.0
+SGP4 | SGP4 Permission Notice
 SHL-0.51 | Solderpad Hardware License, Version 0.51
 SHL-0.5 | Solderpad Hardware License v0.5
 SISSL-1.2 | Sun Industry Standards Source License v1.2
@@ -453,6 +458,7 @@ TPL-1.0 | THOR Public License 1.0
 TTWL | Text-Tabs+Wrap License
 TU-Berlin-1.0 | Technische Universitaet Berlin License 1.0
 TU-Berlin-2.0 | Technische Universitaet Berlin License 2.0
+TermReadKey | TermReadKey License
 UCAR | UCAR License
 UCL-1.0 | Upstream Compatibility License v1.0
 UPL-1.0 | Universal Permissive License v1.0
@@ -469,12 +475,15 @@ W3C-20150513 | W3C Software Notice and Document License (2015-05-13)
 W3C | W3C Software Notice and License (2002-12-31)
 WTFPL | Do What The F*ck You Want To Public License
 Watcom-1.0 | Sybase Open Watcom Public License 1.0
+Widget-Workshop | Widget Workshop License
 Wsuipa | Wsuipa License
 X11-distribute-modifications-variant | X11 License Distribution Modification Variant
 X11 | X11 License
 XFree86-1.1 | XFree86 License 1.1
 XSkat | XSkat License
+Xdebug-1.03 | Xdebug License v 1.03
 Xerox | Xerox License
+Xfig | Xfig License
 Xnet | X.Net License
 YPL-1.0 | Yahoo! Public License v1.0
 YPL-1.1 | Yahoo! Public License v1.1
@@ -491,6 +500,7 @@ bzip2-1.0.6 | bzip2 and libbzip2 License v1.0.6
 checkmk | Checkmk License
 copyleft-next-0.3.0 | copyleft-next 0.3.0
 copyleft-next-0.3.1 | copyleft-next 0.3.1
+cryptsetup-OpenSSL-exception | cryptsetup OpenSSL exception
 curl | curl License
 diffmark | diffmark license
 dvipdfm | dvipdfm License
@@ -500,9 +510,11 @@ gSOAP-1.3b | gSOAP Public License v1.3b
 gnuplot | gnuplot License
 iMatix | iMatix Standard Function Library Agreement
 libpng-2.0 | PNG Reference Library version 2
+libpri-OpenH323-exception | libpri OpenH323 exception
 libselinux-1.0 | libselinux public domain notice
 libtiff | libtiff License
 libutil-David-Nugent | libutil David Nugent License
+metamail | metamail License
 mpi-permissive | mpi Permissive License
 mpich2 | mpich2 License
 mplus | mplus Font License
