@@ -1,4 +1,5 @@
 389-exception
+Asterisk-exception
 Autoconf-exception-2.0
 Autoconf-exception-3.0
 Autoconf-exception-generic
@@ -22,6 +23,7 @@ GStreamer-exception-2005
 GStreamer-exception-2008
 KiCad-libraries-exception
 LGPL-3.0-linking-exception
+LLGPL
 LLVM-exception
 LZMA-exception
 Libtool-exception
@@ -41,10 +43,12 @@ SWI-exception
 Swift-exception
 Universal-FOSS-exception-1.0
 WxWindows-exception-3.1
+cryptsetup-OpenSSL-exception
 eCos-exception-2.0
 freertos-exception-2.0
 gnu-javamail-exception
 i2p-gpl-java-exception
+libpri-OpenH323-exception
 mif-exception
 openvpn-openssl-exception
 u-boot-exception-2.0

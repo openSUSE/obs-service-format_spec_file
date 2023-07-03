@@ -29,6 +29,7 @@ APSL-1.1 | Apple Public Source License 1.1
 APSL-1.2 | Apple Public Source License 1.2
 APSL-2.0 | Apple Public Source License 2.0
 ASWF-Digital-Assets-1.0 | ASWF Digital Assets License version 1.0
+ASWF-Digital-Assets-1.1 | ASWF Digital Assets License 1.1
 Abstyles | Abstyles License
 AdaCore-doc | AdaCore Doc License
 Adobe-2006 | Adobe Systems Incorporated Source Code License Agreement
@@ -78,6 +79,7 @@ BitTorrent-1.1 | BitTorrent Open Source License v1.1
 Bitstream-Charter | Bitstream Charter Font License
 Bitstream-Vera | Bitstream Vera Font License
 BlueOak-1.0.0 | Blue Oak Model License 1.0.0
+Boehm-GC | Boehm-Demers-Weiser GC License
 Borceux | Borceux license
 Brian-Gladman-3-Clause | Brian Gladman 3-Clause License
 C-UDA-1.0 | Computational Use of Data Agreement v1.0
@@ -254,6 +256,7 @@ ISC | ISC License
 ImageMagick | ImageMagick License
 Imlib2 | Imlib2 License
 Info-ZIP | Info-ZIP License
+Inner-Net-2.0 | Inner Net License v2.0
 Intel-ACPI | Intel ACPI Software License Agreement
 Intel | Intel Open Source License
 Interbase-1.0 | Interbase Public License v1.0
@@ -291,8 +294,10 @@ LiLiQ-R-1.1 | Licence Libre du Québec – Réciprocité version 1.1
 LiLiQ-Rplus-1.1 | Licence Libre du Québec – Réciprocité forte version 1.1
 Libpng | libpng License
 Linux-OpenIB | Linux Kernel Variant of OpenIB.org license
+Linux-man-pages-1-para | Linux man-pages - 1 paragraph
+Linux-man-pages-copyleft-2-para | Linux man-pages Copyleft - 2 paragraphs
+Linux-man-pages-copyleft-var | Linux man-pages Copyleft Variant
 Linux-man-pages-copyleft | Linux man-pages Copyleft
-Linux-man-pages-one-para | Linux man-pages One Paragraph
 MIT-0 | MIT No Attribution
 MIT-CMU | CMU License
 MIT-Festival | MIT Festival Variant
@@ -385,6 +390,7 @@ OLDAP-2.8 | Open LDAP Public License v2.8
 OLFL-1.3 | Open Logistics Foundation License Version 1.3
 OML | Open Market License
 OPL-1.0 | Open Public License v1.0
+OPL-UK-3.0 | United    Kingdom Open Parliament Licence v3.0
 OPUBL-1.0 | Open Publication License v1.0
 OSET-PL-2.1 | OSET Public License version 2.1
 OSL-1.0 | Open Software License 1.0
@@ -500,9 +506,9 @@ bzip2-1.0.6 | bzip2 and libbzip2 License v1.0.6
 checkmk | Checkmk License
 copyleft-next-0.3.0 | copyleft-next 0.3.0
 copyleft-next-0.3.1 | copyleft-next 0.3.1
-cryptsetup-OpenSSL-exception | cryptsetup OpenSSL exception
 curl | curl License
 diffmark | diffmark license
+dtoa | David M. Gay dtoa License
 dvipdfm | dvipdfm License
 eGenix | eGenix.com Public License 1.1.0
 etalab-2.0 | Etalab Open License 2.0
@@ -510,7 +516,6 @@ gSOAP-1.3b | gSOAP Public License v1.3b
 gnuplot | gnuplot License
 iMatix | iMatix Standard Function Library Agreement
 libpng-2.0 | PNG Reference Library version 2
-libpri-OpenH323-exception | libpri OpenH323 exception
 libselinux-1.0 | libselinux public domain notice
 libtiff | libtiff License
 libutil-David-Nugent | libutil David Nugent License
