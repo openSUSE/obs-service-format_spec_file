@@ -706,6 +706,7 @@ SUSE-FLTK	Fltk
 SUSE-FLTK+	SUSE-FLTK+
 SUSE-Firmware	Firmware license, redistributable unmodified
 SUSE-Firmware+	SUSE-Firmware+
+SUSE-Free-Art-1.2	http://www.worldlii.org/int/other/PubRL/2000/4.html
 SUSE-Free-Art-1.3	http://artlibre.org/licence/lal/en
 SUSE-Free-Art-1.3+	SUSE-Free-Art-1.3+
 SUSE-Freetype	Freetype
