@@ -1243,29 +1243,24 @@ while (<SPE>) {
   }
   if (/^\s*Name:/) {
     if ($seen_name) {
-
-      # if there are more than one name, ignore it
-      $header_name = undef;
       next;
     }
     $seen_name    = 1;
     $base_package = $_;
     $base_package =~ s/^\s*Name:\s*(\S*)\s*/$1/;
-    $header_name = $base_package;
     if ($debug) {
       warn "DEBUG: base_package = $base_package\n";
     }
-
-    # ignore names with macros
-    $header_name = undef if $header_name =~ m/%/;
     last;
   }
 }
 close(SPE);
 
+$header_name = $specbase;
+$header_name =~ s/\.spec$//;
+
 if (!$base_package) {
-  $base_package = $specbase;
-  $base_package =~ s/\.spec$//;
+  $base_package = $header_name;
   $base_package =~ s/\-.*$//;
 }
 
