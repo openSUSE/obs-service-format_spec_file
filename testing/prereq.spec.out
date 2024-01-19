@@ -28,6 +28,6 @@ PreReq:         /usr/bin/chroot
 PreReq:         deprecatedrequires
 PreReq:         uglyline1
 PreReq:         uglyline2
-Requires(postun):somethingcrazy
+Requires(postun): somethingcrazy
 
 %changelog

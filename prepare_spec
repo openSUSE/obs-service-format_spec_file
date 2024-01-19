@@ -460,7 +460,7 @@ our $header_name;
     else {
       $self->print_before_lines();
       $self->print_comment();
-      printf("%-16s%s\n", $self->{name} . ":", $self->value());
+      printf("%-16s%s\n", $self->{name} . ": ", $self->value());
     }
 
   }

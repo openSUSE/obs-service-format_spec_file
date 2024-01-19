@@ -24,6 +24,6 @@ Provides:       %name-pool-nonempty
 Conflicts:      otherproviders(%name-pool)
 Requires:       %name = %version
 BuildArch:      noarch
-Removepathpostfixes:.opensuse
+Removepathpostfixes: .opensuse
 
 %changelog
