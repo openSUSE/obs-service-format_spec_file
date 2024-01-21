@@ -1,5 +1,5 @@
 #
-# spec file for package libmicrohttpd
+# spec file for package rpmpreamble
 #
 # Copyright (c) 2021 SUSE LLC
 # Copyright (c) 2010,2011,2012  Stephan Kleine
@@ -85,7 +85,7 @@ Group:          Development/Libraries/C and C++
 Requires:       %{libmicrohttpd} = %{version}
 Requires:       pkg-config
 Requires:       pkgconfig(gnutls)
-Requires(post,preun):info
+Requires(post,preun): info
 
 %description devel
 Headers, pkg-config files, so link and other development files for %{name}

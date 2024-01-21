@@ -1,5 +1,5 @@
 #
-# spec file for package at
+# spec file for package replace_pwdutils
 #
 # Copyright (c) 2021 SUSE LLC
 #
@@ -30,16 +30,16 @@ BuildRequires:  pam-devel
 BuildRequires:  pwdutils
 Requires(post): pwdutils
 Requires(post): update-alternatives
-Requires(posttrans):pwdutils
-Requires(posttrans):systemd
-Requires(postun):pwdutils
-Requires(postun):update-alternatives
+Requires(posttrans): pwdutils
+Requires(posttrans): systemd
+Requires(postun): pwdutils
+Requires(postun): update-alternatives
 Requires(pre):  pwdutils
 Requires(pre):  apache2
-Requires(pretrans):pwdutils
-Requires(pretrans):update-alternatives
-Requires(preun):pwdutils
-Requires(preun):chkconfig
+Requires(pretrans): pwdutils
+Requires(pretrans): update-alternatives
+Requires(preun): pwdutils
+Requires(preun): chkconfig
 Requires:       libmariadb
 Requires:       pwdutils
 Requires:       pwdutils-util

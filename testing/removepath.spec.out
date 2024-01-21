@@ -1,5 +1,5 @@
 #
-# spec file
+# spec file for package removepath
 #
 # Copyright (c) 2021 SUSE LLC
 #
@@ -24,6 +24,6 @@ Provides:       %name-pool-nonempty
 Conflicts:      otherproviders(%name-pool)
 Requires:       %name = %version
 BuildArch:      noarch
-Removepathpostfixes:.opensuse
+Removepathpostfixes: .opensuse
 
 %changelog
