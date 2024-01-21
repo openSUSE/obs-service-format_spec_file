@@ -5,6 +5,7 @@ Autoconf-exception-3.0
 Autoconf-exception-generic
 Autoconf-exception-generic-3.0
 Autoconf-exception-macro
+Bison-exception-1.24
 Bison-exception-2.2
 Bootloader-exception
 CLISP-exception-2.0

@@ -4,31 +4,31 @@ set -e
 
 export LC_ALL=C
 curl -s -L 'https://docs.google.com/spreadsheets/d/14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs/export?format=tsv&id=14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs&gid=0' | grep -v "New format" \
-  | sed -e 's,\s*$,,' > licenses_changes.ntxt
+  | sed -e 's,\s*$,,' | grep -v SUSE-TGPPL > licenses_changes.ntxt
 
 : > licenses_changes.ptxt
 grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | while read l; do
-  echo "$l+	$l+" >> licenses_changes.ptxt ; 
+  echo "$l+	$l+" >> licenses_changes.ptxt ;
 done
 
 for i in `curl -s https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json | jq -r '.licenses | .[] | select(.isDeprecatedLicenseId|not) | .licenseId'`; do
-	echo "$i	$i" >> licenses_changes.ntxt ; 
+	echo "$i	$i" >> licenses_changes.ntxt ;
 done
 IFS=:
 dups=$(tr '	' ':' < licenses_changes.ntxt | while read nl ol; do echo "$nl"; done | sed -e 's,^,B-,; s,B-SUSE-,A-,' | sort | uniq | sed -e 's,^.-,,' | sort | uniq -d)
-if test -n "$dups"; then 
+if test -n "$dups"; then
   echo "DUPS $dups"
   exit 1
 fi
 dups=$(tr '	' ':' < licenses_changes.ntxt | while read nl ol; do echo "$ol"; done | sort | uniq -d)
 unset IFS
-if test -n "$dups"; then 
+if test -n "$dups"; then
   echo "DUPS $dups"
   exit 1
 fi
 
 : > licenses_changes.raw
-( 
+(
 echo "This is the git for openSUSE:Tools/obs-service-format_spec_file"
 echo "It happens to be *the* repository for valid licenses to be used in openSUSE spec files"
 echo ""
@@ -50,7 +50,7 @@ echo "|License Tag|"
 echo "|-----------|"
 
 IFS=:
-grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do 
+grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do
   echo "|$nl|"
 done
 unset IFS

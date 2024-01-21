@@ -75,6 +75,8 @@ BSD-Attribution-HPND-disclaimer | BSD with Attribution and HPND disclaimer
 BSD-Inferno-Nettverk | BSD-Inferno-Nettverk
 BSD-Protection | BSD Protection License
 BSD-Source-Code | BSD Source Code Attribution
+BSD-Source-beginning-file | BSD Source Code Attribution - beginning of file variant
+BSD-Systemics-W3Works | Systemics W3Works BSD variant license
 BSD-Systemics | Systemics BSD variant license
 BSL-1.0 | Boost Software License 1.0
 BUSL-1.1 | Business Source License 1.1
@@ -99,6 +101,7 @@ CC-BY-2.0 | Creative Commons Attribution 2.0 Generic
 CC-BY-2.5-AU | Creative Commons Attribution 2.5 Australia
 CC-BY-2.5 | Creative Commons Attribution 2.5 Generic
 CC-BY-3.0-AT | Creative Commons Attribution 3.0 Austria
+CC-BY-3.0-AU | Creative Commons Attribution 3.0 Australia
 CC-BY-3.0-DE | Creative Commons Attribution 3.0 Germany
 CC-BY-3.0-IGO | Creative Commons Attribution 3.0 IGO
 CC-BY-3.0-NL | Creative Commons Attribution 3.0 Netherlands
@@ -173,6 +176,7 @@ CPAL-1.0 | Common Public Attribution License 1.0
 CPL-1.0 | Common Public License 1.0
 CPOL-1.02 | Code Project Open License 1.02
 CUA-OPL-1.0 | CUA Office Public License v1.0
+Caldera-no-preamble | Caldera License (without preamble)
 Caldera | Caldera License
 ClArtistic | Clarified Artistic License
 Clips | Clips License
@@ -209,6 +213,7 @@ ErlPL-1.1 | Erlang Public License v1.1
 Eurosym | Eurosym License
 FBM | Fuzzy Bitmap License
 FDK-AAC | Fraunhofer FDK AAC Codec Library
+FSFAP-no-warranty-disclaimer | FSF All Permissive License (without Warranty)
 FSFAP | FSF All Permissive License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
@@ -255,6 +260,8 @@ Graphics-Gems | Graphics Gems License
 HP-1986 | Hewlett-Packard 1986 License
 HP-1989 | Hewlett-Packard 1989 License
 HPND-DEC | Historical Permission Notice and Disclaimer - DEC variant
+HPND-Kevlin-Henney | Historical Permission Notice and Disclaimer - Kevlin Henney variant
+HPND-MIT-disclaimer | Historical Permission Notice and Disclaimer with MIT disclaimer
 HPND-Markus-Kuhn | Historical Permission Notice and Disclaimer - Markus Kuhn variant
 HPND-Pbmplus | Historical Permission Notice and Disclaimer - Pbmplus variant
 HPND-UC | Historical Permission Notice and Disclaimer - University of California variant
@@ -277,6 +284,7 @@ IJG-short | Independent JPEG Group License - short
 IJG | Independent JPEG Group License
 IPA | IPA Font License
 IPL-1.0 | IBM Public License v1.0
+ISC-Veillard | ISC Veillard variant
 ISC | ISC License
 ImageMagick | ImageMagick License
 Imlib2 | Imlib2 License
@@ -303,6 +311,7 @@ LGPL-3.0-only | GNU Lesser General Public License v3.0 only
 LGPL-3.0-or-later | GNU Lesser General Public License v3.0 or later
 LGPLLR | Lesser General Public License For Linguistic Resources
 LOOP | Common Lisp LOOP License
+LPD-document | LPD Documentation License
 LPL-1.02 | Lucent Public License v1.02
 LPL-1.0 | Lucent Public License Version 1.0
 LPPL-1.0 | LaTeX Project Public License v1.0
@@ -456,6 +465,7 @@ RSA-MD | RSA Message-Digest License
 RSCPL | Ricoh Source Code Public License
 Rdisc | Rdisc License
 Ruby | Ruby License
+SAX-PD-2.0 | Sax Public Domain Notice 2.0
 SAX-PD | Sax Public Domain Notice
 SCEA | SCEA Shared Source License
 SGI-B-1.0 | SGI Free Software License B v1.0
@@ -492,6 +502,7 @@ Symlinks | Symlinks License
 TAPR-OHL-1.0 | TAPR Open Hardware License v1.0
 TCL | TCL/TK License
 TCP-wrappers | TCP Wrappers License
+TGPPL-1.0 | Transitive Grace Period Public Licence 1.0
 TMate | TMate Open Source License
 TORQUE-1.1 | TORQUE v2.5+ Software License v1.1
 TOSL | Trusster Open Source License
@@ -506,6 +517,7 @@ UCAR | UCAR License
 UCL-1.0 | Upstream Compatibility License v1.0
 UPL-1.0 | Universal Permissive License v1.0
 URT-RLE | Utah Raster Toolkit Run Length Encoded License
+Unicode-3.0 | Unicode License v3
 Unicode-DFS-2015 | Unicode License Agreement - Data Files and Software (2015)
 Unicode-DFS-2016 | Unicode License Agreement - Data Files and Software (2016)
 Unicode-TOU | Unicode Terms of Use
@@ -563,6 +575,7 @@ libtiff | libtiff License
 libutil-David-Nugent | libutil David Nugent License
 lsof | lsof License
 magaz | magaz License
+mailprio | mailprio License
 metamail | metamail License
 mpi-permissive | mpi Permissive License
 mpich2 | mpich2 License
@@ -571,12 +584,14 @@ pnmstitch | pnmstitch License
 psfrag | psfrag License
 psutils | psutils License
 python-ldap | Python ldap License
+radvd | radvd License
 snprintf | snprintf License
 ssh-keyscan | ssh-keyscan License
 swrule | swrule License
 ulem | ulem License
 w3m | w3m License
 xinetd | xinetd License
+xkeyboard-config-Zinoviev | xkeyboard-config Zinoviev License
 xlock | xlock License
 xpp | XPP License
 zlib-acknowledgement | zlib/libpng License with Acknowledgement
@@ -650,7 +665,6 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-SNIA-1.1|
 |SUSE-Scrot|
 |SUSE-Sun-Laboratories|
-|SUSE-TGPPL-1.0|
 |SUSE-TeX|
 |SUSE-Ubuntu-Font-License-1.0|
 |SUSE-XDebug|
