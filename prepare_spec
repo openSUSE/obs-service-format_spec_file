@@ -619,7 +619,7 @@ EOF
     my ($self, $line) = @_;
     my $copyright = $line;
     # we update old SUSE legal entities to the current one
-    $copyright =~ s{\s*(?:copyrights?) (?:\(c\) )?((?:2\d\d\d )?)suse (?:linux )?(?:products )?(?:gmbh|llc)?,?\s*(?:nuremberg|n..?rnberg)?,?(?:\s*germany\W+)?\s*}{ Copyright (c) $1SUSE LLC}i;
+    $copyright =~ s{\s*(?:copyrights?) (?:\(c\) )?((?:2\d\d\d )?)suse (?:linux )?(?:products )?(?:gmbh|llc)?,?\s*(?:nuremberg|n..?rnberg)?,?(?:\s*germany\W+)?\s*$}{ Copyright (c) $1SUSE LLC}i;
 
     if (length($copyright) <= 5) {    # not much left
       return;

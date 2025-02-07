@@ -1,7 +1,8 @@
 #
 # spec file for package bazel-rules-android
 #
-# Copyright (c) 2021 SUSE LLCSoftware Solutions Germany GmbH, Nuernberg, Germany.
+# Copyright (c) 2021 SUSE LLC
+# Copyright (c) 2021 SUSE Software Solutions Germany GmbH, Nuernberg, Germany.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
