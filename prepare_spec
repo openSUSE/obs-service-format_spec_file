@@ -524,6 +524,7 @@ our $specfile;
       }
     }
     unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" if $add_suse_copyright;
+    unshift @copyrights, "# Copyright the openSUSE Contributors" unless @copyrights;
 
     my $copy_list = join("\n", @copyrights);
 
