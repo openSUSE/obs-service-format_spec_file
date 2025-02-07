@@ -24,6 +24,7 @@ use File::Basename;
 our $debug        = 0;
 our $base_package = "";
 our $header_name;
+our $specfile;
 
 {
 
@@ -509,7 +510,20 @@ our $header_name;
     my $thisyear = $ENV{COPYRIGHT_YEAR};
     $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
     my @copyrights = @{$self->{copyright} || []};
-    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" if $ENV{ADD_SUSE_COPYRIGHT} and not grep /SUSE LLC/, @copyrights;
+    my $add_suse_copyright = $ENV{ADD_SUSE_COPYRIGHT};
+    $add_suse_copyright = 0 if grep /SUSE LLC/, @copyrights;
+    my $changesfile = $specfile;
+    $changesfile =~ s/\.spec$/.changes/;
+    if(!defined($add_suse_copyright) and open(my $fd, "<", $changesfile)) {
+      my $n=0;
+      while(<$fd>) {
+        if(/\w\@suse\.(?:com|cz|de)>/) {
+          $add_suse_copyright = 1;
+        }
+        last if $n++>0;
+      }
+    }
+    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" if $add_suse_copyright;
 
     my $copy_list = join("\n", @copyrights);
 
@@ -1214,7 +1228,7 @@ if ($ARGV[0] eq '--debug') {
   shift @ARGV;
 }
 
-my $specfile = shift(@ARGV);
+$specfile = shift(@ARGV);
 if (!stat($specfile)) {
   die "$specfile is no file";
 }
