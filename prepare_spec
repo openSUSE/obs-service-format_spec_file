@@ -509,7 +509,7 @@ our $header_name;
     my $thisyear = $ENV{COPYRIGHT_YEAR};
     $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
     my @copyrights = @{$self->{copyright} || []};
-    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" unless(grep /SUSE LLC/, @copyrights);
+    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" if $ENV{ADD_SUSE_COPYRIGHT} and not grep /SUSE LLC/, @copyrights;
 
     my $copy_list = join("\n", @copyrights);
 
