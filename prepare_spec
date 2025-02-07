@@ -509,7 +509,7 @@ our $header_name;
     my $thisyear = $ENV{COPYRIGHT_YEAR};
     $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
     my @copyrights = @{$self->{copyright} || []};
-    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
+    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC" unless(grep /SUSE LLC/, @copyrights);
 
     my $copy_list = join("\n", @copyrights);
 
@@ -618,11 +618,13 @@ EOF
   sub create_copyright_section {
     my ($self, $line) = @_;
     my $copyright = $line;
-    $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
+    # we update old SUSE legal entities to the current one
+    $copyright =~ s{\s*(?:copyrights?) (?:\(c\) )?((?:2\d\d\d )?)suse (?:linux )?(?:products )?(?:gmbh|llc)?,?\s*(?:nuremberg|n..?rnberg)?,?(?:\s*germany\W+)?\s*}{ Copyright (c) $1SUSE LLC}i;
+
     if (length($copyright) <= 5) {    # not much left
       return;
     }
-    $self->find("preamble")->add_copyright($line);
+    $self->find("preamble")->add_copyright($copyright);
   }
 
   sub add_to_current_section {
