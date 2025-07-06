@@ -799,7 +799,7 @@ EOF
           $self->create_copyright_section($_);
 
           # copy out everything until next blank line
-          while ($readspec[0] !~ m/^#\s*$/) {
+          while ($readspec[0] !~ m/^#*\s*$/) {
             $self->create_copyright_section(shift @readspec);
           }
           next;
