@@ -748,13 +748,15 @@ EOF
       }
 
       if (/^\s*$/) {
-        if ($self->current_name() eq 'empty' || $self->current_name() eq 'preamble') {
-          $self->add_to_current_section("");
+        if ($self->current_name() ne 'changelog-section') {
+          if ($self->current_name() eq 'empty' || $self->current_name() eq 'preamble') {
+            $self->add_to_current_section("");
+          }
+          else {
+            $self->create_section("empty", "");
+          }
+          next;
         }
-        else {
-          $self->create_section("empty", "");
-        }
-        next;
       }
 
       if ($self->current_name() eq "preamble") {
