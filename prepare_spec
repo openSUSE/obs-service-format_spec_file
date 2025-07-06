@@ -496,8 +496,16 @@ our $header_name;
 
   use base 'Section';
 
-  sub print {
+  sub get_suse_copyright {
     use Time::localtime;
+
+    my $self = shift;
+    my $thisyear = $ENV{COPYRIGHT_YEAR};
+    $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
+    return "# Copyright (c) $thisyear SUSE LLC";
+  }
+
+  sub print {
 
     my $self = shift;
     if ($debug) {
@@ -506,10 +514,10 @@ our $header_name;
     }
     print "$self->{vim_mode}\n" if $self->{vim_mode};
 
-    my $thisyear = $ENV{COPYRIGHT_YEAR};
-    $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
     my @copyrights = @{$self->{copyright} || []};
-    unshift @copyrights, "# Copyright (c) $thisyear SUSE LLC";
+    if (! defined $self->{suse_copyright_set}) {
+        unshift @copyrights, get_suse_copyright();
+    }
 
     my $copy_list = join("\n", @copyrights);
 
@@ -550,6 +558,14 @@ EOF
       $self->{copyright} = [];
     }
     push(@{$self->{copyright}}, $copyright);
+  }
+
+  sub add_suse_copyright {
+      my $self = shift;
+      if (! defined $self->{suse_copyright_set}) {
+          $self->add_copyright(get_suse_copyright());
+          $self->{suse_copyright_set} = 1;
+      }
   }
 
   sub set_vim_mode {
@@ -620,6 +636,7 @@ EOF
     my $copyright = $line;
     $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
     if (length($copyright) <= 5) {    # not much left
+      $self->find("preamble")->add_suse_copyright();
       return;
     }
     $self->find("preamble")->add_copyright($line);
