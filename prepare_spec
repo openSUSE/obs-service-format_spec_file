@@ -502,7 +502,7 @@ our $header_name;
     my $self = shift;
     my $thisyear = $ENV{COPYRIGHT_YEAR};
     $thisyear ||= localtime($ENV{SOURCE_DATE_EPOCH} || time)->year() + 1900;
-    return "# Copyright (c) $thisyear SUSE LLC";
+    return "# Copyright (c) $thisyear SUSE LLC and contributors";
   }
 
   sub print {
@@ -518,7 +518,6 @@ our $header_name;
     if (! defined $self->{suse_copyright_set}) {
         unshift @copyrights, get_suse_copyright();
     }
-
     my $copy_list = join("\n", @copyrights);
 
     print "#\n";
