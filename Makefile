@@ -16,7 +16,7 @@ install:
 check:
 	set -e ;\
 	for i in testing/*.spec; do \
-	  COPYRIGHT_YEAR=2021 perl prepare_spec $$i | \
+	  COPYRIGHT_YEAR=2021 perl -w prepare_spec $$i | \
 	  diff -u --label $$i.out --label $$i.actual $$i.out - ;\
 	done ;\
 
