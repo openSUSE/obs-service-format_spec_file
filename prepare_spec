@@ -633,7 +633,7 @@ EOF
   sub create_copyright_section {
     my ($self, $line) = @_;
     my $copyright = $line;
-    $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
+    $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|LLC|contributors|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
     if (length($copyright) <= 5) {    # not much left
       $self->find("preamble")->add_suse_copyright();
       return;
