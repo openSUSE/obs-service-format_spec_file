@@ -630,15 +630,20 @@ EOF
     $self->find("preamble")->add_footer("# icecream $line") if $line ne '';
   }
 
+  # returns true if suse copyright section identfied, else false
   sub create_copyright_section {
     my ($self, $line) = @_;
     my $copyright = $line;
-    $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|LLC|contributors|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
-    if (length($copyright) <= 5) {    # not much left
-      $self->find("preamble")->add_suse_copyright();
-      return;
+    if ($line =~ m/^#\s*Copyright\s*/) {
+      $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|LLC|contributors|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
+      if (length($copyright) <= 5) {    # not much left
+        $self->find("preamble")->add_suse_copyright();
+        # return true if suse copyright string
+        return 1;
+      }
     }
     $self->find("preamble")->add_copyright($line);
+    return 0;
   }
 
   sub add_to_current_section {
