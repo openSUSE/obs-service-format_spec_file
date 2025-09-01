@@ -828,9 +828,11 @@ EOF
             $self->find("preamble")->add_copyright($suse_terms);
 
           } else {
+            # For non-SUSE copyrights assume that any subsequent
+            # comment or empty line belongs to the copyright.
 
-            # copy out everything until next blank line
-            while ($readspec[0] !~ m/^#*\s*$/) {
+            while ($readspec[0] =~ m/(^#.*)|(^\s*$)/ &&
+                   $readspec[0] !~ /^#(\![^\s]|\s*(Copyright|icecream|nodebuginfo|norootforbuild|usedforbuild|needsrootforbuild|needsbinariesforbuild|needssslcertforbuild|needspubkeyforbuild|usedforbuild)\s*)/) {
               $self->create_copyright_section(shift @readspec);
             }
           }
