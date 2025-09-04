@@ -2,7 +2,6 @@
 # spec file for package interestingheader
 #
 # Copyright (c) 2021 SUSE LLC and contributors
-#  Copyright (c) 2011 Edgar Aichinger <edogawa@aon.at>
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -14,6 +13,8 @@
 # published by the Open Source Initiative.
 
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+#  Copyright (c) 2011 Edgar Aichinger <edogawa@aon.at>
 #
 
 
