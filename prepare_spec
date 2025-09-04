@@ -643,6 +643,11 @@ EOF
         $self->find("preamble")->add_suse_copyright();
         # return true if suse copyright string
         return 1;
+      } elsif ($copyright eq "SoftwareSolutions") {
+        # Lex 'SUSE Software Solutions Germany'
+        $self->find("preamble")->add_suse_copyright();
+        $self->find("preamble")->add_copyright($line);
+        return 1;
       }
     }
     $self->find("preamble")->add_copyright($line);
@@ -833,7 +838,7 @@ EOF
 
             while ($readspec[0] =~ m/(^#.*)|(^\s*$)/ &&
                    $readspec[0] !~ /^#(\![^\s]|\s*(Copyright|icecream|nodebuginfo|norootforbuild|usedforbuild|needsrootforbuild|needsbinariesforbuild|needssslcertforbuild|needspubkeyforbuild|usedforbuild)\s*)/) {
-              $self->create_copyright_section(shift @readspec);
+              $self->find("preamble")->add_copyright(shift @readspec);
             }
           }
           next;
