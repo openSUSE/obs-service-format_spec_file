@@ -25,6 +25,20 @@ our $debug        = 0;
 our $base_package = "";
 our $header_name;
 
+our $suse_terms = '#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#';
+
+
 {
 
   package SPDXMapper;
@@ -516,6 +530,7 @@ our $header_name;
 
     my @copyrights = @{$self->{copyright} || []};
     if (! defined $self->{suse_copyright_set}) {
+        unshift @copyrights, $suse_terms;
         unshift @copyrights, get_suse_copyright();
     }
     my $copy_list = join("\n", @copyrights);
@@ -530,18 +545,6 @@ our $header_name;
     print <<EOF;
 #
 $copy_list
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via https://bugs.opensuse.org/
-#
 EOF
     if (defined $self->{footer}) {
       for my $footer (@{$self->{footer}}) {
@@ -630,15 +633,25 @@ EOF
     $self->find("preamble")->add_footer("# icecream $line") if $line ne '';
   }
 
+  # returns true if suse copyright section identfied, else false
   sub create_copyright_section {
     my ($self, $line) = @_;
     my $copyright = $line;
-    $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|LLC|contributors|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
-    if (length($copyright) <= 5) {    # not much left
-      $self->find("preamble")->add_suse_copyright();
-      return;
+    if ($line =~ m/^#\s*Copyright\s*/) {
+      $copyright =~ s{\s*(\d+|copyrights?|\(c\)|suse|LLC|contributors|linux|products|gmbh|nuremberg|n..?rnberg|germany|\W+)\s*}{}gi;
+      if (length($copyright) <= 5) {    # not much left
+        $self->find("preamble")->add_suse_copyright();
+        # return true if suse copyright string
+        return 1;
+      } elsif ($copyright eq "SoftwareSolutions") {
+        # Lex 'SUSE Software Solutions Germany'
+        $self->find("preamble")->add_suse_copyright();
+        $self->find("preamble")->add_copyright($line);
+        return 1;
+      }
     }
     $self->find("preamble")->add_copyright($line);
+    return 0;
   }
 
   sub add_to_current_section {
@@ -812,11 +825,21 @@ EOF
         }
 
         if (/^#\s*Copyright\s*/) {
-          $self->create_copyright_section($_);
+          if ($self->create_copyright_section($_)) {
+            # copy out everything until next blank line
+            while ($readspec[0] !~ m/^#*\s*$/) {
+              $self->create_copyright_section(shift @readspec);
+            }
+            $self->find("preamble")->add_copyright($suse_terms);
 
-          # copy out everything until next blank line
-          while ($readspec[0] !~ m/^#*\s*$/) {
-            $self->create_copyright_section(shift @readspec);
+          } else {
+            # For non-SUSE copyrights assume that any subsequent
+            # comment or empty line belongs to the copyright.
+
+            while ($readspec[0] =~ m/(^#.*)|(^\s*$)/ &&
+                   $readspec[0] !~ /^#(\![^\s]|\s*(Copyright|icecream|nodebuginfo|norootforbuild|usedforbuild|needsrootforbuild|needsbinariesforbuild|needssslcertforbuild|needspubkeyforbuild|usedforbuild)\s*)/) {
+              $self->find("preamble")->add_copyright(shift @readspec);
+            }
           }
           next;
         }
