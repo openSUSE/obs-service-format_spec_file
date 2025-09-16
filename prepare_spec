@@ -836,7 +836,7 @@ EOF
             # For non-SUSE copyrights assume that any subsequent
             # comment or empty line belongs to the copyright.
 
-            while ($readspec[0] =~ m/(^#.*)|(^\s*$)/ &&
+            while ($readspec[0] =~ m/(^#.*)/ &&
                    $readspec[0] !~ /^#(\![^\s]|\s*(Copyright|icecream|nodebuginfo|norootforbuild|usedforbuild|needsrootforbuild|needsbinariesforbuild|needssslcertforbuild|needspubkeyforbuild|usedforbuild)\s*)/) {
               $self->find("preamble")->add_copyright(shift @readspec);
             }
