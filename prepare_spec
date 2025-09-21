@@ -1336,12 +1336,16 @@ my $section = $parser->find("changelog-section");
 $parser->delete_section($section) if $section;
 my $lastsection = $parser->current();
 $section = $parser->create_section("changelog-section", "%changelog");
-if ($lastsection->{after_lines} == 0) {
-  $section->set_before_lines(1);
-}
-else {
+if ($lastsection->{name} ne "empty") {
+  if ($lastsection->{after_lines} == 0) {
+    $section->set_before_lines(1);
+  }
+  else {
   # one is enough
   $lastsection->set_after_lines(1);
+  }
+} else {
+    $lastsection->set_after_lines(0);
 }
 
 $parser->print_all();
