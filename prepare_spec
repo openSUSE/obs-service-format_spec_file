@@ -607,7 +607,16 @@ EOF
     my @lines;
     while ($section->{lines}->[-1] =~ m/^#/) {
       my $line = pop @{$section->{lines}};
-      unshift @{$comment->{lines}}, $line;
+      unshift @lines, $line;
+    }
+    foreach (@lines) {
+      $comment->add_line($_)
+    }
+    $comment->{after_lines} = $section->{after_lines};
+    $section->{after_lines} = 0;
+    while ($section->{lines}->[-1] =~ m/^$/) {
+      pop @{$section->{lines}};
+      $section->{after_lines}++;
     }
     push(@{$self->{sections}}, $comment);
   }
