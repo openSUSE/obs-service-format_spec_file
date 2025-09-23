@@ -560,10 +560,10 @@ Conflicts:      pcp-libs < 3.9
 %description conf
 Performance Co-Pilot (PCP) run-time configuration
 
-
 #
 # pcp-libs
 #
+
 %package -n %{lib_pkg}
 Summary:        Performance Co-Pilot run-time libraries
 License:        %{license_lgplv21plus}
@@ -1149,8 +1149,8 @@ Requires:       perl-PCP-PMDA = %{version}-%{release}
 %description pmda-redis
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics from Redis servers (redis.io).
-
 #end pcp-pmda-redis
+
 %if !%{disable_nutcracker}
 #
 # pcp-pmda-nutcracker
@@ -1543,8 +1543,8 @@ Requires:       perl-PCP-PMDA = %{version}-%{release}
 %description pmda-slurm
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics from the SLURM Workload Manager.
-
 #end pcp-pmda-slurm
+
 %if !%{disable_snmp}
 #
 # pcp-pmda-snmp
@@ -1616,9 +1616,9 @@ Requires:       %{lib_pkg} = %{version}-%{release}
 %description pmda-dm
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics about the Device Mapper Cache and Thin Client.
-
-
 # end pcp-pmda-dm
+
+
 %if !%{disable_python3}
 #
 # pcp-pmda-gluster
@@ -1649,8 +1649,8 @@ Requires:       python3-pcp
 %description pmda-nfsclient
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics for NFS Clients.
-
 #end pcp-pmda-nfsclient
+
 %if !%{disable_postgresql}
 #
 # pcp-pmda-postgresql
@@ -1731,8 +1731,8 @@ Requires:       python3-pcp
 %description pmda-haproxy
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 extracting performance metrics from HAProxy over the HAProxy stats socket.
-
 # end pcp-pmda-haproxy
+
 %if !%{disable_libvirt}
 #
 # pcp-pmda-libvirt
@@ -1805,8 +1805,8 @@ Requires:       python3-pcp
 %description pmda-rabbitmq
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics about RabbitMQ message queues.
-
 #end pcp-pmda-rabbitmq
+
 %if !%{disable_lio}
 #
 # pcp-pmda-lio
@@ -1888,8 +1888,8 @@ Requires:       python3-pcp
 %description pmda-netcheck
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics from simple network checks.
-
 # end pcp-pmda-netcheck
+
 %endif # !%{disable_python3}
 
 %if !%{disable_mssql}
@@ -2120,8 +2120,8 @@ Supplements:    pcp
 %description pmda-roomtemp
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics about the room temperature.
-
 # end pcp-pmda-roomtemp
+
 %if !%{disable_rpm}
 #
 # pcp-pmda-rpm
@@ -2216,8 +2216,8 @@ Supplements:    pcp
 %description pmda-summary
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics about other installed pmdas.
-
 # end pcp-pmda-summary
+
 %if !%{disable_systemd}
 #
 # pcp-pmda-systemd
@@ -2273,9 +2273,9 @@ Supplements:    pcp
 %description pmda-weblog
 This package contains the PCP Performance Metrics Domain Agent (PMDA) for
 collecting metrics about web server logs.
-
 # end pcp-pmda-weblog
 # end C pmdas
+
 %package zeroconf
 Summary:        Performance Co-Pilot (PCP) Zeroconf Package
 License:        %{license_gplv2plus}
