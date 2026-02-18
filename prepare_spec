@@ -705,6 +705,7 @@ EOF
     $tag =~ s/confl/Confl/i;
     $tag =~ s/prov/Prov/i;
     $tag =~ s/url/URL/i;
+    $tag =~ s/removepathpostfixes/RemovePathPostfixes/i;
     $tag =~ s/^(\w)/uc($1)/e;
 
     return $tag;
