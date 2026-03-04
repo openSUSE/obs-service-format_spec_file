@@ -18,6 +18,7 @@ AGPL-1.0-only | Affero General Public License v1.0 only
 AGPL-1.0-or-later | Affero General Public License v1.0 or later
 AGPL-3.0-only | GNU Affero General Public License v3.0 only
 AGPL-3.0-or-later | GNU Affero General Public License v3.0 or later
+ALGLIB-Documentation | ALGLIB Documentation License
 AMD-newlib | AMD newlib License
 AMDPLPA | AMD's plpa_map.c License
 AML-glslang | AML glslang variant License
@@ -39,6 +40,7 @@ Adobe-2006 | Adobe Systems Incorporated Source Code License Agreement
 Adobe-Display-PostScript | Adobe Display PostScript License
 Adobe-Glyph | Adobe Glyph List License
 Adobe-Utopia | Adobe Utopia Font License
+Advanced-Cryptics-Dictionary | Advanced Cryptics Dictionary License
 Afmparse | Afmparse License
 Aladdin | Aladdin Free Public License
 Apache-1.0 | Apache License 1.0
@@ -50,11 +52,15 @@ Artistic-1.0-Perl | Artistic License 1.0 (Perl)
 Artistic-1.0-cl8 | Artistic License 1.0 w/clause 8
 Artistic-1.0 | Artistic License 1.0
 Artistic-2.0 | Artistic License 2.0
+Artistic-dist | Artistic License 1.0 (dist)
+Aspell-RU | Aspell Russian License
+BOLA-1.1 | Buena Onda License Agreement v1.1
 BSD-1-Clause | BSD 1-Clause License
 BSD-2-Clause-Darwin | BSD 2-Clause - Ian Darwin variant
 BSD-2-Clause-Patent | BSD-2-Clause Plus Patent License
 BSD-2-Clause-Views | BSD 2-Clause with views sentence
 BSD-2-Clause-first-lines | BSD 2-Clause - first lines requirement
+BSD-2-Clause-pkgconf-disclaimer | BSD 2-Clause pkgconf disclaimer variant
 BSD-2-Clause | BSD 2-Clause "Simplified" License
 BSD-3-Clause-Attribution | BSD with attribution
 BSD-3-Clause-Clear | BSD 3-Clause Clear License
@@ -67,6 +73,7 @@ BSD-3-Clause-No-Nuclear-License | BSD 3-Clause No Nuclear License
 BSD-3-Clause-No-Nuclear-Warranty | BSD 3-Clause No Nuclear Warranty
 BSD-3-Clause-Open-MPI | BSD 3-Clause Open MPI variant
 BSD-3-Clause-Sun | BSD 3-Clause Sun Microsystems
+BSD-3-Clause-Tso | BSD 3-Clause Tso variant
 BSD-3-Clause-acpica | BSD 3-Clause acpica variant
 BSD-3-Clause-flex | BSD 3-Clause Flex variant
 BSD-3-Clause | BSD 3-Clause "New" or "Revised" License
@@ -78,6 +85,7 @@ BSD-4.3TAHOE | BSD 4.3 TAHOE License
 BSD-Advertising-Acknowledgement | BSD Advertising Acknowledgement License
 BSD-Attribution-HPND-disclaimer | BSD with Attribution and HPND disclaimer
 BSD-Inferno-Nettverk | BSD-Inferno-Nettverk
+BSD-Mark-Modifications | BSD Mark Modifications License
 BSD-Protection | BSD Protection License
 BSD-Source-Code | BSD Source Code Attribution
 BSD-Source-beginning-file | BSD Source Code Attribution - beginning of file variant
@@ -99,9 +107,11 @@ Boehm-GC | Boehm-Demers-Weiser GC License
 Borceux | Borceux license
 Brian-Gladman-2-Clause | Brian Gladman 2-Clause License
 Brian-Gladman-3-Clause | Brian Gladman 3-Clause License
+Buddy | Buddy License
 C-UDA-1.0 | Computational Use of Data Agreement v1.0
 CAL-1.0-Combined-Work-Exception | Cryptographic Autonomy License 1.0 (Combined Work Exception)
 CAL-1.0 | Cryptographic Autonomy License 1.0
+CAPEC-tou | Common Attack    Pattern Enumeration and Classification License
 CATOSL-1.1 | Computer Associates Trusted Open Source License 1.1
 CC-BY-1.0 | Creative Commons Attribution 1.0 Generic
 CC-BY-2.0 | Creative Commons Attribution 2.0 Generic
@@ -196,6 +206,7 @@ Condor-1.1 | Condor Public License v1.1
 Cornell-Lossless-JPEG | Cornell Lossless JPEG License
 Cronyx | Cronyx License
 Crossword | Crossword License
+CryptoSwift | CryptoSwift License
 CrystalStacker | CrystalStacker License
 Cube | Cube License
 D-FSL-1.0 | Deutsche Freie Software Lizenz
@@ -206,6 +217,7 @@ DOC | DOC License
 DRL-1.0 | Detection Rule License 1.0
 DRL-1.1 | Detection Rule License 1.1
 DSDP | DSDP License
+DocBook-DTD | DocBook DTD License
 DocBook-Schema | DocBook Schema License
 DocBook-Stylesheet | DocBook Stylesheet License
 DocBook-XML | DocBook XML License
@@ -217,6 +229,9 @@ EFL-2.0 | Eiffel Forum License v2.0
 EPICS | EPICS Open License
 EPL-1.0 | Eclipse Public License 1.0
 EPL-2.0 | Eclipse Public License 2.0
+ESA-PL-permissive-2.4 | European Space Agency Public License – v2.4 – Permissive (Type 3)
+ESA-PL-strong-copyleft-2.4 | European Space Agency Public License (ESA-PL) - V2.4 - Strong Copyleft (Type 1)
+ESA-PL-weak-copyleft-2.4 | European Space Agency Public License – v2.4 – Weak Copyleft (Type 2)
 EUDatagrid | EU DataGrid Software License
 EUPL-1.0 | European Union Public License 1.0
 EUPL-1.1 | European Union Public License 1.1
@@ -231,7 +246,10 @@ FSFAP-no-warranty-disclaimer | FSF All Permissive License (without Warranty)
 FSFAP | FSF All Permissive License
 FSFUL | FSF Unlimited License
 FSFULLR | FSF Unlimited License (with License Retention)
+FSFULLRSD | FSF Unlimited License (with License Retention and Short Disclaimer)
 FSFULLRWD | FSF Unlimited License (With License Retention and Warranty Disclaimer)
+FSL-1.1-ALv2 | Functional Source License, Version 1.1, ALv2 Future License
+FSL-1.1-MIT | Functional Source License, Version 1.1, MIT Future License
 FTL | Freetype Project License
 Fair | Fair License
 Ferguson-Twofish | Ferguson Twofish License
@@ -267,11 +285,13 @@ GPL-2.0-only | GNU General Public License v2.0 only
 GPL-2.0-or-later | GNU General Public License v2.0 or later
 GPL-3.0-only | GNU General Public License v3.0 only
 GPL-3.0-or-later | GNU General Public License v3.0 or later
+Game-Programming-Gems | Game Programming Gems License
 Giftware | Giftware License
 Glide | 3dfx Glide License
 Glulxe | Glulxe License
 Graphics-Gems | Graphics Gems License
 Gutmann | Gutmann License
+HDF5 | HDF5 License
 HIDAPI | HIDAPI License
 HP-1986 | Hewlett-Packard 1986 License
 HP-1989 | Hewlett-Packard 1989 License
@@ -284,6 +304,7 @@ HPND-MIT-disclaimer | Historical Permission Notice and Disclaimer with MIT discl
 HPND-Markus-Kuhn | Historical Permission Notice and Disclaimer - Markus Kuhn variant
 HPND-Netrek | Historical Permission Notice and Disclaimer - Netrek variant
 HPND-Pbmplus | Historical Permission Notice and Disclaimer - Pbmplus variant
+HPND-SMC | Historical Permission Notice and Disclaimer - SMC variant
 HPND-UC-export-US | Historical Permission Notice and Disclaimer - University of California, US export warning
 HPND-UC | Historical Permission Notice and Disclaimer - University of California variant
 HPND-doc-sell | Historical Permission Notice and Disclaimer - documentation sell variant
@@ -297,6 +318,7 @@ HPND-sell-MIT-disclaimer-xserver | Historical Permission Notice and Disclaimer -
 HPND-sell-regexpr | Historical Permission Notice and Disclaimer - sell regexpr variant
 HPND-sell-variant-MIT-disclaimer-rev | HPND sell variant with MIT disclaimer - reverse
 HPND-sell-variant-MIT-disclaimer | HPND sell variant with MIT disclaimer
+HPND-sell-variant-critical-systems | HPND - sell variant with safety critical systems clause
 HPND-sell-variant | Historical Permission Notice and Disclaimer - sell variant
 HPND | Historical Permission Notice and Disclaimer
 HTMLTIDY | HTML Tidy License
@@ -311,6 +333,7 @@ IPA | IPA Font License
 IPL-1.0 | IBM Public License v1.0
 ISC-Veillard | ISC Veillard variant
 ISC | ISC License
+ISO-permission | ISO permission notice
 ImageMagick | ImageMagick License
 Imlib2 | Imlib2 License
 Info-ZIP | Info-ZIP License
@@ -367,6 +390,7 @@ MIT-Click | MIT Click License
 MIT-Festival | MIT Festival Variant
 MIT-Khronos-old | MIT Khronos - old variant
 MIT-Modern-Variant | MIT License Modern Variant
+MIT-STK | MIT-STK License
 MIT-Wu | MIT Tom Wu Variant
 MIT-advertising | Enlightenment License (e16)
 MIT-enna | enna License
@@ -376,6 +400,7 @@ MIT-testregex | MIT testregex Variant
 MIT | MIT License
 MITNFA | MIT +no-false-attribs license
 MMIXware | MMIXware License
+MMPL-1.0.1 | Minecraft Mod Public License v1.0.1
 MPEG-SSG | MPEG Software Simulation
 MPL-1.0 | Mozilla Public License 1.0
 MPL-1.1 | Mozilla Public License 1.1
@@ -406,6 +431,7 @@ NCL | NCL Source Code License
 NCSA | University of Illinois/NCSA Open Source License
 NGPL | Nethack General Public License
 NICTA-1.0 | NICTA Public Software License, Version 1.0
+NIST-PD-TNT | NIST    Public Domain Notice TNT variant
 NIST-PD-fallback | NIST Public Domain Notice with license fallback
 NIST-PD | NIST Public Domain Notice
 NIST-Software | NIST Software License
@@ -417,6 +443,7 @@ NPL-1.0 | Netscape Public License v1.0
 NPL-1.1 | Netscape Public License v1.1
 NPOSL-3.0 | Non-Profit Open Software License 3.0
 NRL | NRL License
+NTIA-PD | NTIA Public Domain Notice
 NTP-0 | NTP No Attribution
 NTP | NTP License
 Naumen | Naumen Public License
@@ -465,12 +492,15 @@ OML | Open Market License
 OPL-1.0 | Open Public License v1.0
 OPL-UK-3.0 | United    Kingdom Open Parliament Licence v3.0
 OPUBL-1.0 | Open Publication License v1.0
+OSC-1.0 | OSC License 1.0
 OSET-PL-2.1 | OSET Public License version 2.1
 OSL-1.0 | Open Software License 1.0
 OSL-1.1 | Open Software License 1.1
 OSL-2.0 | Open Software License 2.0
 OSL-2.1 | Open Software License 2.1
 OSL-3.0 | Open Software License 3.0
+OSSP | OSSP License
+OpenMDW-1.0 | OpenMDW License Agreement v1.0
 OpenPBS-2.3 | OpenPBS v2.3 Software License
 OpenSSL-standalone | OpenSSL License - standalone
 OpenSSL | OpenSSL License
@@ -481,6 +511,7 @@ PHP-3.01 | PHP License v3.01
 PHP-3.0 | PHP License v3.0
 PPL | Peer Production License
 PSF-2.0 | Python Software Foundation License 2.0
+ParaType-Free-Font-1.3 | ParaType Free Font Licensing Agreement v1.3
 Parity-6.0.0 | The Parity Public License 6.0.0
 Parity-7.0.0 | The Parity Public License 7.0.0
 Pixar | Pixar License
@@ -509,6 +540,7 @@ SGI-B-1.0 | SGI Free Software License B v1.0
 SGI-B-1.1 | SGI Free Software License B v1.1
 SGI-B-2.0 | SGI Free Software License B v2.0
 SGI-OpenGL | SGI OpenGL License
+SGMLUG-PM | SGMLUG Parser Materials License
 SGP4 | SGP4 Permission Notice
 SHL-0.51 | Solderpad Hardware License, Version 0.51
 SHL-0.5 | Solderpad Hardware License v0.5
@@ -519,11 +551,13 @@ SMAIL-GPL | SMAIL General Public License
 SMLNJ | Standard ML of New Jersey License
 SMPPL | Secure Messaging Protocol Public License
 SNIA | SNIA Public License 1.1
+SOFA | SOFA Software License
 SPL-1.0 | Sun Public License v1.0
 SSH-OpenSSH | SSH OpenSSH license
 SSH-short | SSH short notice
 SSLeay-standalone | SSLeay License - standalone
 SSPL-1.0 | Server Side Public License, v 1
+SUL-1.0 | Sustainable Use License v1.0
 SWL | Scheme Widget Library (SWL) Software License Agreement
 Saxpath | Saxpath License
 SchemeReport | Scheme Language Report License
@@ -554,6 +588,7 @@ TTWL | Text-Tabs+Wrap License
 TTYP0 | TTYP0 License
 TU-Berlin-1.0 | Technische Universitaet Berlin License 1.0
 TU-Berlin-2.0 | Technische Universitaet Berlin License 2.0
+TekHVC | TekHVC License
 TermReadKey | TermReadKey License
 ThirdEye | ThirdEye License
 TrustedQSL | TrustedQSL License
@@ -563,23 +598,30 @@ UMich-Merit | Michigan/Merit Networks License
 UPL-1.0 | Universal Permissive License v1.0
 URT-RLE | Utah Raster Toolkit Run Length Encoded License
 Ubuntu-font-1.0 | Ubuntu Font Licence v1.0
+UnRAR | UnRAR License
 Unicode-3.0 | Unicode License v3
 Unicode-DFS-2015 | Unicode License Agreement - Data Files and Software (2015)
 Unicode-DFS-2016 | Unicode License Agreement - Data Files and Software (2016)
 Unicode-TOU | Unicode Terms of Use
 UnixCrypt | UnixCrypt License
+Unlicense-libtelnet | Unlicense - libtelnet variant
+Unlicense-libwhirlpool | Unlicense - libwhirlpool variant
 Unlicense | The Unlicense
 VOSTROM | VOSTROM Public License for Open Source
 VSL-1.0 | Vovida Software License v1.0
 Vim | Vim License
+Vixie-Cron | Vixie Cron License
 W3C-19980720 | W3C Software Notice and License (1998-07-20)
 W3C-20150513 | W3C Software Notice and Document License (2015-05-13)
 W3C | W3C Software Notice and License (2002-12-31)
+WTFNMFPL | Do What The F*ck You Want To But It's Not My Fault Public License
 WTFPL | Do What The F*ck You Want To Public License
 Watcom-1.0 | Sybase Open Watcom Public License 1.0
 Widget-Workshop | Widget Workshop License
+WordNet | WordNet License
 Wsuipa | Wsuipa License
 X11-distribute-modifications-variant | X11 License Distribution Modification Variant
+X11-no-permit-persons | X11 no permit persons clause
 X11-swapped | X11 swapped final paragraphs
 X11 | X11 License
 XFree86-1.1 | XFree86 License 1.1
@@ -621,7 +663,10 @@ generic-xts | Generic XTS License
 gnuplot | gnuplot License
 gtkbook | gtkbook License
 hdparm | hdparm License
+hyphen-bulgarian | hyphen-bulgarian License
 iMatix | iMatix Standard Function Library Agreement
+jove | Jove License
+libpng-1.6.35 | PNG Reference Library License v1 (for libpng 0.5 through 1.6.35)
 libpng-2.0 | PNG Reference Library version 2
 libselinux-1.0 | libselinux public domain notice
 libtiff | libtiff License
@@ -629,10 +674,12 @@ libutil-David-Nugent | libutil David Nugent License
 lsof | lsof License
 magaz | magaz License
 mailprio | mailprio License
+man2html | man2html License
 metamail | metamail License
 mpi-permissive | mpi Permissive License
 mpich2 | mpich2 License
 mplus | mplus Font License
+ngrep | ngrep License
 pkgconf | pkgconf License
 pnmstitch | pnmstitch License
 psfrag | psfrag License
@@ -659,7 +706,6 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |License Tag|
 |-----------|
 |SUSE-BSD-3-Clause-with-non-nuclear-addition|
-|SUSE-BSD-Mark-Modifications|
 |SUSE-CC-Sampling-Plus-1.0|
 |SUSE-CPL-0.5|
 |SUSE-CacertRoot|
