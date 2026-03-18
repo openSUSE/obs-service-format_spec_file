@@ -1844,7 +1844,7 @@ Package contains header files and documentation for GCC JIT front-end.
 
 %package -n gcc11-testresults
 Summary:        Testsuite results
-License:        SUSE-Public-Domain
+License:        LicenseRef-SUSE-Public-Domain
 Group:          Development/Languages/C and C++
 
 %description -n gcc11-testresults

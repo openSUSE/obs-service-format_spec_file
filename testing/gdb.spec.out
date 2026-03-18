@@ -59,7 +59,7 @@ Group:          Development/Tools/Debuggers
 %endif
 %if %{build_testsuite}
 Summary:        GDB testsuite results
-License:        SUSE-Public-Domain
+License:        LicenseRef-SUSE-Public-Domain
 Group:          Development/Languages/C and C++
 %endif
 Name:           gdb%{name_suffix}
