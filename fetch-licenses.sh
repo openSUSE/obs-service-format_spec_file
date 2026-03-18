@@ -4,10 +4,10 @@ set -e
 
 export LC_ALL=C
 curl -s -L 'https://docs.google.com/spreadsheets/d/14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs/export?format=tsv&id=14AdaJ6cmU0kvQ4ulq9pWpjdZL5tkR03exRSYJmPGdfs&gid=0' | grep -v "New format" \
-  | sed -e 's,\s*$,,' | grep -E -v 'SUSE-TGPPL|SUSE-BSD-Mark-Modifications' > licenses_changes.ntxt
+  | sed -e 's,\s*$,,' > licenses_changes.ntxt
 
 : > licenses_changes.ptxt
-grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | while read l; do
+grep -E "^(LicenseRef-SUSE-|SUSE-)" licenses_changes.ntxt | cut -d'	' -f1 | while read l; do
   echo "$l+	$l+" >> licenses_changes.ptxt ;
 done
 
@@ -50,7 +50,7 @@ echo "|License Tag|"
 echo "|-----------|"
 
 IFS=:
-grep ^SUSE- licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do
+grep -E "^(LicenseRef-SUSE-|SUSE-)" licenses_changes.ntxt | cut -d'	' -f1 | sort -u | while read nl; do
   echo "|$nl|"
 done
 unset IFS

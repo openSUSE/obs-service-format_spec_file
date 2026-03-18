@@ -705,6 +705,12 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 
 |License Tag|
 |-----------|
+|LicenseRef-SUSE-EULA|
+|LicenseRef-SUSE-Freeware|
+|LicenseRef-SUSE-GPL-2.0-with-openssl-exception|
+|LicenseRef-SUSE-NonFree|
+|LicenseRef-SUSE-Permissive|
+|LicenseRef-SUSE-Public-Domain|
 |SUSE-BSD-3-Clause-with-non-nuclear-addition|
 |SUSE-CC-Sampling-Plus-1.0|
 |SUSE-CPL-0.5|
@@ -713,21 +719,17 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-Curb|
 |SUSE-DMTF|
 |SUSE-Docbook-XSL|
-|SUSE-EULA|
 |SUSE-Egenix-1.1.0|
 |SUSE-FHS|
 |SUSE-FLTK|
 |SUSE-Firmware|
 |SUSE-Free-Art-1.3|
-|SUSE-Freetype|
-|SUSE-Freeware|
 |SUSE-GL2PS-2.0|
 |SUSE-GPL-2.0+-with-openssl-exception|
 |SUSE-GPL-2.0+-with-sane-exception|
 |SUSE-GPL-2.0-with-FLOSS-exception|
 |SUSE-GPL-2.0-with-OSI-exception|
 |SUSE-GPL-2.0-with-linking-exception|
-|SUSE-GPL-2.0-with-openssl-exception|
 |SUSE-GPL-2.0-with-plugin-exception|
 |SUSE-GPL-3.0+-with-font-exception|
 |SUSE-GPL-3.0+-with-openssl-exception|
@@ -741,8 +743,6 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-IBPL-1.0|
 |SUSE-IDPL-1.0|
 |SUSE-IEEE|
-|SUSE-Innernet-2.0|
-|SUSE-Innernet-2.00|
 |SUSE-LDPL-2.0|
 |SUSE-LGPL-2.0-with-linking-exception|
 |SUSE-LGPL-2.1-with-digia-exception-1.1|
@@ -756,9 +756,7 @@ zlib-acknowledgement | zlib/libpng License with Acknowledgement
 |SUSE-OldFSFDocLicense|
 |SUSE-OpenPublication-1.0|
 |SUSE-PHP-2.02|
-|SUSE-Permissive|
 |SUSE-Permissive-Modify-By-Patch|
-|SUSE-Public-Domain|
 |SUSE-Python-1.6|
 |SUSE-QWT-1.0|
 |SUSE-Redistributable-Content|
