@@ -575,18 +575,12 @@ LiLiQ-Rplus-1.1	LiLiQ-Rplus-1.1
 Libpng	Libpng
 LicenseRef-SUSE-EULA	SUSE End User License Agreement
 LicenseRef-SUSE-EULA	SUSE-EULA
-LicenseRef-SUSE-EULA+	LicenseRef-SUSE-EULA+
 LicenseRef-SUSE-Freeware	SUSE-Freeware
-LicenseRef-SUSE-Freeware+	LicenseRef-SUSE-Freeware+
 LicenseRef-SUSE-GPL-2.0-with-openssl-exception	SUSE-GPL-2.0-with-openssl-exception
-LicenseRef-SUSE-GPL-2.0-with-openssl-exception+	LicenseRef-SUSE-GPL-2.0-with-openssl-exception+
 LicenseRef-SUSE-NonFree	SUSE-NonFree
-LicenseRef-SUSE-NonFree+	LicenseRef-SUSE-NonFree+
 LicenseRef-SUSE-Permissive	Must not be copyleft. Must not contain patent clauses of any nature. Most not limit ability to copy, modifiy, distribute (through multiple tiers of distribution) and distribute modified versions. Must not impose obligations such as 'advertising clauses' or anything that could be viewed as an 'additional restriction' under GPL-2.0+ or GPL-3.0+. Must not impose obligations such as modification by patch only, or reciprocal clauses.
 LicenseRef-SUSE-Permissive	SUSE-Permissive
-LicenseRef-SUSE-Permissive+	LicenseRef-SUSE-Permissive+
 LicenseRef-SUSE-Public-Domain	SUSE-Public-Domain
-LicenseRef-SUSE-Public-Domain+	LicenseRef-SUSE-Public-Domain+
 Linux-OpenIB	Linux-OpenIB
 Linux-man-pages-1-para	Linux-man-pages-1-para
 Linux-man-pages-copyleft	Linux-man-pages-copyleft

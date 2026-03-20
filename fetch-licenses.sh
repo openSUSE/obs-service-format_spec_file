@@ -7,7 +7,9 @@ curl -s -L 'https://docs.google.com/spreadsheets/d/14AdaJ6cmU0kvQ4ulq9pWpjdZL5tk
   | sed -e 's,\s*$,,' > licenses_changes.ntxt
 
 : > licenses_changes.ptxt
-grep -E "^(LicenseRef-SUSE-|SUSE-)" licenses_changes.ntxt | cut -d'	' -f1 | while read l; do
+# LicenseRef does not allow "+" as part of simple-expression, see
+# https://spdx.github.io/spdx-spec/v3.0.1/annexes/spdx-license-expressions/#overview
+grep -E "^SUSE-" licenses_changes.ntxt | cut -d'	' -f1 | while read l; do
   echo "$l+	$l+" >> licenses_changes.ptxt ;
 done
 
